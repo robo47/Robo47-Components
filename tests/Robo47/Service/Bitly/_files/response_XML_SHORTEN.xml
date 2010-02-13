@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.42
+Date: Sat, 06 Feb 2010 15:33:18 GMT
+Content-type: text/xml;charset=utf-8
+Connection: close
+Content-length: 365
+Allow: GET, HEAD, POST
+
+<bitly><errorCode>0</errorCode><errorMessage></errorMessage><results><nodeKeyVal><shortKeywordUrl></shortKeywordUrl><hash>3hDSUb</hash><userHash>cAWQVU</userHash><nodeKey><![CDATA[http://www.example.com]]></nodeKey><shortUrl>http://bit.ly/cAWQVU</shortUrl><shortCNAMEUrl>http://bit.ly/cAWQVU</shortCNAMEUrl></nodeKeyVal></results><statusCode>OK</statusCode></bitly>

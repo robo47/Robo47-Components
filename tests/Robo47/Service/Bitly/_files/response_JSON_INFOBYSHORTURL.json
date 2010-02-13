@@ -1,0 +1,40 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.42
+Date: Sat, 06 Feb 2010 16:02:05 GMT
+Content-type: text/html;charset=utf-8
+Connection: close
+Content-length: 904
+Allow: GET, HEAD, POST
+
+{
+    "errorCode": 0, 
+    "errorMessage": "", 
+    "results": {
+        "cAWQVU": {
+            "calais": {}, 
+            "calaisId": "", 
+            "calaisResolutions": {}, 
+            "contentLength": "", 
+            "contentType": "text/html; charset=UTF-8", 
+            "exif": {}, 
+            "globalHash": "3hDSUb", 
+            "hash": "3hDSUb", 
+            "htmlMetaDescription": "", 
+            "htmlMetaKeywords": "", 
+            "htmlTitle": "Example Web Page", 
+            "id3": {}, 
+            "keyword": "", 
+            "keywords": [], 
+            "longUrl": "http://www.example.com/", 
+            "metacarta": [], 
+            "mirrorUrl": "", 
+            "shortenedByUser": "robo47", 
+            "surbl": 0, 
+            "thumbnail": {}, 
+            "userHash": "cAWQVU", 
+            "users": [], 
+            "version": 1.0
+        }
+    }, 
+    "statusCode": "OK"
+}

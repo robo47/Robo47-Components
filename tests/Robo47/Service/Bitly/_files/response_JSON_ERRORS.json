@@ -1,0 +1,215 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.42
+Date: Sat, 06 Feb 2010 16:10:50 GMT
+Content-type: text/html;charset=utf-8
+Connection: close
+Content-length: 6429
+Allow: GET, HEAD, POST
+
+{
+    "errorCode": 0, 
+    "errorMessage": "", 
+    "results": [
+        {
+            "errorCode": 1201, 
+            "errorMessage": "Could not fetch bitly json doc from s3.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1402, 
+            "errorMessage": "invalid account type", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 101, 
+            "errorMessage": "Unknown error", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 205, 
+            "errorMessage": "You tried to login with an invalid username/password.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1213, 
+            "errorMessage": "We could not find a long URL for that short URL.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1204, 
+            "errorMessage": "Not a valid bitly hash.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1303, 
+            "errorMessage": "Error updating Twitter status.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1103, 
+            "errorMessage": "Username not available.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1104, 
+            "errorMessage": "Email not available.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1205, 
+            "errorMessage": "Traffic lookup for that hash failed.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1304, 
+            "errorMessage": "Text must be less than or equal to 140 characters.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1306, 
+            "errorMessage": "Twitter is currently unavailable.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1202, 
+            "errorMessage": "No info available for requested document.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 201, 
+            "errorMessage": "Missing parameter %s", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 208, 
+            "errorMessage": "You have exceeded your hourly rate limit for this method.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1302, 
+            "errorMessage": "Missing Twitter credentials.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1203, 
+            "errorMessage": "No info available for requested document.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 404, 
+            "errorMessage": "That page does not exist.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1206, 
+            "errorMessage": "URL you tried to shorten was invalid.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1305, 
+            "errorMessage": "The Twitter password you saved on bitly is no longer valid for your Twitter account.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1212, 
+            "errorMessage": "The custom keyword you tried to use was already used by someone else.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 204, 
+            "errorMessage": "You are already logged in", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 503, 
+            "errorMessage": "Service unavailable.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1102, 
+            "errorMessage": "Invalid username.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1, 
+            "errorMessage": "%s", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1214, 
+            "errorMessage": "URL you tried to shorten was already a short bit.ly URL.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1208, 
+            "errorMessage": "That CNAME is invalid.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1401, 
+            "errorMessage": "duplicate linked accounts", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1101, 
+            "errorMessage": "Invalid email address.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1209, 
+            "errorMessage": "You do not have access to this CNAME version of bitly.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 207, 
+            "errorMessage": "There was a problem posting your request. Please try again.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 202, 
+            "errorMessage": "Undefined method %s", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1301, 
+            "errorMessage": "Invalid Twitter credentials.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1211, 
+            "errorMessage": "You made a batch request and an error occurred with one part of your request.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 203, 
+            "errorMessage": "You must be authenticated %s", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1206, 
+            "errorMessage": "URL you tried to shorten was invalid.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1210, 
+            "errorMessage": "You are trying to access a CNAMED bit.ly site. Please login.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 206, 
+            "errorMessage": "You specified an invalid version number. Valid versions are [2.0.0, 2.0.1].", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1207, 
+            "errorMessage": "That CNAME is already associated with another account.", 
+            "statusCode": "ERROR"
+        }, 
+        {
+            "errorCode": 1105, 
+            "errorMessage": "Password must be 6-20 characters long.", 
+            "statusCode": "ERROR"
+        }
+    ], 
+    "statusCode": "OK"
+}

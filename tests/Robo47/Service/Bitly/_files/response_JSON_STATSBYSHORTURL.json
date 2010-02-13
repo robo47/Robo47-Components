@@ -1,0 +1,74 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.42
+Date: Sat, 06 Feb 2010 16:06:37 GMT
+Content-type: text/html;charset=utf-8
+Connection: close
+Content-length: 1672
+Allow: GET, HEAD, POST
+
+{
+    "errorCode": 0, 
+    "errorMessage": "", 
+    "results": {
+        "clicks": 437, 
+        "hash": "3hDSUb", 
+        "referrers": {
+            "": {
+                "None": 8, 
+                "direct": 368
+            }, 
+            "bit.ly": {
+                "/": 2, 
+                "/info/3hDSUb": 1, 
+                "/info/ZL4Au": 2, 
+                "/user/recent/matstherkelsen": 1
+            }, 
+            "dylansblog.info": {
+                "/": 1
+            }, 
+            "longurlplease.appspot.com": {
+                "/": 2
+            }, 
+            "partners.bit.ly": {
+                "/td": 1
+            }, 
+            "powertwitter.me": {
+                "/": 6
+            }, 
+            "real-url.org": {
+                "": 1
+            }, 
+            "twitter.com": {
+                "/": 5, 
+                "/Inventrix/": 1, 
+                "/cochleoid": 2, 
+                "/giovditest": 1, 
+                "/home": 1, 
+                "/thingsinjars": 4, 
+                "/verysillyindeed": 2, 
+                "/wwwitter": 15
+            }, 
+            "twitter100.com": {
+                "/beantin": 1
+            }, 
+            "twitturls.com": {
+                "/": 6
+            }, 
+            "www.facebook.com": {
+                "/": 1, 
+                "/home.php": 1, 
+                "/photo.php": 1
+            }, 
+            "www.longurlplease.com": {
+                "/": 2
+            }, 
+            "www.sparknotes.com": {
+                "/missmarm": 1
+            }
+        }, 
+        "userClicks": 0, 
+        "userHash": "cAWQVU", 
+        "userReferrers": {}
+    }, 
+    "statusCode": "OK"
+}

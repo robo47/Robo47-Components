@@ -1,0 +1,29 @@
+<phpunit
+    backupGlobals="false"
+    backupStaticAttributes="false"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    processIsolation="false"
+    syntaxCheck="false"
+    bootstrap="TestHelper.php">
+    <filter>
+        <whitelist>
+            <directory suffix=".php">../library/Robo47</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html"
+             target="build/coverage"
+             title="Robo47 Components"
+             charset="UTF-8"
+             yui="true"
+             highlight="true"
+             lowUpperBound="35"
+             highLowerBound="70" />
+    </logging>
+    <testsuite name="Robo47 Components Test Suite">
+        <file>./AllTests.php</file>
+    </testsuite>
+</phpunit>

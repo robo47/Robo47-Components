@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.42
+Date: Sat, 06 Feb 2010 16:31:06 GMT
+Content-type: text/html;charset=utf-8
+Connection: close
+Content-length: 186
+Allow: GET, HEAD, POST
+
+{
+    "errorCode": 0, 
+    "errorMessage": "", 
+    "results": {
+        "cAWQVU": {
+            "hash": "3hDSUb", 
+            "thumbnail": {}
+        }
+    }, 
+    "statusCode": "OK"
+}

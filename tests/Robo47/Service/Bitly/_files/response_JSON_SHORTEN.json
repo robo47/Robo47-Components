@@ -1,0 +1,22 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.42
+Date: Sat, 06 Feb 2010 15:33:17 GMT
+Content-type: text/html;charset=utf-8
+Connection: close
+Content-length: 346
+Allow: GET, HEAD, POST
+
+{
+    "errorCode": 0, 
+    "errorMessage": "", 
+    "results": {
+        "http://www.example.com": {
+            "hash": "3hDSUb", 
+            "shortCNAMEUrl": "http://bit.ly/cAWQVU", 
+            "shortKeywordUrl": "", 
+            "shortUrl": "http://bit.ly/cAWQVU", 
+            "userHash": "cAWQVU"
+        }
+    }, 
+    "statusCode": "OK"
+}

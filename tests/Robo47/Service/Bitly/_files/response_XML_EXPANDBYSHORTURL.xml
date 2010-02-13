@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.42
+Date: Sat, 06 Feb 2010 15:50:08 GMT
+Content-type: text/xml;charset=utf-8
+Connection: close
+Content-length: 173
+Allow: GET, HEAD, POST
+
+<bitly><errorCode>0</errorCode><errorMessage></errorMessage><results><cAWQVU><longUrl>http://www.example.com/</longUrl></cAWQVU></results><statusCode>OK</statusCode></bitly>

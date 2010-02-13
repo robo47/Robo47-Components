@@ -1,0 +1,18 @@
+HTTP/1.1 200 OK
+Server: nginx/0.7.42
+Date: Sat, 06 Feb 2010 15:54:31 GMT
+Content-type: text/html;charset=utf-8
+Connection: close
+Content-length: 176
+Allow: GET, HEAD, POST
+
+{
+    "errorCode": 0, 
+    "errorMessage": "", 
+    "results": {
+        "cAWQVU": {
+            "longUrl": "http://www.example.com/"
+        }
+    }, 
+    "statusCode": "OK"
+}
