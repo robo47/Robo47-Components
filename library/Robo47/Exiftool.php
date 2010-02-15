@@ -163,7 +163,7 @@ class Robo47_Exiftool extends Zend_Exception
      */
     protected function _runExiftool($file, $format)
     {
-        $command = $this->_exiftool;
+        $command = escapeshellarg($this->_exiftool);
         switch($format)
         {
             case self::FORMAT_JSON:
@@ -180,6 +180,7 @@ class Robo47_Exiftool extends Zend_Exception
         exec($command, $output, $returnCode);
         if ($returnCode != 0) {
             $message = 'executing exiftool failed: ' . implode('', $output);
+            $message .= PHP_EOL . 'command: ' . $command;
             throw new Robo47_Exiftool_Exception($message, $returnCode);
         }
         return implode('', $output);

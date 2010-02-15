@@ -57,7 +57,7 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
     protected $_field = '';
 
     /**
-     * @var mixed
+     * @var array|string|null
      */
     protected $_exclude = null;
 
@@ -69,9 +69,9 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
      */
     public function __construct($table, $field, $exclude = null)
     {
-       $this->setTable($table);
-       $this->setField($field);
-       $this->setExclude($exclude);
+        $this->setTable($table);
+        $this->setField($field);
+        $this->setExclude($exclude);
     }
 
     /**
@@ -114,7 +114,7 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
      */
     public function setField($field)
     {
-        $this->_field = (string) $field;
+        $this->_field = (string)$field;
         return $this;
     }
 
@@ -158,7 +158,7 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
         $query = $this->getTable()->createQuery();
 
         $exclude = $this->getExclude();
-        if(is_string($exclude) && !empty($exclude)) {
+        if (is_string($exclude) && !empty($exclude)) {
             $query->andWhere($exclude);
         } else if (is_array($exclude) && !empty($exclude)) {
             $query->andWhere($exclude['field'] . ' != ?', $exclude['value']);

@@ -101,7 +101,7 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
                 case 'editorOptions':
                     $this->setEditorOptions($value);
                     break;
-                default;
+                default:
                     break;
             }
         }

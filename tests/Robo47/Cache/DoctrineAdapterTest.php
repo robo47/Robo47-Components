@@ -16,6 +16,7 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
     {
         Zend_Registry::_unsetInstance();
         $this->getCache()->clean();
+        @unlink(TESTS_PATH . '/tmp/temp.sqlite');
     }
 
     /**
@@ -28,7 +29,7 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
                 'Core',
                 'Sqlite',
                 array('automatic_serialization' => true, 'lifetime' => 3600),
-                array('cache_db_complete_path' => ':memory:')
+                array('cache_db_complete_path' => TESTS_PATH . '/tmp/temp.sqlite')
         );
 
     }

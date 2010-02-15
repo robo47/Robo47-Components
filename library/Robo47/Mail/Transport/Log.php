@@ -121,7 +121,7 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
      */
     public function setFormatter($formatter)
     {
-        if(is_string($formatter)) {
+        if (is_string($formatter)) {
             $formatter = new $formatter;
         }
         if (!$formatter instanceof Robo47_Mail_Transport_Log_Formatter_Interface) {

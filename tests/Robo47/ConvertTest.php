@@ -54,21 +54,6 @@ class Robo47_ConvertTest extends PHPUnit_Framework_TestCase
     /**
      * @covers Robo47_Convert::shorthandToBytes
      */
-    public function testShorthandToBytesExceptionOnToBigInput2()
-    {
-        $maxIntPlusOne = (string)((float)PHP_INT_MAX + 1);
-        try {
-            $result = Robo47_Convert::shortHandToBytes($maxIntPlusOne);
-            $this->fail('no exception thrown on too big number');
-        } catch (Robo47_Convert_Exception $e) {
-            $this->assertEquals('input is greater than PHP_INT_MAX on this plattform (' . PHP_INT_MAX . ')', $e->getMessage());
-        }
-    }
-
-
-    /**
-     * @covers Robo47_Convert::shorthandToBytes
-     */
     public function testShorthandToBytesExceptionOnInvalidSign()
     {
         $value = '1234b';

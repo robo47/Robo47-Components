@@ -24,7 +24,7 @@
  * Filter using Tidy to clean up html code
  *
  * @package     Robo47
- * @subpackage  Application
+ * @subpackage  Filter
  * @since       0.1
  * @copyright   Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
