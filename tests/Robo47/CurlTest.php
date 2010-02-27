@@ -7,6 +7,7 @@ require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'TestHelper.php'
  */
 class Robo47_CurlTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_Curl::getCurl
      * @covers Robo47_Curl::setCurl

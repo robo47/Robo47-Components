@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_View_Helper_Globals
  *
@@ -30,6 +30,7 @@
  */
 class Robo47_View_Helper_Globals extends Zend_View_Helper_Abstract
 {
+
     /**
      *
      * Escaping is only used on strings! not on arrays !
@@ -41,7 +42,7 @@ class Robo47_View_Helper_Globals extends Zend_View_Helper_Abstract
      * @return Robo47_View_Helper_Globals|mixed
      */
     public function Globals($global, $name = null, $default = null,
-                            $escape = true)
+        $escape = true)
     {
         $value = $this->_checkGlobal($global, $name, $default);
 
@@ -52,6 +53,7 @@ class Robo47_View_Helper_Globals extends Zend_View_Helper_Abstract
         }
         return $value;
     }
+
     /**
      *
      * @param string $global
@@ -61,7 +63,7 @@ class Robo47_View_Helper_Globals extends Zend_View_Helper_Abstract
     protected function _checkGlobal($global, $name, $default)
     {
         $lglobal = strtolower($global);
-        switch($lglobal) {
+        switch ($lglobal) {
             case 'server':
             case 'env':
             case 'post':

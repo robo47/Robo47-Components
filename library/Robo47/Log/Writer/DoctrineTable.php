@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Log_Writer_Mock
  *
@@ -30,6 +30,7 @@
  */
 class Robo47_Log_Writer_DoctrineTable extends Robo47_Log_Writer_Abstract
 {
+
     /**
      * Mapping-Array
      *
@@ -43,7 +44,6 @@ class Robo47_Log_Writer_DoctrineTable extends Robo47_Log_Writer_Abstract
         'category'  => 'category',
         'timestamp' => 'timestamp',
     );
-
     /**
      * Used Table to which logs get written
      *
@@ -159,7 +159,7 @@ class Robo47_Log_Writer_DoctrineTable extends Robo47_Log_Writer_Abstract
      */
     static public function factory($config)
     {
-        if ($config instanceof Zend_Config) {
+        if ($config  instanceof  Zend_Config) {
             $config = $config->toArray();
         }
         if (!isset($config['table'])) {

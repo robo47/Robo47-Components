@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Log_Writer_Abstract
  *
@@ -31,6 +31,7 @@
 abstract class Robo47_Log_Writer_Abstract
 extends Zend_Log_Writer_Abstract
 {
+
     /**
      *
      * @param string|Robo47_Log_Filter_Interface $class
@@ -40,7 +41,7 @@ extends Zend_Log_Writer_Abstract
     {
         foreach ($this->_filters as $key => $filter) {
             if (is_string($class)) {
-                if ($filter instanceof $class) {
+                if ($filter  instanceof  $class) {
                     unset($this->_filters[$key]);
                 }
             } elseif (is_object($class)) {

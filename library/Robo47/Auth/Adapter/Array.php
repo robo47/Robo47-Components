@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Auth_Adapter_Array
  *
@@ -30,20 +30,19 @@
  */
 class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
 {
+
     /**
      * Username
      *
      * @var string
      */
     protected $_username = '';
-
     /**
      * Password
      *
      * @var string
      */
     protected $_password = '';
-
     /**
      * Array with valid user-data
      *
@@ -58,10 +57,10 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
      * @param array  $userData
      */
     public function __construct($username = '', $password = '',
-                                array $userData = array())
+        array $userData = array())
     {
         $this->setUsername($username);
-        $this->setPassword($password);        
+        $this->setPassword($password);
         $this->setUserData($userData);
     }
 
@@ -134,10 +133,10 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
             if ($username == $this->_username &&
                 $password == $this->_password) {
                 return new Zend_Auth_Result(Zend_Auth_Result::SUCCESS,
-                                            $this->_username);
+                    $this->_username);
             }
         }
         return new Zend_Auth_Result(Zend_Auth_Result::FAILURE,
-                                    $this->_username);
+            $this->_username);
     }
 }

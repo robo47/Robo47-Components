@@ -3,22 +3,22 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @var Robo47_Log_Filter_ValidateProxy
      */
     protected $_filter = null;
-
+    
     public function setUp()
     {
         $validator = new Robo47_Validate_Mock(true);
         $this->_filter = new Robo47_Log_Filter_ValidateProxy($validator, null, false);
     }
-
+    
     public function tearDown()
     {
         $this->_filter = null;
     }
-
 
     /**
      * @covers Robo47_Log_Filter_ValidateProxy<extended>
@@ -57,7 +57,6 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
         $this->assertSame($this->_filter->getNot(), $options['not'], 'Wrong not');
         $this->assertSame($this->_filter->getKey(), $options['key'], 'Wrong key');
         $this->assertSame($this->_filter->getValidator(), $options['validator'], 'Wrong validator');
-
     }
 
     /**
@@ -106,7 +105,7 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
         $this->_filter->setValidator('Zend_Validate_Int');
         $this->assertType('Zend_Validate_Int', $this->_filter->getValidator());
     }
-
+    
     public function invalidObjectProvider()
     {
         $data = array();
@@ -118,7 +117,6 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
         return $data;
     }
 
-
     /**
      * @dataProvider invalidObjectProvider
      * @covers Robo47_Log_Filter_ValidateProxy::setValidator
@@ -128,7 +126,7 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
         try {
             $this->_filter->setValidator($object);
             $this->fail('No Exception thrown');
-        } catch(Robo47_Log_Filter_Exception $e) {
+        } catch (Robo47_Log_Filter_Exception $e) {
             $this->assertEquals('Validator is not instance of Zend_Validate_Interface', $e->getMessage(), 'Wrong Exception message');
         }
     }
@@ -143,27 +141,27 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
         try {
             $this->_filter->accept(array('foo' => 'baa'));
             $this->fail('No Exception thrown');
-        } catch(Robo47_Log_Filter_Exception $e) {
+        } catch (Robo47_Log_Filter_Exception $e) {
             $this->assertEquals('key "blub" not found in event', $e->getMessage(), 'Wrong Exception message');
         }
     }
-
+    
     public function acceptValuesProvider()
     {
         $data = array();
 
-        $trueValidator  = new Robo47_Validate_Mock(true);
+        $trueValidator = new Robo47_Validate_Mock(true);
         $falseValidator = new Robo47_Validate_Mock(false);
 
-        $data[] = array($trueValidator, 'baa',  false, array('baa' => 'foo'), true, 'foo');
-        $data[] = array($trueValidator,  null,  false, array('baa' => 'foo'), true, array('baa' => 'foo'));
-        $data[] = array($falseValidator, 'baa', true,  array('baa' => 'foo'), true, 'foo');
-        $data[] = array($falseValidator, null,  true,  array('baa' => 'foo'), true, array('baa' => 'foo'));
+        $data[] = array($trueValidator, 'baa', false, array('baa' => 'foo'), true, 'foo');
+        $data[] = array($trueValidator, null, false, array('baa' => 'foo'), true, array('baa' => 'foo'));
+        $data[] = array($falseValidator, 'baa', true, array('baa' => 'foo'), true, 'foo');
+        $data[] = array($falseValidator, null, true, array('baa' => 'foo'), true, array('baa' => 'foo'));
 
-        $data[] = array($falseValidator, 'baa',  false, array('baa' => 'foo'), false, 'foo');
-        $data[] = array($falseValidator,  null,  false, array('baa' => 'foo'), false, array('baa' => 'foo'));
-        $data[] = array($trueValidator,  'baa',  true,  array('baa' => 'foo'), false, 'foo');
-        $data[] = array($trueValidator,   null,  true,  array('baa' => 'foo'), false, array('baa' => 'foo'));
+        $data[] = array($falseValidator, 'baa', false, array('baa' => 'foo'), false, 'foo');
+        $data[] = array($falseValidator, null, false, array('baa' => 'foo'), false, array('baa' => 'foo'));
+        $data[] = array($trueValidator, 'baa', true, array('baa' => 'foo'), false, 'foo');
+        $data[] = array($trueValidator, null, true, array('baa' => 'foo'), false, array('baa' => 'foo'));
 
         return $data;
     }
@@ -194,7 +192,7 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
         );
         $filter = Robo47_Log_Filter_ValidateProxy::factory($config);
 
-                $this->assertType('Robo47_Log_Filter_ValidateProxy', $filter, 'Wrong datatype from factory');
+        $this->assertType('Robo47_Log_Filter_ValidateProxy', $filter, 'Wrong datatype from factory');
 
 
         $this->assertEquals($config['key'], $filter->getKey(), 'Key are wrong');

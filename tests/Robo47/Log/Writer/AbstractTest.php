@@ -7,17 +7,18 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
  */
 class Robo47_Log_Writer_AbstractTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      *
      * @var Robo47_Log_Writer_Mock
      */
     protected $_writer = null;
-
+    
     public function setUp()
     {
         $this->_writer = new Robo47_Log_Writer_Mock();
     }
-
+    
     public function tearDown()
     {
         $this->_writer = null;

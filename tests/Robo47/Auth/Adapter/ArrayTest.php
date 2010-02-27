@@ -3,6 +3,7 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_Auth_Adapter_ArrayTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_Auth_Adapter_Array<extended>
      * @covers Robo47_Auth_Adapter_Array::__construct
@@ -47,15 +48,14 @@ class Robo47_Auth_Adapter_ArrayTest extends PHPUnit_Framework_TestCase
         $adapter->setUserData(array(array('baa' => 'foo')));
         $this->assertEquals(array(array('baa' => 'foo')), $adapter->getUserData());
     }
-
-
+    
     public function authenticateProvider()
     {
         $data = array();
 
         $userData = array('user1' => 'pw1',
-                          'user2' => 'pw2',
-                          'user3' => 'pw3');
+            'user2' => 'pw2',
+            'user3' => 'pw3');
 
         $data[] = array('user1', 'pw1', $userData, true);
         $data[] = array('user2', 'pw2', $userData, true);
@@ -67,7 +67,6 @@ class Robo47_Auth_Adapter_ArrayTest extends PHPUnit_Framework_TestCase
 
         return $data;
     }
-
 
     /**
      * @covers Robo47_Auth_Adapter_Array::authenticate

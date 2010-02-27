@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Filter_Tidy
  *
@@ -32,25 +32,23 @@
  */
 class Robo47_Filter_Tidy implements Zend_Filter_Interface
 {
+
     /**
      * The Tidy instance
      * @var Tidy
      */
     protected $_tidy = null;
-
     /**
      * The array with configuration for tidy
      *
      * @var array
      */
     protected $_config = array();
-
     /**
      * The used encoding
      * @var string
      */
     protected $_encoding = 'utf8';
-
     /**
      * Default Tidy
      *
@@ -66,7 +64,7 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
      * @param string             $encoding
      */
     public function __construct($tidy = null, $config = null,
-                                $encoding = 'utf8')
+        $encoding = 'utf8')
     {
         $this->setTidy($tidy);
         $this->setConfig($config);
@@ -110,7 +108,7 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
     public function setEncoding($encoding)
     {
         $encoding = strtolower($encoding);
-        switch($encoding) {
+        switch ($encoding) {
             case 'utf-8':
                 $encoding = 'utf8';
             case 'ascii':
@@ -154,7 +152,7 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
             $tidy = $this->_tidyFromRegistry($tidy);
         }
 
-        if (!$tidy instanceof Tidy) {
+        if (!$tidy instanceof  Tidy) {
             $message = 'Tidy is no instance of class Tidy';
             throw new Robo47_Filter_Exception($message);
         }
@@ -176,7 +174,7 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
             return Zend_Registry::get($key);
         } else {
             $message = 'Registry key "' . $key .
-                       '" for Tidy is not registered.';
+                '" for Tidy is not registered.';
             throw new Robo47_Filter_Exception($message);
         }
     }

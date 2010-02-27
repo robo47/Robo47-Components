@@ -4,17 +4,18 @@ require_once dirname(__FILE__) . '/../../TestHelper.php';
 
 class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      *
      * @var Zend_Http_Client_Adapter_Test
      */
     protected $_adapter = null;
-
+    
     public function setUp()
     {
         $this->_adapter = new Zend_Http_Client_Adapter_Test();
         $client = new Zend_Http_Client(null, array(
-            'adapter' => $this->_adapter
+                'adapter' => $this->_adapter
         ));
 
         Zend_Service_Abstract::setHttpClient($client);
@@ -33,8 +34,6 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('gravatar_', $service->getCachePrefix(), 'Default rating is wrong');
         $this->assertEquals(null, $service->getCache(), 'Default rating is wrong');
     }
-
-
 
     /**
      * @covers Robo47_Service_Gravatar::__construct
@@ -56,8 +55,6 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($options['cachePrefix'], $service->getCachePrefix(), 'cachePrefix is wrong');
         $this->assertSame($options['cache'], $service->getCache(), 'cache is wrong');
     }
-
-
 
     /**
      * @covers Robo47_Service_Gravatar::setOptions
@@ -284,7 +281,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
             $this->assertEquals('size is smaller than 1', $e->getMessage(), 'Wrong exception message');
         }
     }
-
+    
     public function usesSSLProvider()
     {
         $data = array();
@@ -311,7 +308,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $this->assertSame($return, $service, 'Fluent Interface failed');
         $this->assertSame($expected, $service->usesSSL());
     }
-
+    
     public function cacheIdProvider()
     {
         $data = array();
@@ -359,12 +356,12 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
             null                // $default
         );
 
-        foreach($data as $key => $value) {
+        foreach ($data as $key => $value) {
             $data[$key][6] = $this->_cacheId($value);
         }
         return $data;
     }
-
+    
     protected function _cacheId($array)
     {
         $email = $array[1];
@@ -393,7 +390,6 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         return $id;
     }
 
-
     /**
      * @covers Robo47_Service_Gravatar::getCacheId
      * @covers Robo47_Service_Gravatar::_filterCachePrefix
@@ -408,7 +404,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $cacheId = $service->getCacheId($email, $prefix, $rating, $size, $default);
         $this->assertEquals($expectedId, $cacheId);
     }
-
+    
     public function gravatarExistsProvider()
     {
         $data = array();
@@ -485,7 +481,6 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $this->assertSame(false, $service->gravatarExists('foo@example.com', false));
         $cacheEntry = $cache->load($service->getCacheId('foo@example.com'));
         $this->assertEquals('false', $cacheEntry, 'wrong value in cache');
-
     }
 
     /**
@@ -506,7 +501,6 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $service = new Robo47_Service_Gravatar($options);
 
         $uri = $service->getUri('foo@example.com', null, null, null, true, '&');
-
 
         $parts = parse_url($uri);
 
@@ -562,7 +556,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($queryParts['s'], '200', 'variable for size has wrong value');
         $this->assertEquals($queryParts['d'], urldecode($options['default']), 'variable for default has wrong value');
     }
-
+    
     public function gravatarHashProvider()
     {
         $data = array();

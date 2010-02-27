@@ -7,6 +7,7 @@ require_once dirname(__FILE__) . '/../../TestHelper.php';
  */
 class Robo47_Validate_StringNotContainsTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @return array
      */
@@ -14,11 +15,11 @@ class Robo47_Validate_StringNotContainsTest extends PHPUnit_Framework_TestCase
     {
         $data = array();
 
-        $data[] = array('asdf', 'sd',   false);
+        $data[] = array('asdf', 'sd', false);
         $data[] = array('asdf', 'asdf', false);
-        $data[] = array('asdf', 'a',    false);
-        $data[] = array('asdf', 'foo',  true);
-        $data[] = array('asdf', 'z',    true);
+        $data[] = array('asdf', 'a', false);
+        $data[] = array('asdf', 'foo', true);
+        $data[] = array('asdf', 'z', true);
 
         return $data;
     }

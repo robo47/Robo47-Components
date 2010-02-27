@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Autoloader for the ezComponents-Framework
  *
@@ -29,8 +29,9 @@
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
 class Robo47_Loader_Autoloader_Ezc
-    implements Zend_Loader_Autoloader_Interface
+implements Zend_Loader_Autoloader_Interface
 {
+
     /**
      * Autoload the ezcBase-Class
      */

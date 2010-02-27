@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_Log_Filter_CategoryTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_Log_Filter_Category<extended>
      * @covers Robo47_Log_Filter_Category::__construct
@@ -43,19 +44,19 @@ class Robo47_Log_Filter_CategoryTest extends PHPUnit_Framework_TestCase
     {
         $filter = new Robo47_Log_Filter_Category(array('bla'));
         $options = $filter->getOptions();
-        $this->assertArrayHasKey('categories',  $options, 'getOptions() misses key categories');
+        $this->assertArrayHasKey('categories', $options, 'getOptions() misses key categories');
 
         // parent::getOptions
-        $this->assertArrayHasKey('not',         $options, 'getOptions() misses key not');
-        $this->assertArrayHasKey('validator',   $options, 'getOptions() misses key validator');
-        $this->assertArrayHasKey('key',         $options, 'getOptions() misses key key');
+        $this->assertArrayHasKey('not', $options, 'getOptions() misses key not');
+        $this->assertArrayHasKey('validator', $options, 'getOptions() misses key validator');
+        $this->assertArrayHasKey('key', $options, 'getOptions() misses key key');
 
         $this->assertEquals($options['categories'], $filter->getCategories(), 'Wrong categories');
         $this->assertEquals($options['not'], $filter->getNot(), 'Wrong not');
         $this->assertEquals($options['key'], $filter->getKey(), 'Wrong key');
         $this->assertSame($options['validator'], $filter->getValidator(), 'Wrong validator');
     }
-
+    
     public function filterProvider()
     {
         $data = array();

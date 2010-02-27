@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Log_Writer_Mock
  *
@@ -37,14 +37,12 @@ class Robo47_Log_Writer_Mock extends Robo47_Log_Writer_Abstract
      * @var array
      */
     public $events = array();
-
     /**
      * True if shutdown() was called.
      *
      * @var boolean
      */
     public $shutdown = false;
-
     /**
      * Array with all arguments of the constructor
      *

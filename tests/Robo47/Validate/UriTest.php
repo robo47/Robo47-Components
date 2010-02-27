@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../../TestHelper.php';
 
 class Robo47_Validate_UriTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @return array
      */

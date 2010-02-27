@@ -9,11 +9,12 @@ function dummyErrorHandler($errno, $errstr, $errfile, $errline)
 
 class Robo47_ErrorHandlerTest extends PHPUnit_Framework_TestCase
 {
+    
     public function tearDown()
     {
         set_error_handler(
-              array('PHPUnit_Util_ErrorHandler', 'handleError'),
-              E_ALL | E_STRICT
+            array('PHPUnit_Util_ErrorHandler', 'handleError'),
+            E_ALL | E_STRICT
         );
         ini_set('log_errors', 0);
     }

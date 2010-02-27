@@ -4,32 +4,33 @@ require_once dirname(__FILE__) . '/../../TestHelper.php';
 
 class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      *
      * @var Zend_Http_Client_Adapter_Test
      */
     protected $_adapter = null;
-
+    
     public function setUp()
     {
         $this->_adapter = new Zend_Http_Client_Adapter_Test();
         $client = new Zend_Http_Client(null, array(
-            'adapter' => $this->_adapter
+                'adapter' => $this->_adapter
         ));
         Zend_Service_Abstract::setHttpClient($client);
     }
-
+    
     public function tearDown()
     {
         $this->_adapter = null;
     }
-
+    
     public function getResponse($format, $method)
     {
         $path = dirname(__FILE__) . '/Bitly/_files/';
-        $filename = 'response_' . strtoupper($format) . '_' . strtoupper($method) . '.' . strtolower($format);
-        if (!file_exists($path.$filename)) {
-            throw new Exception('file not found: ' . $path.$filename);
+        $filename = 'response_' . strtoupper($format) . '_' . strtoupper($method);
+        if (!file_exists($path . $filename)) {
+            throw new Exception('file not found: ' . $path . $filename);
         }
         return file_get_contents($path . $filename);
     }
@@ -134,7 +135,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         $this->assertSame($return, $service, 'No Fluent Interface');
         $this->assertEquals('foo', $service->getApiKey(), 'Wrong apiKey');
     }
-
+    
     public function resultFormatProvider()
     {
         $data = array();
@@ -170,7 +171,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         try {
             $service->setResultFormat('foo');
             $this->fail('No Exception thrown');
-        } catch(Robo47_Service_Bitly_Exception $e) {
+        } catch (Robo47_Service_Bitly_Exception $e) {
             $this->assertEquals('Invalid Result Format: foo', $e->getMessage(), 'Wrong Exception message');
         }
     }
@@ -185,11 +186,10 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         try {
             $service->setFormat('foo');
             $this->fail('No Exception thrown');
-        } catch(Robo47_Service_Bitly_Exception $e) {
+        } catch (Robo47_Service_Bitly_Exception $e) {
             $this->assertEquals('Invalid Format: foo', $e->getMessage(), 'Wrong Exception message');
         }
     }
-
 
     /**
      * @covers Robo47_Service_Bitly::_getData
@@ -210,7 +210,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         try {
             $service->shorten('http://www.example.com');
             $this->fail('No Exception thrown');
-        } catch(Robo47_Service_Bitly_Exception $e) {
+        } catch (Robo47_Service_Bitly_Exception $e) {
             $this->assertEquals('Error on api-call: Not Found', $e->getMessage(), 'Wrong Exception message');
         }
     }
@@ -242,7 +242,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         try {
             $service->shorten('http://www.example.com');
             $this->fail('No Exception thrown');
-        } catch(Robo47_Service_Bitly_Exception $e) {
+        } catch (Robo47_Service_Bitly_Exception $e) {
             $this->assertEquals('Error on api-call: no errorCode=0 found', $e->getMessage(), 'Wrong Exception message');
         }
     }
@@ -268,7 +268,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         try {
             $service->shorten('http://www.example.com');
             $this->fail('No Exception thrown');
-        } catch(Robo47_Service_Bitly_Exception $e) {
+        } catch (Robo47_Service_Bitly_Exception $e) {
             $this->assertEquals('Error on api-call: no errorCode=0 found', $e->getMessage(), 'Wrong Exception message');
         }
     }
@@ -299,7 +299,6 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('errorMessage', $array['bitly'], 'array misses element');
         $this->assertArrayHasKey('results', $array['bitly'], 'array misses element');
         $this->assertArrayHasKey('statusCode', $array['bitly'], 'array misses element');
-
 
         $this->assertEquals('0', $array['bitly']['errorCode'], 'Wrong value for element');
         $this->assertEquals('', $array['bitly']['errorMessage'], 'Wrong value for element');
@@ -357,8 +356,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('cAWQVU', $array['bitly']['results']['doc']['userHash'], 'Wrong value for element');
     }
 
-
-   /**
+    /**
      * @covers Robo47_Service_Bitly::xmlToObject
      * @covers Robo47_Service_Bitly::_nodeToObject
      */
@@ -375,17 +373,14 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         $xml = '<bitly><errorCode>0</errorCode><errorMessage></errorMessage><results><doc><shortenedByUser>robo47</shortenedByUser><keywords></keywords><hash>3hDSUb</hash><exif></exif><surbl>0</surbl><contentLength></contentLength><id3></id3><calais></calais><longUrl>http://www.example.com/</longUrl><version>1.0</version><htmlMetaDescription><![CDATA[]]></htmlMetaDescription><htmlMetaKeywords></htmlMetaKeywords><calaisId></calaisId><thumbnail></thumbnail><contentType>text/html; charset=UTF-8</contentType><users></users><globalHash>3hDSUb</globalHash><htmlTitle><![CDATA[Example Web Page]]></htmlTitle><metacarta></metacarta><mirrorUrl></mirrorUrl><keyword></keyword><calaisResolutions></calaisResolutions><userHash>cAWQVU</userHash></doc></results><statusCode>OK</statusCode></bitly>';
         $object = $service->xmlToObject($xml);
 
-
         $this->assertEquals(1, count(get_object_vars($object)), 'Wrong element count');
         $this->assertObjectHasAttribute('bitly', $object, 'array misses element');
         $this->assertEquals(4, count(get_object_vars($object->bitly)), 'Wrong element count');
-
 
         $this->assertObjectHasAttribute('errorCode', $object->bitly, 'array misses element');
         $this->assertObjectHasAttribute('errorMessage', $object->bitly, 'array misses element');
         $this->assertObjectHasAttribute('results', $object->bitly, 'array misses element');
         $this->assertObjectHasAttribute('statusCode', $object->bitly, 'array misses element');
-
 
         $this->assertEquals('0', $object->bitly->errorCode, 'Wrong value for element');
         $this->assertEquals('', $object->bitly->errorMessage, 'Wrong value for element');
@@ -442,7 +437,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('', $object->bitly->results->doc->calaisResolutions, 'Wrong value for element');
         $this->assertEquals('cAWQVU', $object->bitly->results->doc->userHash, 'Wrong value for element');
     }
-
+    
     public function apiMethodsProvider()
     {
         $data = array();
@@ -471,7 +466,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
             Robo47_Service_Bitly::FORMAT_RESULT_OBJECT,
         );
 
-        foreach($methods as $method => $params) {
+        foreach ($methods as $method => $params) {
             foreach ($formats as $format) {
                 foreach ($resultFormats as $resultFormat) {
                     $data[] = array($method, $params, $format, $resultFormat);
@@ -480,9 +475,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         }
         return $data;
     }
-
-
-
+    
     public function generateUrlProvider()
     {
         $data = array();
@@ -505,7 +498,6 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
             '/foo',
             array('foo' => 'baa', 'blub' => 'bla'),
         );
-
 
         // tests#1 that callback is only attachted with json
         $s2 = clone $service;
@@ -533,7 +525,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
             array('foo' => 'http://www.example.com?asdf=bla', 'blub' => 'bla'),
         );
 
-        foreach($data as $key => $value) {
+        foreach ($data as $key => $value) {
             $params = array_merge($defaultParams, $data[$key][2]);
             $data[$key][3] = Robo47_Service_Bitly::API_URL . $data[$key][1];
             $data[$key][3] .= '?' . http_build_query($params, null, '&');
@@ -541,9 +533,6 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
 
         return $data;
     }
-
-
-
 
     /**
      * @covers Robo47_Service_Bitly::generateUrl
@@ -567,7 +556,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(count($expectedParams), count($realParams), 'Parameter Count missmatch');
 
-        foreach($realParams as $key => $value) {
+        foreach ($realParams as $key => $value) {
             $this->assertEquals($expectedParams[$key], $realParams[$key], 'Wrong value for param ' . $key);
         }
     }
@@ -614,11 +603,10 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
 
         $url = parse_url($service->getHttpClient()->getUri()->getUri());
 
-        foreach($generatedUrl as $key => $value) {
+        foreach ($generatedUrl as $key => $value) {
             $this->assertEquals($generatedUrl[$key], $url[$key], 'Urls don\'t match in part:' . $key);
         }
     }
-
 
     /**
      * @covers Robo47_Service_Bitly::_callApi
@@ -650,7 +638,6 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
 
         $response = $service->getHttpClient()->request()->getBody();
 
-
         if ($format == Robo47_Service_Bitly::FORMAT_JSON) {
             if ($resultFormat == Robo47_Service_Bitly::FORMAT_RESULT_NATIVE) {
                 $this->assertEquals($result, $response, 'Mismatch of result and response');
@@ -675,5 +662,4 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
             $this->fail('invalid format: ' . $format);
         }
     }
-
 }

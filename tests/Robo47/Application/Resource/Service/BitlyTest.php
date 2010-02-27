@@ -4,13 +4,14 @@ require_once dirname(__FILE__) . '/../../../../TestHelper.php';
 
 class Robo47_Application_Resource_Service_BitlyTest extends PHPUnit_Framework_TestCase
 {
+    
     public function setUp()
     {
         $this->application = new Zend_Application('testing');
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         Zend_Registry::_unsetInstance();
     }
-
+    
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
@@ -29,6 +30,7 @@ class Robo47_Application_Resource_Service_BitlyTest extends PHPUnit_Framework_Te
             'login'         => 'someLogin',
             'format'        => 'json',
             'version'       => '2.0.1',
+            'resultFormat'  => 'array',
             'callback'      => 'aCallback',
             'registryKey'   => 'Robo47_Service_Bitly',
         );
@@ -45,6 +47,7 @@ class Robo47_Application_Resource_Service_BitlyTest extends PHPUnit_Framework_Te
         $this->assertEquals($options['login'], $bitly->getLogin());
         $this->assertEquals($options['callback'], $bitly->getCallback());
         $this->assertEquals($options['format'], $bitly->getFormat());
+        $this->assertEquals($options['resultFormat'], $bitly->getResultFormat());
         $this->assertEquals($options['version'], $bitly->getVersion());
 
         $this->assertSame($bitly, $resource->getService());
@@ -64,7 +67,7 @@ class Robo47_Application_Resource_Service_BitlyTest extends PHPUnit_Framework_Te
         try {
             $resource->init();
             $this->fail('No Exception thrown');
-        } catch(Robo47_Application_Resource_Exception $e) {
+        } catch (Robo47_Application_Resource_Exception $e) {
             $this->assertEquals('No login provided', $e->getMessage(), 'Wrong Exception message');
         }
     }
@@ -83,7 +86,7 @@ class Robo47_Application_Resource_Service_BitlyTest extends PHPUnit_Framework_Te
         try {
             $resource->init();
             $this->fail('No Exception thrown');
-        } catch(Robo47_Application_Resource_Exception $e) {
+        } catch (Robo47_Application_Resource_Exception $e) {
             $this->assertEquals('No apiKey provided', $e->getMessage(), 'Wrong Exception message');
         }
     }
@@ -97,7 +100,7 @@ class Robo47_Application_Resource_Service_BitlyTest extends PHPUnit_Framework_Te
         try {
             $resource->init();
             $this->fail('No Exception thrown');
-        } catch(Robo47_Application_Resource_Exception $e) {
+        } catch (Robo47_Application_Resource_Exception $e) {
             $this->assertEquals('Empty options in resource Robo47_Application_Resource_Service_Bitly.', $e->getMessage(), 'Wrong Exception message');
         }
     }

@@ -2,14 +2,9 @@
 
 require_once dirname(__FILE__) . '/../TestHelper.php';
 
-/**
- * @todo test calling shutdown on __destruct ?
- * @todo test multiple filters
- * @todo test if addWriter calls setLog on Writer if Abstract
- */
-
 class Robo47_LogTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_Log<extended>
      * @covers Robo47_Log::__construct
@@ -17,16 +12,15 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
     public function testDefaultConstruct()
     {
         $log = new Robo47_Log();
-        $this->assertEquals(null, $log->getDefaultCategory(),'Wrong default category');
+        $this->assertEquals(null, $log->getDefaultCategory(), 'Wrong default category');
         $this->assertEquals(array(), $log->getWriters(), 'Writers found');
         $this->assertEquals(array(), $log->getFilters(), 'Filters found');
     }
 
-
     /**
      * @covers Robo47_Log::__construct
      */
-    public function testConstrucortWithWriter()
+    public function testConstructorWithWriter()
     {
         $writer = new Zend_Log_Writer_Null();
         $log = new Robo47_Log($writer);
@@ -34,7 +28,6 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, count($log->getWriters()));
         $this->assertSame($writer, current($log->getWriters()));
     }
-
 
     /**
      * @covers Robo47_Log::getWriters
@@ -54,7 +47,7 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(2, count($log->getWriters()), '2 Writers should be added');
 
-        $this->assertContains($writer,  $log->getWriters(), 'Writer given in constructor not found');
+        $this->assertContains($writer, $log->getWriters(), 'Writer given in constructor not found');
         $this->assertContains($writer2, $log->getWriters(), 'Writer added via addWriter not found');
     }
 
@@ -64,7 +57,7 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
     public function testRemoveWriterByInstance()
     {
         $log = new Robo47_Log();
-        $writer  = new Zend_Log_Writer_Null();
+        $writer = new Zend_Log_Writer_Null();
         $writer2 = new Zend_Log_Writer_Null();
         $writer3 = new Zend_Log_Writer_Null();
 
@@ -85,7 +78,7 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
     public function testRemoveWriterByClassname()
     {
         $log = new Robo47_Log();
-        $writer  = new Zend_Log_Writer_Null();
+        $writer = new Zend_Log_Writer_Null();
         $writer2 = new Zend_Log_Writer_Null();
         $writer3 = new Zend_Log_Writer_Null();
 
@@ -188,11 +181,8 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(1, count($writer->events));
         $this->assertArrayHasKey('category', $writer->events[0]);
-        $this->assertEquals('default',  $writer->events[0]['category']);
+        $this->assertEquals('default', $writer->events[0]['category']);
     }
-
-
-
 
     /**
      * @covers Robo47_Log::factory
@@ -240,7 +230,7 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
     public function testFactoryWithSingleConfigAndWriterObject()
     {
         $config = array(
-                new Robo47_Log_Writer_Mock()
+            new Robo47_Log_Writer_Mock()
         );
 
         $log = Robo47_Log::factory($config);
@@ -260,7 +250,7 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
         try {
             $log = Robo47_Log::factory($config);
             $this->fail('No Exception thrown');
-        } catch(Robo47_Log_Exception $e) {
+        } catch (Robo47_Log_Exception $e) {
             $this->assertEquals('Configuration must be an array or instance of Zend_Config', $e->getMessage(), 'Wrong Exception message');
         }
     }
@@ -296,13 +286,13 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey(6, $priorities);
         $this->assertArrayHasKey(7, $priorities);
 
-        $this->assertEquals('EMERG',    $priorities[0]);
-        $this->assertEquals('ALERT',    $priorities[1]);
-        $this->assertEquals('CRIT',     $priorities[2]);
-        $this->assertEquals('ERR',      $priorities[3]);
-        $this->assertEquals('WARN',     $priorities[4]);
-        $this->assertEquals('NOTICE',   $priorities[5]);
-        $this->assertEquals('INFO',     $priorities[6]);
-        $this->assertEquals('DEBUG',    $priorities[7]);
+        $this->assertEquals('EMERG', $priorities[0]);
+        $this->assertEquals('ALERT', $priorities[1]);
+        $this->assertEquals('CRIT', $priorities[2]);
+        $this->assertEquals('ERR', $priorities[3]);
+        $this->assertEquals('WARN', $priorities[4]);
+        $this->assertEquals('NOTICE', $priorities[5]);
+        $this->assertEquals('INFO', $priorities[6]);
+        $this->assertEquals('DEBUG', $priorities[7]);
     }
 }

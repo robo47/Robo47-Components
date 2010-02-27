@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../TestHelper.php';
 
 class Robo47_ExceptionTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_Exception
      */
@@ -21,7 +22,7 @@ class Robo47_ExceptionTest extends PHPUnit_Framework_TestCase
     {
         $e = new Robo47_Exception();
         $this->assertEquals('', $e->getMessage(), 'default message is wrong');
-        $this->assertEquals(0,  $e->getCode(), 'default code is wrong');
+        $this->assertEquals(0, $e->getCode(), 'default code is wrong');
         $this->assertEquals(null, $e->getPrevious(), 'default previous is wrong');
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Application_Resource_Autoloader
  *
@@ -32,20 +32,21 @@
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
 class Robo47_Application_Resource_Autoloader
-    extends Zend_Application_Resource_ResourceAbstract
+extends Zend_Application_Resource_ResourceAbstract
 {
+
     /**
      * @var Zend_Loader_Autoloader_Interface
      */
     protected $_autoloader = null;
-
+    
     public function init()
     {
         if (!empty($this->_options)) {
             $this->_autoloader = $this->_setupAutoloader($this->_options);
         } else {
             $message = 'Empty options in resource ' .
-                       'Robo47_Application_Resource_Autoloader.';
+                'Robo47_Application_Resource_Autoloader.';
             throw new Robo47_Application_Resource_Exception($message);
         }
     }

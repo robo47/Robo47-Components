@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Log
  *
@@ -33,6 +33,7 @@
  */
 class Robo47_Log extends Zend_Log
 {
+
     /**
      *
      * @var string
@@ -52,7 +53,7 @@ class Robo47_Log extends Zend_Log
 
         if (!is_array($config) || empty($config)) {
             $message = 'Configuration must be an array or ' .
-                       'instance of Zend_Config';
+                'instance of Zend_Config';
             throw new Robo47_Log_Exception($message);
         }
 
@@ -151,7 +152,6 @@ class Robo47_Log extends Zend_Log
         }
         parent::log($message, $priority, $extras);
     }
-
 
     /**
      * Get Priorities

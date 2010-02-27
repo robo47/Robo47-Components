@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Validate_Doctrine_NoRecordExists
  *
@@ -32,11 +32,12 @@
  */
 abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
 {
+
     /**
      * Error constants
      */
     const ERROR_NO_RECORD_FOUND = 'noRecordFound';
-    const ERROR_RECORD_FOUND    = 'recordFound';
+    const ERROR_RECORD_FOUND = 'recordFound';
 
     /**
      * @var array Message templates
@@ -45,17 +46,14 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
         self::ERROR_NO_RECORD_FOUND => 'No record matching %value% was found',
         self::ERROR_RECORD_FOUND    => 'A record matching %value% was found',
     );
-
     /**
      * @var string
      */
     protected $_table = '';
-
     /**
      * @var string
      */
     protected $_field = '';
-
     /**
      * @var array|string|null
      */
@@ -165,7 +163,7 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
         }
 
         return $query->andWhere($this->getField() . ' = ?', $value)
-                     ->limit(1)
-                     ->execute();
+            ->limit(1)
+            ->execute();
     }
 }

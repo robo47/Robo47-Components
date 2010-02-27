@@ -4,21 +4,22 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class MyStaticTestContainer
 {
+    
     public static $blub = null;
     public static $bla = null;
     public static $foo = null;
     public static $something = false;
-
+    
     public static function setFoo($value)
     {
         self::$foo = $value;
     }
-
+    
     public static function something()
     {
         self::$something = true;
     }
-
+    
     public static function resetClass()
     {
         self::$blub = null;
@@ -30,18 +31,18 @@ class MyStaticTestContainer
 
 class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
 {
+    
     public function setUp()
     {
         $this->application = new Zend_Application('testing');
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         Zend_Registry::_unsetInstance();
     }
-
+    
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
         MyStaticTestContainer::resetClass();
-
     }
 
     /**
@@ -186,7 +187,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
             $resource->init();
             $this->fail('no exception thrown on using function with invalid parameter');
         } catch (Robo47_Application_Resource_Exception $e) {
-            $this->assertEquals('invalid parameters for function setFoo' , $e->getMessage());
+            $this->assertEquals('invalid parameters for function setFoo', $e->getMessage());
         }
     }
 

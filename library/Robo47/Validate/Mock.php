@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Validate_Mock
  *
@@ -30,24 +30,22 @@
  */
 class Robo47_Validate_Mock implements Zend_Validate_Interface
 {
+
     /**
      *
      * @var bool
      */
     public $isValid = true;
-
     /**
      *
      * @var array
      */
     public $errors = array();
-
     /**
      *
      * @var array
      */
     public $messages = array();
-
     /**
      *
      * @var mixed
@@ -61,7 +59,7 @@ class Robo47_Validate_Mock implements Zend_Validate_Interface
      * @param array $errors
      */
     public function __construct($isValid = true, array $messages = array(),
-                                array $errors = array())
+        array $errors = array())
     {
         $this->isValid = $isValid;
         $this->errors = $errors;

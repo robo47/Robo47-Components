@@ -4,13 +4,14 @@ require_once dirname(__FILE__) . '/../../../../TestHelper.php';
 
 class Robo47_Application_Resource_Service_AkismetTest extends PHPUnit_Framework_TestCase
 {
+    
     public function setUp()
     {
         $this->application = new Zend_Application('testing');
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         Zend_Registry::_unsetInstance();
     }
-
+    
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
@@ -129,7 +130,7 @@ class Robo47_Application_Resource_Service_AkismetTest extends PHPUnit_Framework_
         try {
             $resource->init();
             $this->fail('No Exception thrown');
-        } catch(Robo47_Application_Resource_Exception $e) {
+        } catch (Robo47_Application_Resource_Exception $e) {
             $this->assertEquals('Empty options in resource Robo47_Application_Resource_Service_Akismet.', $e->getMessage(), 'Wrong Exception message');
         }
     }

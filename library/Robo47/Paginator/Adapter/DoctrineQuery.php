@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Paginator_Adapter_DoctrineQuery
  *
@@ -33,6 +33,7 @@
 class Robo47_Paginator_Adapter_DoctrineQuery
 implements Zend_Paginator_Adapter_Interface
 {
+
     /**
      * @var Doctrine_Query
      */
@@ -89,9 +90,9 @@ implements Zend_Paginator_Adapter_Interface
     public function getItems($offset, $itemCountPerPage)
     {
         return $this->_query
-                    ->limit($itemCountPerPage)
-                    ->offset($offset)
-                    ->execute()
-                    ->getData();
+            ->limit($itemCountPerPage)
+            ->offset($offset)
+            ->execute()
+            ->getData();
     }
 }

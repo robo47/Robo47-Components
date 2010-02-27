@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Log_Filter_Message
  *
@@ -30,18 +30,17 @@
  */
 class Robo47_Log_Filter_ValidateProxy extends Zend_Log_Filter_Abstract
 {
+
     /**
      *
      * @var Zend_Validate_Interface
      */
     protected $_validator = null;
-
     /**
      *
      * @var string|null
      */
     protected $_key = null;
-
     /**
      *
      * @var bool

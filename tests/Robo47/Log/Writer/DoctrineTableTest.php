@@ -5,32 +5,29 @@ require_once TESTS_PATH . 'Robo47/_files/DoctrineTestCase.php';
 
 class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
 {
+
     /**
      * @var Doctrine_Table
      */
     protected $_table = null;
-
     /**
      * @var Doctrine_Record
      */
     protected $_model = null;
-
     /**
      * @var Doctrine_Table
      */
     protected $_table2 = null;
-
     /**
      * @var Doctrine_Record
      */
     protected $_model2 = null;
-
     /**
      *
      * @var Robo47_Log_Writer_DoctrineTable
      */
     protected $_writer = null;
-
+    
     public function setUp()
     {
         $this->_tablesToCreate['testLog'] = array(
@@ -45,22 +42,22 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
                 'type' => 'string',
                 'notnull' => true,
                 'length' => '2147483647',
-             ),
+            ),
             'category' => array (
                 'type' => 'string',
                 'notnull' => true,
                 'length' => '255',
-             ),
+            ),
             'timestamp' => array (
                 'type' => 'string',
                 'notnull' => true,
                 'length' => '255',
-             ),
+            ),
             'priority' => array (
                 'type' => 'integer',
                 'unsigned' => 1,
                 'length' => '8',
-             ));
+        ));
 
         $this->_tablesToCreate['testLog2'] = array(
             'id' => array (
@@ -74,22 +71,22 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
                 'type' => 'string',
                 'notnull' => true,
                 'length' => '2147483647',
-             ),
+            ),
             'baa' => array (
                 'type' => 'string',
                 'notnull' => true,
                 'length' => '255',
-             ),
+            ),
             'baafoo' => array (
                 'type' => 'string',
                 'notnull' => true,
                 'length' => '255',
-             ),
+            ),
             'blub' => array (
                 'type' => 'integer',
                 'unsigned' => 1,
                 'length' => '8',
-             ));
+        ));
 
         parent::setUp();
         $this->_model = new Robo47_Log_Writer_Doctrine_Test_Log();
@@ -100,7 +97,7 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
 
         $this->_writer = new Robo47_Log_Writer_DoctrineTable($this->_table, array());
     }
-
+    
     public function tearDown()
     {
         parent::tearDown();
@@ -158,10 +155,9 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
         try {
             $writer->setTable(new stdClass());
             $this->fail('No Exception thrown');
-        } catch(Robo47_Log_Writer_Exception $e) {
+        } catch (Robo47_Log_Writer_Exception $e) {
             $this->assertEquals('table not instance of Doctrine_Table.', $e->getMessage(), 'Wrong Exception message');
         }
-
     }
 
     /**
@@ -213,14 +209,14 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
         $this->assertEquals(1, $this->_table->count());
 
         $entry = $this->_table
-                      ->createQuery()
-                      ->select()
-                      ->execute()
-                      ->getFirst();
+            ->createQuery()
+            ->select()
+            ->execute()
+            ->getFirst();
 
-        $this->assertEquals($event['message'],   $entry->message);
-        $this->assertEquals($event['priority'],  $entry->priority);
-        $this->assertEquals($event['category'],  $entry->category);
+        $this->assertEquals($event['message'], $entry->message);
+        $this->assertEquals($event['priority'], $entry->priority);
+        $this->assertEquals($event['category'], $entry->category);
         $this->assertEquals($event['timestamp'], $entry->timestamp);
     }
 
@@ -253,14 +249,14 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
         $this->assertEquals(1, $this->_table2->count());
 
         $entry = $this->_table2
-                      ->createQuery()
-                      ->select()
-                      ->execute()
-                      ->getFirst();
+            ->createQuery()
+            ->select()
+            ->execute()
+            ->getFirst();
 
-        $this->assertEquals($event['message'],   $entry->foo);
-        $this->assertEquals($event['priority'],  $entry->baa);
-        $this->assertEquals($event['category'],  $entry->blub);
+        $this->assertEquals($event['message'], $entry->foo);
+        $this->assertEquals($event['priority'], $entry->baa);
+        $this->assertEquals($event['category'], $entry->blub);
         $this->assertEquals($event['timestamp'], $entry->baafoo);
     }
 
@@ -348,9 +344,8 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
         try {
             $writer = Robo47_Log_Writer_DoctrineTable::factory($config);
             $this->fail('No Exception thrown');
-        } catch(Robo47_Log_Writer_Exception $e) {
+        } catch (Robo47_Log_Writer_Exception $e) {
             $this->assertEquals('No table defined for Robo47_Log_Writer_DoctrineTable', $e->getMessage(), 'Wrong Exception message');
         }
-
     }
 }

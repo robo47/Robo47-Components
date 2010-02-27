@@ -4,13 +4,14 @@ require_once dirname(__FILE__) . '/../../../../TestHelper.php';
 
 class Robo47_Application_Resource_Service_GravatarTest extends PHPUnit_Framework_TestCase
 {
+    
     public function setUp()
     {
         $this->application = new Zend_Application('testing');
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         Zend_Registry::_unsetInstance();
     }
-
+    
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
@@ -54,8 +55,6 @@ class Robo47_Application_Resource_Service_GravatarTest extends PHPUnit_Framework
         $this->assertSame($gravatar, $resource->getService(), 'getService() returns other object');
     }
 
-
-
     /**
      * @covers Robo47_Application_Resource_Service_Gravatar::init
      */
@@ -65,9 +64,8 @@ class Robo47_Application_Resource_Service_GravatarTest extends PHPUnit_Framework
         try {
             $resource->init();
             $this->fail('No Exception thrown');
-        } catch(Robo47_Application_Resource_Exception $e) {
+        } catch (Robo47_Application_Resource_Exception $e) {
             $this->assertEquals('Empty options in resource Robo47_Application_Resource_Service_Gravatar.', $e->getMessage(), 'Wrong Exception message');
         }
     }
-
 }

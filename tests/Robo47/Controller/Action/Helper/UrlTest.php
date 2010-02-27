@@ -3,6 +3,7 @@ require_once dirname(__FILE__) . '/../../../../TestHelper.php';
 
 class Robo47_Controller_Action_Helper_UrlTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_Controller_Action_Helper_Url<extended>
      * @covers Robo47_Controller_Action_Helper_Url::__construct
@@ -39,18 +40,18 @@ class Robo47_Controller_Action_Helper_UrlTest extends PHPUnit_Framework_TestCase
     {
         $router = Zend_Controller_Front::getInstance()->getRouter();
         $router->addRoute(
-            'user',
-            new Zend_Controller_Router_Route('blub/:username',
-                                             array('controller' => 'user',
-                                                   'action'     => 'info'))
+                'user',
+                new Zend_Controller_Router_Route('blub/:username',
+                array('controller' => 'user',
+                    'action'     => 'info'))
         );
 
         $router2 = clone $router;
         $router2->addRoute(
-            'user',
-            new Zend_Controller_Router_Route('user/:username',
-                                             array('controller' => 'user',
-                                                   'action'     => 'info'))
+                'user',
+                new Zend_Controller_Router_Route('user/:username',
+                array('controller' => 'user',
+                    'action'     => 'info'))
         );
         $urlHelper = new Robo47_Controller_Action_Helper_Url($router2);
         $url = $urlHelper->url(array('username' => 'foo'), 'user');

@@ -7,11 +7,13 @@ require_once TESTS_PATH . 'Robo47/_files/DoctrineTestCase.php';
 class Robo47_Validate_Doctrine_NonAbstract
 extends Robo47_Validate_Doctrine_Abstract
 {
+
     /**
      * @param string $value
      * @return boolean
      */
-    public function isValid($value) {
+    public function isValid($value)
+    {
         return false;
     }
 
@@ -27,6 +29,7 @@ extends Robo47_Validate_Doctrine_Abstract
 
 class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
 {
+    
     public function setUp()
     {
         $this->_tablesToCreate['testPagination'] = array(
@@ -41,15 +44,14 @@ class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
                 'type' => 'string',
                 'notnull' => true,
                 'length' => '255',
-             ));
+        ));
         parent::setUp();
     }
-
+    
     public function tearDown()
     {
         parent::tearDown();
     }
-
 
     /**
      * @return Doctrine_Table
@@ -59,8 +61,7 @@ class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
         $entry = new Robo47_Paginator_Adapter_DoctrineTestRecord();
         return $entry->getTable();
     }
-
-
+    
     public function testDefaultConstructor()
     {
         $table = $this->getTable();
@@ -130,11 +131,11 @@ class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
         try {
             $validator->setTable(new stdClass());
             $this->fail('No Exception thrown');
-        } catch(Robo47_Log_Writer_Exception $e) {
+        } catch (Robo47_Log_Writer_Exception $e) {
             $this->assertEquals('table not instance of Doctrine_Table.', $e->getMessage(), 'Wrong Exception message');
         }
     }
-
+    
     public function queryProvider()
     {
         $data = array();
@@ -142,7 +143,7 @@ class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
         $records = array(
             array('message' => 'blub'),
             array('message' => 'bla'),
-            );
+        );
 
         $data[] = array($records, 'bla', null, 1);
         $data[] = array($records, 'bla', array('field' => 'message', 'value' => 'bla'), 0);
@@ -153,7 +154,6 @@ class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
         return $data;
     }
 
-
     /**
      *
      * @param Doctrine_Table $table
@@ -161,9 +161,9 @@ class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
      */
     public function create(Doctrine_Table $table, $data)
     {
-        foreach($data as $row) {
+        foreach ($data as $row) {
             $table->create($row)
-                  ->save();
+                ->save();
         }
     }
 

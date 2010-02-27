@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Form_Decorator_Info
  *
@@ -30,11 +30,11 @@
  */
 class Robo47_Form_Decorator_Info extends Zend_Form_Decorator_Abstract
 {
+
     /**
      * @var string
      */
     protected $_placement = self::PREPEND;
-
     /**
      * @var string
      */
@@ -79,7 +79,7 @@ class Robo47_Form_Decorator_Info extends Zend_Form_Decorator_Abstract
     public function render($content)
     {
         $element = $this->getElement();
-        $view    = $element->getView();
+        $view = $element->getView();
         if (null === $view) {
             return $content;
         }
@@ -89,7 +89,7 @@ class Robo47_Form_Decorator_Info extends Zend_Form_Decorator_Abstract
 
         $info = $this->getInfo();
 
-        switch($placement) {
+        switch ($placement) {
             case self::PREPEND:
                 $return = $info . $separator . $content;
                 break;

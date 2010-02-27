@@ -4,11 +4,12 @@ require_once dirname(__FILE__) . '/../TestHelper.php';
 
 class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
 {
+    
     public function getExiftoolTestImage()
     {
         return TESTS_PATH . '/Robo47/_files/exiftoolTestImage.jpg';
     }
-
+    
     public function getExifToolWrapper1()
     {
         return TESTS_PATH . '/Robo47/_files/exiftoolwrapper1.php';
@@ -22,8 +23,8 @@ class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
         $exiftool = new Robo47_Exiftool();
         $this->assertEquals('/usr/bin/exiftool', $exiftool->getExiftool(), 'Default exiftool-path is wrong');
         $this->assertEquals(Robo47_Exiftool::FORMAT_JSON, $exiftool->getFormat(), 'Default format is wrong');
-
     }
+
     /**
      * @covers Robo47_Exiftool::__construct
      */
@@ -58,7 +59,7 @@ class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
         try {
             $exiftool->getExifs($file);
             $this->fail('no exception thrown');
-        } catch(Robo47_Exiftool_Exception $e) {
+        } catch (Robo47_Exiftool_Exception $e) {
             $this->assertEquals('File "' . $file . '" does not exist.', $e->getMessage(), 'Exception message does not match');
         }
     }
@@ -74,11 +75,11 @@ class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
         try {
             $exiftool->getExifs($file);
             $this->fail('no exception thrown');
-        } catch(Robo47_Exiftool_Exception $e) {
+        } catch (Robo47_Exiftool_Exception $e) {
             $this->assertEquals('File "' . $file . '" does not exist.', $e->getMessage(), 'Exception message does not match');
         }
     }
-
+    
     public function formatProvider()
     {
         $data = array();
@@ -124,7 +125,7 @@ class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
         try {
             $exiftool->setFormat($format);
             $this->fail('no exception thrown');
-        } catch(Robo47_Exiftool_Exception $e) {
+        } catch (Robo47_Exiftool_Exception $e) {
             $this->assertEquals('Invalid format: foo', $e->getMessage(), 'Exception message does not match');
         }
     }
@@ -172,7 +173,6 @@ class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($this->getExifToolWrapper1(), $node0List->item(0)->nodeValue, 'Wrong value for param 0');
         $this->assertEquals('-X', $node1List->item(0)->nodeValue, 'Wrong value for param 1');
         $this->assertEquals($this->getExiftoolTestImage(), $node2List->item(0)->nodeValue, 'Wrong value for param 2');
-
     }
 
     /**
@@ -216,7 +216,6 @@ class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($this->getExiftoolTestImage(), $resultArray[2], 'Wrong value for param 1');
     }
 
-
     /**
      * @covers Robo47_Exiftool::_runExiftool
      */
@@ -227,9 +226,8 @@ class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
         try {
             $exiftool->getExifs($file);
             $this->fail('No Exception thrown');
-        } catch(Robo47_Exiftool_Exception $e) {
+        } catch (Robo47_Exiftool_Exception $e) {
             $this->assertContains('executing exiftool failed: ', $e->getMessage(), 'Wrong Exception message');
         }
-
     }
 }

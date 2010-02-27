@@ -4,23 +4,24 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_View_Helper_UrlTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @var Robo47_View_Helper_Url
      */
     protected $_helper = null;
-
+    
     public function setUp()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
         $this->_helper = new Robo47_View_Helper_Url($this->getRouter());
     }
-
+    
     public function tearDown()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
         $this->_helper = null;
     }
-
+    
     public function getRouter()
     {
         $router = new Zend_Controller_Router_Rewrite();
@@ -67,7 +68,7 @@ class Robo47_View_Helper_UrlTest extends PHPUnit_Framework_TestCase
     public function testUrl()
     {
         $this->_helper->setRouter($this->getRouter());
-        $url = $this->_helper->url(array(),'foo');
+        $url = $this->_helper->url(array(), 'foo');
         $this->assertEquals('/foo/bar', $url);
     }
 }

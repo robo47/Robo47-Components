@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_Log_Filter_MockTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_Log_Filter_Mock<extended>
      * @covers Robo47_Log_Filter_Mock::__construct
@@ -13,7 +14,6 @@ class Robo47_Log_Filter_MockTest extends PHPUnit_Framework_TestCase
         $filter = new Robo47_Log_Filter_Mock();
         $this->assertTrue($filter->accept, 'Wrong value for accept');
     }
-
 
     /**
      * @covers Robo47_Log_Filter_Mock::accept

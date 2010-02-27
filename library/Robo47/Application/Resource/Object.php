@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Application_Resource_Object
  *
@@ -31,6 +31,7 @@
 class Robo47_Application_Resource_Object
 extends Zend_Application_Resource_ResourceAbstract
 {
+
     /**
      * @var object
      */
@@ -45,7 +46,7 @@ extends Zend_Application_Resource_ResourceAbstract
             $this->_object = $this->_setupObject($this->_options);
         } else {
             $message = 'Empty options in resource ' .
-                       'Robo47_Application_Resource_Object.';
+                'Robo47_Application_Resource_Object.';
             throw new Robo47_Application_Resource_Exception($message);
         }
     }
@@ -202,8 +203,8 @@ extends Zend_Application_Resource_ResourceAbstract
                     throw new Robo47_Application_Resource_Exception($message);
                 }
             } else {
-                    $message = 'no valid functionname found on function';
-                    throw new Robo47_Application_Resource_Exception($message);
+                $message = 'no valid functionname found on function';
+                throw new Robo47_Application_Resource_Exception($message);
             }
         }
         return $this;

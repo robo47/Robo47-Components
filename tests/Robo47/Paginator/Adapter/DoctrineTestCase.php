@@ -6,6 +6,7 @@ require_once TESTS_PATH . 'Robo47/_files/DoctrineTestCase.php';
 
 class Robo47_Paginator_Adapter_DoctrineTestCase extends Robo47_DoctrineTestCase
 {
+    
     public function setUp()
     {
         $this->_tablesToCreate['testPagination'] = array(
@@ -20,15 +21,15 @@ class Robo47_Paginator_Adapter_DoctrineTestCase extends Robo47_DoctrineTestCase
                 'type' => 'string',
                 'notnull' => true,
                 'length' => '255',
-             ));
+        ));
         parent::setUp();
     }
-
+    
     public function tearDown()
     {
         parent::tearDown();
     }
-
+    
     public function fillTable($number)
     {
         for ($i = 0; $i < $number; $i++) {

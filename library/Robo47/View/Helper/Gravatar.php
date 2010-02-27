@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_View_Helper_Gravatar
  *
@@ -28,10 +28,10 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  * @todo        Use Validation, use fallback-url
- * @todo        Base on Zend_View_Helper_Abstract (end-tag, etc)
  */
 class Robo47_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
 {
+
     /**
      * @var Robo47_Service_Gravatar
      */
@@ -82,8 +82,8 @@ class Robo47_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
      * @return string
      */
     public function Gravatar($email, $size = null, $rating = null,
-                             $default = null, $ssl = null, $separator = '&amp;',
-                             array $params = array())
+        $default = null, $ssl = null, $separator = '&amp;',
+        array $params = array())
     {
         $params['src'] = $this->_service->getUri(
             $email,
@@ -95,7 +95,7 @@ class Robo47_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
         );
         if (!isset($params['alt'])) {
             $params['alt'] = 'Gravatar ' .
-                             $this->_service->getGravatarHash($email);
+                $this->_service->getGravatarHash($email);
         }
         $image = '<img ';
         $image .= $this->_htmlAttribs($params);

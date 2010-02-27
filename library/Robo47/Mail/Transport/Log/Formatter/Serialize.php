@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Mail_Transport_Log_Formatter_Serialize
  *
@@ -31,6 +31,7 @@
 class Robo47_Mail_Transport_Log_Formatter_Serialize implements
 Robo47_Mail_Transport_Log_Formatter_Interface
 {
+    
     public function format(Zend_Mail $mail)
     {
         return serialize($mail);

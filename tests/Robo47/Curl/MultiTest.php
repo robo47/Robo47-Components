@@ -3,6 +3,7 @@ require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . '../TestHelper.p
 
 class Robo47_Curl_MultiTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_Curl_Multi
      * @covers Robo47_Curl_Multi_Exception
@@ -16,8 +17,8 @@ class Robo47_Curl_MultiTest extends PHPUnit_Framework_TestCase
         $curl3 = new Robo47_Curl('http://example.com/doc3', true);
 
         $curlMulti->addHandle($curl1)
-                  ->addHandle($curl2)
-                  ->addHandle($curl3);
+            ->addHandle($curl2)
+            ->addHandle($curl3);
 
         $this->assertEquals(3, count($curlMulti));
 
@@ -48,7 +49,7 @@ class Robo47_Curl_MultiTest extends PHPUnit_Framework_TestCase
         $curlMulti->setCurlMulti(curl_multi_init());
 
         $this->assertType('resource', $resource);
-        // @todo check with older php version
+
         $this->assertEquals('curl_multi', get_resource_type($resource));
         $this->assertNotSame($resource, $curlMulti->getCurlMulti());
         try {

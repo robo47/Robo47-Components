@@ -4,6 +4,7 @@ require_once 'TestHelper.php';
 
 class AllTests
 {
+
     /**
      * Regular suite
      *

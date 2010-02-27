@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_View_Helper_Anchor
  *
@@ -30,6 +30,7 @@
  */
 class Robo47_View_Helper_Anchor extends Zend_View_Helper_HtmlElement
 {
+
     /**
      * @var Zend_Controller_Router_Interface
      */
@@ -69,6 +70,7 @@ class Robo47_View_Helper_Anchor extends Zend_View_Helper_HtmlElement
     {
         return $this->_router;
     }
+
     /**
      * Generates an anchor for a given Route
      *
@@ -83,11 +85,11 @@ class Robo47_View_Helper_Anchor extends Zend_View_Helper_HtmlElement
      * @return string   Complete anchor
      */
     public function anchor(array $urlOptions, $name, $linkname,
-                           $params = array(), $reset = false, $encode = true)
+        $params = array(), $reset = false, $encode = true)
     {
         $router = $this->_router;
         $href = $router->assemble($urlOptions, $name, $reset, $encode);
-        $link = '<a href="'.$href.'"';
+        $link = '<a href="' . $href . '"';
         $link .= $this->_htmlAttribs($params);
         $link .= '>' . $linkname . '</a>';
         return $link;

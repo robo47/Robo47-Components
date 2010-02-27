@@ -30,7 +30,6 @@ class Robo47_Paginator_Adapter_DoctrineTableTest extends Robo47_Paginator_Adapte
         $this->assertSame($table2, $paginator->getTable());
     }
 
-
     /**
      * @covers Robo47_Paginator_Adapter_DoctrineTable::setTable
      */
@@ -51,7 +50,7 @@ class Robo47_Paginator_Adapter_DoctrineTableTest extends Robo47_Paginator_Adapte
         try {
             $paginator->setTable(new stdClass());
             $this->fail('No Exception thrown');
-        } catch(Robo47_Log_Writer_Exception $e) {
+        } catch (Robo47_Log_Writer_Exception $e) {
             $this->assertEquals('table not instance of Doctrine_Table.', $e->getMessage(), 'Wrong Exception message');
         }
     }
@@ -80,7 +79,6 @@ class Robo47_Paginator_Adapter_DoctrineTableTest extends Robo47_Paginator_Adapte
     /**
      * @covers Robo47_Paginator_Adapter_DoctrineTable::getItems
      */
-
     public function testGetItems()
     {
         $this->fillTable(10);

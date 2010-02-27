@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Core
  *
@@ -30,6 +30,7 @@
  */
 class Robo47_Core
 {
+
     /**
      * Robo47 Components version identification
      */
@@ -46,7 +47,7 @@ class Robo47_Core
     public static function getType($var)
     {
         $type = strtolower(gettype($var));
-        if ($type =='object') {
+        if ($type == 'object') {
             $type = get_class($var);
         }
         return $type;

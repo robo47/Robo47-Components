@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Controller_Plugin_Title
  *
@@ -34,23 +34,22 @@
  */
 class Robo47_Controller_Plugin_Title extends Zend_Controller_Plugin_Abstract
 {
+
     /**
      * String to append to the title
      *
      * @var string
      */
-    protected $_append  = '';
-
+    protected $_append = '';
     /**
      * String to prepend to the title
      *
      * @var string
      */
     protected $_prepend = '';
-
     /**
      * The used View
-     * 
+     *
      * @var Zend_View_Interface
      */
     protected $_view;
@@ -62,8 +61,8 @@ class Robo47_Controller_Plugin_Title extends Zend_Controller_Plugin_Abstract
      * @param string $prepend
      */
     public function __construct(Zend_View_Interface $view,
-                                $append  = '',
-                                $prepend = '')
+        $append = '',
+        $prepend = '')
     {
         $this->setAppend($append);
         $this->setPrepend($prepend);
@@ -135,7 +134,7 @@ class Robo47_Controller_Plugin_Title extends Zend_Controller_Plugin_Abstract
     {
         return $this->_append;
     }
-
+    
     public function postDispatch(Zend_Controller_Request_Abstract $request)
     {
         $headTitle = $this->_view->headTitle();

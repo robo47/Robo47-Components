@@ -5,18 +5,19 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 // @todo test frontend/backend-options -> how ?
 class Robo47_Application_Resource_CacheTest extends PHPUnit_Framework_TestCase
 {
+    
     public function setUp()
     {
         $this->application = new Zend_Application('testing');
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         Zend_Registry::_unsetInstance();
     }
-
+    
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
     }
-
+    
     public function initProvider()
     {
         $data = array();
@@ -67,7 +68,7 @@ class Robo47_Application_Resource_CacheTest extends PHPUnit_Framework_TestCase
         $resource = new Robo47_Application_Resource_Cache($options);
         $resource->init();
         $this->assertType($frontendType, $resource->getCache(), 'Cache Frontend is wrong');
-        $this->assertType($backendType,  $resource->getCache()->getBackend(), 'Cache Backend is wrong');
+        $this->assertType($backendType, $resource->getCache()->getBackend(), 'Cache Backend is wrong');
     }
 
     /**
@@ -100,8 +101,8 @@ class Robo47_Application_Resource_CacheTest extends PHPUnit_Framework_TestCase
 
         $resource = new Robo47_Application_Resource_Cache($options);
         $resource->init();
-        $this->assertTrue($resource->getCache() instanceof Zend_Cache_Core);
-        $this->assertTrue($resource->getCache()->getBackend() instanceof Robo47_Cache_Backend_Array);
+        $this->assertType('Zend_Cache_Core', $resource->getCache());
+        $this->assertType('Robo47_Cache_Backend_Array', $resource->getCache()->getBackend());
 
         $this->assertTrue(Zend_Registry::isRegistered('cache_default'), 'Key cache_default was not registered in the Registry');
     }

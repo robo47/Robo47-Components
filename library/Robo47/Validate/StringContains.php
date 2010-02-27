@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Validate_StringContains
  *
@@ -30,18 +30,17 @@
  */
 class Robo47_Validate_StringContains extends Zend_Validate_Abstract
 {
-    const CONTAINS      = 'contains';
+    
+    const CONTAINS = 'contains';
 
     /**
      * @var string
      */
     protected $_contains = '';
-
     protected $_messageTemplates = array(
         self::CONTAINS =>
-            "'%value%' does not contain any of the specified strings",
+        "'%value%' does not contain any of the specified strings",
     );
-
     protected $_messageVariables = array(
         'value' => '_value',
     );

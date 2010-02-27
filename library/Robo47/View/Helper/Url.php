@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_View_Helper_Url
  *
@@ -30,6 +30,7 @@
  */
 class Robo47_View_Helper_Url extends Zend_View_Helper_Abstract
 {
+
     /**
      * The used Router
      *
@@ -81,7 +82,7 @@ class Robo47_View_Helper_Url extends Zend_View_Helper_Abstract
      * @return string
      */
     public function url(array $urlOptions = array(), $name = null,
-                        $reset = false, $encode = true)
+        $reset = false, $encode = true)
     {
         return $this->_router->assemble($urlOptions, $name, $reset, $encode);
     }

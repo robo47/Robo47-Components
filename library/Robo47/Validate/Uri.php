@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Validate_Uri
  *
@@ -31,6 +31,7 @@
  */
 class Robo47_Validate_Uri extends Zend_Validate_Abstract
 {
+
     /**
      * Validation failure message key for when the value is not a valid url
      */
@@ -44,7 +45,6 @@ class Robo47_Validate_Uri extends Zend_Validate_Abstract
     protected $_messageTemplates = array(
         self::NO_VALID_URI => "URI '%value%' is not valid: '%message%'"
     );
-
     /**
      * Additional variables available for validation failure messages
      *
@@ -54,7 +54,6 @@ class Robo47_Validate_Uri extends Zend_Validate_Abstract
         'message' => '_message',
         'value'   => '_value'
     );
-
     /**
      * @var string
      */

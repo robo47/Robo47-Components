@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Service_Gravatar
  *
@@ -31,10 +31,11 @@
  */
 class Robo47_Service_Gravatar extends Zend_Service_Abstract
 {
+
     /**
      * GRAVATAR API URL
      */
-    const API_URL     = 'http://www.gravatar.com/avatar/';
+    const API_URL = 'http://www.gravatar.com/avatar/';
 
     /**
      * GRAVATAR API SSL URL
@@ -44,7 +45,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
     /**
      * GRAVATAR Rating G - General Audiences
      */
-    const RATING_G  = 'g';
+    const RATING_G = 'g';
 
     /**
      * GRAVATAR Rating PG - Parental Guidance Suggested
@@ -54,12 +55,12 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
     /**
      * GRAVATAR Rating R - Restricted
      */
-    const RATING_R  = 'r';
+    const RATING_R = 'r';
 
     /**
      * GRAVATAR Rating X
      */
-    const RATING_X  = 'x';
+    const RATING_X = 'x';
 
     /**
      * GRAVATAR Default Identicon
@@ -77,12 +78,12 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
      * GRAVATAR Default Wavatar
      * @link http://www.shamusyoung.com/twentysidedtale/?p=1462
      */
-    const DEFAULT_WAVATAR   = 'wavatar';
+    const DEFAULT_WAVATAR = 'wavatar';
 
     /**
      * GRAVATAR Default 404
      */
-    const DEFAULT_404       = '404';
+    const DEFAULT_404 = '404';
 
     /**
      * Used rating
@@ -96,14 +97,12 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
      * @var string
      */
     protected $_rating = 'g';
-
     /**
      * Used size
      *
      * @var integer
      */
     protected $_size = 80;
-
     /**
      * Default image
      *
@@ -118,21 +117,18 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
      * @var string
      */
     protected $_default = '';
-
     /**
      * Used Cache
      *
      * @var Zend_Cache_Core
      */
     protected $_cache = null;
-
     /**
      * Prefix used for the cache-ids.
      *
      * @var string
      */
     protected $_cachePrefix = 'gravatar_';
-
     /**
      * Whether to use api via SSL or not
      *
@@ -239,7 +235,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
             return Zend_Registry::get($key);
         } else {
             $message = 'Registry key "' . $key .
-                       '" for Cache is not registered.';
+                '" for Cache is not registered.';
             throw new Robo47_Service_Gravatar_Exception($message);
         }
     }
@@ -285,7 +281,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
     public function setRating($rating)
     {
         $rating = strtolower($rating);
-        switch($rating) {
+        switch ($rating) {
             case self::RATING_G:
             case self::RATING_PG:
             case self::RATING_R:
@@ -395,7 +391,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
     protected function _filterRating($rating)
     {
         $rating = strtolower($rating);
-        switch($rating) {
+        switch ($rating) {
             case self::RATING_G:
             case self::RATING_PG:
             case self::RATING_R:
@@ -470,12 +466,12 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
      * @return string
      */
     public function getUri($email, $size = null, $rating = null,
-                           $default = null, $ssl = null, $separator = '&amp;')
+        $default = null, $ssl = null, $separator = '&amp;')
     {
-        $size       = $this->_filterSize($size);
-        $rating     = $this->_filterRating($rating);
-        $default    = $this->_filterDefault($default);
-        $ssl        = $this->_filterSsl($ssl);
+        $size = $this->_filterSize($size);
+        $rating = $this->_filterRating($rating);
+        $default = $this->_filterDefault($default);
+        $ssl = $this->_filterSsl($ssl);
 
         return $this->_getUri(
             $email,
@@ -498,7 +494,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
      * @return string
      */
     protected function _getUri($email, $size, $rating, $default, $ssl,
-                               $separator)
+        $separator)
     {
         if ($ssl) {
             $url = Robo47_Service_Gravatar::API_SSL_URL;
@@ -538,12 +534,12 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
      * @return string
      */
     public function getCacheId($email, $cachePrefix = null, $rating = null,
-                               $size = null, $default = null)
+        $size = null, $default = null)
     {
-        $cachePrefix    = $this->_filterCachePrefix($cachePrefix);
-        $size           = $this->_filterSize($size);
-        $rating         = $this->_filterRating($rating);
-        $default        = $this->_filterDefault($default);
+        $cachePrefix = $this->_filterCachePrefix($cachePrefix);
+        $size = $this->_filterSize($size);
+        $rating = $this->_filterRating($rating);
+        $default = $this->_filterDefault($default);
 
         $id = $cachePrefix;
         $id .= $this->getGravatarHash($email);

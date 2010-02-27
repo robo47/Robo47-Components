@@ -4,19 +4,20 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_Application_Resource_AutoloaderTest extends PHPUnit_Framework_TestCase
 {
+    
     public function setUp()
     {
 
         Zend_Loader_Autoloader::resetInstance();
         Zend_Loader_Autoloader::getInstance()
-                              ->setFallbackAutoloader(true);
+            ->setFallbackAutoloader(true);
     }
-
+    
     public function tearDown()
     {
         Zend_Loader_Autoloader::resetInstance();
         Zend_Loader_Autoloader::getInstance()
-                              ->setFallbackAutoloader(true);
+            ->setFallbackAutoloader(true);
     }
 
     /**
@@ -65,7 +66,7 @@ class Robo47_Application_Resource_AutoloaderTest extends PHPUnit_Framework_TestC
     public function testInitWithoutClassname()
     {
         $options = array(
-                'prefix'    => 'htmlpurifier',
+            'prefix'    => 'htmlpurifier',
         );
 
         $resource = new Robo47_Application_Resource_Autoloader($options);
@@ -73,7 +74,7 @@ class Robo47_Application_Resource_AutoloaderTest extends PHPUnit_Framework_TestC
         try {
             $resource->init();
             $this->fail('No exception thrown on missing classname');
-        } catch(Robo47_Application_Resource_Exception $e) {
+        } catch (Robo47_Application_Resource_Exception $e) {
             $this->assertEquals('Autoloader config doesn\'t contain classname', $e->getMessage());
         }
     }
@@ -84,7 +85,7 @@ class Robo47_Application_Resource_AutoloaderTest extends PHPUnit_Framework_TestC
     public function testInitWithoutPrefix()
     {
         $options = array(
-                'classname' => 'Robo47_Loader_Autoloader_HTMLPurifier',
+            'classname' => 'Robo47_Loader_Autoloader_HTMLPurifier',
         );
 
         $resource = new Robo47_Application_Resource_Autoloader($options);
@@ -92,7 +93,7 @@ class Robo47_Application_Resource_AutoloaderTest extends PHPUnit_Framework_TestC
         try {
             $resource->init();
             $this->fail('No exception thrown on missing prefix');
-        } catch(Robo47_Application_Resource_Exception $e) {
+        } catch (Robo47_Application_Resource_Exception $e) {
             $this->assertEquals('Autoloader config doesn\'t contain prefix', $e->getMessage());
         }
     }

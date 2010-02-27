@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Controller_Plugin_Tidy
  *
@@ -33,6 +33,7 @@
  */
 class Robo47_Controller_Plugin_Tidy extends Zend_Controller_Plugin_Abstract
 {
+
     /**
      * Tidy Filter
      *
@@ -48,9 +49,9 @@ class Robo47_Controller_Plugin_Tidy extends Zend_Controller_Plugin_Abstract
      * @param string             $logCategory
      */
     public function __construct(Robo47_Filter_Tidy $tidyFilter = null,
-                                Zend_Log $log = null,
-                                $logPriority = Zend_Log::INFO,
-                                $logCategory = 'tidy')
+        Zend_Log $log = null,
+        $logPriority = Zend_Log::INFO,
+        $logCategory = 'tidy')
     {
         $this->setTidyFilter($tidyFilter);
         $this->setLog($log);
@@ -198,7 +199,8 @@ class Robo47_Controller_Plugin_Tidy extends Zend_Controller_Plugin_Abstract
                 );
                 if (false === $pos) {
                     $this->_log->log(
-                        $tidy->errorBuffer,
+                        'Url: ' . $this->getRequest()->getRequestUri() .
+                        PHP_EOL . $tidy->errorBuffer,
                         $this->getLogPriority(),
                         array('category' => $this->getLogCategory())
                     );

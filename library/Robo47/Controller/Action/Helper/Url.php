@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Controller_Action_Helper_Url
  *
@@ -84,7 +84,7 @@ extends Zend_Controller_Action_Helper_Url
      * @return string Url for the link href attribute.
      */
     public function url($urlOptions = array(), $name = null, $reset = false,
-                        $encode = true)
+        $encode = true)
     {
         return $this->_router->assemble($urlOptions, $name, $reset, $encode);
     }

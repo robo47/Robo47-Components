@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Form_Element_Ckeditor
  *
@@ -30,8 +30,10 @@
  */
 class Robo47_Form_Element_Ckeditor extends Zend_Form_Element_Textarea
 {
+
     /**
      * @var string
      */
     public $helper = 'ckeditor';
+
 }

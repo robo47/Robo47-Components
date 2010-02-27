@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Application_Resource_CacheMulti
  *
@@ -32,14 +32,15 @@
  * @deprecated  Mostly deprecated because of Zend_Cache_Manager
  */
 class Robo47_Application_Resource_CacheMulti
-    extends Zend_Application_Resource_ResourceAbstract
+extends Zend_Application_Resource_ResourceAbstract
 {
+
     /**
      *
      * @var array|Zend_Cache[]
      */
     protected $_caches = array();
-
+    
     public function init()
     {
         if (!empty($this->_options)) {
@@ -50,7 +51,7 @@ class Robo47_Application_Resource_CacheMulti
             }
         } else {
             $message = 'Empty options in resource ' .
-                       'Robo47_Application_Resource_CacheMulti.';
+                'Robo47_Application_Resource_CacheMulti.';
             throw new Robo47_Application_Resource_Exception($message);
         }
     }
@@ -66,7 +67,7 @@ class Robo47_Application_Resource_CacheMulti
         if (isset($this->_caches[$name])) {
             return $this->_caches[$name];
         } else {
-            $message = 'Cache \''.$name.'\' doesn\'t exist';
+            $message = 'Cache \'' . $name . '\' doesn\'t exist';
             throw new Robo47_Application_Resource_Exception($message);
         }
     }

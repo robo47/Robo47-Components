@@ -3,10 +3,9 @@
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
 
-
 if ($_SERVER['argc'] < 3) {
     echo 'ERROR: wrong argument count';
-    exit(-1);
+    exit( - 1);
 
 }
 
@@ -15,7 +14,7 @@ if ($_SERVER['argv'][1] != '-j' &&
     echo 'ERROR: wrong argument count';
     exit(1);
 } else {
-    switch($_SERVER['argv'][1]) {
+    switch ($_SERVER['argv'][1]) {
         case '-j':
             echo json_encode($_SERVER['argv']);
             break;
@@ -38,17 +37,17 @@ if ($_SERVER['argv'][1] != '-j' &&
   xmlns:IFD1='http://ns.exiftool.ca/EXIF/IFD1/1.0/'
   xmlns:Composite='http://ns.exiftool.ca/Composite/1.0/'>
 >
-";
-foreach($_SERVER['argv'] as $name => $value ) {
-    echo "<ExifTool:attr$name>$value</ExifTool:attr$name>" . PHP_EOL;
-}
-echo "
+            ";
+            foreach ($_SERVER['argv'] as $name => $value) {
+                echo "<ExifTool:attr$name>$value</ExifTool:attr$name>" . PHP_EOL;
+            }
+            echo "
 </rdf:Description>
 </rdf:RDF>";
             break;
         default:
             echo 'ERROR: wrong value for argv[1]';
-        exit(2);
+            exit(2);
 
     }
 }

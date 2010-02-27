@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Log_Filter_Mock
  *
@@ -30,22 +30,20 @@
  */
 class Robo47_Log_Filter_Mock extends Zend_Log_Filter_Abstract
 {
+
     /**
      * @var bool
      */
     public $accept = true;
-
     /**
      * @var array|null
      */
     public $lastEvent = null;
-
     /**
      *
      * @var array
      */
     public $events = array();
-
     /**
      * @var array
      */
@@ -55,7 +53,7 @@ class Robo47_Log_Filter_Mock extends Zend_Log_Filter_Abstract
      *
      * @param bool $accept
      */
-    public function __construct ($accept = true)
+    public function __construct($accept = true)
     {
         $this->accept = $accept;
         $this->constructorParams = func_get_args();

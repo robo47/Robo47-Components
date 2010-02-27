@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Mail_Transport_MockSimple
  *
@@ -30,12 +30,12 @@
  */
 class Robo47_Mail_Transport_MockSimple extends Zend_Mail_Transport_Abstract
 {
+
     /**
      *
      * @var array
      */
     public $mails = array();
-
     /**
      *
      * @var integer

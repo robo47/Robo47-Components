@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Mail_Transport_Log
  *
@@ -30,6 +30,7 @@
  */
 class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
 {
+
     /**
      *
      * @param Robo47_Mail_Transport_Log_Formatter_Interface|string $formatter
@@ -38,8 +39,8 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
      * @param string $logCategory
      */
     public function __construct($formatter, Zend_Log $log,
-                                $logPriority = Zend_Log::INFO,
-                                $logCategory = 'mail')
+        $logPriority = Zend_Log::INFO,
+        $logCategory = 'mail')
     {
         $this->setFormatter($formatter);
         $this->setLog($log);
@@ -115,7 +116,7 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
 
     /**
      * Set Formatter
-     * 
+     *
      * @param Robo47_Mail_Transport_Log_Formatter_Interface|string $formatter
      * @return Robo47_Mail_Transport_Log *Provides Fluent Interface*
      */
@@ -126,7 +127,7 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
         }
         if (!$formatter instanceof Robo47_Mail_Transport_Log_Formatter_Interface) {
             $message = 'formatter is not instance of ' .
-                       'Robo47_Mail_Transport_Log_Formatter_Interface';
+                'Robo47_Mail_Transport_Log_Formatter_Interface';
             throw new Robo47_Mail_Transport_Exception($message);
         }
         $this->_formatter = $formatter;
@@ -145,17 +146,15 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
 
     /**
      * Logs the Mail
-     * 
+     *
      * @param Zend_Mail $mail
      */
     public function send(Zend_Mail $mail)
     {
         $message = $this->getFormatter()->format($mail);
-        $this->getLog()->log(
-            $message,
-            $this->getLogPriority(),
-            array('category' => $this->getLogCategory())
-        );
+        $category = array('category' => $this->getLogCategory());
+        $priority = $this->getLogPriority();
+        $this->getLog()->log($message, $priority, $category);
     }
 
     /**
@@ -164,5 +163,6 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
      */
     protected function _sendMail()
     {
+        
     }
 }

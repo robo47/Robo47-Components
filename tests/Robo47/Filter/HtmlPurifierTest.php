@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../../TestHelper.php';
 
 class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
 {
+    
     public function setUp()
     {
         $loader = Zend_Loader_Autoloader::getInstance();
@@ -11,12 +12,12 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
             $loader->pushAutoloader(new Robo47_Loader_Autoloader_HtmlPurifier(), 'HtmlPurifier');
         }
     }
-
+    
     public function tearDown()
     {
         $loader = Zend_Loader_Autoloader::getInstance();
         $HtmlPurifierLoaders = $loader->getNamespaceAutoloaders('HtmlPurifier');
-        foreach($HtmlPurifierLoaders as $hloader) {
+        foreach ($HtmlPurifierLoaders as $hloader) {
             $loader->removeAutoloader($hloader, 'HtmlPurifier');
         }
         Robo47_Filter_HtmlPurifier::setDefaultPurifier();
@@ -33,17 +34,17 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
             'Core.Encoding' => array('Core.Encoding', 'UTF-8'),
             'HTML.Doctype'  => array('HTML.Doctype', 'XHTML 1.0 Strict'),
             'HTML.Allowed'  => array('HTML.Allowed', 'abbr[title],acronym[title],'
-                                                    .'em,strong,a[href],ul,ol,li'
-                                                    .',code,pre,cite,q[cite],'
-                                                    .'blockquote[cite],sub,sup,p,'
-                                                    . 'br'),
+                    . 'em,strong,a[href],ul,ol,li'
+                    . ',code,pre,cite,q[cite],'
+                    . 'blockquote[cite],sub,sup,p,'
+                    . 'br'),
             'AutoFormat.Linkify'    => array('AutoFormat.Linkify', 'true'),
             'Cache.SerializerPath'  => array('Cache.SerializerPath',
-                                            BASE_PATH . '/tests/tmp'),
+                BASE_PATH . '/tests/tmp'),
         );
 
         $config = HTMLPurifier_Config::createDefault();
-        foreach($options as $option) {
+        foreach ($options as $option) {
             $config->set($option[0], $option[1]);
         }
         $purifier = new HTMLPurifier($config);
@@ -152,7 +153,7 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
         $filter = new Robo47_Filter_HtmlPurifier($this->getPurifier());
         $this->assertSame($expectedValue, $filter->filter($value));
     }
-
+    
     public function invalidPurifierObjects()
     {
         $data = array();

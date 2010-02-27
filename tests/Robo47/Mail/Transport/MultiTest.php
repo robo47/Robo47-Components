@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_Mail_Transport_MultiTest extends PHPUnit_Framework_TestCase
 {
+    
     public function tearDown()
     {
         Zend_Mail::setDefaultTransport(new Zend_Mail_Transport_Sendmail());
@@ -31,7 +32,7 @@ class Robo47_Mail_Transport_MultiTest extends PHPUnit_Framework_TestCase
         $this->assertContains($t1, $transport->getTransports(), 'Transport#1 not found in array');
         $this->assertContains($t2, $transport->getTransports(), 'Transport#2 not found in array');
     }
-
+    
     public function testSetTransportsGetTransports()
     {
         $t1 = new Robo47_Mail_Transport_MockSimple();
@@ -42,19 +43,19 @@ class Robo47_Mail_Transport_MultiTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(0, count($transport->getTransports()));
 
         $transport->setTransports(array($t1, $t2));
-        
+
         $this->assertEquals(2, count($transport->getTransports()));
 
         $this->assertContains($t1, $transport->getTransports(), 'Transport#1 not found in array');
         $this->assertContains($t2, $transport->getTransports(), 'Transport#2 not found in array');
-        
+
         $transport->setTransports($t3);
 
         $this->assertEquals(3, count($transport->getTransports()));
 
         $this->assertContains($t3, $transport->getTransports(), 'Transport#3 not found in array');
     }
-
+    
     public function testAddTransport()
     {
         $t1 = new Robo47_Mail_Transport_MockSimple();
@@ -68,7 +69,7 @@ class Robo47_Mail_Transport_MultiTest extends PHPUnit_Framework_TestCase
         $this->assertContains($t1, $transport->getTransports(), 'Transport#1 not found in array');
         $this->assertContains($t2, $transport->getTransports(), 'Transport#2 not found in array');
     }
-
+    
     public function testRemoveTransport()
     {
         $t1 = new Robo47_Mail_Transport_MockSimple();
@@ -81,7 +82,6 @@ class Robo47_Mail_Transport_MultiTest extends PHPUnit_Framework_TestCase
 
         $transport->removeTransport('Robo47_Mail_Transport_MockSimple');
         $this->assertEquals(0, count($transport->getTransports()));
-
     }
 
     /**
@@ -111,8 +111,8 @@ class Robo47_Mail_Transport_MultiTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(1, $transportMock1->count, 'No Message on Transport#1');
         $this->assertSame($mail, $transportMock1->mails[0]['mail'], 'Wrong Mail on Transport');
-        
+
         $this->assertEquals(1, $transportMock2->count, 'No Message on Transport#2');
         $this->assertSame($mail, $transportMock2->mails[0]['mail'], 'Wrong Mail on Transport');
-   }
+    }
 }

@@ -3,6 +3,7 @@ require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . '../TestHelper.p
 
 class Robo47_Curl_AllTests extends PHPUnit_Framework_TestCase
 {
+
     /**
      * Creates and returns this test suite
      *

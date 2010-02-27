@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Mail_Transport_Multi
  *
@@ -30,9 +30,10 @@
  */
 class Robo47_Mail_Transport_Multi extends Zend_Mail_Transport_Abstract
 {
+
     /**
      * Array with all Transports
-     * 
+     *
      * @var array
      */
     protected $_transports = array();
@@ -129,5 +130,6 @@ class Robo47_Mail_Transport_Multi extends Zend_Mail_Transport_Abstract
      */
     protected function _sendMail()
     {
+        
     }
 }

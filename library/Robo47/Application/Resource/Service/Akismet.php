@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Application_Resource_Service_Akismet
  *
@@ -31,18 +31,19 @@
 class Robo47_Application_Resource_Service_Akismet
 extends Zend_Application_Resource_ResourceAbstract
 {
+
     /**
      * @var Zend_Service_Akismet
      */
     protected  $_service = null;
-
+    
     public function init()
     {
         if (!empty($this->_options)) {
             $this->_service = $this->_setupService($this->_options);
         } else {
             $message = 'Empty options in resource ' .
-                       'Robo47_Application_Resource_Service_Akismet.';
+                'Robo47_Application_Resource_Service_Akismet.';
             throw new Robo47_Application_Resource_Exception($message);
         }
     }

@@ -1,7 +1,7 @@
 <?php
-error_reporting( E_ALL | E_STRICT );
+error_reporting(E_ALL | E_STRICT);
 
-define('SCRIPTSTART' , microtime(true));
+define('SCRIPTSTART', microtime(true));
 define('APPLICATION_ENVIRONMENT', 'testing');
 define('BASE_PATH', realpath(dirname(__FILE__) . '/../'));
 define('TESTS_PATH', BASE_PATH . '/tests/');

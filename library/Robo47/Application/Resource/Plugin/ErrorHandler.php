@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Application_Resource_Plugin_ErrorHandler
  *
@@ -31,18 +31,19 @@
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
 class Robo47_Application_Resource_Plugin_ErrorHandler
-    extends Zend_Application_Resource_ResourceAbstract
+extends Zend_Application_Resource_ResourceAbstract
 {
+
     /**
      * @var Zend_Controller_Plugin_ErrorHandler
      */
     protected $_errorHandler = null;
-
+    
     public function init()
     {
         $this->_errorHandler = $this->_setupErrorHandler($this->_options);
     }
-
+    
     public function _setupErrorHandler($options)
     {
         $errorHandler = new Zend_Controller_Plugin_ErrorHandler($options);

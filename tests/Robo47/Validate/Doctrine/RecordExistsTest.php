@@ -6,6 +6,7 @@ require_once TESTS_PATH . 'Robo47/_files/DoctrineTestCase.php';
 
 class Robo47_Validate_Doctrine_RecordExistsTest extends Robo47_DoctrineTestCase
 {
+    
     public function setUp()
     {
         $this->_tablesToCreate['testPagination'] = array(
@@ -20,10 +21,10 @@ class Robo47_Validate_Doctrine_RecordExistsTest extends Robo47_DoctrineTestCase
                 'type' => 'string',
                 'notnull' => true,
                 'length' => '255',
-             ));
+        ));
         parent::setUp();
     }
-
+    
     public function tearDown()
     {
         parent::tearDown();
@@ -45,12 +46,12 @@ class Robo47_Validate_Doctrine_RecordExistsTest extends Robo47_DoctrineTestCase
      */
     public function create(Doctrine_Table $table, $data)
     {
-        foreach($data as $row) {
+        foreach ($data as $row) {
             $table->create($row)
-                  ->save();
+                ->save();
         }
     }
-
+    
     public function isValidProvider()
     {
         $data = array();
@@ -58,7 +59,7 @@ class Robo47_Validate_Doctrine_RecordExistsTest extends Robo47_DoctrineTestCase
         $records = array(
             array('message' => 'blub'),
             array('message' => 'bla'),
-            );
+        );
 
         $data[] = array($records, 'bla', null, true);
         $data[] = array($records, 'foo', null, false);
@@ -70,7 +71,6 @@ class Robo47_Validate_Doctrine_RecordExistsTest extends Robo47_DoctrineTestCase
 
         return $data;
     }
-
 
     /**
      * @dataProvider isValidProvider
@@ -85,8 +85,7 @@ class Robo47_Validate_Doctrine_RecordExistsTest extends Robo47_DoctrineTestCase
         $this->assertEquals($expectedResult, $result);
     }
 
-
-    // @todo Test isValid sets the right messages
+// @todo Test isValid sets the right messages
     public function testMessages()
     {
         $this->markTestIncomplete('not implemented yet');

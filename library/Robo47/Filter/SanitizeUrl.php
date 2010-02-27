@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Filter_SanitizeUrl
  *
@@ -32,6 +32,7 @@
  */
 class Robo47_Filter_SanitizeUrl implements Zend_Filter_Interface
 {
+
     /**
      *
      * @param string $value
@@ -41,14 +42,14 @@ class Robo47_Filter_SanitizeUrl implements Zend_Filter_Interface
     {
         // all signs to replace
         $search = array('ä' => 'ae',
-                        'ö' => 'oe',
-                        'ü' => 'ue',
-                        'ß' => 's',
-                        'Ä' => 'Ae',
-                        'Ö' => 'Oe',
-                        'Ü' => 'Ue',
-                        'ß' => 's',
-                        ' ' => '-');
+            'ö' => 'oe',
+            'ü' => 'ue',
+            'ß' => 's',
+            'Ä' => 'Ae',
+            'Ö' => 'Oe',
+            'Ü' => 'Ue',
+            'ß' => 's',
+            ' ' => '-');
 
         // replace them
         $value = str_replace(array_keys($search), $search, $value);

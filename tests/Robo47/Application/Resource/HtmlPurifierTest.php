@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_Application_Resource_HtmlPurifierTest extends PHPUnit_Framework_TestCase
 {
+    
     public function setUp()
     {
         if (!class_exists('HTMLPurifier_Bootstrap', false)) {
@@ -13,11 +14,12 @@ class Robo47_Application_Resource_HtmlPurifierTest extends PHPUnit_Framework_Tes
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         Zend_Registry::_unsetInstance();
     }
-
+    
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
     }
+
     /**
      * @covers Robo47_Application_Resource_HtmlPurifier::init
      * @covers Robo47_Application_Resource_HtmlPurifier::_setupHtmlPurifier
@@ -30,10 +32,10 @@ class Robo47_Application_Resource_HtmlPurifierTest extends PHPUnit_Framework_Tes
                 'Core.Encoding' => 'utf-8',
                 'HTML.Doctype'  => 'XHTML 1.0 Strict',
                 'HTML.Allowed'  => 'abbr[title],acronym[title],'
-                                    .'em,strong,a[href],ul,ol,li'
-                                    .',code,pre,cite,q[cite],'
-                                    .'blockquote[cite],sub,sup,p,'
-                                    . 'br',
+                    . 'em,strong,a[href],ul,ol,li'
+                    . ',code,pre,cite,q[cite],'
+                    . 'blockquote[cite],sub,sup,p,'
+                    . 'br',
                 'AutoFormat.Linkify'    => 'true',
                 'Cache.SerializerPath'  => TESTS_PATH . '/tmp/'
             ),
@@ -71,10 +73,10 @@ class Robo47_Application_Resource_HtmlPurifierTest extends PHPUnit_Framework_Tes
                 'Core.Encoding' => 'utf-8',
                 'HTML.Doctype'  => 'XHTML 1.0 Strict',
                 'HTML.Allowed'  => 'abbr[title],acronym[title],'
-                                    .'em,strong,a[href],ul,ol,li'
-                                    .',code,pre,cite,q[cite],'
-                                    .'blockquote[cite],sub,sup,p,'
-                                    . 'br',
+                    . 'em,strong,a[href],ul,ol,li'
+                    . ',code,pre,cite,q[cite],'
+                    . 'blockquote[cite],sub,sup,p,'
+                    . 'br',
                 'AutoFormat.Linkify'    => 'true',
                 'Cache.SerializerPath'  => TESTS_PATH . '/tmp/'
             ),

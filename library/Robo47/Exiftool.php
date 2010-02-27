@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Exiftool
  *
@@ -33,6 +33,7 @@
  */
 class Robo47_Exiftool extends Zend_Exception
 {
+
     /**
      * Format ARRAY
      */
@@ -53,7 +54,6 @@ class Robo47_Exiftool extends Zend_Exception
      * @var string
      */
     protected $_format = null;
-
     /**
      * Path to the exiftool-binary
      *
@@ -66,7 +66,7 @@ class Robo47_Exiftool extends Zend_Exception
      * @param string $exiftool
      */
     public function __construct($exiftool = '/usr/bin/exiftool',
-                                $format = self::FORMAT_JSON)
+        $format = self::FORMAT_JSON)
     {
         $this->setExiftool($exiftool);
         $this->setFormat($format);
@@ -101,7 +101,7 @@ class Robo47_Exiftool extends Zend_Exception
     public function setFormat($format)
     {
         $format = strtolower($format);
-        switch($format) {
+        switch ($format) {
             case self::FORMAT_JSON:
             case self::FORMAT_ARRAY:
             case self::FORMAT_XML:
@@ -140,7 +140,7 @@ class Robo47_Exiftool extends Zend_Exception
         if (null === $format) {
             $format = $this->getFormat();
         }
-        switch($format) {
+        switch ($format) {
             case self::FORMAT_JSON:
                 $exifs = $this->_runExiftool($file, self::FORMAT_JSON);
                 break;
@@ -164,8 +164,7 @@ class Robo47_Exiftool extends Zend_Exception
     protected function _runExiftool($file, $format)
     {
         $command = escapeshellarg($this->_exiftool);
-        switch($format)
-        {
+        switch ($format) {
             case self::FORMAT_JSON:
                 $command .= ' -j ';
                 break;

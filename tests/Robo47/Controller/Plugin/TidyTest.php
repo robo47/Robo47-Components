@@ -3,11 +3,12 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
 {
+    
     public function tearDown()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
     }
-
+    
     public function getPluginWithLogging($valid = true)
     {
         $mockWriter = new Robo47_Log_Writer_Mock();
@@ -20,11 +21,14 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
             $response->setBody('<html><head><body><div><a href="#foo" target="_blank">foo</a></div></body></html>');
         }
 
+        $request = new Zend_Controller_Request_Http('http://www.example.com/baa/foo');
+
         $config = array('doctype' => 'strict');
         $filter = new Robo47_Filter_Tidy(null, $config);
 
         $plugin = new Robo47_Controller_Plugin_Tidy($filter, $log);
         $plugin->setResponse($response);
+        $plugin->setRequest($request);
         return $plugin;
     }
 
@@ -100,7 +104,7 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
         $plugin->setLogPriority(Zend_Log::ERR);
         $this->assertEquals(Zend_Log::ERR, $plugin->getLogPriority());
     }
-
+    
     public function htmlResponseProvider()
     {
         $data = array();
@@ -153,8 +157,8 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
     {
         $plugin = $this->getPluginWithLogging(false);
         $plugin->getResponse()
-               ->clearAllHeaders()
-               ->setHeader('Content-Type', 'text/xml');
+            ->clearAllHeaders()
+            ->setHeader('Content-Type', 'text/xml');
 
         $plugin->dispatchLoopShutdown();
 
@@ -177,8 +181,6 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, count($writers[0]->events), 'No Event logged');
     }
 
-
-
     /**
      * @covers Robo47_Controller_Plugin_Tidy::dispatchLoopShutdown
      */
@@ -192,4 +194,19 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(0, count($writers[0]->events), 'Event logged');
     }
+
+    /**
+     * @covers Robo47_Controller_Plugin_Tidy::dispatchLoopShutdown
+     */
+    public function testLogContainsUrl()
+    {
+        $plugin = $this->getPluginWithLogging(false);
+        $plugin->dispatchLoopShutdown();
+        
+        $writers = $plugin->getLog()->getWriters();
+
+        $this->assertEquals(1, count($writers[0]->events), 'No Event logged');
+        $this->assertContains('Url: /baa/foo' . PHP_EOL, $writers[0]->events[0]['message'], 'Url not logged');
+    }
+    // @todo test log contains tidy-message
 }

@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../../TestHelper.php';
 
 class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
 {
+    
     public function tearDown()
     {
         Robo47_Filter_Tidy::setDefaultTidy(null);
@@ -38,8 +39,8 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
     public function testConstructorWithConfig()
     {
         $config = array('indent' => TRUE,
-                        'output-xhtml' => TRUE,
-                        'wrap' => 200);
+            'output-xhtml' => TRUE,
+            'wrap' => 200);
 
         $filter = new Robo47_Filter_Tidy(null, $config);
         $this->assertEquals($config, $filter->getConfig(), 'Wrong Config');
@@ -55,30 +56,30 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
         $filter = new Robo47_Filter_Tidy(null, null, $encoding);
         $this->assertEquals($encoding, $filter->getEncoding(), 'Wrong Encoding');
     }
-
+    
     public function encodingProvider()
     {
         $data = array();
 
-        $data[] = array('utf-8','utf8');
-        $data[] = array('ascii','ascii');
-        $data[] = array('latin0','latin0');
-        $data[] = array('latin1','latin1');
-        $data[] = array('raw','raw');
-        $data[] = array('utf8','utf8');
-        $data[] = array('iso2022','iso2022');
-        $data[] = array('mac','mac');
-        $data[] = array('win1252','win1252');
-        $data[] = array('ibm858','ibm858');
-        $data[] = array('utf16','utf16');
-        $data[] = array('utf16le','utf16le');
-        $data[] = array('utf16be','utf16be');
-        $data[] = array('big5','big5');
+        $data[] = array('utf-8', 'utf8');
+        $data[] = array('ascii', 'ascii');
+        $data[] = array('latin0', 'latin0');
+        $data[] = array('latin1', 'latin1');
+        $data[] = array('raw', 'raw');
+        $data[] = array('utf8', 'utf8');
+        $data[] = array('iso2022', 'iso2022');
+        $data[] = array('mac', 'mac');
+        $data[] = array('win1252', 'win1252');
+        $data[] = array('ibm858', 'ibm858');
+        $data[] = array('utf16', 'utf16');
+        $data[] = array('utf16le', 'utf16le');
+        $data[] = array('utf16be', 'utf16be');
+        $data[] = array('big5', 'big5');
         $data[] = array('shiftjis', 'shiftjis');
 
         $data2 = $data;
         // add all in uppercase and expect lowercase
-        foreach($data2 as $value) {
+        foreach ($data2 as $value) {
             $data[] = array(strtoupper($value[0]), $value[1]);
         }
 
@@ -139,7 +140,7 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
         $filter->setTidy('MyTidy');
         $this->assertSame($myTidy, $filter->getTidy(), 'Wrong Tidy');
     }
-
+    
     public function invalidTidyObjects()
     {
         $data = array();
@@ -199,7 +200,7 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
         $return = $filter->setConfig($config);
         $this->assertSame($filter, $return, 'No Fluent Interface');
         $objectConfig = $filter->getConfig();
-        foreach($config as $key => $value) {
+        foreach ($config as $key => $value) {
             $this->assertArrayHasKey($key, $objectConfig, 'Config misses Key');
             $this->assertEquals($value, $objectConfig[$key], 'Config has wrong value for key ' . $key);
         }
@@ -216,18 +217,17 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
                 'indent' => true,
                 'output-xhtml' => true,
                 'wrap' => 200
-                )
+            )
         );
         $filter = new Robo47_Filter_Tidy();
         $return = $filter->setConfig($config);
         $this->assertSame($filter, $return, 'No Fluent Interface');
         $objectConfig = $filter->getConfig();
-        foreach($config as $key => $value) {
+        foreach ($config as $key => $value) {
             $this->assertArrayHasKey($key, $objectConfig, 'Config misses Key');
             $this->assertEquals($value, $objectConfig[$key], 'Config has wrong value for key ' . $key);
         }
     }
-
 
     /**
      * @covers Robo47_Filter_Tidy::setDefaultTidy
@@ -256,7 +256,7 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
         $filter->setTidy();
         $this->assertSame($tidy, $filter->getTidy(), 'setTidy() did not set tidy to defaultTidy');
     }
-
+    
     public function filterProvider()
     {
         $data = array();
@@ -266,7 +266,6 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
 
         return $data;
     }
-
 
     /**
      * @dataProvider filterProvider

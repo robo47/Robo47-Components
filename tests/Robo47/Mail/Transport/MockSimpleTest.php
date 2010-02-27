@@ -4,18 +4,19 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_Mail_Transport_MockSimpleTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      *
      * @var Robo47_Mail_Transport_MockSimple
      */
     protected $_transport = null;
-
+    
     public function setUp()
     {
         $this->_transport = new Robo47_Mail_Transport_MockSimple();
         Zend_Mail::setDefaultTransport($this->_transport);
     }
-
+    
     public function tearDown()
     {
         unset($this->_transport);
@@ -58,5 +59,5 @@ class Robo47_Mail_Transport_MockSimpleTest extends PHPUnit_Framework_TestCase
         $this->assertSame($mail, $this->_transport->mails[0]['mail']);
         $this->assertEquals($subject, $this->_transport->mails[0]['subject']);
         $this->assertEquals($from, $this->_transport->mails[0]['from']);
-   }
+    }
 }

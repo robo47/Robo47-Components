@@ -4,12 +4,12 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_View_Helper_GravatarTest extends PHPUnit_Framework_TestCase
 {
-
+    
     public function setUp()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
     }
-
+    
     public function tearDown()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
@@ -49,7 +49,7 @@ class Robo47_View_Helper_GravatarTest extends PHPUnit_Framework_TestCase
         $helper->setService($service);
         $this->assertSame($service, $helper->getService());
     }
-
+    
     public function gravatarProvider()
     {
         $data = array();
@@ -87,7 +87,6 @@ class Robo47_View_Helper_GravatarTest extends PHPUnit_Framework_TestCase
         return $data;
     }
 
-
     /**
      * @covers Robo47_View_Helper_Gravatar::Gravatar
      * @dataProvider gravatarProvider
@@ -116,7 +115,7 @@ class Robo47_View_Helper_GravatarTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($image->hasAttribute('src'), 'Image has no attribute "href"');
         $this->assertTrue($image->hasAttribute('alt'), 'Image has no alt');
 
-        foreach($params as $param => $value) {
+        foreach ($params as $param => $value) {
             $this->assertTrue($image->hasAttribute($param), 'Image has no attribute "' . $param . '"');
             $this->assertEquals($value, $image->getAttribute($param), 'Image attribute "' . $param . '" has wrong value');
         }

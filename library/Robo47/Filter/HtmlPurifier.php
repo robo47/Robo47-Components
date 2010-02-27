@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Filter_HtmlPurifier
  *
@@ -32,12 +32,12 @@
  */
 class Robo47_Filter_HtmlPurifier implements Zend_Filter_Interface
 {
+
     /**
      *
      * @var HtmlPurifier
      */
     protected $_purifier = null;
-
     /**
      *
      * @var HtmlPurifier
@@ -88,7 +88,7 @@ class Robo47_Filter_HtmlPurifier implements Zend_Filter_Interface
             return Zend_Registry::get($key);
         } else {
             $message = 'Registry key "' . $key .
-                       '" for HtmlPurifier is not registered.';
+                '" for HtmlPurifier is not registered.';
             throw new Robo47_Filter_Exception($message);
         }
     }

@@ -4,13 +4,14 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_Application_Resource_ObjectMultiTest extends PHPUnit_Framework_TestCase
 {
+    
     public function setUp()
     {
         $this->application = new Zend_Application('testing');
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         Zend_Registry::_unsetInstance();
     }
-
+    
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
@@ -51,8 +52,6 @@ class Robo47_Application_Resource_ObjectMultiTest extends PHPUnit_Framework_Test
             $this->assertEquals('Object \'foo\' doesn\'t exist', $e->getMessage());
         }
     }
-
-
 
     /**
      * @covers Robo47_Application_Resource_ObjectMulti<extended>

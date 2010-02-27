@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_View_Helper_Ckeditor
  *
@@ -35,6 +35,7 @@
  */
 class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
 {
+
     /**
      * Option to use jquerys $(document).ready; via the Headscript-View-Helper
      */
@@ -51,21 +52,18 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
      * @var array
      */
     protected static $_defaultOptions = array();
-
     /**
      * InitMode
      *
      * @var string
      */
     protected $_initMode = 'script';
-
     /**
      * Placement
      *
      * @var string
      */
     protected $_placement = 'append';
-
     /**
      * Eitor Options
      *
@@ -91,7 +89,7 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
     public function setOptions($options)
     {
         foreach ($options as $option => $value) {
-            switch($option) {
+            switch ($option) {
                 case 'initMode':
                     $this->setInitMode($value);
                     break;
@@ -246,21 +244,21 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
 
         $initMode = $this->getInitMode();
 
-        switch($initMode) {
+        switch ($initMode) {
             case self::INIT_MODE_SCRIPT:
                 $code = '<script type="text/javascript">' . PHP_EOL .
-                        '//<![CDATA[' . PHP_EOL .
-                        $ckeditorCode . PHP_EOL .
-                        '//]]>' . PHP_EOL .
-                        '</script>';
+                    '//<![CDATA[' . PHP_EOL .
+                    $ckeditorCode . PHP_EOL .
+                    '//]]>' . PHP_EOL .
+                    '</script>';
                 $returnCode = $textArea . $code;
                 break;
             case self::INIT_MODE_JQUERY:
                 $headScript = $this->view->HeadScript();
                 /* @var $headScript Zend_View_Helper_HeadScript */
                 $code = '$(document).ready( function() { ' . PHP_EOL .
-                        $ckeditorCode . PHP_EOL .
-                        '});' . PHP_EOL;
+                    $ckeditorCode . PHP_EOL .
+                    '});' . PHP_EOL;
                 $placement = $this->getPlacement();
                 $headScript->headScript('script', $code, $placement);
                 $returnCode = $textArea;

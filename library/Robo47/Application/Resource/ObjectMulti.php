@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Application_Resource_ObjectMulti
  *
@@ -31,6 +31,7 @@
 class Robo47_Application_Resource_ObjectMulti
 extends Zend_Application_Resource_ResourceAbstract
 {
+
     /**
      * @var array
      */
@@ -49,7 +50,7 @@ extends Zend_Application_Resource_ResourceAbstract
             }
         } else {
             $message = 'Empty options in resource ' .
-                       'Robo47_Application_Resource_ObjectMulti.';
+                'Robo47_Application_Resource_ObjectMulti.';
             throw new Robo47_Application_Resource_Exception($message);
         }
     }
@@ -64,7 +65,7 @@ extends Zend_Application_Resource_ResourceAbstract
         if (isset($this->_objects[$name])) {
             return $this->_objects[$name];
         } else {
-            $message = 'Object \''.$name.'\' doesn\'t exist';
+            $message = 'Object \'' . $name . '\' doesn\'t exist';
             throw new Robo47_Application_Resource_Exception($message);
         }
     }

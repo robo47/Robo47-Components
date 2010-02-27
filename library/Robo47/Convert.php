@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Convert
  *
@@ -32,6 +32,7 @@
  */
 class Robo47_Convert
 {
+
     /**
      * Converts shorthand value to bytes
      *
@@ -46,14 +47,14 @@ class Robo47_Convert
         if (is_numeric($value)) {
             if ($value >= PHP_INT_MAX) {
                 $message = 'input is greater than PHP_INT_MAX on this ' .
-                           'plattform (' . PHP_INT_MAX . ')';
+                    'plattform (' . PHP_INT_MAX . ')';
                 throw new Robo47_Convert_Exception($message);
             }
             return (int)$value;
         } else {
-            $lastSign = strtolower($value{strlen($value)-1});
-            $valueBytes = (int)mb_substr($value, 0, strlen($value) -1);
-            switch($lastSign) {
+            $lastSign = strtolower($value{strlen($value) - 1});
+            $valueBytes = (int)mb_substr($value, 0, strlen($value) - 1);
+            switch ($lastSign) {
                 case 'k':
                     $valueBytes *= 1024;
                     break;
@@ -70,7 +71,7 @@ class Robo47_Convert
             }
             if ($valueBytes >= PHP_INT_MAX) {
                 $message = 'input is greater than PHP_INT_MAX on this ' .
-                           'plattform (' . PHP_INT_MAX . ')';
+                    'plattform (' . PHP_INT_MAX . ')';
                 throw new Robo47_Convert_Exception($message);
             }
             return $valueBytes;

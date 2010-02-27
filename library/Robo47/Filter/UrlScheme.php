@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Filter_UrlScheme
  *
@@ -32,6 +32,7 @@
  */
 class Robo47_Filter_UrlScheme implements Zend_Filter_Interface
 {
+
     /**
      *
      * @var array
@@ -42,13 +43,11 @@ class Robo47_Filter_UrlScheme implements Zend_Filter_Interface
         'ftp',
         'ftps'
     );
-
     /**
      *
      * @var string
      */
     protected $_defaultScheme = 'http';
-
     /**
      *
      * @var bool
@@ -73,7 +72,7 @@ class Robo47_Filter_UrlScheme implements Zend_Filter_Interface
     public function setOptions($options)
     {
         foreach ($options as $key => $value) {
-            switch($key) {
+            switch ($key) {
                 case 'trim':
                     $this->setTrim($value);
                     break;
@@ -178,7 +177,7 @@ class Robo47_Filter_UrlScheme implements Zend_Filter_Interface
         }
         if (!$schemeFound) {
             $value = $this->getDefaultScheme() .
-                    '://' . $value;
+                '://' . $value;
         }
         return $value;
     }

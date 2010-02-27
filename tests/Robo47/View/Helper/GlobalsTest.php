@@ -9,18 +9,17 @@ class Robo47_View_Helper_GlobalsTest extends PHPUnit_Framework_TestCase
      * @var Robo47_View_Helper_Globals
      */
     protected $_helper = null;
-
     /**
      * @var Zend_View
      */
     protected $_view = null;
-
+    
     public function setUp()
     {
         $this->_helper = new Robo47_View_Helper_Globals();
         $this->_helper->setView($this->getView());
     }
-
+    
     public function getView()
     {
         if (null === $this->_view) {
@@ -29,14 +28,14 @@ class Robo47_View_Helper_GlobalsTest extends PHPUnit_Framework_TestCase
             $this->_view->doctype('XHTML1_STRICT');
         }
         return $this->_view;
-
     }
-
+    
     public function tearDown()
     {
         $this->_helper = null;
         $this->_view = null;
-        Zend_Registry::_unsetInstance(); // View-Helpers use the registry!
+        Zend_Registry::_unsetInstance();
+// View-Helpers use the registry!
     }
 
     /**
@@ -46,12 +45,12 @@ class Robo47_View_Helper_GlobalsTest extends PHPUnit_Framework_TestCase
     {
         $helper = new Robo47_View_Helper_Globals();
     }
-
+    
     public function globalsProvider()
     {
         $data = array();
         $globals = $this->getGlobals();
-        foreach($globals as $glob => $array) {
+        foreach ($globals as $glob => $array) {
             if (!isset($GLOBALS[$array])) {
                 $GLOBALS[$array] = array();
             }
@@ -59,13 +58,13 @@ class Robo47_View_Helper_GlobalsTest extends PHPUnit_Framework_TestCase
         }
 
         // some "blackboxtests" lower case, uppercase, ...
-        foreach($globals as $global => $array) {
+        foreach ($globals as $global => $array) {
             $data[] = array(strtolower($global), null, null, false, $GLOBALS[$array]);
             $data[] = array(strtoupper($global), null, null, false, $GLOBALS[$array]);
             $data[] = array(ucFirst(strtolower($global)), null, null, false, $GLOBALS[$array]);
         }
 
-        foreach($globals as $global => $array) {
+        foreach ($globals as $global => $array) {
             $data[] = array($global, 'foo', null, false, '<strong><?php echo "foo"; ?></strong>');
             $data[] = array($global, 'foo', null, true, $this->getView()->escape('<strong><?php echo "foo"; ?></strong>'));
         }
@@ -75,15 +74,15 @@ class Robo47_View_Helper_GlobalsTest extends PHPUnit_Framework_TestCase
 
         return $data;
     }
-
+    
     public function getGlobals()
     {
         return array('GET'          => '_GET',
-                     'POST'         => '_POST',
-                     'SESSION'      => '_SESSION',
-                     'ENV'          => '_ENV',
-                     'COOKIE'       => '_COOKIE',
-                     'SERVER'       => '_SERVER');
+            'POST'         => '_POST',
+            'SESSION'      => '_SESSION',
+            'ENV'          => '_ENV',
+            'COOKIE'       => '_COOKIE',
+            'SERVER'       => '_SERVER');
     }
 
     /**

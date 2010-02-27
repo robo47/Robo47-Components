@@ -2,16 +2,15 @@
 
 require_once dirname(__FILE__) . '/../../TestHelper.php';
 
-
 class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
 {
-
+    
     public function setUp()
     {
         Zend_Registry::_unsetInstance();
         $this->getCache()->clean();
     }
-
+    
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
@@ -31,7 +30,6 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
                 array('automatic_serialization' => true, 'lifetime' => 3600),
                 array('cache_db_complete_path' => TESTS_PATH . '/tmp/temp.sqlite')
         );
-
     }
 
     /**
@@ -85,7 +83,7 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
     {
         $adapter = new Robo47_Cache_DoctrineAdapter($this->getCache(), 'prefix_');
         $cache = Zend_Cache::factory('Core',
-                                     new Robo47_Cache_Backend_Array());
+                new Robo47_Cache_Backend_Array());
 
         $return = $adapter->setCache($cache);
         $this->assertSame($adapter, $return, 'No Fluent Interface');
@@ -107,7 +105,7 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-	 * @covers Robo47_Cache_DoctrineAdapter::setCache
+     * @covers Robo47_Cache_DoctrineAdapter::setCache
      * @covers Robo47_Cache_DoctrineAdapter::_cacheFromRegistry
      * @covers Robo47_Cache_Exception
      */
@@ -117,13 +115,13 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
         try {
             $adapter->setCache('foo');
             $this->fail('No Exception thrown');
-        } catch(Robo47_Cache_Exception $e) {
+        } catch (Robo47_Cache_Exception $e) {
             $this->assertEquals('Registry key "foo" for Cache is not registered.', $e->getMessage(), 'Wrong Exception message');
         }
     }
 
     /**
-	 * @covers Robo47_Cache_DoctrineAdapter::setCache
+     * @covers Robo47_Cache_DoctrineAdapter::setCache
      * @covers Robo47_Cache_DoctrineAdapter::_cacheFromRegistry
      * @covers Robo47_Cache_Exception
      */
@@ -134,7 +132,7 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
         try {
             $adapter->setCache('foo');
             $this->fail('No Exception thrown');
-        } catch(Robo47_Cache_Exception $e) {
+        } catch (Robo47_Cache_Exception $e) {
             $this->assertEquals('Cache is not instance of Zend_Cache_Core', $e->getMessage(), 'Wrong Exception message');
         }
     }
@@ -149,7 +147,6 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
         $data = $adapter->getCache()->load('prefix_someId');
         $this->assertEquals('someData', $data);
     }
-
 
     /**
      * @covers Robo47_Cache_DoctrineAdapter::_doSave

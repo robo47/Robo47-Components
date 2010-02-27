@@ -7,6 +7,7 @@ require_once dirname(__FILE__) . '/../../TestHelper.php';
  */
 class Robo47_Validate_MockTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_Validate_Mock<extended>
      * @covers Robo47_Validate_Mock::__construct

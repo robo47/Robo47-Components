@@ -3,22 +3,22 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @var Robo47_View_Helper_Ckeditor
      */
     protected $_helper = null;
-
     /**
      * @var Zend_View
      */
     protected $_view = null;
-
+    
     public function setUp()
     {
         $this->_helper = new Robo47_View_Helper_Ckeditor();
         $this->_helper->setView($this->getView());
     }
-
+    
     public function getView()
     {
         if (null === $this->_view) {
@@ -28,13 +28,14 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
         }
         return $this->_view;
     }
-
+    
     public function tearDown()
     {
         $this->_helper = null;
         $this->_view = null;
         Robo47_View_Helper_Ckeditor::unsetDefaultOptions();
-        Zend_Registry::_unsetInstance(); // View-Helpers use the registry!
+        Zend_Registry::_unsetInstance();
+// View-Helpers use the registry!
     }
 
     /**
@@ -45,7 +46,7 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(0, count(Robo47_View_Helper_Ckeditor::getDefaultOptions()));
         Robo47_View_Helper_Ckeditor::setDefaultOptions(array('foo'  => 'bar',
-                                                             'bar2' => 'foo2'));
+                'bar2' => 'foo2'));
         $options = Robo47_View_Helper_Ckeditor::getDefaultOptions();
         $this->assertArrayHasKey('foo', $options);
         $this->assertArrayHasKey('bar2', $options);
@@ -209,7 +210,6 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
         }
     }
 
-
     /**
      * @covers Robo47_View_Helper_Ckeditor::setPlacement
      * @covers Robo47_View_Helper_Exception
@@ -244,13 +244,13 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
         $code = $this->_helper->ckeditor('foo', 'baa', array('id' => 'foobaa'), array());
 
         $expected = $textarea .
-                    '<script type="text/javascript">' . PHP_EOL .
-                    '//<![CDATA[' . PHP_EOL .
-                    'CKEDITOR.replace(\'foobaa\');' . PHP_EOL .
-                    '//]]>' . PHP_EOL .
-                    '</script>';
+            '<script type="text/javascript">' . PHP_EOL .
+            '//<![CDATA[' . PHP_EOL .
+            'CKEDITOR.replace(\'foobaa\');' . PHP_EOL .
+            '//]]>' . PHP_EOL .
+            '</script>';
 
-        $this->assertEquals($expected,  $code);
+        $this->assertEquals($expected, $code);
     }
 
     /**
@@ -273,11 +273,11 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
         $code = $this->_helper->ckeditor('foo', 'baa', array('id' => 'foobaa'), array());
 
         $expected = $textarea .
-                    '<script type="text/javascript">' . PHP_EOL .
-                    '//<![CDATA[' . PHP_EOL .
-                    'CKEDITOR.replace(\'foobaa\', { SomeOptions: foo, });' . PHP_EOL .
-                    '//]]>' . PHP_EOL .
-                    '</script>';
+            '<script type="text/javascript">' . PHP_EOL .
+            '//<![CDATA[' . PHP_EOL .
+            'CKEDITOR.replace(\'foobaa\', { SomeOptions: foo, });' . PHP_EOL .
+            '//]]>' . PHP_EOL .
+            '</script>';
 
         $this->assertEquals($expected, $code);
     }
@@ -307,12 +307,12 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $code, 'Generated textarea missmatch');
 
         $code = '<script type="text/javascript">' . PHP_EOL .
-                '    //<![CDATA[' . PHP_EOL .
-                '$(document).ready( function() { ' . PHP_EOL .
-                'CKEDITOR.replace(\'foobaa\', { SomeOptions: foo, });' . PHP_EOL .
-                '});' . PHP_EOL .
-                '    //]]>' . PHP_EOL .
-                '</script>';
+            '    //<![CDATA[' . PHP_EOL .
+            '$(document).ready( function() { ' . PHP_EOL .
+            'CKEDITOR.replace(\'foobaa\', { SomeOptions: foo, });' . PHP_EOL .
+            '});' . PHP_EOL .
+            '    //]]>' . PHP_EOL .
+            '</script>';
 
         $this->assertEquals($code, (string)$view->HeadScript(), 'wrong code in headscript');
     }
@@ -342,12 +342,12 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $code);
 
         $code = '<script type="text/javascript">' . PHP_EOL .
-                '    //<![CDATA[' . PHP_EOL .
-                '$(document).ready( function() { ' . PHP_EOL .
-                'CKEDITOR.replace(\'foobaa\');' . PHP_EOL .
-                '});' . PHP_EOL .
-                '    //]]>' . PHP_EOL .
-                '</script>';
+            '    //<![CDATA[' . PHP_EOL .
+            '$(document).ready( function() { ' . PHP_EOL .
+            'CKEDITOR.replace(\'foobaa\');' . PHP_EOL .
+            '});' . PHP_EOL .
+            '    //]]>' . PHP_EOL .
+            '</script>';
 
         $this->assertEquals($code, (string)$view->HeadScript());
     }
@@ -382,8 +382,6 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('prepend', $getOptions['placement']);
         $this->assertEquals('FOO', $getOptions['editorOptions']);
     }
-
-
 
     /**
      * @covers Robo47_View_Helper_Ckeditor::setOptions
@@ -442,7 +440,6 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
         $this->_helper->setPlacement('append');
         $this->assertEquals('append', $this->_helper->getPlacement());
     }
-
 
     /**
      * @covers Robo47_View_Helper_Ckeditor::setEditorOptions

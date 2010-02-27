@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_ErrorHandler
  *
@@ -30,32 +30,29 @@
  */
 class Robo47_ErrorHandler
 {
+
     /**
      *
      * @var callback
      */
     protected $_oldErrorHandler = null;
-
     /**
      *
      * @var bool
      */
     protected $_isErrorHandler = false;
-
     /**
      * Log
      *
      * @var Zend_Log
      */
     protected $_log = null;
-
     /**
      * Log Category
      *
      * @var string
      */
     protected $_logCategory = 'errorHandler';
-
     /**
      * Mapping for Priorities to logging
      *
@@ -183,11 +180,8 @@ class Robo47_ErrorHandler
         if (null !== $this->getLog()) {
             $priority = $this->_getErrorsPriority($errno);
             $message = $errstr . ' in ' . $errfile . ':' . $errline;
-            $this->getLog()->log(
-                $message,
-                $priority,
-                array('category' => $this->getLogCategory())
-            );
+            $category = array('category' => $this->getLogCategory());
+            $this->getLog()->log($message, $priority, $category);
         }
         $displayErrors = ini_get('display_errors');
         ini_set('display_errors', 'Off');

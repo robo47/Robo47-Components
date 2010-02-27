@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Cache_DoctrineAdapter
  *
@@ -34,25 +34,22 @@
  * @copyright   Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
- * @todo        Add support for Tags to automatically tag all Entry made with a
- *              set of Tags provided by the constructor
  */
 class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
 {
+
     /**
      * Instance of the Cache
-     * 
+     *
      * @var Zend_Cache_Core
      */
     protected $_cache = null;
-
     /**
      * Prefix used with all keys
      *
      * @param string
      */
     protected $_prefix = '';
-
     /**
      * Tags which are added to each entry
      *
@@ -71,6 +68,7 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
         $this->setPrefix($prefix);
         $this->setTags($tags);
     }
+
     /**
      * Get Prefix
      *
@@ -127,7 +125,7 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
 
     /**
      * Get Cache From Registry
-     * 
+     *
      * @param string $key
      */
     protected function _cacheFromRegistry($key)
@@ -136,7 +134,7 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
             return Zend_Registry::get($key);
         } else {
             $message = 'Registry key "' . $key .
-                       '" for Cache is not registered.';
+                '" for Cache is not registered.';
             throw new Robo47_Cache_Exception($message);
         }
     }
@@ -159,8 +157,6 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
         $this->_cache = $cache;
         return $this;
     }
-
-
 
     /**
      * Fetch a cache record from this cache driver instance

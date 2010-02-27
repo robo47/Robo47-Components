@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Service_Bitly
  *
@@ -27,10 +27,10 @@
  * @copyright   Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
- * @todo        isValidCaching
  */
 class Robo47_Service_Bitly extends Zend_Service_Abstract
 {
+
     /**
      * API URL
      */
@@ -39,27 +39,27 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     /**
      * API Path Shorten
      */
-    const API_PATH_SHORTEN  = '/shorten';
+    const API_PATH_SHORTEN = '/shorten';
 
     /**
      * API Path Expand
      */
-    const API_PATH_EXPAND   = '/expand';
+    const API_PATH_EXPAND = '/expand';
 
     /**
      * API Path Info
      */
-    const API_PATH_INFO     = '/info';
+    const API_PATH_INFO = '/info';
 
     /**
      * API Path Stats
      */
-    const API_PATH_STATS    = '/stats';
+    const API_PATH_STATS = '/stats';
 
     /**
      * API Path Errors
      */
-    const API_PATH_ERRORS   = '/errors';
+    const API_PATH_ERRORS = '/errors';
 
     /**
      * Format JSON
@@ -92,21 +92,18 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
      * @var string
      */
     protected $_login = null;
-
     /**
      * The api key
      *
      * @var string
      */
     protected $_apiKey = null;
-
     /**
      * The api version
      *
      * @var string
      */
     protected $_version = null;
-
     /**
      * The format
      *
@@ -115,14 +112,12 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
      * @var string
      */
     protected $_format = Robo47_Service_Bitly::FORMAT_JSON;
-
     /**
      * The callback (used only if format is json)
      *
      * @var string
      */
     protected $_callback = '';
-
     /**
      * The result Format
      *
@@ -143,8 +138,8 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
      * @param string $version
      */
     public function __construct($login, $apiKey, $format = self::FORMAT_JSON,
-                                $resultFormat = self::FORMAT_RESULT_NATIVE,
-                                $callback = '', $version = '2.0.1')
+        $resultFormat = self::FORMAT_RESULT_NATIVE,
+        $callback = '', $version = '2.0.1')
     {
         $this->setLogin($login);
         $this->setApiKey($apiKey);
@@ -165,7 +160,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     public function setFormat($format)
     {
         $format = strtolower($format);
-        switch($format) {
+        switch ($format) {
             case self::FORMAT_JSON:
             case self::FORMAT_XML:
                 $this->_format = $format;
@@ -287,7 +282,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     public function setResultFormat($resultFormat)
     {
         $resultFormat = strtolower($resultFormat);
-        switch($resultFormat) {
+        switch ($resultFormat) {
             case self::FORMAT_RESULT_NATIVE:
             case self::FORMAT_RESULT_ARRAY:
             case self::FORMAT_RESULT_OBJECT:
@@ -422,7 +417,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
         // find errors without parsing xml / json
         // @todo parse formats always and move tests into the other switch
         //       and refactor a bit, method gets big and ugly
-        switch($this->_format) {
+        switch ($this->_format) {
             case self::FORMAT_XML:
                 $regex = preg_quote('<errorCode>0</errorCode>', '/');
                 break;
@@ -435,13 +430,13 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
             throw new Robo47_Service_Bitly_Exception($message);
         }
 
-        switch($this->_resultFormat) {
+        // @todo checking for errors ALWAYS!
+        switch ($this->_resultFormat) {
             case self::FORMAT_RESULT_NATIVE;
-                // @todo checking for errors ALWAYS!
                 $result = $response->getBody();
                 break;
             case self::FORMAT_RESULT_ARRAY:
-                switch($this->_format) {
+                switch ($this->_format) {
                     case self::FORMAT_XML:
                         $result = $this->xmlToArray($response->getBody());
                         break;
@@ -451,7 +446,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
                 }
                 break;
             case self::FORMAT_RESULT_OBJECT:
-                switch($this->_format) {
+                switch ($this->_format) {
                     case self::FORMAT_XML:
                         $result = $this->xmlToObject($response->getBody());
                         break;

@@ -4,6 +4,7 @@ require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'TestHelper.php'
 
 class Robo47_AllTests
 {
+    
     public static function suite()
     {
         $suite = new PHPUnit_Framework_TestSuite('Robo47 Components - Robo47');
@@ -36,10 +37,10 @@ class Robo47_AllTests
         if (TESTS_ROBO47_FORM) {
             $suite->addTest(Robo47_Form_AllTests::suite());
         }
-        if(TESTS_ROBO47_ERROREXCEPTION) {
+        if (TESTS_ROBO47_ERROREXCEPTION) {
             $suite->addTestSuite('Robo47_ErrorExceptionTest');
         }
-        if(TESTS_ROBO47_ERRORHANDLER) {
+        if (TESTS_ROBO47_ERRORHANDLER) {
             $suite->addTestSuite('Robo47_ErrorHandlerTest');
         }
         if (TESTS_ROBO47_CORE) {
@@ -68,10 +69,10 @@ class Robo47_AllTests
         if (TESTS_ROBO47_VIEW) {
             $suite->addTest(Robo47_View_AllTests::suite());
         }
-        if(TESTS_ROBO47_MOCK) {
+        if (TESTS_ROBO47_MOCK) {
             $suite->addTestSuite('Robo47_MockTest');
         }
-        if(TESTS_ROBO47_PAGINATOR) {
+        if (TESTS_ROBO47_PAGINATOR) {
             $suite->addTest(Robo47_Paginator_AllTests::suite());
         }
         return $suite;

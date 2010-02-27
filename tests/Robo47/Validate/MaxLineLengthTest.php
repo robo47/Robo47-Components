@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../../TestHelper.php';
 
 class Robo47_Validate_MaxLineLengthTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_Validate_MaxLineLength::__construct
      */
@@ -36,7 +37,7 @@ class Robo47_Validate_MaxLineLengthTest extends PHPUnit_Framework_TestCase
         $this->assertSame($validator, $return, 'No Fluent Interface');
         $this->assertEquals('iso-8859-1', $validator->getEncoding());
     }
-
+    
     public function validLineLengthProvider()
     {
         $data = array();
@@ -57,12 +58,12 @@ class Robo47_Validate_MaxLineLengthTest extends PHPUnit_Framework_TestCase
         $this->assertSame($validator, $return, 'No Fluent Interface');
         $this->assertEquals($expected, $validator->getLineLength());
     }
-
+    
     public function invalidLineLengthBelowOneProvider()
     {
         $data = array();
         $data[] = array(0);
-        $data[] = array(-1);
+        $data[] = array( - 1);
         $data[] = array('-1');
         $data[] = array('');
         return $data;
@@ -95,14 +96,14 @@ class Robo47_Validate_MaxLineLengthTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($message, $validator->getMessages(), 'Wrong Validation Message');
 
         $text = str_repeat('a', 79) . PHP_EOL .
-                str_repeat('a', 80) . PHP_EOL .
-                str_repeat('a', 81) . PHP_EOL;
+            str_repeat('a', 80) . PHP_EOL .
+            str_repeat('a', 81) . PHP_EOL;
         $validator = new Robo47_Validate_MaxLineLength();
         $validator->isValid($text);
         $message = array(Robo47_Validate_MaxLineLength::LINE_TOO_LONG => 'Line 3 is too long');
         $this->assertEquals($message, $validator->getMessages(), 'Wrong Validation Message');
     }
-
+    
     public function isValidProvider()
     {
         $data = array();
@@ -111,12 +112,12 @@ class Robo47_Validate_MaxLineLengthTest extends PHPUnit_Framework_TestCase
         $data[] = array(str_repeat('ä', 80), true);
         $data[] = array(str_repeat('ä', 81), false);
 
-        $code  = str_repeat('ä', 40) . PHP_EOL;
+        $code = str_repeat('ä', 40) . PHP_EOL;
         $code .= str_repeat('ä', 80) . PHP_EOL;
         $code .= str_repeat('ä', 40) . PHP_EOL;
         $data[] = array($code, true);
 
-        $code  = str_repeat('ä', 81) . PHP_EOL;
+        $code = str_repeat('ä', 81) . PHP_EOL;
         $code .= str_repeat('ä', 81) . PHP_EOL;
         $code .= str_repeat('ä', 81) . PHP_EOL;
         $data[] = array($code, false);

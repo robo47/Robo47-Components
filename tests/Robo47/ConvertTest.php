@@ -4,7 +4,7 @@ require_once dirname(__FILE__) . '/../TestHelper.php';
 
 class Robo47_ConvertTest extends PHPUnit_Framework_TestCase
 {
-
+    
     public function shorthandToBytesProvider()
     {
         $data = array();

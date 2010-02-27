@@ -7,6 +7,7 @@ require_once dirname(__FILE__) . '/../../TestHelper.php';
  */
 class Robo47_Validate_StringContainsTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_Validate_StringContains<extended>
      * @covers Robo47_Validate_StringContains::__construct
@@ -34,7 +35,7 @@ class Robo47_Validate_StringContainsTest extends PHPUnit_Framework_TestCase
         $validate->setContains(array('bla'));
         $this->assertEquals(array('bla'), $validate->getContains());
     }
-
+    
     public function setContainsExceptionProvider()
     {
         $data = array();
@@ -69,13 +70,13 @@ class Robo47_Validate_StringContainsTest extends PHPUnit_Framework_TestCase
     {
         $data = array();
 
-        $data[] = array('foo', 'f',   true);
+        $data[] = array('foo', 'f', true);
         $data[] = array('fo', 'o', true);
-        $data[] = array('foo', 'foo',    true);
-        $data[] = array('foo', 'baa',  false);
-        $data[] = array('foo', 'z',    false);
-        $data[] = array('baafoo', array('blub','bla'),    false);
-        $data[] = array('baafoo', array('foo','bla'),    true);
+        $data[] = array('foo', 'foo', true);
+        $data[] = array('foo', 'baa', false);
+        $data[] = array('foo', 'z', false);
+        $data[] = array('baafoo', array('blub', 'bla'), false);
+        $data[] = array('baafoo', array('foo', 'bla'), true);
 
         return $data;
     }
@@ -89,5 +90,4 @@ class Robo47_Validate_StringContainsTest extends PHPUnit_Framework_TestCase
         $validate = new Robo47_Validate_StringContains($contains);
         $this->assertSame($result, $validate->isValid($string));
     }
-
 }

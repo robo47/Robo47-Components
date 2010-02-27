@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Application_Resource_Cache
  *
@@ -32,21 +32,22 @@
  * @deprecated  Mostly deprecated because of Zend_Cache_Manager
  */
 class Robo47_Application_Resource_Cache
-    extends Zend_Application_Resource_ResourceAbstract
+extends Zend_Application_Resource_ResourceAbstract
 {
+
     /**
      *
      * @var Zend_Cache
      */
     protected $_cache = array();
-
+    
     public function init()
     {
         if (!empty($this->_options)) {
             $this->_cache = $this->_setupCache($this->_options);
         } else {
             $message = 'Empty options in resource ' .
-                       'Robo47_Application_Resource_Cache.';
+                'Robo47_Application_Resource_Cache.';
             throw new Robo47_Application_Resource_Exception($message);
         }
     }

@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_Mail_Transport_LogTest extends PHPUnit_Framework_TestCase
 {
+    
     public function tearDown()
     {
         unset($this->_transport);
@@ -109,7 +110,7 @@ class Robo47_Mail_Transport_LogTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-	* @covers Robo47_Mail_Transport_Log::setFormatter
+     * @covers Robo47_Mail_Transport_Log::setFormatter
      */
     public function testSetFormatterWithInvalidObject()
     {
@@ -118,11 +119,10 @@ class Robo47_Mail_Transport_LogTest extends PHPUnit_Framework_TestCase
         try {
             $transport->setFormatter(new stdClass());
             $this->fail('No Exception thrown');
-        } catch(Robo47_Mail_Transport_Exception $e) {
+        } catch (Robo47_Mail_Transport_Exception $e) {
             $this->assertEquals('formatter is not instance of Robo47_Mail_Transport_Log_Formatter_Interface', $e->getMessage(), 'Wrong Exception message');
         }
     }
-
 
     /**
      * @covers Robo47_Mail_Transport_Log::send
@@ -151,5 +151,5 @@ class Robo47_Mail_Transport_LogTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, count($writer->events), 'Wrong count of events');
         $formatted = $formatter->format($mail);
         $this->assertEquals($formatted, $writer->events[0]['message'], 'Wrong message');
-   }
+    }
 }

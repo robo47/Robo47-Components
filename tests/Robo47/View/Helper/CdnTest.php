@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_View_Helper_CdnTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_View_Helper_Cdn<extended>
      * @covers Robo47_View_Helper_Cdn::__construct

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -13,7 +14,6 @@
  * @copyright  Copyright (c) 2008-2009 Robo47 (http://components.robo47.net/)
  * @license    New BSD {@link http://components.robo47.net/LICENSE}
  */
-
 /**
  * @uses Robo47_Curl_Exception
  * @author     Benjamin Steininger <robo47[at]robo47[dot]net>
@@ -24,4 +24,5 @@
  */
 class Robo47_Curl_Multi_Exception extends Robo47_Curl_Exception
 {
+
 }

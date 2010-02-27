@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Cache_Backend_Array
  *
@@ -30,11 +30,11 @@
  * @copyright   Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
- * @todo        Support Tests
  */
 class Robo47_Cache_Backend_Array extends Zend_Cache_Backend
 implements Zend_Cache_Backend_ExtendedInterface
 {
+
     /**
      * Public array where the entrys are saved for easy access
      *
@@ -124,9 +124,9 @@ implements Zend_Cache_Backend_ExtendedInterface
      * @return boolean true if no problem
      */
     public function clean($mode = Zend_Cache::CLEANING_MODE_ALL,
-                          $tags = array())
+        $tags = array())
     {
-        switch($mode) {
+        switch ($mode) {
             case Zend_Cache::CLEANING_MODE_ALL:
                 $this->data = array();
                 break;
@@ -267,5 +267,4 @@ implements Zend_Cache_Backend_ExtendedInterface
             'get_list' => false
         );
     }
-
 }

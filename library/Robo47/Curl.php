@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -13,7 +14,6 @@
  * @copyright  Copyright (c) 2008-2009 Robo47 (http://components.robo47.net/)
  * @license    New BSD {@link http://components.robo47.net/LICENSE}
  */
-
 /**
  * An object oriented Wrapper for the curl_*-functions
  *
@@ -25,6 +25,7 @@
  */
 class Robo47_Curl
 {
+
     /**
      * Saves all Options set to the Curl instance
      *
@@ -32,14 +33,12 @@ class Robo47_Curl
      * @var array
      */
     protected $_options = array();
-
     /**
      * curl Instance
      *
      * @var Resource
      */
     protected $_curl = null;
-
     /**
      * Content of Document if ReturnTransfer == true
      *

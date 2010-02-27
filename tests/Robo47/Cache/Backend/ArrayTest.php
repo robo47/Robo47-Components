@@ -4,17 +4,17 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 class Robo47_Cache_Backend_ArrayTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @var Robo47_Cache_Backend_Array
      */
     public $_backend = null;
-
+    
     public function setUp()
     {
         $this->_backend = new Robo47_Cache_Backend_Array();
-
     }
-
+    
     public function tearDown()
     {
         unset($this->_backend);
@@ -48,7 +48,6 @@ class Robo47_Cache_Backend_ArrayTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($data, $value, 'Data in cache is wrong');
     }
 
-
     /**
      * @covers Robo47_Cache_Backend_Array::load
      */
@@ -60,7 +59,6 @@ class Robo47_Cache_Backend_ArrayTest extends PHPUnit_Framework_TestCase
 
         $this->assertFalse($data, 'Data in cache should not exist');
     }
-
 
     /**
      * @covers Robo47_Cache_Backend_Array::test
@@ -76,7 +74,6 @@ class Robo47_Cache_Backend_ArrayTest extends PHPUnit_Framework_TestCase
 
         $this->assertTrue($test, 'Data in cache should exist');
     }
-
 
     /**
      * @covers Robo47_Cache_Backend_Array::test
@@ -105,7 +102,6 @@ class Robo47_Cache_Backend_ArrayTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($removed, 'Robo47_Cache_Backend_Array::remove() should return true if it deleted a key successfully');
     }
 
-
     /**
      * @covers Robo47_Cache_Backend_Array::remove
      */
@@ -131,7 +127,7 @@ class Robo47_Cache_Backend_ArrayTest extends PHPUnit_Framework_TestCase
         $this->_backend->clean();
         $this->assertEquals(0, count($this->_backend->data), 'Cleaning the cache did not empty it');
     }
-
+    
     public function unsupportedModesDataProvider()
     {
         $unsupportedModes = array();
@@ -160,7 +156,6 @@ class Robo47_Cache_Backend_ArrayTest extends PHPUnit_Framework_TestCase
         } catch (Robo47_Cache_Backend_Exception $e) {
             $this->assertEquals('Mode ' . $mode . ' not supported', $e->getMessage(), 'Exception message missmatch');
         }
-
     }
 
     /**

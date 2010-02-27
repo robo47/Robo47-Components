@@ -4,17 +4,18 @@ require_once dirname(__FILE__) . '/../../TestHelper.php';
 
 class Robo47_Filter_UrlSchemeTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      *
      * @var Robo47_Filter_UrlScheme
      */
     protected $_filter = null;
-
+    
     public function setUp()
     {
         $this->_filter = new Robo47_Filter_UrlScheme();
     }
-
+    
     public function tearDown()
     {
         $this->_filter = null;
@@ -27,12 +28,12 @@ class Robo47_Filter_UrlSchemeTest extends PHPUnit_Framework_TestCase
     public function testConstructor()
     {
         $filter = new Robo47_Filter_UrlScheme();
-        $this->assertEquals('http',     $filter->getDefaultScheme(), 'default scheme is wrong');
+        $this->assertEquals('http', $filter->getDefaultScheme(), 'default scheme is wrong');
         $schemes = $filter->getSchemes();
-        $this->assertContains('http',   $schemes, 'schemes is missing http');
-        $this->assertContains('https',  $schemes, 'schemes is missing https');
-        $this->assertContains('ftp',    $schemes, 'schemes is missing ftp');
-        $this->assertContains('ftps',   $schemes, 'schemes is missing ftps');
+        $this->assertContains('http', $schemes, 'schemes is missing http');
+        $this->assertContains('https', $schemes, 'schemes is missing https');
+        $this->assertContains('ftp', $schemes, 'schemes is missing ftp');
+        $this->assertContains('ftps', $schemes, 'schemes is missing ftps');
         $this->assertTrue($filter->getTrim(), 'trim is not true by default');
     }
 
@@ -43,9 +44,9 @@ class Robo47_Filter_UrlSchemeTest extends PHPUnit_Framework_TestCase
     public function testConstructorAndSetOptions()
     {
         $options = array('defaultScheme'  => 'baa',
-                         'schemes'        => array('baa', 'foo'),
-                         'trim'           => false,
-                         'foo'            => 'blub');
+            'schemes'        => array('baa', 'foo'),
+            'trim'           => false,
+            'foo'            => 'blub');
 
         $filter = new Robo47_Filter_UrlScheme($options);
         $this->assertEquals('baa', $filter->getDefaultScheme(), 'default scheme is wrong');
@@ -103,37 +104,37 @@ class Robo47_Filter_UrlSchemeTest extends PHPUnit_Framework_TestCase
         $data = array();
 
         // prefix normal strings
-        $data[] = array('foo',          'http://foo');
+        $data[] = array('foo', 'http://foo');
 
         // dont prefix strings with a scheme
-        $data[] = array('http://foo',   'http://foo');
-        $data[] = array('https://foo',  'https://foo');
-        $data[] = array('ftp://foo',    'ftp://foo');
-        $data[] = array('ftps://foo',   'ftps://foo');
+        $data[] = array('http://foo', 'http://foo');
+        $data[] = array('https://foo', 'https://foo');
+        $data[] = array('ftp://foo', 'ftp://foo');
+        $data[] = array('ftps://foo', 'ftps://foo');
 
         // empty keeps empty
-        $data[] = array('','');
+        $data[] = array('', '');
 
         // without trimming
-        $data[] = array(' http://foo',   'http:// http://foo', array('trim' => false));
-        $data[] = array(' https://foo',  'http:// https://foo', array('trim' => false));
-        $data[] = array(' ftp://foo',    'http:// ftp://foo', array('trim' => false));
-        $data[] = array(' ftps://foo',   'http:// ftps://foo', array('trim' => false));
+        $data[] = array(' http://foo', 'http:// http://foo', array('trim' => false));
+        $data[] = array(' https://foo', 'http:// https://foo', array('trim' => false));
+        $data[] = array(' ftp://foo', 'http:// ftp://foo', array('trim' => false));
+        $data[] = array(' ftps://foo', 'http:// ftps://foo', array('trim' => false));
 
         // with trimming
-        $data[] = array(' http://foo',   'http://foo');
-        $data[] = array(' https://foo',  'https://foo');
-        $data[] = array(' ftp://foo',    'ftp://foo');
-        $data[] = array(' ftps://foo',   'ftps://foo');
+        $data[] = array(' http://foo', 'http://foo');
+        $data[] = array(' https://foo', 'https://foo');
+        $data[] = array(' ftp://foo', 'ftp://foo');
+        $data[] = array(' ftps://foo', 'ftps://foo');
 
-        $data[] = array('baa://foo',   'baa://foo', array('defaultScheme' => 'baa',
-                                                          'schemes' => array('baa', 'foo')));
+        $data[] = array('baa://foo', 'baa://foo', array('defaultScheme' => 'baa',
+                'schemes' => array('baa', 'foo')));
 
-        $data[] = array('foo',   'baa://foo', array('defaultScheme' => 'baa',
-                                                    'schemes' => array('baa', 'foo')));
+        $data[] = array('foo', 'baa://foo', array('defaultScheme' => 'baa',
+                'schemes' => array('baa', 'foo')));
 
-        $data[] = array('baa',   'baa://baa', array('defaultScheme' => 'baa',
-                                                    'schemes' => array('baa', 'foo')));
+        $data[] = array('baa', 'baa://baa', array('defaultScheme' => 'baa',
+                'schemes' => array('baa', 'foo')));
 
         return $data;
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Mail_Transport_Log_Formatter_Simple
  *
@@ -31,12 +31,13 @@
 class Robo47_Mail_Transport_Log_Formatter_Simple implements
 Robo47_Mail_Transport_Log_Formatter_Interface
 {
+    
     public function format(Zend_Mail $mail)
     {
         $message = 'Subject: ' . $mail->getSubject() . PHP_EOL;
         $message .= 'To: ' . implode(', ', $mail->getRecipients()) . PHP_EOL;
-        $message .= 'Text: ' . $mail->getBodyText()->getContent() . PHP_EOL . PHP_EOL;
-        $message .= 'Html: ' . $mail->getBodyHtml()->getContent();
+        $message .= 'Text: ' . $mail->getBodyText()->getContent() . PHP_EOL;
+        $message .= PHP_EOL . 'Html: ' . $mail->getBodyHtml()->getContent();
         return $message;
     }
 }

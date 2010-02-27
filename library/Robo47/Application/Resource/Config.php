@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Application_Resource_Config
  *
@@ -31,18 +31,19 @@
 class Robo47_Application_Resource_Config
 extends Zend_Application_Resource_ResourceAbstract
 {
+
     /**
      * @var Zend_Config
      */
     protected  $_config = null;
-
+    
     public function init()
     {
         if (!empty($this->_options)) {
             $this->_config = $this->_setupConfig($this->_options);
         } else {
             $message = 'Empty options in resource ' .
-                       'Robo47_Application_Resource_Config.';
+                'Robo47_Application_Resource_Config.';
             throw new Robo47_Application_Resource_Exception($message);
         }
     }

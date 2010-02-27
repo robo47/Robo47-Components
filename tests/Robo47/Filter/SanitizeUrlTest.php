@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../../TestHelper.php';
 
 class Robo47_Filter_SanitizeUrlTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Robo47_Filter_SanitizeUrl<extended>
      */
@@ -11,7 +12,7 @@ class Robo47_Filter_SanitizeUrlTest extends PHPUnit_Framework_TestCase
     {
         $filter = new Robo47_Filter_SanitizeUrl();
     }
-    
+
     /**
      * @return array
      */

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Robo47 Components
  *
@@ -17,7 +18,6 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
-
 /**
  * Robo47_Application_Resource_HtmlPurifier
  *
@@ -31,20 +31,21 @@
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
 class Robo47_Application_Resource_HtmlPurifier
-    extends Zend_Application_Resource_ResourceAbstract
+extends Zend_Application_Resource_ResourceAbstract
 {
+
     /**
      * @var HTMLPurifier
      */
     protected $_htmlpurifier = null;
-
+    
     public function init()
     {
         if (!empty($this->_options)) {
             $this->_htmlpurifier = $this->_setupHtmlpurifier($this->_options);
         } else {
             $message = 'Empty options in resource ' .
-                       'Robo47_Application_Resource_HtmlPurifier.';
+                'Robo47_Application_Resource_HtmlPurifier.';
             throw new Robo47_Application_Resource_Exception($message);
         }
     }
