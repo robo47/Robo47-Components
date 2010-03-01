@@ -1,0 +1,12 @@
+nbproject
+build
+/tests/tmp/*
+/tests/build/*
+/library/Zend
+/library/ZendX
+/library/ZFDebug
+/library/HTMLPurifier
+/library/HTMLPurifier.php
+/library/Doctrine
+/library/Doctrine.php
+/library/ezc
