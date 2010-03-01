@@ -3,7 +3,7 @@ based Applications.
 
 Versions I use and test those Components with:
 
-Zend Framework 1.10.1
+Zend Framework 1.10.2
 Doctrine 1.2.1
 HTMLPurifier 4.0.0
 ezComponents 2009.1.2
