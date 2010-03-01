@@ -13,16 +13,6 @@
             <directory suffix=".php">../library/Robo47</directory>
         </whitelist>
     </filter>
-    <logging>
-        <log type="coverage-html"
-             target="build/coverage"
-             title="Robo47 Components"
-             charset="UTF-8"
-             yui="true"
-             highlight="true"
-             lowUpperBound="35"
-             highLowerBound="70" />
-    </logging>
     <testsuite name="Robo47 Components Test Suite">
         <file>./AllTests.php</file>
     </testsuite>

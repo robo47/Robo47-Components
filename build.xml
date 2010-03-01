@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Robo47 Components" basedir=".">
+
+    <!-- Remove Trailing Spaces -->
+    <target name="removeTrailingSpaces">
+        <apply executable = "sed">
+            <arg value="s/[ ]*$//" />
+            <arg value="-i" />
+            <fileset dir="library/Robo47">
+                <include name="**/*.php" />
+            </fileset>
+            <fileset dir="tests">
+                <include name="**/*.php" />
+            </fileset>
+        </apply>
+    </target>
+
+    <!-- load properties based on hostname (works only on
+         unix-based systems with hostname-binary! -->
+    <!-- Setup for Hudson Continous Integration Server - mails.blub-blub.net -->
+    <!-- Setup for local development notebook - baafoo -->
+    <target name="loadProperties">
+        <exec executable="hostname" outputproperty="host.name"/>
+        <property file="${basedir}/properties/${host.name}.properties" />
+    </target>
+
+    <target name="buildApiForWebsite">
+        <!-- build api-docs -->
+        <antcall target="doxygen" />
+
+        <!-- delete old api directory -->
+        <delete dir="${basedir}/website/api" failonerror="false" />
+
+        <!-- create new api directory -->
+        <mkdir dir="${basedir}/website/api" />
+        <!-- copy it to website-directory -->
+        <copy todir="${basedir}/website/api/" >
+            <fileset dir="${basedir}/build/api/docs/">
+                <include name="**/*" />
+                <include name="*" />
+            </fileset>
+        </copy>
+
+        <!-- copy changed css-files (green) into doxygen generated api -->
+        <copy todir="${basedir}/website/api/" overwrite="true">
+            <fileset dir="${basedir}/website/.data/">
+                <include name="*.css" />
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- Clean Project -->
+    <target name="clean">
+        <delete dir="${basedir}/build"          failonerror="false" />
+        <delete dir="${basedir}/tests/build"    failonerror="false" />
+        <delete dir="${basedir}/tests/tmp"      failonerror="false" />
+        <delete dir="${basedir}/github"         failonerror="false" />
+        <delete dir="${basedir}/website/api"    failonerror="false" />
+        <antcall target="cleanLibs" />
+    </target>
+
+    <!-- Prepare -->
+    <target name="prepare">
+        <mkdir dir="${basedir}/build/logs"/>
+        <mkdir dir="${basedir}/build/docs"/>
+        <mkdir dir="${basedir}/tests/tmp"/>
+        <antcall target="copyLibs" />
+    </target>
+
+    <!-- Build api-documentation with doxygen-->
+    <target name="doxygen">
+        <mkdir dir="${basedir}/build/api"/>
+        <exec dir="${basedir}"
+            executable="doxygen"
+            failonerror="true">
+        </exec>
+    </target>
+
+    <!-- Removes Libs -->
+    <target name="cleanLibs">
+        <delete dir ="library/Zend"                                 failonerror="false" />
+        <delete dir ="library/Doctrine"                             failonerror="false" />
+        <delete file="library/Doctrine.php"                         failonerror="false" />
+        <delete dir ="library/ezc"                                  failonerror="false" />
+        <delete dir ="library/HTMLPurifier"                         failonerror="false" />
+        <delete file="library/HTMLPurifier.php"                     failonerror="false" />
+    </target>
+
+    <!-- Copies Libs -->
+    <target name="copyLibs" depends="loadProperties, cleanLibs">
+        <copy todir="library/Zend" >
+            <fileset dir="${env.local.libPath}zendframework/${env.local.libVersion.Zend}/library/Zend" />
+        </copy>
+        <copy todir="library/Doctrine" >
+            <fileset dir="${env.local.libPath}doctrine/${env.local.libVersion.Doctrine}/lib/Doctrine" />
+        </copy>
+        <copy file="${env.local.libPath}doctrine/${env.local.libVersion.Doctrine}/lib/Doctrine.php" todir="library/" />
+        <copy todir="library/ezc" >
+            <fileset dir="${env.local.libPath}ezComponents/${env.local.libVersion.ezComponents}/" />
+        </copy>
+        <copy todir="library/HTMLPurifier" >
+            <fileset dir="${env.local.libPath}htmlpurifier/${env.local.libVersion.HTMLPurifier}/library/HTMLPurifier" />
+        </copy>
+        <copy file="${env.local.libPath}htmlpurifier/${env.local.libVersion.HTMLPurifier}/library/HTMLPurifier.php" todir="library/" />
+    </target>
+
+    <!-- Run php lint check on lib and tests -->
+    <target name="phplint">
+        <apply executable   = "php"
+               failonerror  = "true">
+            <arg value="-l" />
+            <fileset dir="library/Robo47">
+                <include name="**/*.php" />
+            </fileset>
+            <fileset dir="tests">
+                <include name="**/*.php" />
+            </fileset>
+        </apply>
+    </target>
+
+    <!-- Run phpcpd -->
+    <target name="phpcpd">
+        <exec dir="${basedir}"
+            executable="phpcpd"
+            failonerror="true">
+            <arg line="--log-pmd &quot;${basedir}/build/logs/pmd.xml&quot; &quot;${basedir}/library/Robo47&quot;"/>
+        </exec>
+    </target>
+
+    <!-- Run PDepend -->
+    <target name="pdepend">
+        <exec dir="${basedir}"
+            executable="pdepend"
+            failonerror="true">
+            <arg line="--jdepend-xml=&quot;${basedir}/build/logs/jdepend.xml&quot; &quot;${basedir}/library/Robo47&quot;"/>
+        </exec>
+    </target>
+
+    <!-- Run PHP_Codesniffer -->
+    <target name="phpcs">
+        <exec dir="${basedir}"
+            executable="phpcs"
+            output="${basedir}/build/logs/checkstyle.xml"
+            failonerror="false">
+            <arg line="--report=checkstyle --standard=robo47 &quot;${basedir}/library/Robo47&quot;"/>
+        </exec>
+    </target>
+
+    <!-- Run PHPUnit -->
+    <target name="phpunit" depends="phplint">
+        <exec dir="${basedir}/tests/"
+            executable="phpunit"
+            failonerror="true">
+            <arg line="--no-configuration
+                       --configuration &quot;${basedir}/tests/phpunit.xml&quot;
+                       --log-junit &quot;${basedir}/build/logs/junit.xml&quot;
+                       --coverage-html &quot;${basedir}/build/logs/coverage/&quot;
+                       --coverage-clover &quot;${basedir}/build/logs/clover.xml&quot;"/>
+        </exec>
+    </target>
+
+    <!-- Build complete Project -->
+    <target name="build" depends="clean, prepare, phpcs, phpcpd, pdepend, phpunit" />
+
+</project>
