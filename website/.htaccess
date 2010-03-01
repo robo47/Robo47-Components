@@ -1,0 +1,3 @@
+Options -Indexes
+RewriteEngine Off
+ErrorDocument 404 /components/404.html
