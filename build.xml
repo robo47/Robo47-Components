@@ -54,16 +54,16 @@
         <delete dir="${basedir}/build"          failonerror="false" />
         <delete dir="${basedir}/tests/build"    failonerror="false" />
         <delete dir="${basedir}/tests/tmp"      failonerror="false" />
-        <delete dir="${basedir}/github"         failonerror="false" />
         <delete dir="${basedir}/website/api"    failonerror="false" />
         <antcall target="cleanLibs" />
     </target>
 
     <!-- Prepare -->
     <target name="prepare">
-        <mkdir dir="${basedir}/build/logs"/>
-        <mkdir dir="${basedir}/build/docs"/>
-        <mkdir dir="${basedir}/tests/tmp"/>
+        <mkdir dir="${basedir}/build/logs" />
+        <mkdir dir="${basedir}/build/docs" />
+        <mkdir dir="${basedir}/build/reports" />
+        <mkdir dir="${basedir}/tests/tmp" />
         <antcall target="copyLibs" />
     </target>
 
@@ -159,7 +159,17 @@
         </exec>
     </target>
 
+    <!-- run PHP_CodeBrowser -->
+    <target name="phpcb">
+        <mkdir dir="${basedir}/build/reports/phpcb" />
+        <exec executable="phpcb" dir="${basedir}/build/reports/phpcb/">
+        <arg line="--log &quot;${basedir}/build/logs/&quot;
+        --source &quot;${basedir}/library/Robo47/&quot;
+        --output &quot;${basedir}/build/reports/phpcb/&quot;" />
+        </exec>
+    </target>
+
     <!-- Build complete Project -->
-    <target name="build" depends="clean, prepare, phpcs, phpcpd, pdepend, phpunit" />
+    <target name="build" depends="clean, prepare, phpcs, phpcpd, pdepend, phpunit, phpcb" />
 
 </project>
