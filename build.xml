@@ -24,6 +24,7 @@
         <property file="${basedir}/properties/${host.name}.properties" />
     </target>
 
+    <!-- Build api-docs with doxygen for website -->
     <target name="buildApiForWebsite">
         <!-- build api-docs -->
         <antcall target="doxygen" />
@@ -31,9 +32,10 @@
         <!-- delete old api directory -->
         <delete dir="${basedir}/website/api" failonerror="false" />
 
-        <!-- create new api directory -->
+        <!-- Create new api directory -->
         <mkdir dir="${basedir}/website/api" />
-        <!-- copy it to website-directory -->
+
+        <!-- Copy it to website-directory -->
         <copy todir="${basedir}/website/api/" >
             <fileset dir="${basedir}/build/api/docs/">
                 <include name="**/*" />
@@ -41,7 +43,7 @@
             </fileset>
         </copy>
 
-        <!-- copy changed css-files (green) into doxygen generated api -->
+        <!-- Copy changed css-files (green) into doxygen generated api -->
         <copy todir="${basedir}/website/api/" overwrite="true">
             <fileset dir="${basedir}/website/.data/">
                 <include name="*.css" />
@@ -159,7 +161,7 @@
         </exec>
     </target>
 
-    <!-- run PHP_CodeBrowser -->
+    <!-- Run PHP_CodeBrowser -->
     <target name="phpcb">
         <mkdir dir="${basedir}/build/reports/phpcb" />
         <exec executable="phpcb" dir="${basedir}/build/reports/phpcb/">
@@ -169,7 +171,18 @@
         </exec>
     </target>
 
+    <!-- Run Sloccount -->
+    <target name="sloccount">
+        <mkdir dir="${basedir}/build/logs/sloccount/" />
+        <exec executable="sloccount"
+              dir="${basedir}"
+              output="${basedir}/build/logs/sloccount.sc"
+              failonerror="true">
+            <arg line="--duplicates --wide --details --addlangall --datadir &quot;${basedir}/build/logs/sloccount/&quot; &quot;${basedir}/library/Robo47/&quot;"/>
+        </exec>
+    </target>
+
     <!-- Build complete Project -->
-    <target name="build" depends="clean, prepare, phpcs, phpcpd, pdepend, phpunit, phpcb" />
+    <target name="build" depends="clean, prepare, phpcs, phpcpd, pdepend, sloccount, phpunit, phpcb" />
 
 </project>
