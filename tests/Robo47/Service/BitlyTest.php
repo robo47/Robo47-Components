@@ -2,6 +2,10 @@
 
 require_once dirname(__FILE__) . '/../../TestHelper.php';
 
+/**
+ * @group Robo47_Service
+ * @group Robo47_Service_Bitly
+ */
 class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
 {
 

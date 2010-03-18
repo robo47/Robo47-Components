@@ -1,6 +1,11 @@
 <?php
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
+/**
+ * @group Robo47_Log
+ * @group Robo47_Log_Writer
+ * @group Robo47_Log_Writer_Mock
+ */
 class Robo47_Log_Writer_MockTest extends PHPUnit_Framework_TestCase
 {
 

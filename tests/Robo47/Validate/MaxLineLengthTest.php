@@ -2,6 +2,10 @@
 
 require_once dirname(__FILE__) . '/../../TestHelper.php';
 
+/**
+ * @group Robo47_Validate
+ * @group Robo47_Validate_MaxLineLength
+ */
 class Robo47_Validate_MaxLineLengthTest extends PHPUnit_Framework_TestCase
 {
 

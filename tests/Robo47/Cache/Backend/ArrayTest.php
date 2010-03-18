@@ -2,6 +2,11 @@
 
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
+/**
+ * @group Robo47_Cache
+ * @group Robo47_Cache_Backend
+ * @group Robo47_Cache_Backend_Array
+ */
 class Robo47_Cache_Backend_ArrayTest extends PHPUnit_Framework_TestCase
 {
 

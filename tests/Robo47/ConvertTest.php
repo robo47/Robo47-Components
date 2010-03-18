@@ -2,6 +2,9 @@
 
 require_once dirname(__FILE__) . '/../TestHelper.php';
 
+/**
+ * @group Robo47_Convert
+ */
 class Robo47_ConvertTest extends PHPUnit_Framework_TestCase
 {
     

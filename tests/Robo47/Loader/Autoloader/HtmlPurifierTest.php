@@ -8,6 +8,10 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
  * by other tests
  *
  * @runTestsInSeparateProcesses
+ *
+ * @group Robo47_Loader
+ * @group Robo47_Loader_Autoloader
+ * @group Robo47_Loader_Autoloader_HtmlPurifier
  */
 class Robo47_Loader_Autoloader_HtmlPurifierTest extends PHPUnit_Framework_TestCase
 {

@@ -9,9 +9,8 @@ class Robo47_Auth_AllTests
     {
         $suite = new PHPUnit_Framework_TestSuite('Robo47 Components - Robo47_Auth');
 
-        if (TESTS_ROBO47_AUTH_ADAPTER_ARRAY) {
-            $suite->addTestSuite('Robo47_Auth_Adapter_ArrayTest');
-        }
+        $suite->addTestSuite('Robo47_Auth_Adapter_ArrayTest');
+        
         return $suite;
     }
 }

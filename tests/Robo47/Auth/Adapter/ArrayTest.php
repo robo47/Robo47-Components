@@ -1,6 +1,11 @@
 <?php
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
+/**
+ * @group Robo47_Auth
+ * @group Robo47_Auth_Adapter
+ * @group Robo47_Auth_Adapter_Array
+ */
 class Robo47_Auth_Adapter_ArrayTest extends PHPUnit_Framework_TestCase
 {
 

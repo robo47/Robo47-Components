@@ -2,6 +2,11 @@
 
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
+/**
+ * @group Robo47_Paginator
+ * @group Robo47_Paginator_Adapter
+ * @group Robo47_Paginator_Adapter_DoctrineTable
+ */
 class Robo47_Paginator_Adapter_DoctrineTableTest extends Robo47_Paginator_Adapter_DoctrineTestCase
 {
 

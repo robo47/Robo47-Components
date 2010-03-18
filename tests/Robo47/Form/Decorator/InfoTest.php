@@ -2,6 +2,11 @@
 
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
+/**
+ * @group Robo47_Form
+ * @group Robo47_Form_Decorator
+ * @group Robo47_Form_Decorator_Info
+ */
 class Robo47_Form_Decorator_InfoTest extends PHPUnit_Framework_TestCase
 {
 

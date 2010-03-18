@@ -1,6 +1,12 @@
 <?php
 require_once dirname(__FILE__) . '/../../../../TestHelper.php';
 
+/**
+ * @group Robo47_Controller
+ * @group Robo47_Controller_Action
+ * @group Robo47_Controller_Action_Helper
+ * @group Robo47_Controller_Action_Helper_Url
+ */
 class Robo47_Controller_Action_Helper_UrlTest extends PHPUnit_Framework_TestCase
 {
 

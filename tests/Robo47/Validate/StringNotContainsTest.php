@@ -5,6 +5,10 @@ require_once dirname(__FILE__) . '/../../TestHelper.php';
 /**
  * @todo test validation-messages
  */
+/**
+ * @group Robo47_Validate
+ * @group Robo47_Validate_StringNotContains
+ */
 class Robo47_Validate_StringNotContainsTest extends PHPUnit_Framework_TestCase
 {
 

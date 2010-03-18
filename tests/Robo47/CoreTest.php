@@ -2,6 +2,9 @@
 
 require_once dirname(__FILE__) . '/../TestHelper.php';
 
+/**
+ * @group Robo47_Core
+ */
 class Robo47_CoreTest extends PHPUnit_Framework_TestCase
 {
 

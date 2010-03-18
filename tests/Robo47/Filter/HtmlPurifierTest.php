@@ -2,6 +2,10 @@
 
 require_once dirname(__FILE__) . '/../../TestHelper.php';
 
+/**
+ * @group Robo47_Filter
+ * @group Robo47_Filter_HtmlPurifier
+ */
 class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
 {
     

@@ -7,6 +7,9 @@ function dummyErrorHandler($errno, $errstr, $errfile, $errline)
     throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 }
 
+/**
+ * @group Robo47_ErrorHandler
+ */
 class Robo47_ErrorHandlerTest extends PHPUnit_Framework_TestCase
 {
     

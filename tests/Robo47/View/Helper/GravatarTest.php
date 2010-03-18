@@ -2,6 +2,11 @@
 
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
+/**
+ * @group Robo47_View
+ * @group Robo47_View_Helper
+ * @group Robo47_View_Helper_Gravatar
+ */
 class Robo47_View_Helper_GravatarTest extends PHPUnit_Framework_TestCase
 {
     

@@ -2,6 +2,11 @@
 
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
+/**
+ * @group Robo47_Form
+ * @group Robo47_Form_Element
+ * @group Robo47_Form_Element_Ckeditor
+ */
 class Robo47_Form_Element_CkeditorTest extends PHPUnit_Framework_TestCase
 {
 

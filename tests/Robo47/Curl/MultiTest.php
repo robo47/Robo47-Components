@@ -1,6 +1,10 @@
 <?php
 require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . '../TestHelper.php';
 
+/**
+ * @group Robo47_Curl
+ * @group Robo47_Curl_Mutli
+ */
 class Robo47_Curl_MultiTest extends PHPUnit_Framework_TestCase
 {
 

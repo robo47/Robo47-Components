@@ -2,6 +2,9 @@
 
 require_once dirname(__FILE__) . '/../TestHelper.php';
 
+/**
+ * @group Robo47_Exception
+ */
 class Robo47_ExceptionTest extends PHPUnit_Framework_TestCase
 {
 

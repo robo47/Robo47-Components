@@ -3,6 +3,11 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 require_once TESTS_PATH . 'Robo47/_files/DoctrineTestCase.php';
 
+/**
+ * @group Robo47_Log
+ * @group Robo47_Log_Writer
+ * @group Robo47_Log_Writer_DoctrineTable
+ */
 class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
 {
 

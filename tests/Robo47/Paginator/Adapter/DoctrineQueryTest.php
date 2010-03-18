@@ -10,6 +10,11 @@ class My_StringHydrator extends Doctrine_Hydrator_Abstract
     }
 }
 
+/**
+ * @group Robo47_Paginator
+ * @group Robo47_Paginator_Adapter
+ * @group Robo47_Paginator_Adapter_DoctrineQuery
+ */
 class Robo47_Paginator_Adapter_DoctrineQueryTest extends Robo47_Paginator_Adapter_DoctrineTestCase
 {
 

@@ -4,6 +4,10 @@ require_once dirname(__FILE__) . '/../../../../TestHelper.php';
 
 /**
  * @todo test with only module, only controller, only action and without all of them
+ * @group Robo47_Application
+ * @group Robo47_Application_Resource
+ * @group Robo47_Application_Resource_Plugin
+ * @group Robo47_Application_Resource_Plugin_ErrorHandler
  */
 class Robo47_Application_Resource_Plugin_ErrorHandlerTest extends PHPUnit_Framework_TestCase
 {

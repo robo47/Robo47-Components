@@ -2,6 +2,11 @@
 
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
+/**
+ * @group Robo47_View
+ * @group Robo47_View_Helper
+ * @group Robo47_View_Helper_Globals
+ */
 class Robo47_View_Helper_GlobalsTest extends PHPUnit_Framework_TestCase
 {
 

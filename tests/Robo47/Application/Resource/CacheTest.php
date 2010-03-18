@@ -3,6 +3,11 @@
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 // @todo test frontend/backend-options -> how ?
+/**
+ * @group Robo47_Application
+ * @group Robo47_Application_Resource
+ * @group Robo47_Application_Resource_Cache
+ */
 class Robo47_Application_Resource_CacheTest extends PHPUnit_Framework_TestCase
 {
     

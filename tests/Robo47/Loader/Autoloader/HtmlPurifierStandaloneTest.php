@@ -7,6 +7,10 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
  * conflictions with normale htmlpurifier-loader
  *
  * @runTestsInSeparateProcesses
+ *
+ * @group Robo47_Loader
+ * @group Robo47_Loader_Autoloader
+ * @group Robo47_Loader_Autoloader_HtmlPurifierStandalone
  */
 class Robo47_Loader_Autoloader_HtmlPurifierStandaloneTest extends PHPUnit_Framework_TestCase
 {

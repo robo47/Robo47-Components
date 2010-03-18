@@ -4,6 +4,7 @@ require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'TestHelper.php'
 /**
  * @todo any kind of url-stream-mock-extension
  * @todo test getHeaders, getError, getErrno, exec, getInfoArray, getInfo
+ * @group Robo47_Curl
  */
 class Robo47_CurlTest extends PHPUnit_Framework_TestCase
 {

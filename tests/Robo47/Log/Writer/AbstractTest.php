@@ -5,6 +5,11 @@ require_once dirname(__FILE__) . '/../../../TestHelper.php';
 /**
  * @todo test with multiple filters
  */
+/**
+ * @group Robo47_Log
+ * @group Robo47_Log_Writer
+ * @group Robo47_Log_Writer_Abstract
+ */
 class Robo47_Log_Writer_AbstractTest extends PHPUnit_Framework_TestCase
 {
 

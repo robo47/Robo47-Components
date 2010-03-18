@@ -1,6 +1,11 @@
 <?php
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
+/**
+ * @group Robo47_Controller
+ * @group Robo47_Controller_Plugin
+ * @group Robo47_Controller_Plugin_Title
+ */
 class Robo47_Controller_Plugin_TitleTest extends PHPUnit_Framework_TestCase
 {
     

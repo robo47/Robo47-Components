@@ -1,6 +1,11 @@
 <?php
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
+/**
+ * @group Robo47_Log
+ * @group Robo47_Log_Filter
+ * @group Robo47_Log_Filter_ValidateProxy
+ */
 class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
 {
 

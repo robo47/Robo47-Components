@@ -10,6 +10,11 @@ function dummyApplicationErrorHandler($errno, $errstr, $errfile, $errline)
 /**
  * @todo test without registerAsErrorHandler, without Log ...
  */
+/**
+ * @group Robo47_Application
+ * @group Robo47_Application_Resource
+ * @group Robo47_Application_Resource_ErrorHandler
+ */
 class Robo47_Application_Resource_ErrorHandlerTest extends PHPUnit_Framework_TestCase
 {
     

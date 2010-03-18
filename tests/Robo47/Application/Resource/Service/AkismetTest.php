@@ -2,6 +2,12 @@
 
 require_once dirname(__FILE__) . '/../../../../TestHelper.php';
 
+/**
+ * @group Robo47_Application
+ * @group Robo47_Application_Resource
+ * @group Robo47_Application_Resource_Service
+ * @group Robo47_Application_Resource_Service_Akismet
+ */
 class Robo47_Application_Resource_Service_AkismetTest extends PHPUnit_Framework_TestCase
 {
     

@@ -28,7 +28,11 @@ class MyStaticTestContainer
         self::$something = false;
     }
 }
-
+/**
+ * @group Robo47_Application
+ * @group Robo47_Application_Resource
+ * @group Robo47_Application_Resource_Object
+ */
 class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
 {
     

@@ -2,6 +2,10 @@
 
 require_once dirname(__FILE__) . '/../../TestHelper.php';
 
+/**
+ * @group Robo47_Filter
+ * @group Robo47_Filter_SanitizeUrl
+ */
 class Robo47_Filter_SanitizeUrlTest extends PHPUnit_Framework_TestCase
 {
 

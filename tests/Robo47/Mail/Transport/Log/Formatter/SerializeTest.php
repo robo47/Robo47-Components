@@ -2,6 +2,13 @@
 
 require_once dirname(__FILE__) . '/../../../../../TestHelper.php';
 
+/**
+ * @group Robo47_Mail
+ * @group Robo47_Mail_Transport
+ * @group Robo47_Mail_Transport_Log
+ * @group Robo47_Mail_Transport_Log_Formatter
+ * @group Robo47_Mail_Transport_Log_Formatter_Serialize
+ */
 class Robo47_Mail_Transport_Log_Formatter_SerializeTest extends PHPUnit_Framework_TestCase
 {
     

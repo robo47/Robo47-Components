@@ -27,6 +27,11 @@ extends Robo47_Validate_Doctrine_Abstract
     }
 }
 
+/**
+ * @group Robo47_Validate
+ * @group Robo47_Validate_Doctrine
+ * @group Robo47_Validate_Doctrine_Abstract
+ */
 class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
 {
     

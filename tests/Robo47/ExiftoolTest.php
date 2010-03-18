@@ -2,6 +2,9 @@
 
 require_once dirname(__FILE__) . '/../TestHelper.php';
 
+/**
+ * @group Robo47_Exiftool
+ */
 class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
 {
     

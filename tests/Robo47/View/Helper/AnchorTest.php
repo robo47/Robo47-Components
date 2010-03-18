@@ -1,6 +1,11 @@
 <?php
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
+/**
+ * @group Robo47_View
+ * @group Robo47_View_Helper
+ * @group Robo47_View_Helper_Anchor
+ */
 class Robo47_View_Helper_AnchorTest extends PHPUnit_Framework_TestCase
 {
 
