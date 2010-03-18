@@ -89,10 +89,18 @@ implements Zend_Paginator_Adapter_Interface
      */
     public function getItems($offset, $itemCountPerPage)
     {
-        return $this->_query
+        $data = $this->_query
             ->limit($itemCountPerPage)
             ->offset($offset)
-            ->execute()
-            ->getData();
+            ->execute();
+        if ($data instanceof Doctrine_Collection) {
+            return $data->getData();
+        } elseif(is_array($data)) {
+            return $data;
+        } else {
+            $message = 'Unexpected datatype for getItems(): ' .
+                        Robo47_Core::getType($data);
+            throw new Robo47_Paginator_Adapter_Exception($message);
+        }
     }
 }
