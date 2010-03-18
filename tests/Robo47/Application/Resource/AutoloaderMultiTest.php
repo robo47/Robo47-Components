@@ -30,7 +30,7 @@ class Robo47_Application_Resource_AutoloaderMultiTest extends PHPUnit_Framework_
     {
         $options = array(
             'htmlpurifier' => array(
-                'classname' => 'Robo47_Loader_Autoloader_HTMLPurifier',
+                'classname' => 'Robo47_Loader_Autoloader_HtmlPurifier',
                 'prefix'    => 'htmlpurifier',
             ),
             'ezc' => array(
@@ -50,9 +50,9 @@ class Robo47_Application_Resource_AutoloaderMultiTest extends PHPUnit_Framework_
         $this->assertType('Robo47_Loader_Autoloader_Ezc', $ezc[0]);
 
         $htmlpurifier = $autoLoader->getNamespaceAutoloaders('htmlpurifier');
-        $this->assertType('Robo47_Loader_Autoloader_HTMLPurifier', $htmlpurifier[0]);
+        $this->assertType('Robo47_Loader_Autoloader_HtmlPurifier', $htmlpurifier[0]);
 
-        $this->assertType('Robo47_Loader_Autoloader_HTMLPurifier', $resource->getAutoloader('htmlpurifier'));
+        $this->assertType('Robo47_Loader_Autoloader_HtmlPurifier', $resource->getAutoloader('htmlpurifier'));
         $this->assertType('Robo47_Loader_Autoloader_Ezc', $resource->getAutoloader('ezc'));
 
         $this->assertEquals(2, count($resource->getAutoloaders()));

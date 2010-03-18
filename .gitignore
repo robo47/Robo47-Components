@@ -7,6 +7,8 @@ build
 /library/ZFDebug
 /library/HTMLPurifier
 /library/HTMLPurifier.php
+/library/standalone
+/library/HTMLPurifier.standalone.php
 /library/Doctrine
 /library/Doctrine.php
 /library/ezc

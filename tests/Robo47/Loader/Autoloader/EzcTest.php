@@ -2,6 +2,12 @@
 
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
+/**
+ * Needs to run in seperate processes because of classes loaded
+ * by other tests
+ *
+ * @runTestsInSeparateProcesses
+ */
 class Robo47_Loader_Autoloader_EzcTest extends PHPUnit_Framework_TestCase
 {
     

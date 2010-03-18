@@ -13,7 +13,10 @@ class Robo47_Loader_AllTests
             $suite->addTestSuite('Robo47_Loader_Autoloader_EzcTest');
         }
         if (TESTS_ROBO47_LOADER_AUTOLOADER_HTMLPURIFIER) {
-            $suite->addTestSuite('Robo47_Loader_Autoloader_HTMLPurifierTest');
+            $suite->addTestSuite('Robo47_Loader_Autoloader_HtmlPurifierTest');
+        }
+        if (TESTS_ROBO47_LOADER_AUTOLOADER_HTMLPURIFIERSTANDALONE) {
+            $suite->addTestSuite('Robo47_Loader_Autoloader_HtmlPurifierStandaloneTest');
         }
 
         return $suite;

@@ -85,7 +85,7 @@ class Robo47_Application_Resource_AutoloaderTest extends PHPUnit_Framework_TestC
     public function testInitWithoutPrefix()
     {
         $options = array(
-            'classname' => 'Robo47_Loader_Autoloader_HTMLPurifier',
+            'classname' => 'Robo47_Loader_Autoloader_HtmlPurifier',
         );
 
         $resource = new Robo47_Application_Resource_Autoloader($options);

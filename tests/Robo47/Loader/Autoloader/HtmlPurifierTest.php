@@ -2,7 +2,14 @@
 
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
-class Robo47_Loader_Autoloader_HTMLPurifierTest extends PHPUnit_Framework_TestCase
+/**
+ * Needs to run in seperate processes because of possible class-name
+ * conflictions with standalone htmlpurifier-loader and classes loaded
+ * by other tests
+ *
+ * @runTestsInSeparateProcesses
+ */
+class Robo47_Loader_Autoloader_HtmlPurifierTest extends PHPUnit_Framework_TestCase
 {
     
     public function setUp()
@@ -24,8 +31,8 @@ class Robo47_Loader_Autoloader_HTMLPurifierTest extends PHPUnit_Framework_TestCa
     }
 
     /**
-     * @covers Robo47_Loader_Autoloader_HTMLPurifier<extended>
-     * @covers Robo47_Loader_Autoloader_HTMLPurifier::__construct
+     * @covers Robo47_Loader_Autoloader_HtmlPurifier<extended>
+     * @covers Robo47_Loader_Autoloader_HtmlPurifier::__construct
      */
     public function testConstruct()
     {
@@ -35,7 +42,7 @@ class Robo47_Loader_Autoloader_HTMLPurifierTest extends PHPUnit_Framework_TestCa
     }
 
     /**
-     * @covers Robo47_Loader_Autoloader_HTMLPurifier::autoload
+     * @covers Robo47_Loader_Autoloader_HtmlPurifier::autoload
      */
     public function testAutoload()
     {

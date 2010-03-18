@@ -86,6 +86,8 @@
         <delete dir ="library/ezc"                                  failonerror="false" />
         <delete dir ="library/HTMLPurifier"                         failonerror="false" />
         <delete file="library/HTMLPurifier.php"                     failonerror="false" />
+        <delete dir ="library/standalone"                         failonerror="false" />
+        <delete file="library/HTMLPurifier.standalone.php"                     failonerror="false" />
     </target>
 
     <!-- Copies Libs -->
@@ -93,17 +95,26 @@
         <copy todir="library/Zend" >
             <fileset dir="${env.local.libPath}zendframework/${env.local.libVersion.Zend}/library/Zend" />
         </copy>
+
         <copy todir="library/Doctrine" >
             <fileset dir="${env.local.libPath}doctrine/${env.local.libVersion.Doctrine}/lib/Doctrine" />
         </copy>
         <copy file="${env.local.libPath}doctrine/${env.local.libVersion.Doctrine}/lib/Doctrine.php" todir="library/" />
+        
         <copy todir="library/ezc" >
             <fileset dir="${env.local.libPath}ezComponents/${env.local.libVersion.ezComponents}/" />
         </copy>
+
         <copy todir="library/HTMLPurifier" >
             <fileset dir="${env.local.libPath}htmlpurifier/${env.local.libVersion.HTMLPurifier}/library/HTMLPurifier" />
         </copy>
         <copy file="${env.local.libPath}htmlpurifier/${env.local.libVersion.HTMLPurifier}/library/HTMLPurifier.php" todir="library/" />
+
+        <copy todir="library/standalone" >
+            <fileset dir="${env.local.libPath}htmlpurifier/${env.local.libVersion.HTMLPurifier}standalone/library/standalone" />
+        </copy>
+        <copy file="${env.local.libPath}htmlpurifier/${env.local.libVersion.HTMLPurifier}standalone/library/HTMLPurifier.standalone.php" todir="library/" />
+
     </target>
 
     <!-- Run php lint check on lib and tests -->
