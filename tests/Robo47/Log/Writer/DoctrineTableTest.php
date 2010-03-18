@@ -32,68 +32,13 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
      * @var Robo47_Log_Writer_DoctrineTable
      */
     protected $_writer = null;
-    
+
     public function setUp()
     {
-        $this->_tablesToCreate['testLog'] = array(
-            'id' => array (
-                'type' => 'integer',
-                'unsigned' => 1,
-                'primary' => true,
-                'autoincrement' => true,
-                'length' => '8',
-            ),
-            'message' => array(
-                'type' => 'string',
-                'notnull' => true,
-                'length' => '2147483647',
-            ),
-            'category' => array (
-                'type' => 'string',
-                'notnull' => true,
-                'length' => '255',
-            ),
-            'timestamp' => array (
-                'type' => 'string',
-                'notnull' => true,
-                'length' => '255',
-            ),
-            'priority' => array (
-                'type' => 'integer',
-                'unsigned' => 1,
-                'length' => '8',
-        ));
-
-        $this->_tablesToCreate['testLog2'] = array(
-            'id' => array (
-                'type' => 'integer',
-                'unsigned' => 1,
-                'primary' => true,
-                'autoincrement' => true,
-                'length' => '8',
-            ),
-            'foo' => array(
-                'type' => 'string',
-                'notnull' => true,
-                'length' => '2147483647',
-            ),
-            'baa' => array (
-                'type' => 'string',
-                'notnull' => true,
-                'length' => '255',
-            ),
-            'baafoo' => array (
-                'type' => 'string',
-                'notnull' => true,
-                'length' => '255',
-            ),
-            'blub' => array (
-                'type' => 'integer',
-                'unsigned' => 1,
-                'length' => '8',
-        ));
-
         parent::setUp();
+        $this->setupTableForRecord('Robo47_Log_Writer_Doctrine_Test_Log');
+        $this->setupTableForRecord('Robo47_Log_Writer_Doctrine_Test_Log2');
+
         $this->_model = new Robo47_Log_Writer_Doctrine_Test_Log();
         $this->_table = $this->_model->getTable();
 
@@ -102,7 +47,7 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
 
         $this->_writer = new Robo47_Log_Writer_DoctrineTable($this->_table, array());
     }
-    
+
     public function tearDown()
     {
         parent::tearDown();

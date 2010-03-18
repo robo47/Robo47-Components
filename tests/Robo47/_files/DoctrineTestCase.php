@@ -17,10 +17,6 @@ class Robo47_DoctrineTestCase extends PHPUnit_Framework_TestCase
      * @var Doctrine_Connection
      */
     protected $_doctrineConnection = null;
-    /**
-     * @var array
-     */
-    protected $_tablesToCreate = array();
     
     public function setUp()
     {
@@ -30,10 +26,17 @@ class Robo47_DoctrineTestCase extends PHPUnit_Framework_TestCase
         );
 
         $this->_doctrineConnection = $connection;
+    }
 
-        foreach ($this->_tablesToCreate as $table => $definition) {
-            $connection->export->createTable($table, $definition);
-        }
+    public function setupTableForRecord($recordName)
+    {
+        $record = new $recordName;
+        /* @var $record Doctrine_Record */
+        $table = $record->getTable();
+        $this->_doctrineConnection->export->createTable(
+            $table->getTablename(),
+            $table->getColumns()
+        );
     }
     
     public function tearDown()

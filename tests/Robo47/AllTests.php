@@ -19,6 +19,7 @@ class Robo47_AllTests
         $suite->addTestSuite('Robo47_ConvertTest');
         $suite->addTestSuite('Robo47_CurlTest');
         $suite->addTest(Robo47_Curl_AllTests::suite());
+        $suite->addTest(Robo47_Doctrine_AllTests::suite());
         $suite->addTestSuite('Robo47_ExceptionTest');
         $suite->addTestSuite('Robo47_ExiftoolTest');
         $suite->addTestSuite('Robo47_ErrorExceptionTest');
