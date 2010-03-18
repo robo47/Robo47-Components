@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/../../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../../TestHelper.php';
 
 /**
  * @group Robo47_Controller
@@ -49,7 +49,7 @@ class Robo47_Controller_Action_Helper_UrlTest extends PHPUnit_Framework_TestCase
                 'user',
                 new Zend_Controller_Router_Route('blub/:username',
                 array('controller' => 'user',
-                    'action'     => 'info'))
+                    'action' => 'info'))
         );
 
         $router2 = clone $router;
@@ -57,7 +57,7 @@ class Robo47_Controller_Action_Helper_UrlTest extends PHPUnit_Framework_TestCase
                 'user',
                 new Zend_Controller_Router_Route('user/:username',
                 array('controller' => 'user',
-                    'action'     => 'info'))
+                    'action' => 'info'))
         );
         $urlHelper = new Robo47_Controller_Action_Helper_Url($router2);
         $url = $urlHelper->url(array('username' => 'foo'), 'user');

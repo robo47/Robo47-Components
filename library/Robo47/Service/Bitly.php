@@ -30,7 +30,6 @@
  */
 class Robo47_Service_Bitly extends Zend_Service_Abstract
 {
-
     /**
      * API URL
      */

@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../TestHelper.php';
 
 /**
  * @group Robo47_Service
@@ -498,9 +498,9 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
     public function testGetUriWithSSL()
     {
         $options = array(
-            'default'   => 'http://www.example.com/foo.jpg',
-            'rating'    =>  Robo47_Service_Gravatar::RATING_X,
-            'size'      => 200,
+            'default' => 'http://www.example.com/foo.jpg',
+            'rating' => Robo47_Service_Gravatar::RATING_X,
+            'size' => 200,
         );
         $service = new Robo47_Service_Gravatar($options);
 
@@ -535,9 +535,9 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
     public function testGetUriWithoutSSL()
     {
         $options = array(
-            'default'   => 'http://www.example.com/foo.jpg',
-            'rating'    => Robo47_Service_Gravatar::RATING_X,
-            'size'      => 200,
+            'default' => 'http://www.example.com/foo.jpg',
+            'rating' => Robo47_Service_Gravatar::RATING_X,
+            'size' => 200,
         );
         $service = new Robo47_Service_Gravatar($options);
 

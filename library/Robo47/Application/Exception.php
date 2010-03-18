@@ -30,4 +30,5 @@
  */
 class Robo47_Application_Exception extends Robo47_Exception
 {
+
 }

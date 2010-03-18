@@ -48,9 +48,9 @@ class Robo47_Mail_Transport_MockSimple extends Zend_Mail_Transport_Abstract
     public function _sendMail()
     {
         $this->mails[] = array(
-            'mail'       => $this->_mail,
-            'subject'    => $this->_mail->getSubject(),
-            'from'       => $this->_mail->getFrom(),
+            'mail' => $this->_mail,
+            'subject' => $this->_mail->getSubject(),
+            'from' => $this->_mail->getFrom(),
             'recipients' => $this->_mail->getRecipients(),
         );
         $this->count++;

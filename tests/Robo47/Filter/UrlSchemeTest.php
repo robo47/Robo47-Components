@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../TestHelper.php';
 
 /**
  * @group Robo47_Filter
@@ -47,10 +47,10 @@ class Robo47_Filter_UrlSchemeTest extends PHPUnit_Framework_TestCase
      */
     public function testConstructorAndSetOptions()
     {
-        $options = array('defaultScheme'  => 'baa',
-            'schemes'        => array('baa', 'foo'),
-            'trim'           => false,
-            'foo'            => 'blub');
+        $options = array('defaultScheme' => 'baa',
+            'schemes' => array('baa', 'foo'),
+            'trim' => false,
+            'foo' => 'blub');
 
         $filter = new Robo47_Filter_UrlScheme($options);
         $this->assertEquals('baa', $filter->getDefaultScheme(), 'default scheme is wrong');

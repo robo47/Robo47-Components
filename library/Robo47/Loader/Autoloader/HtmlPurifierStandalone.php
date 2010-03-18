@@ -33,6 +33,7 @@
 class Robo47_Loader_Autoloader_HtmlPurifierStandalone
 implements Zend_Loader_Autoloader_Interface
 {
+
     /**
      * @var boolean
      */

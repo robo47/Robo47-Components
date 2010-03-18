@@ -140,7 +140,7 @@ class Robo47_Filter_UrlScheme implements Zend_Filter_Interface
      */
     public function setTrim($flag = true)
     {
-        $this->_trim = (bool)$flag;
+        $this->_trim = (bool) $flag;
         return $this;
     }
 

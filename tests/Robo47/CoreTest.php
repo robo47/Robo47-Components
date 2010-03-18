@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../TestHelper.php';
 
 /**
  * @group Robo47_Core
@@ -28,7 +28,7 @@ class Robo47_CoreTest extends PHPUnit_Framework_TestCase
         $data[] = array(array(), 'array');
         $data[] = array(new stdClass(), 'stdClass');
         $data[] = array(null, 'null');
-        $data[] = array(opendir(dirname(__FILE__)), 'resource');
+        $data[] = array(opendir(dirname(__FILE__ )), 'resource');
 
         return $data;
     }

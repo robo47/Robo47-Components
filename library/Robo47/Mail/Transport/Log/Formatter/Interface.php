@@ -30,6 +30,7 @@
  */
 interface Robo47_Mail_Transport_Log_Formatter_Interface
 {
+
     /**
      * Format
      *
@@ -39,4 +40,5 @@ interface Robo47_Mail_Transport_Log_Formatter_Interface
      * @return string
      */
     public function format(Zend_Mail $mail);
+
 }

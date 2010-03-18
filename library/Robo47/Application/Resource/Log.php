@@ -37,7 +37,7 @@ extends Zend_Application_Resource_ResourceAbstract
     /**
      * @var Robo47_Log
      */
-    protected  $_log = null;
+    protected $_log = null;
     
     public function init()
     {

@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../TestHelper.php';
 
 function dummyErrorHandler($errno, $errstr, $errfile, $errline)
 {
@@ -75,8 +75,8 @@ class Robo47_ErrorHandlerTest extends PHPUnit_Framework_TestCase
     {
         $errorHandler = new Robo47_ErrorHandler();
         $mapping = array(
-            E_WARNING   => 3,
-            E_ERROR     => 5,
+            E_WARNING => 3,
+            E_ERROR => 5,
         );
         $errorHandler->setErrorPriorityMapping($mapping);
 
@@ -93,9 +93,9 @@ class Robo47_ErrorHandlerTest extends PHPUnit_Framework_TestCase
     {
         $errorHandler = new Robo47_ErrorHandler();
         $mapping = array(
-            E_WARNING   => 3,
-            E_ERROR     => 5,
-            'unknown'   => 4,
+            E_WARNING => 3,
+            E_ERROR => 5,
+            'unknown' => 4,
         );
         $errorHandler->setErrorPriorityMapping($mapping);
 
@@ -140,10 +140,10 @@ class Robo47_ErrorHandlerTest extends PHPUnit_Framework_TestCase
         $errorHandler->setLog($log);
 
         try {
-            $errorHandler->handleError(E_ERROR, 'BaaFoo', __FILE__, 1234);
+            $errorHandler->handleError(E_ERROR, 'BaaFoo', __FILE__ , 1234);
             $this->fail('no ErrorException thrown');
         } catch (Robo47_ErrorException $e) {
-            $this->assertEquals(__FILE__, $e->getFile(), 'Wrong value on getFile() of the exception');
+            $this->assertEquals(__FILE__ , $e->getFile(), 'Wrong value on getFile() of the exception');
             $this->assertEquals(1234, $e->getLine(), 'Wrong value on getLine() of the exception');
             $this->assertEquals(E_ERROR, $e->getSeverity(), 'Wrong value on getSeverity() of the exception');
             $this->assertEquals('BaaFoo', $e->getMessage(), 'Wrong value on getMessage() of the exception');
@@ -155,10 +155,10 @@ class Robo47_ErrorHandlerTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('BaaFoo in ' . __FILE__ . ':1234', $writer->events[0]['message'], 'Event has wrong message in log writer');
 
         try {
-            $errorHandler->handleError(123456, 'Blub', __FILE__, 5678);
+            $errorHandler->handleError(123456, 'Blub', __FILE__ , 5678);
             $this->fail('no ErrorException thrown');
         } catch (Robo47_ErrorException $e) {
-            $this->assertEquals(__FILE__, $e->getFile(), 'Wrong value on getFile() of the exception');
+            $this->assertEquals(__FILE__ , $e->getFile(), 'Wrong value on getFile() of the exception');
             $this->assertEquals(5678, $e->getLine(), 'Wrong value on getLine() of the exception');
             $this->assertEquals(123456, $e->getSeverity(), 'Wrong value on getSeverity() of the exception');
             $this->assertEquals('Blub', $e->getMessage(), 'Wrong value on getMessage() of the exception');
@@ -181,7 +181,7 @@ class Robo47_ErrorHandlerTest extends PHPUnit_Framework_TestCase
         $errorHandler->setLogCategory('Foo');
         $errorHandler->setLog($log);
 
-        @$errorHandler->handleError(E_ERROR, 'BaaFoo', __FILE__, 1234);
+        @$errorHandler->handleError(E_ERROR, 'BaaFoo', __FILE__ , 1234);
         $this->assertEquals(0, count($writer->events), 'Event count on writer is wrong');
     }
 }

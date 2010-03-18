@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 /**
  * @group Robo47_Application
@@ -31,8 +31,8 @@ class Robo47_Application_Resource_ConfigTest extends PHPUnit_Framework_TestCase
     public function testInit()
     {
         $options = array(
-            'config'        => array('foo' => 'bar'),
-            'registryKey'   => 'Zend_Config',
+            'config' => array('foo' => 'bar'),
+            'registryKey' => 'Zend_Config',
         );
 
         $resource = new Robo47_Application_Resource_Config($options);
@@ -56,7 +56,7 @@ class Robo47_Application_Resource_ConfigTest extends PHPUnit_Framework_TestCase
     public function testInitWithoutRegistryKey()
     {
         $options = array(
-            'config'        => array('foo' => 'bar'),
+            'config' => array('foo' => 'bar'),
         );
 
         $resource = new Robo47_Application_Resource_Config($options);

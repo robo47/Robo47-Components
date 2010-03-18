@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../../TestHelper.php';
 
 /**
  * @group Robo47_Application
@@ -32,13 +32,13 @@ class Robo47_Application_Resource_Service_GravatarTest extends PHPUnit_Framework
     public function testInit()
     {
         $options = array(
-            'rating'        => Robo47_Service_Gravatar::RATING_X,
-            'size'          => 123,
-            'default'       => 'http://www.example.com',
-            'cache'         => 'My_Cache',
-            'useSSL'        => true,
-            'cachePrefix'   => 'foobaa',
-            'registryKey'   => 'Zend_Service_Akismet',
+            'rating' => Robo47_Service_Gravatar::RATING_X,
+            'size' => 123,
+            'default' => 'http://www.example.com',
+            'cache' => 'My_Cache',
+            'useSSL' => true,
+            'cachePrefix' => 'foobaa',
+            'registryKey' => 'Zend_Service_Akismet',
         );
         $cache = Zend_Cache::factory('Core', new Robo47_Cache_Backend_Array(), array(), array());
         Zend_Registry::set('My_Cache', $cache);

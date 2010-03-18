@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 /**
  * @group Robo47_View
@@ -50,7 +50,7 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     public function testSetDefaultOptionsGetDefaultOptions()
     {
         $this->assertEquals(0, count(Robo47_View_Helper_Ckeditor::getDefaultOptions()));
-        Robo47_View_Helper_Ckeditor::setDefaultOptions(array('foo'  => 'bar',
+        Robo47_View_Helper_Ckeditor::setDefaultOptions(array('foo' => 'bar',
                 'bar2' => 'foo2'));
         $options = Robo47_View_Helper_Ckeditor::getDefaultOptions();
         $this->assertArrayHasKey('foo', $options);
@@ -66,7 +66,7 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     public function testSetDefaultOptionsWithZendConfig()
     {
         $this->assertEquals(0, count(Robo47_View_Helper_Ckeditor::getDefaultOptions()));
-        $config = new Zend_Config(array('foo'  => 'bar', 'bar2' => 'foo2'));
+        $config = new Zend_Config(array('foo' => 'bar', 'bar2' => 'foo2'));
         Robo47_View_Helper_Ckeditor::setDefaultOptions($config);
         $options = Robo47_View_Helper_Ckeditor::getDefaultOptions();
         $this->assertArrayHasKey('foo', $options);
@@ -129,9 +129,9 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     public function testConstructorWithOptions()
     {
         $options = array(
-            'initMode'          => 'jquery',
-            'placement'         => 'PREPEND',
-            'editorOptions'     => 'FOO'
+            'initMode' => 'jquery',
+            'placement' => 'PREPEND',
+            'editorOptions' => 'FOO'
         );
 
         $this->_helper = new Robo47_View_Helper_Ckeditor($options);
@@ -147,9 +147,9 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     public function testConstructorWithDefaultOptions()
     {
         $options = array(
-            'initMode'          => 'jquery',
-            'placement'         => 'PREPEND',
-            'editorOptions'     => 'FOO'
+            'initMode' => 'jquery',
+            'placement' => 'PREPEND',
+            'editorOptions' => 'FOO'
         );
 
         Robo47_View_Helper_Ckeditor::setDefaultOptions($options);
@@ -167,15 +167,15 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     public function testConstructorWithDefaultOptionsAndOptions()
     {
         $options = array(
-            'initMode'          => 'jquery',
-            'placement'         => 'PREPEND',
-            'editorOptions'     => 'FOO'
+            'initMode' => 'jquery',
+            'placement' => 'PREPEND',
+            'editorOptions' => 'FOO'
         );
 
         $options2 = array(
-            'initMode'          => 'script',
-            'placement'         => 'append',
-            'editorOptions'     => 'BLUB'
+            'initMode' => 'script',
+            'placement' => 'append',
+            'editorOptions' => 'BLUB'
         );
 
         Robo47_View_Helper_Ckeditor::setDefaultOptions($options2);
@@ -235,9 +235,9 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     public function testCkeditorWithInitModeScriptAndNoCKEditorOptions()
     {
         $options = array(
-            'initMode'          => 'script',
-            'placement'         => 'append',
-            'editorOptions'     => ''
+            'initMode' => 'script',
+            'placement' => 'append',
+            'editorOptions' => ''
         );
 
         $this->_helper->setOptions($options);
@@ -264,9 +264,9 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     public function testCkeditorWithInitModeScriptAndCKEditorOptions()
     {
         $options = array(
-            'initMode'          => 'script',
-            'placement'         => 'append',
-            'editorOptions'     => '{ SomeOptions: foo, }'
+            'initMode' => 'script',
+            'placement' => 'append',
+            'editorOptions' => '{ SomeOptions: foo, }'
         );
 
         $this->_helper->setOptions($options);
@@ -294,9 +294,9 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     {
 
         $options = array(
-            'initMode'          => 'jquery',
-            'placement'         => 'append',
-            'editorOptions'     => '{ SomeOptions: foo, }'
+            'initMode' => 'jquery',
+            'placement' => 'append',
+            'editorOptions' => '{ SomeOptions: foo, }'
         );
 
         $this->_helper->setOptions($options);
@@ -319,7 +319,7 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
             '    //]]>' . PHP_EOL .
             '</script>';
 
-        $this->assertEquals($code, (string)$view->HeadScript(), 'wrong code in headscript');
+        $this->assertEquals($code, (string) $view->HeadScript(), 'wrong code in headscript');
     }
 
     /**
@@ -329,9 +329,9 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     {
 
         $options = array(
-            'initMode'          => 'jquery',
-            'placement'         => 'append',
-            'editorOptions'     => ''
+            'initMode' => 'jquery',
+            'placement' => 'append',
+            'editorOptions' => ''
         );
 
         $this->_helper->setOptions($options);
@@ -354,7 +354,7 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
             '    //]]>' . PHP_EOL .
             '</script>';
 
-        $this->assertEquals($code, (string)$view->HeadScript());
+        $this->assertEquals($code, (string) $view->HeadScript());
     }
 
     /**
@@ -364,10 +364,10 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     public function testSetOptionsGetOptions()
     {
         $options = array(
-            'initMode'          => 'jquery',
-            'placement'         => 'PREPEND',
-            'editorOptions'     => 'FOO',
-            'foo'               => 'baa',
+            'initMode' => 'jquery',
+            'placement' => 'PREPEND',
+            'editorOptions' => 'FOO',
+            'foo' => 'baa',
         );
 
         $this->_helper->setOptions($options);
@@ -395,9 +395,9 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     public function testSetOptionsGetOptionsWithZendConfig()
     {
         $options = array(
-            'initMode'          => 'jquery',
-            'placement'         => 'PREPEND',
-            'editorOptions'     => 'FOO'
+            'initMode' => 'jquery',
+            'placement' => 'PREPEND',
+            'editorOptions' => 'FOO'
         );
 
         $config = new Zend_Config($options);

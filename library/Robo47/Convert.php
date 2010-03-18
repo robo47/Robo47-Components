@@ -50,10 +50,10 @@ class Robo47_Convert
                     'plattform (' . PHP_INT_MAX . ')';
                 throw new Robo47_Convert_Exception($message);
             }
-            return (int)$value;
+            return (int) $value;
         } else {
             $lastSign = strtolower($value{strlen($value) - 1});
-            $valueBytes = (int)mb_substr($value, 0, strlen($value) - 1);
+            $valueBytes = (int) mb_substr($value, 0, strlen($value) - 1);
             switch ($lastSign) {
                 case 'k':
                     $valueBytes *= 1024;

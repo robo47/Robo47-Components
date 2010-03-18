@@ -1,9 +1,10 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 class My_StringHydrator extends Doctrine_Hydrator_Abstract
 {
+
     public function hydrateResultSet($stmt)
     {
         return 'someString';
@@ -102,7 +103,7 @@ class Robo47_Paginator_Adapter_DoctrineQueryTest extends Robo47_Paginator_Adapte
     {
         $this->fillTable(10);
         $query = $this->getQuery()
-                      ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY);
+            ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY);
         $paginator = new Robo47_Paginator_Adapter_DoctrineQuery($query);
         $this->assertEquals(10, count($paginator));
 
@@ -136,14 +137,14 @@ class Robo47_Paginator_Adapter_DoctrineQueryTest extends Robo47_Paginator_Adapte
     {
         $this->fillTable(10);
         Doctrine_Manager::getInstance()
-                        ->registerHydrator('stringHydrator', 'My_StringHydrator');
+            ->registerHydrator('stringHydrator', 'My_StringHydrator');
         $query = $this->getQuery()
-                      ->setHydrationMode('stringHydrator');
+            ->setHydrationMode('stringHydrator');
         try {
             $paginator = new Robo47_Paginator_Adapter_DoctrineQuery($query);
             $elements = $paginator->getItems(0, 2);
             $this->fail('Expected Exception not thrown');
-        } catch(Robo47_Paginator_Adapter_Exception $e) {
+        } catch (Robo47_Paginator_Adapter_Exception $e) {
             $this->assertEquals('Unexpected datatype for getItems(): string', $e->getMessage(), 'Wrong exception message');
         }
     }

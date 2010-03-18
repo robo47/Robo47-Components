@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../TestHelper.php';
 
 /**
  * @group Robo47_Convert
@@ -45,7 +45,7 @@ class Robo47_ConvertTest extends PHPUnit_Framework_TestCase
      */
     public function testShorthandToBytesExceptionOnToBigInput()
     {
-        $maxInt = ((string)(((((float)PHP_INT_MAX) + 1) / 1024 / 1024 / 1024) + 1) . 'g');
+        $maxInt = ((string) (((((float) PHP_INT_MAX) + 1) / 1024 / 1024 / 1024) + 1) . 'g');
         try {
             $result = Robo47_Convert::shortHandToBytes($maxInt);
             $this->fail('no exception thrown on too big shorthand');

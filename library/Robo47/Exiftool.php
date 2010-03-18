@@ -33,7 +33,6 @@
  */
 class Robo47_Exiftool extends Zend_Exception
 {
-
     /**
      * Format ARRAY
      */

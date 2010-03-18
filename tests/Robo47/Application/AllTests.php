@@ -1,10 +1,10 @@
 <?php
 
-require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . '../TestHelper.php';
+require_once dirname(dirname(__FILE__ )) . DIRECTORY_SEPARATOR . '../TestHelper.php';
 
 class Robo47_Application_AllTests
 {
-
+    
     public static function suite()
     {
         $suite = new PHPUnit_Framework_TestSuite('Robo47 Components - Robo47_Application');
@@ -23,7 +23,7 @@ class Robo47_Application_AllTests
         $suite->addTestSuite('Robo47_Application_Resource_LogTest');
         $suite->addTestSuite('Robo47_Application_Resource_ObjectTest');
         $suite->addTestSuite('Robo47_Application_Resource_ObjectMultiTest');
-        
+
         return $suite;
     }
 }

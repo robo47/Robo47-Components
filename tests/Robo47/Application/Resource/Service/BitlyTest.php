@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../../TestHelper.php';
 
 /**
  * @group Robo47_Application
@@ -32,13 +32,13 @@ class Robo47_Application_Resource_Service_BitlyTest extends PHPUnit_Framework_Te
     public function testInit()
     {
         $options = array(
-            'apiKey'        => 'someApiKey',
-            'login'         => 'someLogin',
-            'format'        => 'json',
-            'version'       => '2.0.1',
-            'resultFormat'  => 'array',
-            'callback'      => 'aCallback',
-            'registryKey'   => 'Robo47_Service_Bitly',
+            'apiKey' => 'someApiKey',
+            'login' => 'someLogin',
+            'format' => 'json',
+            'version' => '2.0.1',
+            'resultFormat' => 'array',
+            'callback' => 'aCallback',
+            'registryKey' => 'Robo47_Service_Bitly',
         );
 
         $resource = new Robo47_Application_Resource_Service_Bitly($options);
@@ -66,7 +66,7 @@ class Robo47_Application_Resource_Service_BitlyTest extends PHPUnit_Framework_Te
     public function testInitWithoutLogin()
     {
         $options = array(
-            'apiKey'        => 'someApiKey',
+            'apiKey' => 'someApiKey',
         );
 
         $resource = new Robo47_Application_Resource_Service_Bitly($options);
@@ -85,7 +85,7 @@ class Robo47_Application_Resource_Service_BitlyTest extends PHPUnit_Framework_Te
     public function testInitWithoutApiKey()
     {
         $options = array(
-            'login'        => 'someLogin',
+            'login' => 'someLogin',
         );
 
         $resource = new Robo47_Application_Resource_Service_Bitly($options);

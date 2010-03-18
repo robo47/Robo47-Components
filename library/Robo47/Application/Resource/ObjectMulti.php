@@ -35,7 +35,7 @@ extends Zend_Application_Resource_ResourceAbstract
     /**
      * @var array
      */
-    protected  $_objects = array();
+    protected $_objects = array();
 
     /**
      *

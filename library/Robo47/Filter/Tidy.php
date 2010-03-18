@@ -152,7 +152,7 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
             $tidy = $this->_tidyFromRegistry($tidy);
         }
 
-        if (!$tidy instanceof  Tidy) {
+        if (!$tidy instanceof Tidy) {
             $message = 'Tidy is no instance of class Tidy';
             throw new Robo47_Filter_Exception($message);
         }
@@ -234,6 +234,6 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
             $this->getEncoding()
         );
         $this->_tidy->cleanRepair();
-        return (string)$this->_tidy;
+        return (string) $this->_tidy;
     }
 }

@@ -76,7 +76,7 @@ class Robo47_Curl_Multi implements Countable
     public function removeHandle(Robo47_Curl $curl)
     {
         curl_multi_remove_handle($this->_curlMulti, $curl->getCurl());
-        foreach ($this->_curls as $key=>$internalCurl) {
+        foreach ($this->_curls as $key => $internalCurl) {
             if ($internalCurl === $curl) {
                 unset($this->_curls[$key]);
             }
@@ -89,7 +89,7 @@ class Robo47_Curl_Multi implements Countable
      *
      * @return Robo47_Curl_Multi *Provides Fluent Interface*
      */
-    public function exec(& $running)
+    public function exec( & $running)
     {
         curl_multi_exec($this->_curlMulti, $running);
         return $this;

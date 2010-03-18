@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../TestHelper.php';
 
 /**
  * @group Robo47_Exiftool
@@ -58,7 +58,7 @@ class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
     public function testGetExifsThrowsExceptionIfPathIsNoFile()
     {
         $exiftool = new Robo47_Exiftool();
-        $file = dirname(__FILE__);
+        $file = dirname(__FILE__ );
         try {
             $exiftool->getExifs($file);
             $this->fail('no exception thrown');
@@ -74,7 +74,7 @@ class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
     public function testGetExifsThrowsExceptionIfFileNotExists()
     {
         $exiftool = new Robo47_Exiftool();
-        $file = dirname(__FILE__) . '/some.non-existing.file.jpeg';
+        $file = dirname(__FILE__ ) . '/some.non-existing.file.jpeg';
         try {
             $exiftool->getExifs($file);
             $this->fail('no exception thrown');
@@ -224,7 +224,7 @@ class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
      */
     public function testRunningNonExistingExiftool()
     {
-        $file = dirname(__FILE__) . '/_files/exiftoolTestImage.jpg';
+        $file = dirname(__FILE__ ) . '/_files/exiftoolTestImage.jpg';
         $exiftool = new Robo47_Exiftool('/non/existing/exiftool', Robo47_Exiftool::FORMAT_ARRAY);
         try {
             $exiftool->getExifs($file);

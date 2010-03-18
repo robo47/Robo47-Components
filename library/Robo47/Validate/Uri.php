@@ -31,7 +31,6 @@
  */
 class Robo47_Validate_Uri extends Zend_Validate_Abstract
 {
-
     /**
      * Validation failure message key for when the value is not a valid url
      */
@@ -52,7 +51,7 @@ class Robo47_Validate_Uri extends Zend_Validate_Abstract
      */
     protected $_messageVariables = array(
         'message' => '_message',
-        'value'   => '_value'
+        'value' => '_value'
     );
     /**
      * @var string

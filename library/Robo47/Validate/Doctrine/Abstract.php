@@ -32,7 +32,6 @@
  */
 abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
 {
-
     /**
      * Error constants
      */
@@ -44,7 +43,7 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
      */
     protected $_messageTemplates = array(
         self::ERROR_NO_RECORD_FOUND => 'No record matching %value% was found',
-        self::ERROR_RECORD_FOUND    => 'A record matching %value% was found',
+        self::ERROR_RECORD_FOUND => 'A record matching %value% was found',
     );
     /**
      * @var string
@@ -112,7 +111,7 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
      */
     public function setField($field)
     {
-        $this->_field = (string)$field;
+        $this->_field = (string) $field;
         return $this;
     }
 

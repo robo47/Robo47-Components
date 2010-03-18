@@ -30,7 +30,6 @@
  */
 class Robo47_Core
 {
-
     /**
      * Robo47 Components version identification
      */

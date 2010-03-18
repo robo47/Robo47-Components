@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 /**
  * @group Robo47_View
@@ -82,12 +82,12 @@ class Robo47_View_Helper_GlobalsTest extends PHPUnit_Framework_TestCase
     
     public function getGlobals()
     {
-        return array('GET'          => '_GET',
-            'POST'         => '_POST',
-            'SESSION'      => '_SESSION',
-            'ENV'          => '_ENV',
-            'COOKIE'       => '_COOKIE',
-            'SERVER'       => '_SERVER');
+        return array('GET' => '_GET',
+            'POST' => '_POST',
+            'SESSION' => '_SESSION',
+            'ENV' => '_ENV',
+            'COOKIE' => '_COOKIE',
+            'SERVER' => '_SERVER');
     }
 
     /**

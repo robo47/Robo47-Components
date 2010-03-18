@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../TestHelper.php';
 
 /**
  * @group Robo47_Service
@@ -31,7 +31,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
     
     public function getResponse($format, $method)
     {
-        $path = dirname(__FILE__) . '/Bitly/_files/';
+        $path = dirname(__FILE__ ) . '/Bitly/_files/';
         $filename = 'response_' . strtoupper($format) . '_' . strtoupper($method);
         if (!file_exists($path . $filename)) {
             throw new Exception('file not found: ' . $path . $filename);
@@ -582,16 +582,16 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         $result = call_user_func_array(array($service, $method), $params);
 
         $methods = array(
-            'shorten'                   => Robo47_Service_Bitly::API_PATH_SHORTEN,
-            'expandByHash'              => Robo47_Service_Bitly::API_PATH_EXPAND,
-            'expandByShortUrl'          => Robo47_Service_Bitly::API_PATH_EXPAND,
-            'infoByHash'                => Robo47_Service_Bitly::API_PATH_INFO,
-            'infoByHashWithKeys'        => Robo47_Service_Bitly::API_PATH_INFO,
-            'infoByShortUrl'            => Robo47_Service_Bitly::API_PATH_INFO,
-            'infoByShortUrlWithKeys'    => Robo47_Service_Bitly::API_PATH_INFO,
-            'statsByHash'               => Robo47_Service_Bitly::API_PATH_STATS,
-            'statsByShortUrl'           => Robo47_Service_Bitly::API_PATH_STATS,
-            'errors'                    => Robo47_Service_Bitly::API_PATH_ERRORS,
+            'shorten' => Robo47_Service_Bitly::API_PATH_SHORTEN,
+            'expandByHash' => Robo47_Service_Bitly::API_PATH_EXPAND,
+            'expandByShortUrl' => Robo47_Service_Bitly::API_PATH_EXPAND,
+            'infoByHash' => Robo47_Service_Bitly::API_PATH_INFO,
+            'infoByHashWithKeys' => Robo47_Service_Bitly::API_PATH_INFO,
+            'infoByShortUrl' => Robo47_Service_Bitly::API_PATH_INFO,
+            'infoByShortUrlWithKeys' => Robo47_Service_Bitly::API_PATH_INFO,
+            'statsByHash' => Robo47_Service_Bitly::API_PATH_STATS,
+            'statsByShortUrl' => Robo47_Service_Bitly::API_PATH_STATS,
+            'errors' => Robo47_Service_Bitly::API_PATH_ERRORS,
         );
 
         if (!isset($methods[$method])) {

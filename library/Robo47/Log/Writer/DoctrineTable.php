@@ -39,9 +39,9 @@ class Robo47_Log_Writer_DoctrineTable extends Robo47_Log_Writer_Abstract
      * @var array
      */
     protected $_columnMap = array(
-        'message'   => 'message',
-        'priority'  => 'priority',
-        'category'  => 'category',
+        'message' => 'message',
+        'priority' => 'priority',
+        'category' => 'category',
         'timestamp' => 'timestamp',
     );
     /**
@@ -159,7 +159,7 @@ class Robo47_Log_Writer_DoctrineTable extends Robo47_Log_Writer_Abstract
      */
     static public function factory($config)
     {
-        if ($config  instanceof  Zend_Config) {
+        if ($config instanceof Zend_Config) {
             $config = $config->toArray();
         }
         if (!isset($config['table'])) {

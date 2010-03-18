@@ -99,7 +99,7 @@ implements Zend_Paginator_Adapter_Interface
             return $data;
         } else {
             $message = 'Unexpected datatype for getItems(): ' .
-                        Robo47_Core::getType($data);
+                Robo47_Core::getType($data);
             throw new Robo47_Paginator_Adapter_Exception($message);
         }
     }

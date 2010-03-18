@@ -41,7 +41,7 @@ extends Zend_Log_Writer_Abstract
     {
         foreach ($this->_filters as $key => $filter) {
             if (is_string($class)) {
-                if ($filter  instanceof  $class) {
+                if ($filter instanceof $class) {
                     unset($this->_filters[$key]);
                 }
             } elseif (is_object($class)) {

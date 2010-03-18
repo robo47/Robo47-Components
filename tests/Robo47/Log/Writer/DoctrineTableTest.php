@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 require_once TESTS_PATH . 'Robo47/_files/DoctrineTestCase.php';
 
@@ -114,11 +114,11 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
     public function testConstruct()
     {
         $mapping = array(
-            'message'       => 'Foo',
-            'priority'      => 'baa',
-            'category'      => 'blub',
-            'timestamp'     => 'baafoo',
-            'priorityName'  => 'Bla',
+            'message' => 'Foo',
+            'priority' => 'baa',
+            'category' => 'blub',
+            'timestamp' => 'baafoo',
+            'priorityName' => 'Bla',
         );
         $writer = new Robo47_Log_Writer_DoctrineTable($this->_table, $mapping);
         $this->assertSame($this->_table, $writer->getTable());
@@ -172,17 +172,17 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
     public function testSetColumnMapGetColumnMap()
     {
         $mapping = array(
-            'message'   => 'Foo',
-            'priority'  => 'baa',
+            'message' => 'Foo',
+            'priority' => 'baa',
             'timestamp' => 'baafoo',
-            'category'  => 'blub',
+            'category' => 'blub',
         );
 
         $mappingDefault = array(
-            'message'   => 'message',
-            'priority'  => 'priority',
+            'message' => 'message',
+            'priority' => 'priority',
             'timestamp' => 'timestamp',
-            'category'  => 'category',
+            'category' => 'category',
         );
 
         $writer = new Robo47_Log_Writer_DoctrineTable($this->_table);
@@ -204,9 +204,9 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
 
         $date = date('c');
         $event = array(
-            'message'   => 'Foo',
-            'priority'  =>  0,
-            'category'  => 'bla',
+            'message' => 'Foo',
+            'priority' => 0,
+            'category' => 'bla',
             'timestamp' => $date,
         );
         $this->_writer->write($event);
@@ -231,9 +231,9 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
     public function testWriteWithChangedColumnMap()
     {
         $mapping = array(
-            'message'   => 'foo',
-            'priority'  => 'baa',
-            'category'  => 'blub',
+            'message' => 'foo',
+            'priority' => 'baa',
+            'category' => 'blub',
             'timestamp' => 'baafoo',
         );
 
@@ -244,9 +244,9 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
 
         $date = date('c');
         $event = array(
-            'message'   => 'Foo',
-            'priority'  =>  0,
-            'category'  => 'bla',
+            'message' => 'Foo',
+            'priority' => 0,
+            'category' => 'bla',
             'timestamp' => $date,
         );
         $this->_writer->write($event);
@@ -295,11 +295,11 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
         $config = array(
             'table' => $this->_table,
             'columnMap' => array(
-                'message'       => 'Foo',
-                'priority'      => 'baa',
-                'category'      => 'blub',
-                'timestamp'     => 'baafoo',
-                'priorityName'  => 'Bla',
+                'message' => 'Foo',
+                'priority' => 'baa',
+                'category' => 'blub',
+                'timestamp' => 'baafoo',
+                'priorityName' => 'Bla',
             ),
         );
 
@@ -319,11 +319,11 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
         $config = array(
             'table' => $this->_table,
             'columnMap' => array(
-                'message'       => 'Foo',
-                'priority'      => 'baa',
-                'category'      => 'blub',
-                'timestamp'     => 'baafoo',
-                'priorityName'  => 'Bla',
+                'message' => 'Foo',
+                'priority' => 'baa',
+                'category' => 'blub',
+                'timestamp' => 'baafoo',
+                'priorityName' => 'Bla',
             ),
         );
         $config = new Zend_Config($config);

@@ -35,7 +35,6 @@
  */
 class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
 {
-
     /**
      * Option to use jquerys $(document).ready; via the Headscript-View-Helper
      */
@@ -74,7 +73,7 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
     /**
      * @param array|Zend_Config $options
      */
-    public function  __construct($options = array())
+    public function __construct($options = array())
     {
         $this->setOptions(self::$_defaultOptions);
         $this->setOptions($options);

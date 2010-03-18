@@ -68,7 +68,7 @@ class Robo47_Curl
     {
         $success = curl_setopt($this->_curl, $option, $value);
         if (false === $success) {
-            $message = 'Error Setting Option: ' . (string)$option;
+            $message = 'Error Setting Option: ' . (string) $option;
             throw new Robo47_Curl_Exception($message);
         }
         $this->_options[$option] = $value;

@@ -35,12 +35,10 @@ class Robo47_Mock
 {
 
     /**
-     *
      * @var array
      */
     protected $_data = array();
     /**
-     *
      * @var array
      */
     public $mockData = array(
@@ -50,7 +48,7 @@ class Robo47_Mock
     );
 
     /**
-     *
+     * Constructor
      */
     public function __construct()
     {
@@ -59,6 +57,7 @@ class Robo47_Mock
     }
 
     /**
+     * __call
      *
      * @param string $name
      * @param array $arguments
@@ -69,6 +68,7 @@ class Robo47_Mock
     }
 
     /**
+     * _logCall
      *
      * @param string $name
      * @param array $arguments
@@ -79,6 +79,7 @@ class Robo47_Mock
     }
 
     /**
+     * __logGet
      *
      * @param string $name
      */
@@ -88,6 +89,7 @@ class Robo47_Mock
     }
 
     /**
+     * _logSet
      *
      * @param string $name
      * @param mixed $value
@@ -98,6 +100,7 @@ class Robo47_Mock
     }
 
     /**
+     * __set
      *
      * @param string $name
      * @param mixed $value
@@ -109,6 +112,7 @@ class Robo47_Mock
     }
 
     /**
+     * __get
      *
      * @param string $name
      * @return mixed

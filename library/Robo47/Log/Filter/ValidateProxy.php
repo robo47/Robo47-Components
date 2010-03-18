@@ -97,7 +97,7 @@ class Robo47_Log_Filter_ValidateProxy extends Zend_Log_Filter_Abstract
      */
     public function setNot($not)
     {
-        $not = (bool)$not;
+        $not = (bool) $not;
         $this->_not = $not;
         return $this;
     }

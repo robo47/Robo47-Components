@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 /**
  * @group Robo47_Application
@@ -35,14 +35,14 @@ class Robo47_Application_Resource_HtmlPurifierTest extends PHPUnit_Framework_Tes
         $options = array(
             'options' => array(
                 'Core.Encoding' => 'utf-8',
-                'HTML.Doctype'  => 'XHTML 1.0 Strict',
-                'HTML.Allowed'  => 'abbr[title],acronym[title],'
+                'HTML.Doctype' => 'XHTML 1.0 Strict',
+                'HTML.Allowed' => 'abbr[title],acronym[title],'
                     . 'em,strong,a[href],ul,ol,li'
                     . ',code,pre,cite,q[cite],'
                     . 'blockquote[cite],sub,sup,p,'
                     . 'br',
-                'AutoFormat.Linkify'    => 'true',
-                'Cache.SerializerPath'  => TESTS_PATH . '/tmp/'
+                'AutoFormat.Linkify' => 'true',
+                'Cache.SerializerPath' => TESTS_PATH . '/tmp/'
             ),
             'registryKey' => 'HTMLPurifier',
         );
@@ -76,14 +76,14 @@ class Robo47_Application_Resource_HtmlPurifierTest extends PHPUnit_Framework_Tes
         $options = array(
             'options' => array(
                 'Core.Encoding' => 'utf-8',
-                'HTML.Doctype'  => 'XHTML 1.0 Strict',
-                'HTML.Allowed'  => 'abbr[title],acronym[title],'
+                'HTML.Doctype' => 'XHTML 1.0 Strict',
+                'HTML.Allowed' => 'abbr[title],acronym[title],'
                     . 'em,strong,a[href],ul,ol,li'
                     . ',code,pre,cite,q[cite],'
                     . 'blockquote[cite],sub,sup,p,'
                     . 'br',
-                'AutoFormat.Linkify'    => 'true',
-                'Cache.SerializerPath'  => TESTS_PATH . '/tmp/'
+                'AutoFormat.Linkify' => 'true',
+                'Cache.SerializerPath' => TESTS_PATH . '/tmp/'
             ),
         );
 

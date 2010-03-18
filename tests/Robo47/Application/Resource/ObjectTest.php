@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 class MyStaticTestContainer
 {
@@ -28,6 +28,7 @@ class MyStaticTestContainer
         self::$something = false;
     }
 }
+
 /**
  * @group Robo47_Application
  * @group Robo47_Application_Resource
@@ -58,7 +59,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
     public function testInit()
     {
         $options = array(
-            'classname'     => 'Robo47_Mock'
+            'classname' => 'Robo47_Mock'
         );
 
         $resource = new Robo47_Application_Resource_Object($options);
@@ -75,7 +76,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
     public function testInitWithParams()
     {
         $options = array(
-            'classname'         => 'Robo47_Mock',
+            'classname' => 'Robo47_Mock',
             'params' => array('bla', 'blub')
         );
 
@@ -133,7 +134,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
     public function testInitWithFunctions()
     {
         $options = array(
-            'classname'         => 'Robo47_Mock',
+            'classname' => 'Robo47_Mock',
             'functions' => array(
                 array('setFoo', array('baa', 'foo')),
             )
@@ -156,7 +157,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
     public function testInitWithFunctionsWithoutParams()
     {
         $options = array(
-            'classname'         => 'Robo47_Mock',
+            'classname' => 'Robo47_Mock',
             'functions' => array(
                 array('setFoo'),
             )
@@ -180,7 +181,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
     public function testInitWithFunctionsWithInvalidParameter()
     {
         $options = array(
-            'classname'         => 'Robo47_Mock',
+            'classname' => 'Robo47_Mock',
             'functions' => array(
                 array('setFoo', 'blub'),
             )
@@ -204,7 +205,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
     public function testInitWithFunctionsWithoutFunctionname()
     {
         $options = array(
-            'classname'         => 'Robo47_Mock',
+            'classname' => 'Robo47_Mock',
             'functions' => array(
                 array(),
             )
@@ -227,7 +228,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
     public function testInitWithVariables()
     {
         $options = array(
-            'classname'         => 'Robo47_Mock',
+            'classname' => 'Robo47_Mock',
             'variables' => array(
                 'bla' => 'blub',
                 'foo' => 'baa',
@@ -252,7 +253,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
     public function testInitWithStaticVariables()
     {
         $options = array(
-            'classname'         => 'MyStaticTestContainer',
+            'classname' => 'MyStaticTestContainer',
             'staticVariables' => array(
                 'blub' => 'blub',
                 'bla' => 'baa',
@@ -276,8 +277,8 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
     public function testInitWithRegistryKey()
     {
         $options = array(
-            'classname'         => 'Robo47_Mock',
-            'registryKey'       => 'Robo47_Mock',
+            'classname' => 'Robo47_Mock',
+            'registryKey' => 'Robo47_Mock',
         );
 
         $resource = new Robo47_Application_Resource_Object($options);
@@ -298,7 +299,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
     public function testInitWithStaticFunctions()
     {
         $options = array(
-            'classname'         => 'MyStaticTestContainer',
+            'classname' => 'MyStaticTestContainer',
             'staticFunctions' => array(
                 array('setFoo', array('bla')),
             )

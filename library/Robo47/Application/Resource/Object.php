@@ -35,7 +35,7 @@ extends Zend_Application_Resource_ResourceAbstract
     /**
      * @var object
      */
-    protected  $_object = null;
+    protected $_object = null;
 
     /**
      *

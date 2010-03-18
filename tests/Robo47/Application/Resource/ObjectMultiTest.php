@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 /**
  * @group Robo47_Application
@@ -42,7 +42,7 @@ class Robo47_Application_Resource_ObjectMultiTest extends PHPUnit_Framework_Test
     public function testGetObjectWithInvalidName()
     {
         $object1 = array(
-            'classname'     => 'Robo47_Mock',
+            'classname' => 'Robo47_Mock',
         );
 
         $options = array(
@@ -67,7 +67,7 @@ class Robo47_Application_Resource_ObjectMultiTest extends PHPUnit_Framework_Test
     public function testInit()
     {
         $object1 = array(
-            'classname'     => 'Robo47_Mock',
+            'classname' => 'Robo47_Mock',
             'params' => array('bla', 'blub'),
             'variables' => array(
                 'bla' => 'blub',
@@ -80,7 +80,7 @@ class Robo47_Application_Resource_ObjectMultiTest extends PHPUnit_Framework_Test
         );
 
         $object2 = array(
-            'classname'     => 'Robo47_Mock',
+            'classname' => 'Robo47_Mock',
             'params' => array('bla', 'blub'),
             'variables' => array(
                 'bla' => 'blub',
@@ -93,7 +93,7 @@ class Robo47_Application_Resource_ObjectMultiTest extends PHPUnit_Framework_Test
         );
 
         $object3 = array(
-            'classname'     => 'Robo47_Mock',
+            'classname' => 'Robo47_Mock',
             'params' => array('bla', 'blub'),
             'variables' => array(
                 'bla' => 'blub',

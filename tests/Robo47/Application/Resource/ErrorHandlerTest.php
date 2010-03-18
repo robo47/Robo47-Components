@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 function dummyApplicationErrorHandler($errno, $errstr, $errfile, $errline)
 {
@@ -42,7 +42,7 @@ class Robo47_Application_Resource_ErrorHandlerTest extends PHPUnit_Framework_Tes
         $options = array(
             'registerAsErrorHandler' => true,
             'setLogFromRegistryKey' => 'Robo47_Log',
-            'logCategory'   => 'foo',
+            'logCategory' => 'foo',
             'errorPriorityMapping' => array(E_ERROR => 5, 'unknown' => 3),
             'registryKey' => 'Robo47_ErrorHandler',
         );

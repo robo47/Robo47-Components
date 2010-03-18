@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . '../TestHelper.php';
+require_once dirname(dirname(__FILE__ )) . DIRECTORY_SEPARATOR . '../TestHelper.php';
 
 class Robo47_Form_AllTests
 {
@@ -11,7 +11,7 @@ class Robo47_Form_AllTests
 
         $suite->addTestSuite('Robo47_Form_Decorator_InfoTest');
         $suite->addTestSuite('Robo47_Form_Element_CkeditorTest');
-        
+
         return $suite;
     }
 }

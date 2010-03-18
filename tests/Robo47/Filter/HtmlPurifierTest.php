@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../TestHelper.php';
 
 /**
  * @group Robo47_Filter
@@ -36,14 +36,14 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
     {
         $options = array(
             'Core.Encoding' => array('Core.Encoding', 'UTF-8'),
-            'HTML.Doctype'  => array('HTML.Doctype', 'XHTML 1.0 Strict'),
-            'HTML.Allowed'  => array('HTML.Allowed', 'abbr[title],acronym[title],'
+            'HTML.Doctype' => array('HTML.Doctype', 'XHTML 1.0 Strict'),
+            'HTML.Allowed' => array('HTML.Allowed', 'abbr[title],acronym[title],'
                     . 'em,strong,a[href],ul,ol,li'
                     . ',code,pre,cite,q[cite],'
                     . 'blockquote[cite],sub,sup,p,'
                     . 'br'),
-            'AutoFormat.Linkify'    => array('AutoFormat.Linkify', 'true'),
-            'Cache.SerializerPath'  => array('Cache.SerializerPath',
+            'AutoFormat.Linkify' => array('AutoFormat.Linkify', 'true'),
+            'Cache.SerializerPath' => array('Cache.SerializerPath',
                 BASE_PATH . '/tests/tmp'),
         );
 

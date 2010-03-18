@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../../TestHelper.php';
 
 /**
  * @todo test with only module, only controller, only action and without all of them
@@ -33,9 +33,9 @@ class Robo47_Application_Resource_Plugin_ErrorHandlerTest extends PHPUnit_Framew
     public function testInit()
     {
         $options = array(
-            'module'        => 'default',
-            'controller'    => 'Foo',
-            'action'        => 'Baa',
+            'module' => 'default',
+            'controller' => 'Foo',
+            'action' => 'Baa',
         );
 
         $resource = new Robo47_Application_Resource_Plugin_ErrorHandler($options);

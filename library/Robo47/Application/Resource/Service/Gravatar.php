@@ -35,7 +35,7 @@ extends Zend_Application_Resource_ResourceAbstract
     /**
      * @var Robo47_Service_Gravatar
      */
-    protected  $_service = null;
+    protected $_service = null;
     
     public function init()
     {

@@ -100,7 +100,7 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
      */
     public function setLogPriority($logPriority)
     {
-        $this->_logPriority = (int)$logPriority;
+        $this->_logPriority = (int) $logPriority;
         return $this;
     }
 

@@ -59,17 +59,17 @@ class Robo47_ErrorHandler
      * @var array
      */
     protected $_errorPriorityMapping = array(
-        E_ERROR             => 3, // Zend_Log::ERR
-        E_WARNING           => 4, // Zend_Log::WARN
-        E_NOTICE            => 5, // Zend_Log::NOTICE
-        E_USER_ERROR        => 3, // Zend_Log::ERR
-        E_USER_WARNING      => 4, // Zend_Log::WARN
-        E_USER_NOTICE       => 5, // Zend_Log::NOTICE
-        E_CORE_ERROR        => 3, // Zend_Log::ERR
-        E_CORE_WARNING      => 4, // Zend_Log::WARN
-        E_STRICT            => 3, // Zend_Log::ERR
+        E_ERROR => 3, // Zend_Log::ERR
+        E_WARNING => 4, // Zend_Log::WARN
+        E_NOTICE => 5, // Zend_Log::NOTICE
+        E_USER_ERROR => 3, // Zend_Log::ERR
+        E_USER_WARNING => 4, // Zend_Log::WARN
+        E_USER_NOTICE => 5, // Zend_Log::NOTICE
+        E_CORE_ERROR => 3, // Zend_Log::ERR
+        E_CORE_WARNING => 4, // Zend_Log::WARN
+        E_STRICT => 3, // Zend_Log::ERR
         E_RECOVERABLE_ERROR => 3, // Zend_Log::ERR
-        'unknown'           => 0, // Zend_Log::EMERG
+        'unknown' => 0, // Zend_Log::EMERG
 
     );
 

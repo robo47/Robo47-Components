@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 /**
  * @group Robo47_View
@@ -41,7 +41,7 @@ class Robo47_View_Helper_CdnTest extends PHPUnit_Framework_TestCase
     {
         $helper = new Robo47_View_Helper_Cdn();
         $helper->setCdn('http://cdn.domain.tld');
-        $this->assertEquals('http://cdn.domain.tld', (string)$helper);
+        $this->assertEquals('http://cdn.domain.tld', (string) $helper);
     }
 
     /**
@@ -55,6 +55,6 @@ class Robo47_View_Helper_CdnTest extends PHPUnit_Framework_TestCase
         $this->assertSame($helper, $helper->Cdn());
 
         $helper->setCdn('http://cdn.domain.tld');
-        $this->assertEquals('http://cdn.domain.tld/some/image/on/the/cdn.jpg', (string)$helper->Cdn('/some/image/on/the/cdn.jpg'));
+        $this->assertEquals('http://cdn.domain.tld/some/image/on/the/cdn.jpg', (string) $helper->Cdn('/some/image/on/the/cdn.jpg'));
     }
 }

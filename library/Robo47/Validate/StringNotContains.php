@@ -30,7 +30,7 @@
  */
 class Robo47_Validate_StringNotContains extends Robo47_Validate_StringContains
 {
-
+    
     protected $_messageTemplates = array(
         self::CONTAINS => "'%value%' does contain '%contains%'"
     );

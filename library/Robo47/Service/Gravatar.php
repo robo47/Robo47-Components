@@ -31,7 +31,6 @@
  */
 class Robo47_Service_Gravatar extends Zend_Service_Abstract
 {
-
     /**
      * GRAVATAR API URL
      */
@@ -188,7 +187,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
      */
     public function useSSL($flag)
     {
-        $this->_useSSL = (bool)$flag;
+        $this->_useSSL = (bool) $flag;
         return $this;
     }
 
@@ -313,7 +312,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
      */
     public function setSize($size)
     {
-        $size = (int)$size;
+        $size = (int) $size;
         if ($size < 1) {
             $message = 'size is smaller than 1';
             throw new Robo47_Service_Gravatar_Exception($message);
@@ -376,7 +375,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
         if (null === $size) {
             return $this->getSize();
         } else {
-            return (int)$size;
+            return (int) $size;
         }
     }
 
@@ -416,7 +415,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
         if (null === $default) {
             return $this->getDefault();
         } else {
-            return (string)$default;
+            return (string) $default;
         }
     }
 
@@ -433,7 +432,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
         if (null === $ssl) {
             return $this->usesSSL();
         } else {
-            return (bool)$ssl;
+            return (bool) $ssl;
         }
     }
 
@@ -450,7 +449,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
         if (null === $cachePrefix) {
             return $this->getCachePrefix();
         } else {
-            return (string)$cachePrefix;
+            return (string) $cachePrefix;
         }
     }
 

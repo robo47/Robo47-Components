@@ -67,7 +67,7 @@ class Robo47_View_Helper_Cdn extends Zend_View_Helper_Abstract
      */
     public function setCdn($cdn)
     {
-        $this->_cdn = (string)$cdn;
+        $this->_cdn = (string) $cdn;
         return $this;
     }
 
@@ -88,6 +88,6 @@ class Robo47_View_Helper_Cdn extends Zend_View_Helper_Abstract
      */
     public function __toString()
     {
-        return (string)$this->_cdn;
+        return (string) $this->_cdn;
     }
 }

@@ -1,5 +1,5 @@
 <?php
-require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . '../TestHelper.php';
+require_once dirname(dirname(__FILE__ )) . DIRECTORY_SEPARATOR . '../TestHelper.php';
 
 /**
  * @group Robo47_Curl
@@ -57,7 +57,7 @@ class Robo47_Curl_MultiTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('curl_multi', get_resource_type($resource));
         $this->assertNotSame($resource, $curlMulti->getCurlMulti());
         try {
-            $file = fopen(__FILE__, 'r');
+            $file = fopen(__FILE__ , 'r');
             $curlMulti->setCurlMulti($file);
             fclose($file);
             $this->fail('no exception thrown on passing invalid param to setCurlMulti()');

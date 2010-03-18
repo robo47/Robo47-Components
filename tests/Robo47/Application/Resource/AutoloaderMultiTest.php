@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 /**
  * @group Robo47_Application
@@ -36,11 +36,11 @@ class Robo47_Application_Resource_AutoloaderMultiTest extends PHPUnit_Framework_
         $options = array(
             'htmlpurifier' => array(
                 'classname' => 'Robo47_Loader_Autoloader_HtmlPurifier',
-                'prefix'    => 'htmlpurifier',
+                'prefix' => 'htmlpurifier',
             ),
             'ezc' => array(
                 'classname' => 'Robo47_Loader_Autoloader_Ezc',
-                'prefix'    => 'ezc',
+                'prefix' => 'ezc',
             )
         );
 
@@ -75,7 +75,7 @@ class Robo47_Application_Resource_AutoloaderMultiTest extends PHPUnit_Framework_
         $options = array(
             'ezc' => array(
                 'classname' => 'Robo47_Loader_Autoloader_Ezc',
-                'prefix'    => 'ezc',
+                'prefix' => 'ezc',
             )
         );
 

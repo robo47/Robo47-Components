@@ -1,5 +1,5 @@
 <?php
-require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'TestHelper.php';
+require_once dirname(dirname(__FILE__ )) . DIRECTORY_SEPARATOR . 'TestHelper.php';
 
 /**
  * @todo any kind of url-stream-mock-extension
@@ -75,7 +75,7 @@ class Robo47_CurlTest extends PHPUnit_Framework_TestCase
 
         $curl = new Robo47_Curl();
         try {
-            $file = fopen(__FILE__, 'r');
+            $file = fopen(__FILE__ , 'r');
             $curl->setCurl($file);
             fclose($file);
             $this->fail('no exception thrown on passing stream resource (fopen()) to setCurl');

@@ -35,7 +35,7 @@ extends Zend_Application_Resource_ResourceAbstract
     /**
      * @var Zend_Service_Akismet
      */
-    protected  $_service = null;
+    protected $_service = null;
     
     public function init()
     {
@@ -80,7 +80,7 @@ extends Zend_Application_Resource_ResourceAbstract
 
         if (isset($options['port'])) {
             // casting needed because of is_int in Zend_Service_Akismet::setPort
-            $akismet->setPort((int)$options['port']);
+            $akismet->setPort((int) $options['port']);
         }
 
         if (isset($options['registryKey'])) {

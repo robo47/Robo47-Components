@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 /**
  * @group Robo47_Controller
@@ -98,6 +98,6 @@ class Robo47_Controller_Plugin_TitleTest extends PHPUnit_Framework_TestCase
 
         $plugin->postDispatch($request);
 
-        $this->assertEquals('<title>baablubfoo</title>', (string)$view->headTitle());
+        $this->assertEquals('<title>baablubfoo</title>', (string) $view->headTitle());
     }
 }

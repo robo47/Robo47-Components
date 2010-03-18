@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../TestHelper.php';
 
 /**
  * @group Robo47_Filter
@@ -282,6 +282,6 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
         $tidy = new Tidy();
         $tidy->parseString($code, $filter->getConfig(), $filter->getEncoding());
         $tidy->cleanRepair();
-        $this->assertEquals((string)$tidy, $filtered, 'Filter output missmatches direct tidy-output');
+        $this->assertEquals((string) $tidy, $filtered, 'Filter output missmatches direct tidy-output');
     }
 }

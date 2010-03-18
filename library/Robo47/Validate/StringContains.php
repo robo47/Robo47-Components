@@ -30,7 +30,6 @@
  */
 class Robo47_Validate_StringContains extends Zend_Validate_Abstract
 {
-    
     const CONTAINS = 'contains';
 
     /**

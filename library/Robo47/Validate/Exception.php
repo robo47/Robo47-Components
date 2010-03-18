@@ -30,4 +30,5 @@
  */
 class Robo47_Validate_Exception extends Robo47_Exception
 {
+
 }

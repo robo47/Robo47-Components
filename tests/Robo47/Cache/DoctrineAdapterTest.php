@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../TestHelper.php';
 
 /**
  * @group Robo47_Cache
@@ -176,7 +176,7 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
     public function testContains()
     {
         $adapter = new Robo47_Cache_DoctrineAdapter($this->getCache(), 'prefix_');
-        $this->assertEquals(false, (bool)$adapter->contains('foo'));
+        $this->assertEquals(false, (bool) $adapter->contains('foo'));
         $adapter->save('foo', 'someData');
         // return-values can be integers, so test for equals true  + cast
         $this->assertNotEquals(false, $adapter->contains('foo'));

@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 /**
  * @group Robo47_Controller
@@ -207,11 +207,11 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
     {
         $plugin = $this->getPluginWithLogging(false);
         $plugin->dispatchLoopShutdown();
-        
+
         $writers = $plugin->getLog()->getWriters();
 
         $this->assertEquals(1, count($writers[0]->events), 'No Event logged');
         $this->assertContains('Url: /baa/foo' . PHP_EOL, $writers[0]->events[0]['message'], 'Url not logged');
     }
-    // @todo test log contains tidy-message
+// @todo test log contains tidy-message
 }

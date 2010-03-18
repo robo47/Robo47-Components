@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../../TestHelper.php';
+require_once dirname(__FILE__ ) . '/../../../../TestHelper.php';
 
 /**
  * @group Robo47_Application
@@ -32,12 +32,12 @@ class Robo47_Application_Resource_Service_AkismetTest extends PHPUnit_Framework_
     public function testInit()
     {
         $options = array(
-            'apiKey'        => '12345',
-            'blog'          => 'http://www.example.com',
-            'charset'       => 'utf-8',
-            'port'          => 1234,
-            'userAgent'     => 'Robo47 Components/' . Robo47_Core::VERSION . ' | Akismet/1.11',
-            'registryKey'   => 'Zend_Service_Akismet',
+            'apiKey' => '12345',
+            'blog' => 'http://www.example.com',
+            'charset' => 'utf-8',
+            'port' => 1234,
+            'userAgent' => 'Robo47 Components/' . Robo47_Core::VERSION . ' | Akismet/1.11',
+            'registryKey' => 'Zend_Service_Akismet',
         );
 
         $resource = new Robo47_Application_Resource_Service_Akismet($options);
@@ -65,11 +65,11 @@ class Robo47_Application_Resource_Service_AkismetTest extends PHPUnit_Framework_
     public function testInitWithoutRegistry()
     {
         $options = array(
-            'apiKey'        => '12345',
-            'blog'          => 'http://www.example.com',
-            'charset'       => 'utf-8',
-            'port'          => 1234,
-            'userAgent'     => 'Robo47 Components/' . Robo47_Core::VERSION . ' | Akismet/1.11',
+            'apiKey' => '12345',
+            'blog' => 'http://www.example.com',
+            'charset' => 'utf-8',
+            'port' => 1234,
+            'userAgent' => 'Robo47 Components/' . Robo47_Core::VERSION . ' | Akismet/1.11',
         );
 
         $resource = new Robo47_Application_Resource_Service_Akismet($options);
@@ -93,7 +93,7 @@ class Robo47_Application_Resource_Service_AkismetTest extends PHPUnit_Framework_
     public function testInitWithoutBlog()
     {
         $options = array(
-            'apiKey'        => '12345',
+            'apiKey' => '12345',
         );
 
         $resource = new Robo47_Application_Resource_Service_Akismet($options);
@@ -114,7 +114,7 @@ class Robo47_Application_Resource_Service_AkismetTest extends PHPUnit_Framework_
     public function testInitWithoutApiKey()
     {
         $options = array(
-            'blog'        => 'http://example.com',
+            'blog' => 'http://example.com',
         );
 
         $resource = new Robo47_Application_Resource_Service_Akismet($options);

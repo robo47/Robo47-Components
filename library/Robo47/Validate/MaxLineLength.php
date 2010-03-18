@@ -30,12 +30,11 @@
  */
 class Robo47_Validate_MaxLineLength extends Zend_Validate_Abstract
 {
-
     /**
      * Line too long
      */
     const LINE_TOO_LONG = 'lineToLong';
-
+    
     protected $_messageTemplates = array(
         self::LINE_TOO_LONG => "Line %value% is too long"
     );
@@ -92,7 +91,7 @@ class Robo47_Validate_MaxLineLength extends Zend_Validate_Abstract
      */
     public function setLineLength($lineLength)
     {
-        $lineLength = (int)$lineLength;
+        $lineLength = (int) $lineLength;
         if ($lineLength < 1) {
             $message = 'lineLength is less than 1';
             throw new Robo47_Validate_Exception($message);
