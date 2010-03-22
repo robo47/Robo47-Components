@@ -49,10 +49,9 @@ class Robo47_View_Helper_AnchorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_View_Helper_Anchor<extended>
-     * @covers Robo47_View_Helper_Anchor::__construct
+     * @covers Robo47_View_Helper_Anchor
      */
-    public function testDefaultConstruct()
+    public function testDefaultConstructor()
     {
         $router = Zend_Controller_Front::getInstance()->getRouter();
         $this->_helper = new Robo47_View_Helper_Anchor();

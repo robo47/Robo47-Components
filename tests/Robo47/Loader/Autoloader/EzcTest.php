@@ -34,8 +34,7 @@ class Robo47_Loader_Autoloader_EzcTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Loader_Autoloader_Ezc<extended>
-     * @covers Robo47_Loader_Autoloader_Ezc::__construct
+     * @covers Robo47_Loader_Autoloader_Ezc
      */
     public function testConstruct()
     {

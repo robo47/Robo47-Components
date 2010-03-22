@@ -10,8 +10,7 @@ class Robo47_Auth_Adapter_ArrayTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Auth_Adapter_Array<extended>
-     * @covers Robo47_Auth_Adapter_Array::__construct
+     * @covers Robo47_Auth_Adapter_Array
      */
     public function testConstructorDefaults()
     {

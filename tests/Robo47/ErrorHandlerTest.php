@@ -23,7 +23,7 @@ class Robo47_ErrorHandlerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_ErrorHandler::__construct
+     * @covers Robo47_ErrorHandler
      */
     public function testConstruct()
     {

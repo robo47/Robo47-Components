@@ -11,10 +11,9 @@ class Robo47_Log_Filter_CategoryTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Log_Filter_Category<extended>
-     * @covers Robo47_Log_Filter_Category::__construct
+     * @covers Robo47_Log_Filter_Category
      */
-    public function testDefaultConstruct()
+    public function testDefaultConstructor()
     {
         $filter = new Robo47_Log_Filter_Category(array());
         $this->assertEquals(array(), $filter->getCategories(), 'Categories are wrong');

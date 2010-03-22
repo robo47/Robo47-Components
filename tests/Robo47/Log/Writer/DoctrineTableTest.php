@@ -54,7 +54,7 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
     }
 
     /**
-     * @covers Robo47_Log_Writer_DoctrineTable::__construct
+     * @covers Robo47_Log_Writer_DoctrineTable
      */
     public function testConstruct()
     {

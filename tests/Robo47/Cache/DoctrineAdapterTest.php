@@ -37,8 +37,7 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Cache_DoctrineAdapter<extended>
-     * @covers Robo47_Cache_DoctrineAdapter::__construct
+     * @covers Robo47_Cache_DoctrineAdapter
      */
     public function testConstructor()
     {

@@ -35,8 +35,7 @@ class Robo47_View_Helper_UrlTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_View_Helper_Url<extended>
-     * @covers Robo47_View_Helper_Url::__construct
+     * @covers Robo47_View_Helper_Url
      */
     public function testConstructorWithRouter()
     {

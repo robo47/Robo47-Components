@@ -26,10 +26,9 @@ class Robo47_Filter_UrlSchemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Filter_UrlScheme<extended>
-     * @covers Robo47_Filter_UrlScheme::__construct
+     * @covers Robo47_Filter_UrlScheme
      */
-    public function testConstructor()
+    public function testDefaultConstructor()
     {
         $filter = new Robo47_Filter_UrlScheme();
         $this->assertEquals('http', $filter->getDefaultScheme(), 'default scheme is wrong');

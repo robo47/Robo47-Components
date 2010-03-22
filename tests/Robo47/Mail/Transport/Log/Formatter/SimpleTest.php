@@ -11,7 +11,25 @@ require_once dirname(__FILE__ ) . '/../../../../../TestHelper.php';
  */
 class Robo47_Mail_Transport_Log_Formatter_SimpleTest extends PHPUnit_Framework_TestCase
 {
-    
+    /**
+     * @covers Robo47_Mail_Transport_Log_Formatter_Simple
+     */
+    public function testDefaultConstructor()
+    {
+        $formatter = new Robo47_Mail_Transport_Log_Formatter_Simple();
+    }
+
+    /**
+     * @dataProvider mailProvider
+     * @covers Robo47_Mail_Transport_Log_Formatter_Simple::format
+     */
+    public function testFormat($mail, $message)
+    {
+        $formatter = new Robo47_Mail_Transport_Log_Formatter_Simple();
+        $result = $formatter->format($mail);
+        $this->assertEquals($message, $result, 'Formatting missmatch');
+    }
+
     public function mailProvider()
     {
         $data = array();
@@ -30,16 +48,5 @@ class Robo47_Mail_Transport_Log_Formatter_SimpleTest extends PHPUnit_Framework_T
         $data[] = array($mail, $message);
 
         return $data;
-    }
-
-    /**
-     * @dataProvider mailProvider
-     * @covers Robo47_Mail_Transport_Log_Formatter_Simple::format
-     */
-    public function testFormat($mail, $message)
-    {
-        $formatter = new Robo47_Mail_Transport_Log_Formatter_Simple();
-        $result = $formatter->format($mail);
-        $this->assertEquals($message, $result, 'Formatting missmatch');
     }
 }

@@ -31,9 +31,8 @@ class Robo47_Log_Writer_AbstractTest extends PHPUnit_Framework_TestCase
 
     /**
      * @covers Robo47_Log_Writer_Abstract
-     * @covers Robo47_Log_Writer_Abstract<extended>
      */
-    public function testDefaultConstruct()
+    public function testDefaultConstructor()
     {
         $writer = new Robo47_Log_Writer_Mock();
     }

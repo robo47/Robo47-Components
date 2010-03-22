@@ -16,17 +16,16 @@ class Robo47_Mail_Transport_MultiTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Mail_Transport_Multi<extended>
-     * @covers Robo47_Mail_Transport_Multi::__construct
+     * @covers Robo47_Mail_Transport_Multi
      */
-    public function testDefaultConstruct()
+    public function testDefaultConstructor()
     {
         $transport = new Robo47_Mail_Transport_Multi();
         $this->assertEquals(array(), $transport->getTransports());
     }
 
     /**
-     * @covers Robo47_Mail_Transport_Multi::__construct
+     * @covers Robo47_Mail_Transport_Multi
      */
     public function testConstruct()
     {

@@ -11,10 +11,9 @@ class Robo47_Controller_Action_Helper_UrlTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Controller_Action_Helper_Url<extended>
-     * @covers Robo47_Controller_Action_Helper_Url::__construct
+     * @covers Robo47_Controller_Action_Helper_Url
      */
-    public function testDefaultConstruct()
+    public function testDefaultConstructor()
     {
         $router = Zend_Controller_Front::getInstance()->getRouter();
         $urlHelper = new Robo47_Controller_Action_Helper_Url();

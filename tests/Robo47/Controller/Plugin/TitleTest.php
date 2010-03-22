@@ -15,8 +15,7 @@ class Robo47_Controller_Plugin_TitleTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Controller_Plugin_Title<extended>
-     * @covers Robo47_Controller_Plugin_Title::__construct
+     * @covers Robo47_Controller_Plugin_Title
      */
     public function testConstructor()
     {

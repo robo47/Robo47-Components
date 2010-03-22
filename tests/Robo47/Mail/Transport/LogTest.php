@@ -17,10 +17,9 @@ class Robo47_Mail_Transport_LogTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Mail_Transport_Log<extended>
      * @covers Robo47_Mail_Transport_Log
      */
-    public function testDefaultConstruct()
+    public function testDefaultConstructor()
     {
         $log = new Robo47_Log(new Zend_Log_Writer_Mock());
         $formatter = new Robo47_Mail_Transport_Log_Formatter_Simple();

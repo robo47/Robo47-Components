@@ -9,10 +9,9 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Log<extended>
-     * @covers Robo47_Log::__construct
+     * @covers Robo47_Log
      */
-    public function testDefaultConstruct()
+    public function testDefaultConstructor()
     {
         $log = new Robo47_Log();
         $this->assertEquals(null, $log->getDefaultCategory(), 'Wrong default category');
@@ -21,7 +20,7 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Log::__construct
+     * @covers Robo47_Log
      */
     public function testConstructorWithWriter()
     {

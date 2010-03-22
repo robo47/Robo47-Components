@@ -56,8 +56,7 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Filter_HtmlPurifier<extended>
-     * @covers Robo47_Filter_HtmlPurifier::__construct
+     * @covers Robo47_Filter_HtmlPurifier
      */
     public function testConstructor()
     {
@@ -96,7 +95,7 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Filter_HtmlPurifier::__construct
+     * @covers Robo47_Filter_HtmlPurifier
      */
     public function testContructor2()
     {

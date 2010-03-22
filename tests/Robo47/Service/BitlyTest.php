@@ -40,10 +40,9 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Service_Bitly<extended>
-     * @covers Robo47_Service_Bitly::__construct
+     * @covers Robo47_Service_Bitly
      */
-    public function testDefaultConstruct()
+    public function testDefaultConstructor()
     {
         $service = new Robo47_Service_Bitly('login', 'apiKey');
         $this->assertEquals('login', $service->getLogin(), 'Wrong login');

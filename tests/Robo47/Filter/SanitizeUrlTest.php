@@ -10,9 +10,9 @@ class Robo47_Filter_SanitizeUrlTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Filter_SanitizeUrl<extended>
+     * @covers Robo47_Filter_SanitizeUrl
      */
-    public function testDefaultConstruct()
+    public function testDefaultConstructor()
     {
         $filter = new Robo47_Filter_SanitizeUrl();
     }

@@ -29,7 +29,7 @@ class Robo47_Mail_Transport_MockSimpleTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Mail_Transport_MockSimple<extended>
+     * @covers Robo47_Mail_Transport_MockSimple
      */
     public function testConstruct()
     {

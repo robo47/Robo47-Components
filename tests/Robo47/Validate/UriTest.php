@@ -39,10 +39,9 @@ class Robo47_Validate_UriTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Validate_Uri<extended>
      * @covers Robo47_Validate_Uri
      */
-    public function testDefaultConstruct()
+    public function testDefaultConstructor()
     {
         $validate = new Robo47_Validate_Uri();
     }

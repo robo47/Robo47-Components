@@ -10,9 +10,9 @@ class Robo47_Validate_MaxLineLengthTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Validate_MaxLineLength::__construct
+     * @covers Robo47_Validate_MaxLineLength
      */
-    public function testDefaultConstruct()
+    public function testDefaultConstructor()
     {
         $validator = new Robo47_Validate_MaxLineLength();
         $this->assertEquals(80, $validator->getLineLength());
@@ -20,8 +20,7 @@ class Robo47_Validate_MaxLineLengthTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Validate_MaxLineLength<extended>
-     * @covers Robo47_Validate_MaxLineLength::__construct
+     * @covers Robo47_Validate_MaxLineLength
      */
     public function testConstruct()
     {

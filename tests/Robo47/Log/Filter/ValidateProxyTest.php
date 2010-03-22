@@ -26,10 +26,9 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Log_Filter_ValidateProxy<extended>
-     * @covers Robo47_Log_Filter_ValidateProxy::__construct
+     * @covers Robo47_Log_Filter_ValidateProxy
      */
-    public function testDefaultConstruct()
+    public function testDefaultConstructor()
     {
         $validator = new Robo47_Validate_Mock(true);
         $filter = new Robo47_Log_Filter_ValidateProxy($validator);

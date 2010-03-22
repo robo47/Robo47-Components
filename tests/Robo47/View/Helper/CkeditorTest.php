@@ -112,9 +112,9 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_View_Helper_Ckeditor::__construct
+     * @covers Robo47_View_Helper_Ckeditor
      */
-    public function testConstructor()
+    public function testDefaultConstructor()
     {
         $this->_helper = new Robo47_View_Helper_Ckeditor();
 

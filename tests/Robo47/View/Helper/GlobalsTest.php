@@ -44,7 +44,7 @@ class Robo47_View_Helper_GlobalsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_View_Helper_Globals<extended>
+     * @covers Robo47_View_Helper_Globals
      */
     public function testConstructDefault()
     {

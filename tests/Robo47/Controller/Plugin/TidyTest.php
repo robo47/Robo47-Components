@@ -38,8 +38,7 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Controller_Plugin_Tidy<extended>
-     * @covers Robo47_Controller_Plugin_Tidy::__construct
+     * @covers Robo47_Controller_Plugin_Tidy
      */
     public function testDefaultConstructor()
     {

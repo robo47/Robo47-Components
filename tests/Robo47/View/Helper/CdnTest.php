@@ -11,8 +11,7 @@ class Robo47_View_Helper_CdnTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_View_Helper_Cdn<extended>
-     * @covers Robo47_View_Helper_Cdn::__construct
+     * @covers Robo47_View_Helper_Cdn
      */
     public function testConstructor()
     {

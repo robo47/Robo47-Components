@@ -13,8 +13,7 @@ class Robo47_Validate_StringContainsTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Validate_StringContains<extended>
-     * @covers Robo47_Validate_StringContains::__construct
+     * @covers Robo47_Validate_StringContains
      */
     public function testConstruct()
     {

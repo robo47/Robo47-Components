@@ -26,8 +26,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Service_Gravatar<extended>
-     * @covers Robo47_Service_Gravatar::__construct
+     * @covers Robo47_Service_Gravatar
      */
     public function testConstruct()
     {
