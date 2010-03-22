@@ -26,7 +26,7 @@ class Robo47_Paginator_Adapter_DoctrineTableTest extends Robo47_Paginator_Adapte
     public function testSetTableGetTable()
     {
         $table1 = $this->getTable();
-        $table2 = new Doctrine_Table('baa', $this->_doctrineConnection);
+        $table2 = new Doctrine_Table('baa', $this->getDoctrineConnection());
 
         $paginator = new Robo47_Paginator_Adapter_DoctrineTable($table1);
         $this->assertSame($table1, $paginator->getTable());
@@ -61,12 +61,11 @@ class Robo47_Paginator_Adapter_DoctrineTableTest extends Robo47_Paginator_Adapte
     }
 
     /**
-     * @covers Robo47_Paginator_Adapter_DoctrineTable<extended>
-     * @covers Robo47_Paginator_Adapter_DoctrineTable::__construct
+     * @covers Robo47_Paginator_Adapter_DoctrineTable
      */
     public function testConstruction()
     {
-        $table1 = new Doctrine_Table('foo', $this->_doctrineConnection);
+        $table1 = new Doctrine_Table('foo', $this->getDoctrineConnection());
         $paginator = new Robo47_Paginator_Adapter_DoctrineTable($table1);
         $this->assertSame($table1, $paginator->getTable());
     }

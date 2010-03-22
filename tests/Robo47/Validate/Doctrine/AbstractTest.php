@@ -95,7 +95,7 @@ class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
     public function testSetTableGetTable()
     {
         $table1 = $this->getTable();
-        $table2 = new Doctrine_Table('baa', $this->_doctrineConnection);
+        $table2 = new Doctrine_Table('baa', $this->getDoctrineConnection());
 
         $validator = new Robo47_Validate_Doctrine_NonAbstract($table1, 'field');
         $this->assertSame($table1, $validator->getTable());

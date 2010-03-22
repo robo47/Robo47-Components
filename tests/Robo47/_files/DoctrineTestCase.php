@@ -28,27 +28,40 @@ class Robo47_DoctrineTestCase extends PHPUnit_Framework_TestCase
         $this->_doctrineConnection = $connection;
     }
 
+    /**
+     * Creates the Table for a specific Record
+     * 
+     * @param string $recordName
+     */
     public function setupTableForRecord($recordName)
     {
         $record = new $recordName;
         /* @var $record Doctrine_Record */
         $table = $record->getTable();
-        $this->_doctrineConnection->export->createTable(
+        /* @var $table Doctrine_Table */
+        $connction = $table->getConnection();
+        
+        $connction->export->createTable(
             $table->getTablename(),
             $table->getColumns()
         );
     }
+
+    /**
+     * @return Doctrine_Connection
+     */
+    public function getDoctrineConnection()
+    {
+        return $this->_doctrineConnection;
+    }
+
     
     public function tearDown()
     {
-        Doctrine_Manager::getInstance()
-            ->getConnection($this->_doctrineConnectionName)
-            ->close();
-
-        Doctrine_Manager::getInstance()
-            ->reset();
-
-        Doctrine_Manager::getInstance()
-            ->resetInstance();
+        $manager = Doctrine_Manager::getInstance();
+        $manager->getConnection($this->getDoctrineConnection()->getName())
+                ->close();
+        $manager->reset();
+        $manager->resetInstance();
     }
 }
