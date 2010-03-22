@@ -23,18 +23,23 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         $this->setUpTableForRecord('Tag');
         $this->setUpTableForRecord('Blogentry2Tag');
         Doctrine_Manager::getInstance()->registerHydrator('popo', 'Robo47_Doctrine_Hydrator_PopoDriver');
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypeName('__type');
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('stdClass');
+    }
+
+    public function tearDown()
+    {
+        parent::tearDown();
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultContainerClassname('array');
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypename('__type');
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('Robo47_Popo');
     }
 
     /**
      * @covers Robo47_Doctrine_Hydrator_PopoDriver
      */
-    public function testPopoHydratorWithClassnameStdclassAndType__type()
+    public function testPopoHydratorWithClassnameRobo47_PopoAndTypeNull()
     {
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypeName('__type');
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('stdClass');
-
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypename(null);
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('Robo47_Popo');
         $this->fillTableWithTags(3);
         $result = $this->getTagsQuery()
                        ->execute();
@@ -42,75 +47,24 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         $this->assertEquals(3, count($result));
 
         foreach($result as $record) {
-            /* @var $record stdClass */
-            $this->assertType('stdClass', $record, 'Wrong datatype for record');
-            $this->assertObjectHasAttribute('__type', $record, '__type present');
-            $this->assertObjectHasAttribute('id', $record, 'no id present');
-            $this->assertObjectHasAttribute('name', $record, 'no name present');
-            $this->assertObjectHasAttribute('tag', $record, 'no tag present');
-            $this->assertEquals('Tag', $record->__type);
-            $this->assertEquals(4, count((array)$record), 'Wrong attribute count');
-        }
-    }
-
-    /**
-     * @covers Robo47_Doctrine_Hydrator_PopoDriver
-     */
-    public function testPopoHydratorWithClassnameStdclassAndTypeNull()
-    {
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypeName(null);
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('stdClass');
-
-        $this->fillTableWithTags(3);
-        $result = $this->getTagsQuery()
-                       ->execute();
-        $this->assertType('array', $result, 'Wrong datatype for result');
-        $this->assertEquals(3, count($result));
-
-        foreach($result as $record) {
-            /* @var $record stdClass */
-            $this->assertType('stdClass', $record, 'Wrong datatype for record');
+            /* @var $record Robo47_Popo */
+            $this->assertType('Robo47_Popo', $record, 'Wrong datatype for record');
             $this->assertObjectNotHasAttribute('__type', $record, '__type present');
             $this->assertObjectHasAttribute('id', $record, 'no id present');
             $this->assertObjectHasAttribute('name', $record, 'no name present');
             $this->assertObjectHasAttribute('tag', $record, 'no tag present');
-            $this->assertEquals(3, count((array)$record), 'Wrong attribute count');
+            $this->assertEquals(3, count($record), 'Wrong attribute count');
         }
     }
 
     /**
      * @covers Robo47_Doctrine_Hydrator_PopoDriver
      */
-    public function testPopoHydratorWithClassnameMy_PopoAndTypeNull()
+    public function testPopoHydratorWithClassnameRobo47_PopoAndTypefoo()
     {
 
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypeName(null);
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('My_Popo');
-        $this->fillTableWithTags(3);
-        $result = $this->getTagsQuery()
-                       ->execute();
-        $this->assertType('array', $result, 'Wrong datatype for result');
-        $this->assertEquals(3, count($result));
-
-        foreach($result as $record) {
-            /* @var $record My_Popo */
-            $this->assertType('My_Popo', $record, 'Wrong datatype for record');
-            $this->assertObjectNotHasAttribute('__type', $record, '__type present');
-            $this->assertObjectHasAttribute('id', $record, 'no id present');
-            $this->assertObjectHasAttribute('name', $record, 'no name present');
-            $this->assertObjectHasAttribute('tag', $record, 'no tag present');
-            $this->assertEquals(3, count((array)$record), 'Wrong attribute count');
-        }
-    }
-
-    /**
-     * @covers Robo47_Doctrine_Hydrator_PopoDriver
-     */
-    public function testPopoHydratorWithClassnameMy_PopoAndTypefoo()
-    {
-
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypeName('foo');
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('My_Popo');
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypename('foo');
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('Robo47_Popo');
 
         $this->fillTableWithTags(3);
         $result = $this->getTagsQuery()
@@ -119,36 +73,42 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         $this->assertEquals(3, count($result));
 
         foreach($result as $record) {
-            /* @var $record My_Popo */
-            $this->assertType('My_Popo', $record, 'Wrong datatype for record');
+            /* @var $record Robo47_Popo */
+            $this->assertType('Robo47_Popo', $record, 'Wrong datatype for record');
             $this->assertObjectHasAttribute('foo', $record, 'no foo attribute present');
             $this->assertObjectHasAttribute('id', $record, 'no id present');
             $this->assertObjectHasAttribute('name', $record, 'no name present');
             $this->assertObjectHasAttribute('tag', $record, 'no tag present');
             $this->assertEquals('Tag', $record->foo);
-            $this->assertEquals(4, count((array)$record), 'Wrong attribute count');
+            $this->assertEquals(4, count($record), 'Wrong attribute count');
         }
     }
-
     /**
      * @covers Robo47_Doctrine_Hydrator_PopoDriver
      */
-    public function testPopoHydratorNotAddsEmptyRelations()
+    public function testPopoHydratorWithClassnameRobo47_PopoAndType__typeAndContainerArrayObject()
     {
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypeName('__type');
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('stdClass');
 
-        $blogentry = new Blogentry();
-        $blogentry->message = 'Foo';
-        $blogentry->save();
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultContainerClassname('ArrayObject');
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypename('__type');
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('Robo47_Popo');
 
-        $result = $this->getEntryQuery()
+        $this->fillTableWithTags(3);
+        $result = $this->getTagsQuery()
                        ->execute();
-        $this->assertType('array', $result, 'Wrong datatype for result');
-        $this->assertEquals(1, count($result));
+        $this->assertType('ArrayObject', $result, 'Wrong datatype for result');
+        $this->assertEquals(3, count($result));
 
-        $this->assertObjectNotHasAttribute('Tag', $result[0], 'Object has empty Tag');
-        $this->assertObjectNotHasAttribute('Category', $result[0], 'Object has empty Category');
+        foreach($result as $record) {
+            /* @var $record Robo47_Popo */
+            $this->assertType('Robo47_Popo', $record, 'Wrong datatype for record');
+            $this->assertObjectHasAttribute('__type', $record, 'no foo attribute present');
+            $this->assertObjectHasAttribute('id', $record, 'no id present');
+            $this->assertObjectHasAttribute('name', $record, 'no name present');
+            $this->assertObjectHasAttribute('tag', $record, 'no tag present');
+            $this->assertEquals('Tag', $record->__type);
+            $this->assertEquals(4, count($record), 'Wrong attribute count');
+        }
     }
 
     /**
@@ -156,8 +116,9 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
      */
     public function testPopoHydratorWithRelations()
     {
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypeName('__type');
-        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('My_Popo');
+
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypename('__type');
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('Robo47_Popo');
 
         $this->fillTableWithBlogEntries(3);
         $result = $this->getEntryQuery()
@@ -166,35 +127,34 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         $this->assertEquals(3, count($result));
 
         foreach($result as $entry) {
-            /* @var $entry My_Popo */
-            $this->assertType('My_Popo', $entry, 'Wrong datatype for record');
+            /* @var $entry Robo47_Popo */
+            $this->assertType('Robo47_Popo', $entry, 'Wrong datatype for record');
             $this->assertObjectHasAttribute('__type', $entry, 'no __type attribute present');
             $this->assertObjectHasAttribute('id', $entry, 'no id attribute present');
             $this->assertObjectHasAttribute('message', $entry, 'no message attribute present');
             $this->assertObjectHasAttribute('categoryId', $entry, 'no categoryId attribute present');
             $this->assertObjectHasAttribute('Tag', $entry, 'no Tag-attribute present');
             $this->assertObjectHasAttribute('Category', $entry, 'no Category-attribute present');
-            $this->assertEquals(6, count((array)$entry), 'Wrong attribute count');
+            $this->assertEquals(6, count($entry), 'Wrong attribute count');
 
             $this->assertEquals('Blogentry', $entry->__type);
 
             $tags = $entry->Tag;
 
-            //var_dump($tags);
             $i = 0;
             foreach($tags as $key => $tag) {
-                $this->assertType('My_Popo', $tag, 'Wrong datatype for relation Category');
+                $this->assertType('Robo47_Popo', $tag, 'Wrong datatype for relation Category');
                 $this->assertObjectHasAttribute('__type', $tag, 'no __type present');
                 $this->assertObjectHasAttribute('id', $tag, 'no id present');
                 $this->assertObjectHasAttribute('tag', $tag, 'no tag present');
                 $this->assertObjectHasAttribute('name', $tag, 'no name present');
                 $this->assertEquals('Tag', $tag->__type);
-                $this->assertEquals(4, count((array)$tag), 'Wrong attribute count for Tag');
+                $this->assertEquals(4, count($tag), 'Wrong attribute count for Tag');
             }
             $this->assertEquals(5, count($tags), 'Wrong Tag-count');
 
             $category = $entry->Category;
-            $this->assertType('My_Popo', $category, 'Wrong datatype for relation Category');
+            $this->assertType('Robo47_Popo', $category, 'Wrong datatype for relation Category');
             $this->assertObjectHasAttribute('__type', $category, 'no __type present');
             $this->assertObjectHasAttribute('id', $category, 'no categoryId present');
             $this->assertObjectHasAttribute('name', $category, 'no name present');
@@ -202,29 +162,116 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
     }
 
     /**
-     * @covers Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypename
-     * @covers Robo47_Doctrine_Hydrator_PopoDriver::getDefaultTypename
+     * @covers Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname
+     * @covers Robo47_Doctrine_Hydrator_PopoDriver::getDefaultClassname
      */
     public function testSetDefaultClassnameGetDefaultClassname()
     {
-        $expectedType = 'My_Popo';
+        $expectedType = 'Robo47_Popo';
         Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname($expectedType);
         $actualType = Robo47_Doctrine_Hydrator_PopoDriver::getDefaultClassname();
         $this->assertEquals($expectedType, $actualType);
     }
 
     /**
-     * @covers Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypeName
-     * @covers Robo47_Doctrine_Hydrator_PopoDriver::getDefaultTypeName
+     * @covers Robo47_Doctrine_Hydrator_PopoDriver::setDefaultContainerClassname
+     * @covers Robo47_Doctrine_Hydrator_PopoDriver::getDefaultContainerClassname
      */
-    public function testSetDefaultTypenameGetDefaultTypeName()
+    public function testSetDefaultContainerClassnameGetDefaultContainerClassname()
+    {
+        $expectedType = 'ArrayObject';
+        Robo47_Doctrine_Hydrator_PopoDriver::setDefaultContainerClassname($expectedType);
+        $actualType = Robo47_Doctrine_Hydrator_PopoDriver::getDefaultContainerClassname();
+        $this->assertEquals($expectedType, $actualType);
+    }
+
+    /**
+     * @covers Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypename
+     * @covers Robo47_Doctrine_Hydrator_PopoDriver::getDefaultTypename
+     */
+    public function testSetDefaultTypenameGetDefaultTypename()
     {
         $expectedType = '__myType';
         Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypename($expectedType);
         $actualType = Robo47_Doctrine_Hydrator_PopoDriver::getDefaultTypename();
         $this->assertEquals($expectedType, $actualType);
     }
-    
+
+    /**
+     * @dataProvider invalidTypenameProvider
+     * @covers Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypename
+     * @covers Robo47_Doctrine_Hydrator_Exception
+     */
+    public function testSetDefaultTypenameThrowsExceptionWithInvalidType($input)
+    {
+        try {
+            Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypename($input);
+            $this->fail('No Exception thrown');
+        } catch (Robo47_Doctrine_Hydrator_Exception $e) {
+            $this->assertEquals('Invalid type for $typename: ' . Robo47_Core::getType($input), $e->getMessage(), 'Wrong Exception message');
+        }
+    }
+
+    /**
+     * @dataProvider invalidTypenameProvider
+     * @covers Robo47_Doctrine_Hydrator_PopoDriver::setDefaultContainerClassname
+     * @covers Robo47_Doctrine_Hydrator_Exception
+     */
+    public function testSetDefaultContainerClassnameThrowsExceptionWithInvalidType($input)
+    {
+        try {
+            Robo47_Doctrine_Hydrator_PopoDriver::setDefaultContainerClassname($input);
+            $this->fail('No Exception thrown');
+        } catch (Robo47_Doctrine_Hydrator_Exception $e) {
+            $this->assertEquals('Invalid type for $classname: ' . Robo47_Core::getType($input), $e->getMessage(), 'Wrong Exception message');
+        }
+    }
+
+    /**
+     * @dataProvider invalidTypenameProvider
+     * @covers Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname
+     * @covers Robo47_Doctrine_Hydrator_Exception
+     */
+    public function testSetDefaultClassnameThrowsExceptionWithInvalidType($input)
+    {
+        try {
+            Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname($input);
+            $this->fail('No Exception thrown');
+        } catch (Robo47_Doctrine_Hydrator_Exception $e) {
+            $this->assertEquals('Invalid type for $classname: ' . Robo47_Core::getType($input), $e->getMessage(), 'Wrong Exception message');
+        }
+    }
+
+    /**
+     * @covers Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname
+     * @covers Robo47_Doctrine_Hydrator_Exception
+     */
+    public function testsetDefaultClassnameThrowsExceptionWithClassWhichNotImplementsArrayAccess()
+    {
+        $classname = 'stdClass';
+        try {
+            Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname($classname);
+            $this->fail('No Exception thrown');
+        } catch (Robo47_Doctrine_Hydrator_Exception $e) {
+            $this->assertEquals('Type does not implement ArrayAccess: ' . Robo47_Core::getType(new stdClass), $e->getMessage(), 'Wrong Exception message');
+        }
+    }
+
+    /**
+     * @covers Robo47_Doctrine_Hydrator_PopoDriver::setDefaultContainerClassname
+     * @covers Robo47_Doctrine_Hydrator_Exception
+     */
+    public function testsetDefaultContainerClassnameThrowsExceptionWithClassWhichNotImplementsArrayAccess()
+    {
+        $classname = 'stdClass';
+        try {
+            Robo47_Doctrine_Hydrator_PopoDriver::setDefaultContainerClassname($classname);
+            $this->fail('No Exception thrown');
+        } catch (Robo47_Doctrine_Hydrator_Exception $e) {
+            $this->assertEquals('Type does not implement ArrayAccess: ' . Robo47_Core::getType(new stdClass), $e->getMessage(), 'Wrong Exception message');
+        }
+    }
+
     /**
      *
      * @return array
@@ -234,18 +281,10 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         $data = array();
 
         $data[] = array(1);
+        $data[] = array(1.1);
+        $data[] = array(new stdClass);
 
         return $data;
-    }
-
-    /**
-     *
-     * @param <type> $type
-     * @dataProvider invalidTypenameProvider
-     */
-    public function testSetDefaultTypenameThrowsExceptionWithInvalidType($type)
-    {
-
     }
 
 
@@ -281,16 +320,15 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         return $tags;
     }
 
-
-
-
     /**
      * @return Doctrine_Query
      */
     public function getTagsQuery()
     {
         $tag = new Tag();
-        return $tag->getTable()->createQuery()->setHydrationMode('popo');
+        return $tag->getTable()
+                   ->createQuery()
+                   ->setHydrationMode('popo');
     }
 
     /**
@@ -302,7 +340,7 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         return $entry->getTable()
                      ->createQuery('b')
                      ->leftJoin('b.Tag t')
-                     ->leftJoin('b.Category c')
+                     ->leftJoin('b.Category e')
                      ->setHydrationMode('popo');
     }
 }

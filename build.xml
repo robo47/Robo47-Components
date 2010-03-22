@@ -160,7 +160,7 @@
     </target>
 
     <!-- Run PHPUnit -->
-    <target name="phpunit" depends="phplint">
+    <target name="phpunit">
         <exec dir="${basedir}/tests/"
             executable="phpunit"
             failonerror="true">
@@ -194,6 +194,6 @@
     </target>
 
     <!-- Build complete Project -->
-    <target name="build" depends="clean, prepare, phpcs, phpcpd, pdepend, sloccount, phpunit, phpcb" />
+    <target name="build" depends="clean, prepare, phplint, phpcs, phpcpd, pdepend, sloccount, phpunit, phpcb" />
 
 </project>

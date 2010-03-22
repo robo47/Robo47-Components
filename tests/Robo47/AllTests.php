@@ -30,6 +30,7 @@ class Robo47_AllTests
         $suite->addTest(Robo47_Log_AllTests::suite());
         $suite->addTest(Robo47_Mail_AllTests::suite());
         $suite->addTestSuite('Robo47_MockTest');
+        $suite->addTestSuite('Robo47_PopoTest');
         $suite->addTest(Robo47_Paginator_AllTests::suite());
         $suite->addTest(Robo47_Service_AllTests::suite());
         $suite->addTest(Robo47_Validate_AllTests::suite());
