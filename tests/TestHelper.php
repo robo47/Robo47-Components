@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL | E_STRICT);
+ini_set('display_errors', 1);
 
-define('SCRIPTSTART', microtime(true));
 define('APPLICATION_ENVIRONMENT', 'testing');
 define('BASE_PATH', realpath(dirname(__FILE__) . '/../'));
 define('TESTS_PATH', BASE_PATH . '/tests/');
@@ -19,4 +19,4 @@ require_once 'Zend/Loader/Autoloader.php';
 $loader = Zend_Loader_Autoloader::getInstance();
 $loader->setFallbackAutoloader(true);
 
-require_once TESTS_PATH . DIRECTORY_SEPARATOR . 'TestConfiguration.php';
+define('TESTS_CONFIG_ROBO47_EXIFTOOL_EXIFTOOLPATH', '/usr/bin/exiftool');

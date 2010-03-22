@@ -1,7 +1,5 @@
 <?php
 
-require_once dirname(dirname(__FILE__ )) . DIRECTORY_SEPARATOR . 'TestHelper.php';
-
 class Robo47_AllTests
 {
     
@@ -11,7 +9,7 @@ class Robo47_AllTests
 
         // important auto-loader-tests need to be run before the other ones
         $suite->addTest(Robo47_Loader_AllTests::suite());
-        $suite->addTest(Robo47_Application_AllTests::suite());
+        $suite->addTest(Robo47_Application_AllTests::suite());        
         $suite->addTest(Robo47_Auth_AllTests::suite());
         $suite->addTest(Robo47_Cache_AllTests::suite());
         $suite->addTestSuite('Robo47_CoreTest');

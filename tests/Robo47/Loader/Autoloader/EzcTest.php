@@ -14,18 +14,18 @@ require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
  */
 class Robo47_Loader_Autoloader_EzcTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
         $loader = Zend_Loader_Autoloader::getInstance();
         $loader->setFallbackAutoloader(true);
     }
-    
+
     public function tearDown()
     {
         Zend_Loader_Autoloader::resetInstance();
     }
-    
+
     public function testClass()
     {
         $reflection = new ReflectionClass('Robo47_Loader_Autoloader_Ezc');
