@@ -214,4 +214,14 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
     {
         return $this->_cache->remove($this->_prefix . $id);
     }
+
+    /**
+     * Fetch an array of all keys stored in cache
+     *
+     * @return array Returns the array of cache keys
+     */
+    protected function _getCacheKeys()
+    {
+        $this->_cache->getIds();
+    }
 }

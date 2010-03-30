@@ -8,7 +8,7 @@ require_once dirname(__FILE__ ) . '/../../TestHelper.php';
  */
 class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
         $loader = Zend_Loader_Autoloader::getInstance();
@@ -16,7 +16,7 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
             $loader->pushAutoloader(new Robo47_Loader_Autoloader_HtmlPurifier(), 'HtmlPurifier');
         }
     }
-    
+
     public function tearDown()
     {
         $loader = Zend_Loader_Autoloader::getInstance();
@@ -156,7 +156,7 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
         $filter = new Robo47_Filter_HtmlPurifier($this->getPurifier());
         $this->assertSame($expectedValue, $filter->filter($value));
     }
-    
+
     public function invalidPurifierObjects()
     {
         $data = array();

@@ -5,7 +5,7 @@ Robo47 Components is a collection of classes I use in my Zend Framework / Doctri
 Versions of other libraries I use in tests, development and production:
 
  * Zend Framework 1.10.2
- * Doctrine 1.2.1
+ * Doctrine 1.2.2
  * HTMLPurifier 4.0.0
  * ezComponents 2009.2
 

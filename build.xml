@@ -86,8 +86,8 @@
         <delete dir ="library/ezc"                                  failonerror="false" />
         <delete dir ="library/HTMLPurifier"                         failonerror="false" />
         <delete file="library/HTMLPurifier.php"                     failonerror="false" />
-        <delete dir ="library/standalone"                         failonerror="false" />
-        <delete file="library/HTMLPurifier.standalone.php"                     failonerror="false" />
+        <delete dir ="library/standalone"                           failonerror="false" />
+        <delete file="library/HTMLPurifier.standalone.php"          failonerror="false" />
     </target>
 
     <!-- Copies Libs -->
