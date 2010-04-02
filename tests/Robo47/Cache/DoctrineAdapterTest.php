@@ -204,4 +204,89 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(false, $adapter->contains('foo'));
     }
+
+    /**
+     * @covers Robo47_Cache_DoctrineAdapter::_getCacheKeys
+     */
+    public function testImplementationOf_getCacheKeysWorksWithDeleteByRegex()
+    {
+        $adapter = new Robo47_Cache_DoctrineAdapter($this->getCache(), 'prefix_');
+        $adapter->save('foo_1', 'someData');
+        $adapter->save('foo_2', 'someData');
+        $adapter->save('foo_3', 'someData');
+
+        $deleted = $adapter->deleteByRegex('~^foo_(2|3)$~');
+        $this->assertEquals(2, $deleted, 'Deleted wrong number of cache items');
+
+        $ids = $adapter->getCache()->getIds();
+        $this->assertEquals(1, count($ids), 'Wrong count of existing tag ids');
+        $this->assertContains('prefix_foo_1', $ids, 'Deleted Wrong cache item');
+    }
+    
+    /**
+     * @covers Robo47_Cache_DoctrineAdapter::_getCacheKeys
+     */
+    public function testImplementationOf_getCacheKeysWorksWithDeleteByPrefix()
+    {
+        $adapter = new Robo47_Cache_DoctrineAdapter($this->getCache(), 'prefix_');
+        $adapter->save('foo_1', 'someData');
+        $adapter->save('baa_1', 'someData');
+        $adapter->save('foo_2', 'someData');
+        $adapter->save('baa_2', 'someData');
+        $adapter->save('foo_3', 'someData');
+        $adapter->save('baa_3', 'someData');
+
+        $deleted = $adapter->deleteByPrefix('baa');
+        $this->assertEquals(3, $deleted, 'Deleted wrong number of cache items');
+
+        $ids = $adapter->getCache()->getIds();
+        $this->assertEquals(3, count($ids), 'Wrong count of existing tag ids');
+        $this->assertContains('prefix_foo_1', $ids, 'Deleted Wrong cache item');
+        $this->assertContains('prefix_foo_2', $ids, 'Deleted Wrong cache item');
+        $this->assertContains('prefix_foo_3', $ids, 'Deleted Wrong cache item');
+    }
+
+    /**
+     * @covers Robo47_Cache_DoctrineAdapter::_getCacheKeys
+     */
+    public function testImplementationOf_getCacheKeysWorksWithDeleteBySuffix()
+    {
+        $adapter = new Robo47_Cache_DoctrineAdapter($this->getCache(), 'prefix_');
+        $adapter->save('1_foo', 'someData');
+        $adapter->save('1_baa', 'someData');
+        $adapter->save('2_foo', 'someData');
+        $adapter->save('2_baa', 'someData');
+        $adapter->save('3_foo', 'someData');
+        $adapter->save('3_baa', 'someData');
+
+        $deleted = $adapter->deleteBySuffix('foo');
+        $this->assertEquals(3, $deleted, 'Deleted wrong number of cache items');
+
+        $ids = $adapter->getCache()->getIds();
+        $this->assertEquals(3, count($ids), 'Wrong count of existing tag ids');
+        $this->assertContains('prefix_1_baa', $ids, 'Deleted Wrong cache item');
+        $this->assertContains('prefix_2_baa', $ids, 'Deleted Wrong cache item');
+        $this->assertContains('prefix_3_baa', $ids, 'Deleted Wrong cache item');
+    }
+
+    /**
+     * @covers Robo47_Cache_DoctrineAdapter::_getCacheKeys
+     */
+    public function testImplementationOf_getCacheKeysWorksWithDeleteAll()
+    {
+        $adapter = new Robo47_Cache_DoctrineAdapter($this->getCache(), 'prefix_');
+        $adapter->save('1_foo', 'someData');
+        $adapter->save('1_baa', 'someData');
+        $adapter->save('2_foo', 'someData');
+        $adapter->save('2_baa', 'someData');
+        $adapter->save('3_foo', 'someData');
+        $adapter->save('3_baa', 'someData');
+
+        $deleted = $adapter->deleteAll();
+        $this->assertEquals(6, $deleted, 'Deleted wrong number of cache items');
+
+        $ids = $adapter->getCache()->getIds();
+        $this->assertEquals(0, count($ids), 'Wrong count of existing tag ids');
+    }
+
 }
