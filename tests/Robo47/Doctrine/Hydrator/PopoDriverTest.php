@@ -1,5 +1,4 @@
 <?php
-
 require_once dirname(__FILE__) . '/../../../TestHelper.php';
 
 require_once TESTS_PATH . 'Robo47/_files/DoctrineTestCase.php';
@@ -48,11 +47,12 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
 
         foreach($result as $record) {
             /* @var $record Robo47_Popo */
+
             $this->assertType('Robo47_Popo', $record, 'Wrong datatype for record');
-            $this->assertObjectNotHasAttribute('__type', $record, '__type present');
-            $this->assertObjectHasAttribute('id', $record, 'no id present');
-            $this->assertObjectHasAttribute('name', $record, 'no name present');
-            $this->assertObjectHasAttribute('tag', $record, 'no tag present');
+            $this->assertFalse(isset($record->__type), '__type present');
+            $this->assertTrue(isset($record->id), 'no id present');
+            $this->assertTrue(isset($record->name), 'no name present');
+            $this->assertTrue(isset($record->tag), 'no tag present');
             $this->assertEquals(3, count($record), 'Wrong attribute count');
         }
     }
@@ -75,10 +75,10 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         foreach($result as $record) {
             /* @var $record Robo47_Popo */
             $this->assertType('Robo47_Popo', $record, 'Wrong datatype for record');
-            $this->assertObjectHasAttribute('foo', $record, 'no foo attribute present');
-            $this->assertObjectHasAttribute('id', $record, 'no id present');
-            $this->assertObjectHasAttribute('name', $record, 'no name present');
-            $this->assertObjectHasAttribute('tag', $record, 'no tag present');
+            $this->assertTrue(isset($record->foo), 'no foo attribute present');
+            $this->assertTrue(isset($record->id), 'no id present');
+            $this->assertTrue(isset($record->name), 'no name present');
+            $this->assertTrue(isset($record->tag), 'no tag present');
             $this->assertEquals('Tag', $record->foo);
             $this->assertEquals(4, count($record), 'Wrong attribute count');
         }
@@ -102,10 +102,10 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         foreach($result as $record) {
             /* @var $record Robo47_Popo */
             $this->assertType('Robo47_Popo', $record, 'Wrong datatype for record');
-            $this->assertObjectHasAttribute('__type', $record, 'no foo attribute present');
-            $this->assertObjectHasAttribute('id', $record, 'no id present');
-            $this->assertObjectHasAttribute('name', $record, 'no name present');
-            $this->assertObjectHasAttribute('tag', $record, 'no tag present');
+            $this->assertTrue(isset($record->__type), 'no foo attribute present');
+            $this->assertTrue(isset($record->id), 'no id present');
+            $this->assertTrue(isset($record->name), 'no name present');
+            $this->assertTrue(isset($record->tag), 'no tag present');
             $this->assertEquals('Tag', $record->__type);
             $this->assertEquals(4, count($record), 'Wrong attribute count');
         }
@@ -128,13 +128,15 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
 
         foreach($result as $entry) {
             /* @var $entry Robo47_Popo */
+
+            
             $this->assertType('Robo47_Popo', $entry, 'Wrong datatype for record');
-            $this->assertObjectHasAttribute('__type', $entry, 'no __type attribute present');
-            $this->assertObjectHasAttribute('id', $entry, 'no id attribute present');
-            $this->assertObjectHasAttribute('message', $entry, 'no message attribute present');
-            $this->assertObjectHasAttribute('categoryId', $entry, 'no categoryId attribute present');
-            $this->assertObjectHasAttribute('Tag', $entry, 'no Tag-attribute present');
-            $this->assertObjectHasAttribute('Category', $entry, 'no Category-attribute present');
+            $this->assertTrue(isset($entry->__type), 'no __type attribute present');
+            $this->assertTrue(isset($entry->id), 'no id attribute present');
+            $this->assertTrue(isset($entry->message), 'no message attribute present');
+            $this->assertTrue(isset($entry->categoryId), 'no categoryId attribute present');
+            $this->assertTrue(isset($entry->Tag), 'no Tag-attribute present');
+            $this->assertTrue(isset($entry->Category), 'no Category-attribute present');
             $this->assertEquals(6, count($entry), 'Wrong attribute count');
 
             $this->assertEquals('Blogentry', $entry->__type);
@@ -144,10 +146,10 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
             $i = 0;
             foreach($tags as $key => $tag) {
                 $this->assertType('Robo47_Popo', $tag, 'Wrong datatype for relation Category');
-                $this->assertObjectHasAttribute('__type', $tag, 'no __type present');
-                $this->assertObjectHasAttribute('id', $tag, 'no id present');
-                $this->assertObjectHasAttribute('tag', $tag, 'no tag present');
-                $this->assertObjectHasAttribute('name', $tag, 'no name present');
+                $this->assertTrue(isset($tag->__type), 'no __type present');
+                $this->assertTrue(isset($tag->id), 'no id present');
+                $this->assertTrue(isset($tag->tag), 'no tag present');
+                $this->assertTrue(isset($tag->name), 'no name present');
                 $this->assertEquals('Tag', $tag->__type);
                 $this->assertEquals(4, count($tag), 'Wrong attribute count for Tag');
             }
@@ -155,9 +157,9 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
 
             $category = $entry->Category;
             $this->assertType('Robo47_Popo', $category, 'Wrong datatype for relation Category');
-            $this->assertObjectHasAttribute('__type', $category, 'no __type present');
-            $this->assertObjectHasAttribute('id', $category, 'no categoryId present');
-            $this->assertObjectHasAttribute('name', $category, 'no name present');
+            $this->assertTrue(isset($category->__type), 'no __type present');
+            $this->assertTrue(isset($category->id), 'no categoryId present');
+            $this->assertTrue(isset($category->name), 'no name present');
         }
     }
 
