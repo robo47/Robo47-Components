@@ -31,7 +31,7 @@
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  *
  */
-class Robo47_Exiftool extends Zend_Exception
+class Robo47_Exiftool
 {
     /**
      * Format ARRAY
