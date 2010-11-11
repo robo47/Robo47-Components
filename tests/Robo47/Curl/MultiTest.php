@@ -28,7 +28,7 @@ class Robo47_Curl_MultiTest extends PHPUnit_Framework_TestCase
 
         $curls = $curlMulti->getCurls();
 
-        $this->assertType('array', $curls);
+        $this->assertInternalType('array', $curls);
         $this->assertEquals(3, count($curls));
 
         $curlMulti->removeHandle($curl2);
@@ -37,13 +37,13 @@ class Robo47_Curl_MultiTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(2, count($curlMulti));
 
-        $this->assertType('array', $curls);
+        $this->assertInternalType('array', $curls);
         $this->assertEquals(2, count($curls));
         $this->assertContains($curl1, $curls);
         $this->assertContains($curl3, $curls);
 
         $resource = $curlMulti->getCurlMulti();
-        $this->assertType('resource', $resource);
+        $this->assertInternalType('resource', $resource);
         $this->assertEquals('curl_multi', get_resource_type($resource));
 
         $curlMulti->exec($number);
@@ -52,7 +52,7 @@ class Robo47_Curl_MultiTest extends PHPUnit_Framework_TestCase
 
         $curlMulti->setCurlMulti(curl_multi_init());
 
-        $this->assertType('resource', $resource);
+        $this->assertInternalType('resource', $resource);
 
         $this->assertEquals('curl_multi', get_resource_type($resource));
         $this->assertNotSame($resource, $curlMulti->getCurlMulti());

@@ -20,6 +20,3 @@ if (!defined('APPLICATION_ENVIRONMENT')) {
 require_once 'Zend/Loader/Autoloader.php';
 $loader = Zend_Loader_Autoloader::getInstance();
 $loader->setFallbackAutoloader(true);
-
-
-

@@ -42,7 +42,7 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         $this->fillTableWithTags(3);
         $result = $this->getTagsQuery()
                        ->execute();
-        $this->assertType('array', $result, 'Wrong datatype for result');
+        $this->assertInternalType('array', $result, 'Wrong datatype for result');
         $this->assertEquals(3, count($result));
 
         foreach($result as $record) {
@@ -69,7 +69,7 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         $this->fillTableWithTags(3);
         $result = $this->getTagsQuery()
                        ->execute();
-        $this->assertType('array', $result, 'Wrong datatype for result');
+        $this->assertInternalType('array', $result, 'Wrong datatype for result');
         $this->assertEquals(3, count($result));
 
         foreach($result as $record) {
@@ -123,7 +123,7 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         $this->fillTableWithBlogEntries(3);
         $result = $this->getEntryQuery()
                        ->execute();
-        $this->assertType('array', $result, 'Wrong datatype for result');
+        $this->assertInternalType('array', $result, 'Wrong datatype for result');
         $this->assertEquals(3, count($result));
 
         foreach($result as $entry) {

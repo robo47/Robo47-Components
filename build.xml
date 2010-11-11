@@ -155,7 +155,7 @@
             executable="phpcs"
             output="${basedir}/build/logs/checkstyle.xml"
             failonerror="false">
-            <arg line="--report=checkstyle --standard=robo47 &quot;${basedir}/library/Robo47&quot;"/>
+            <arg line="--report=checkstyle --standard=ZF2 &quot;${basedir}/library/Robo47&quot;"/>
         </exec>
     </target>
 

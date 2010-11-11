@@ -17,7 +17,7 @@ class Robo47_CurlTest extends PHPUnit_Framework_TestCase
     {
         $curl = new Robo47_Curl();
         $curlResource = $curl->getCurl();
-        $this->assertType('resource', $curlResource);
+        $this->assertInternalType('resource', $curlResource);
         $this->assertEquals('curl', get_resource_type($curlResource));
 
         $resource = curl_init();
@@ -25,7 +25,7 @@ class Robo47_CurlTest extends PHPUnit_Framework_TestCase
         $curl->setCurl($resource);
 
         $curlResource = $curl->getCurl();
-        $this->assertType('resource', $curlResource);
+        $this->assertInternalType('resource', $curlResource);
         $this->assertSame($curlResource, $resource);
     }
 
@@ -180,11 +180,11 @@ class Robo47_CurlTest extends PHPUnit_Framework_TestCase
 
         // @todo some better asserts
         $headers = $curl->getHeaders(true);
-        $this->assertType('array', $headers);
+        $this->assertInternalType('array', $headers);
         $this->assertGreaterThan(2, count($headers));
 
         $headers = $curl->getHeaders(false);
-        $this->assertType('string', $headers);
+        $this->assertInternalType('string', $headers);
         $this->assertGreaterThan(10, strlen($headers));
     }
 
