@@ -9,7 +9,7 @@ require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
  */
 class Robo47_Application_Resource_AutoloaderMultiTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
 
@@ -17,7 +17,7 @@ class Robo47_Application_Resource_AutoloaderMultiTest extends PHPUnit_Framework_
         Zend_Loader_Autoloader::getInstance()
             ->setFallbackAutoloader(true);
     }
-    
+
     public function tearDown()
     {
         Zend_Loader_Autoloader::resetInstance();
@@ -52,13 +52,13 @@ class Robo47_Application_Resource_AutoloaderMultiTest extends PHPUnit_Framework_
         $this->assertEquals(1, count($autoLoader->getNamespaceAutoloaders('htmlpurifier')), 'No htmlpurifier autoloader found');
 
         $ezc = $autoLoader->getNamespaceAutoloaders('ezc');
-        $this->assertType('Robo47_Loader_Autoloader_Ezc', $ezc[0]);
+        $this->assertInstanceOf('Robo47_Loader_Autoloader_Ezc', $ezc[0]);
 
         $htmlpurifier = $autoLoader->getNamespaceAutoloaders('htmlpurifier');
-        $this->assertType('Robo47_Loader_Autoloader_HtmlPurifier', $htmlpurifier[0]);
+        $this->assertInstanceOf('Robo47_Loader_Autoloader_HtmlPurifier', $htmlpurifier[0]);
 
-        $this->assertType('Robo47_Loader_Autoloader_HtmlPurifier', $resource->getAutoloader('htmlpurifier'));
-        $this->assertType('Robo47_Loader_Autoloader_Ezc', $resource->getAutoloader('ezc'));
+        $this->assertInstanceOf('Robo47_Loader_Autoloader_HtmlPurifier', $resource->getAutoloader('htmlpurifier'));
+        $this->assertInstanceOf('Robo47_Loader_Autoloader_Ezc', $resource->getAutoloader('ezc'));
 
         $this->assertEquals(2, count($resource->getAutoloaders()));
 

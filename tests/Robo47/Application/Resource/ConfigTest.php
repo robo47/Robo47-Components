@@ -9,14 +9,14 @@ require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
  */
 class Robo47_Application_Resource_ConfigTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
         $this->application = new Zend_Application('testing');
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         Zend_Registry::_unsetInstance();
     }
-    
+
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
@@ -44,7 +44,7 @@ class Robo47_Application_Resource_ConfigTest extends PHPUnit_Framework_TestCase
         /* @var $config Zend_Config */
 
 
-        $this->assertType('Zend_Config', $config);
+        $this->assertInstanceOf('Zend_Config', $config);
         $this->assertEquals($options['config'], $config->toArray());
     }
 
@@ -65,7 +65,7 @@ class Robo47_Application_Resource_ConfigTest extends PHPUnit_Framework_TestCase
         $config = $resource->getConfig();
         /* @var $config Zend_Config */
 
-        $this->assertType('Zend_Config', $config);
+        $this->assertInstanceOf('Zend_Config', $config);
         $this->assertEquals($options['config'], $config->toArray());
     }
 

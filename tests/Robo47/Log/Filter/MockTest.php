@@ -51,7 +51,7 @@ class Robo47_Log_Filter_MockTest extends PHPUnit_Framework_TestCase
     {
         $config = array('foo');
         $filter = Robo47_Log_Filter_Mock::factory($config);
-        $this->assertType('Robo47_Log_Filter_Mock', $filter, 'Wrong datatype from factory');
+        $this->assertInstanceOf('Robo47_Log_Filter_Mock', $filter, 'Wrong datatype from factory');
         $this->assertEquals(array($config), $filter->constructorParams, 'Constructor Params are wrong');
     }
 
@@ -62,7 +62,7 @@ class Robo47_Log_Filter_MockTest extends PHPUnit_Framework_TestCase
     {
         $config = new Zend_Config(array('foo'));
         $filter = Robo47_Log_Filter_Mock::factory($config);
-        $this->assertType('Robo47_Log_Filter_Mock', $filter, 'Wrong datatype from factory');
+        $this->assertInstanceOf('Robo47_Log_Filter_Mock', $filter, 'Wrong datatype from factory');
         $this->assertEquals(array($config), $filter->constructorParams, 'Constructor Params are wrong');
     }
 }

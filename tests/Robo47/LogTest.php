@@ -200,10 +200,10 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
 
         $log = Robo47_Log::factory($config);
 
-        $this->assertType('Robo47_Log', $log, 'Wrong Datatype of Log');
+        $this->assertInstanceOf('Robo47_Log', $log, 'Wrong Datatype of Log');
         $writers = $log->getWriters();
         $this->assertEquals(1, count($writers), 'Wrong count for writers');
-        $this->assertType('Robo47_Log_Writer_Mock', $writers[0], 'Wrong Datatype for Writer');
+        $this->assertInstanceOf('Robo47_Log_Writer_Mock', $writers[0], 'Wrong Datatype for Writer');
     }
 
     /**
@@ -220,10 +220,10 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
 
         $log = Robo47_Log::factory(new Zend_Config($config));
 
-        $this->assertType('Robo47_Log', $log, 'Wrong Datatype of Log');
+        $this->assertInstanceOf('Robo47_Log', $log, 'Wrong Datatype of Log');
         $writers = $log->getWriters();
         $this->assertEquals(1, count($writers), 'Wrong count for writers');
-        $this->assertType('Robo47_Log_Writer_Mock', $writers[0], 'Wrong Datatype for Writer');
+        $this->assertInstanceOf('Robo47_Log_Writer_Mock', $writers[0], 'Wrong Datatype for Writer');
     }
 
     /**
@@ -237,10 +237,10 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
 
         $log = Robo47_Log::factory($config);
 
-        $this->assertType('Robo47_Log', $log, 'Wrong Datatype of Log');
+        $this->assertInstanceOf('Robo47_Log', $log, 'Wrong Datatype of Log');
         $writers = $log->getWriters();
         $this->assertEquals(1, count($writers), 'Wrong count for writers');
-        $this->assertType('Robo47_Log_Writer_Mock', $writers[0], 'Wrong Datatype for Writer');
+        $this->assertInstanceOf('Robo47_Log_Writer_Mock', $writers[0], 'Wrong Datatype for Writer');
     }
 
     /**

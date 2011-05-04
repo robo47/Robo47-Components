@@ -48,7 +48,7 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         foreach($result as $record) {
             /* @var $record Robo47_Popo */
 
-            $this->assertType('Robo47_Popo', $record, 'Wrong datatype for record');
+            $this->assertInstanceOf('Robo47_Popo', $record, 'Wrong datatype for record');
             $this->assertFalse(isset($record->__type), '__type present');
             $this->assertTrue(isset($record->id), 'no id present');
             $this->assertTrue(isset($record->name), 'no name present');
@@ -74,7 +74,7 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
 
         foreach($result as $record) {
             /* @var $record Robo47_Popo */
-            $this->assertType('Robo47_Popo', $record, 'Wrong datatype for record');
+            $this->assertInstanceOf('Robo47_Popo', $record, 'Wrong datatype for record');
             $this->assertTrue(isset($record->foo), 'no foo attribute present');
             $this->assertTrue(isset($record->id), 'no id present');
             $this->assertTrue(isset($record->name), 'no name present');
@@ -96,12 +96,12 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         $this->fillTableWithTags(3);
         $result = $this->getTagsQuery()
                        ->execute();
-        $this->assertType('ArrayObject', $result, 'Wrong datatype for result');
+        $this->assertInstanceOf('ArrayObject', $result, 'Wrong datatype for result');
         $this->assertEquals(3, count($result));
 
         foreach($result as $record) {
             /* @var $record Robo47_Popo */
-            $this->assertType('Robo47_Popo', $record, 'Wrong datatype for record');
+            $this->assertInstanceOf('Robo47_Popo', $record, 'Wrong datatype for record');
             $this->assertTrue(isset($record->__type), 'no foo attribute present');
             $this->assertTrue(isset($record->id), 'no id present');
             $this->assertTrue(isset($record->name), 'no name present');
@@ -129,8 +129,8 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
         foreach($result as $entry) {
             /* @var $entry Robo47_Popo */
 
-            
-            $this->assertType('Robo47_Popo', $entry, 'Wrong datatype for record');
+
+            $this->assertInstanceOf('Robo47_Popo', $entry, 'Wrong datatype for record');
             $this->assertTrue(isset($entry->__type), 'no __type attribute present');
             $this->assertTrue(isset($entry->id), 'no id attribute present');
             $this->assertTrue(isset($entry->message), 'no message attribute present');
@@ -145,7 +145,7 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
 
             $i = 0;
             foreach($tags as $key => $tag) {
-                $this->assertType('Robo47_Popo', $tag, 'Wrong datatype for relation Category');
+                $this->assertInstanceOf('Robo47_Popo', $tag, 'Wrong datatype for relation Category');
                 $this->assertTrue(isset($tag->__type), 'no __type present');
                 $this->assertTrue(isset($tag->id), 'no id present');
                 $this->assertTrue(isset($tag->tag), 'no tag present');
@@ -156,7 +156,7 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
             $this->assertEquals(5, count($tags), 'Wrong Tag-count');
 
             $category = $entry->Category;
-            $this->assertType('Robo47_Popo', $category, 'Wrong datatype for relation Category');
+            $this->assertInstanceOf('Robo47_Popo', $category, 'Wrong datatype for relation Category');
             $this->assertTrue(isset($category->__type), 'no __type present');
             $this->assertTrue(isset($category->id), 'no categoryId present');
             $this->assertTrue(isset($category->name), 'no name present');

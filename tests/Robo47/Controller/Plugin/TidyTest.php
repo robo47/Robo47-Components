@@ -8,12 +8,12 @@ require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
  */
 class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function tearDown()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
     }
-    
+
     public function getPluginWithLogging($valid = true)
     {
         $mockWriter = new Robo47_Log_Writer_Mock();
@@ -45,7 +45,7 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
         $plugin = new Robo47_Controller_Plugin_Tidy();
         $this->assertNull($plugin->getLog(), 'Log is not null');
         $this->assertEquals('tidy', $plugin->getLogCategory(), 'LogCategory is wrong');
-        $this->assertType('Robo47_Filter_Tidy', $plugin->getTidyFilter(), 'LogCategory is wrong');
+        $this->assertInstanceOf('Robo47_Filter_Tidy', $plugin->getTidyFilter(), 'LogCategory is wrong');
     }
 
     /**
@@ -81,7 +81,7 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
         $filter = new Robo47_Filter_Tidy();
         $plugin = new Robo47_Controller_Plugin_Tidy($filter);
         $plugin->setTidyFilter(null);
-        $this->assertType('Robo47_Filter_Tidy', $plugin->getTidyFilter(), 'LogCategory is wrong');
+        $this->assertInstanceOf('Robo47_Filter_Tidy', $plugin->getTidyFilter(), 'LogCategory is wrong');
         $this->assertNotSame($filter, $plugin->getTidyFilter(), 'Wrong filter');
     }
 
@@ -108,7 +108,7 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
         $plugin->setLogPriority(Zend_Log::ERR);
         $this->assertEquals(Zend_Log::ERR, $plugin->getLogPriority());
     }
-    
+
     public function htmlResponseProvider()
     {
         $data = array();

@@ -9,12 +9,12 @@ require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
  */
 class Robo47_View_Helper_GravatarTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
     }
-    
+
     public function tearDown()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
@@ -27,7 +27,7 @@ class Robo47_View_Helper_GravatarTest extends PHPUnit_Framework_TestCase
     {
         $helper = new Robo47_View_Helper_Gravatar();
         $service = $helper->getService();
-        $this->assertType('Robo47_Service_Gravatar', $service);
+        $this->assertInstanceOf('Robo47_Service_Gravatar', $service);
     }
 
     /**
@@ -37,7 +37,7 @@ class Robo47_View_Helper_GravatarTest extends PHPUnit_Framework_TestCase
     {
         $service = new Robo47_Service_Gravatar();
         $helper = new Robo47_View_Helper_Gravatar($service);
-        $this->assertType('Robo47_Service_Gravatar', $helper->getService());
+        $this->assertInstanceOf('Robo47_Service_Gravatar', $helper->getService());
         $this->assertSame($service, $helper->getService());
     }
 
@@ -49,11 +49,11 @@ class Robo47_View_Helper_GravatarTest extends PHPUnit_Framework_TestCase
     {
         $service = new Robo47_Service_Gravatar();
         $helper = new Robo47_View_Helper_Gravatar();
-        $this->assertType('Robo47_Service_Gravatar', $helper->getService());
+        $this->assertInstanceOf('Robo47_Service_Gravatar', $helper->getService());
         $helper->setService($service);
         $this->assertSame($service, $helper->getService());
     }
-    
+
     public function gravatarProvider()
     {
         $data = array();

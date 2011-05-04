@@ -4,22 +4,22 @@ require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
 
 class MyStaticTestContainer
 {
-    
+
     public static $blub = null;
     public static $bla = null;
     public static $foo = null;
     public static $something = false;
-    
+
     public static function setFoo($value)
     {
         self::$foo = $value;
     }
-    
+
     public static function something()
     {
         self::$something = true;
     }
-    
+
     public static function resetClass()
     {
         self::$blub = null;
@@ -36,14 +36,14 @@ class MyStaticTestContainer
  */
 class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
         $this->application = new Zend_Application('testing');
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         Zend_Registry::_unsetInstance();
     }
-    
+
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
@@ -65,7 +65,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
         $resource = new Robo47_Application_Resource_Object($options);
         $resource->init();
 
-        $this->assertType('Robo47_Mock', $resource->getObject());
+        $this->assertInstanceOf('Robo47_Mock', $resource->getObject());
     }
 
     /**
@@ -83,7 +83,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
         $resource = new Robo47_Application_Resource_Object($options);
         $resource->init();
 
-        $this->assertType('Robo47_Mock', $resource->getObject());
+        $this->assertInstanceOf('Robo47_Mock', $resource->getObject());
         $object = $resource->getObject();
         $this->assertEquals(1, count($object->mockData['call']));
         $this->assertContains(array('__construct', array('bla', 'blub')), $object->mockData['call']);
@@ -143,7 +143,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
         $resource = new Robo47_Application_Resource_Object($options);
         $resource->init();
 
-        $this->assertType('Robo47_Mock', $resource->getObject());
+        $this->assertInstanceOf('Robo47_Mock', $resource->getObject());
         $object = $resource->getObject();
         $this->assertEquals(2, count($object->mockData['call']));
         $this->assertContains(array('setFoo', array('baa', 'foo')), $object->mockData['call']);
@@ -166,7 +166,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
         $resource = new Robo47_Application_Resource_Object($options);
         $resource->init();
 
-        $this->assertType('Robo47_Mock', $resource->getObject());
+        $this->assertInstanceOf('Robo47_Mock', $resource->getObject());
         $object = $resource->getObject();
         $this->assertEquals(2, count($object->mockData['call']));
         $this->assertContains(array('setFoo', array()), $object->mockData['call']);
@@ -238,7 +238,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
         $resource = new Robo47_Application_Resource_Object($options);
         $resource->init();
 
-        $this->assertType('Robo47_Mock', $resource->getObject());
+        $this->assertInstanceOf('Robo47_Mock', $resource->getObject());
         $object = $resource->getObject();
         $this->assertEquals(2, count($object->mockData['set']));
         $this->assertContains(array('bla', 'blub'), $object->mockData['set']);
@@ -263,7 +263,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
         $resource = new Robo47_Application_Resource_Object($options);
         $resource->init();
 
-        $this->assertType('MyStaticTestContainer', $resource->getObject());
+        $this->assertInstanceOf('MyStaticTestContainer', $resource->getObject());
 
         $this->assertEquals('blub', MyStaticTestContainer::$blub);
         $this->assertEquals('baa', MyStaticTestContainer::$bla);
@@ -284,11 +284,11 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
         $resource = new Robo47_Application_Resource_Object($options);
         $resource->init();
 
-        $this->assertType('Robo47_Mock', $resource->getObject());
+        $this->assertInstanceOf('Robo47_Mock', $resource->getObject());
         $object = $resource->getObject();
 
         $this->assertTrue(Zend_Registry::isRegistered($options['registryKey']));
-        $this->assertType('Robo47_Mock', Zend_Registry::get($options['registryKey']));
+        $this->assertInstanceOf('Robo47_Mock', Zend_Registry::get($options['registryKey']));
     }
 
     /**
@@ -308,7 +308,7 @@ class Robo47_Application_Resource_ObjectTest extends PHPUnit_Framework_TestCase
         $resource = new Robo47_Application_Resource_Object($options);
         $resource->init();
 
-        $this->assertType('MyStaticTestContainer', $resource->getObject());
+        $this->assertInstanceOf('MyStaticTestContainer', $resource->getObject());
         $this->assertEquals('bla', MyStaticTestContainer::$foo);
     }
 }

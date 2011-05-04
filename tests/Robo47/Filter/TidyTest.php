@@ -8,7 +8,7 @@ require_once dirname(__FILE__ ) . '/../../TestHelper.php';
  */
 class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function tearDown()
     {
         Robo47_Filter_Tidy::setDefaultTidy(null);
@@ -23,7 +23,7 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
         $filter = new Robo47_Filter_Tidy();
         $this->assertEquals(array(), $filter->getConfig(), 'Wrong Config');
         $this->assertEquals('utf8', $filter->getEncoding(), 'Wrong Encoding');
-        $this->assertType('Tidy', $filter->getTidy());
+        $this->assertInstanceOf('Tidy', $filter->getTidy());
     }
 
     /**
@@ -59,7 +59,7 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
         $filter = new Robo47_Filter_Tidy(null, null, $encoding);
         $this->assertEquals($encoding, $filter->getEncoding(), 'Wrong Encoding');
     }
-    
+
     public function encodingProvider()
     {
         $data = array();
@@ -143,7 +143,7 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
         $filter->setTidy('MyTidy');
         $this->assertSame($myTidy, $filter->getTidy(), 'Wrong Tidy');
     }
-    
+
     public function invalidTidyObjects()
     {
         $data = array();
@@ -259,7 +259,7 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
         $filter->setTidy();
         $this->assertSame($tidy, $filter->getTidy(), 'setTidy() did not set tidy to defaultTidy');
     }
-    
+
     public function filterProvider()
     {
         $data = array();

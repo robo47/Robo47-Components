@@ -13,13 +13,13 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
      * @var Robo47_Log_Filter_ValidateProxy
      */
     protected $_filter = null;
-    
+
     public function setUp()
     {
         $validator = new Robo47_Validate_Mock(true);
         $this->_filter = new Robo47_Log_Filter_ValidateProxy($validator, null, false);
     }
-    
+
     public function tearDown()
     {
         $this->_filter = null;
@@ -107,9 +107,9 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
     public function testSetValidatorWithString()
     {
         $this->_filter->setValidator('Zend_Validate_Int');
-        $this->assertType('Zend_Validate_Int', $this->_filter->getValidator());
+        $this->assertInstanceOf('Zend_Validate_Int', $this->_filter->getValidator());
     }
-    
+
     public function invalidObjectProvider()
     {
         $data = array();
@@ -149,7 +149,7 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
             $this->assertEquals('key "blub" not found in event', $e->getMessage(), 'Wrong Exception message');
         }
     }
-    
+
     public function acceptValuesProvider()
     {
         $data = array();
@@ -196,12 +196,12 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
         );
         $filter = Robo47_Log_Filter_ValidateProxy::factory($config);
 
-        $this->assertType('Robo47_Log_Filter_ValidateProxy', $filter, 'Wrong datatype from factory');
+        $this->assertInstanceOf('Robo47_Log_Filter_ValidateProxy', $filter, 'Wrong datatype from factory');
 
 
         $this->assertEquals($config['key'], $filter->getKey(), 'Key are wrong');
         $this->assertEquals($config['not'], $filter->getNot(), 'Not are wrong');
-        $this->assertType($config['validator'], $filter->getValidator(), 'Validator is wrong');
+        $this->assertInstanceOf($config['validator'], $filter->getValidator(), 'Validator is wrong');
     }
 
     /**
@@ -217,11 +217,11 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
         $config = new Zend_Config($config);
         $filter = Robo47_Log_Filter_ValidateProxy::factory($config);
 
-        $this->assertType('Robo47_Log_Filter_ValidateProxy', $filter, 'Wrong datatype from factory');
+        $this->assertInstanceOf('Robo47_Log_Filter_ValidateProxy', $filter, 'Wrong datatype from factory');
 
         $config = $config->toArray();
         $this->assertEquals($config['key'], $filter->getKey(), 'Key are wrong');
         $this->assertEquals($config['not'], $filter->getNot(), 'Not are wrong');
-        $this->assertType($config['validator'], $filter->getValidator(), 'Validator is wrong');
+        $this->assertInstanceOf($config['validator'], $filter->getValidator(), 'Validator is wrong');
     }
 }

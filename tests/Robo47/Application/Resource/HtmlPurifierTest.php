@@ -9,7 +9,7 @@ require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
  */
 class Robo47_Application_Resource_HtmlPurifierTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
         if (!class_exists('HTMLPurifier_Bootstrap', false)) {
@@ -19,7 +19,7 @@ class Robo47_Application_Resource_HtmlPurifierTest extends PHPUnit_Framework_Tes
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         Zend_Registry::_unsetInstance();
     }
-    
+
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
@@ -53,7 +53,7 @@ class Robo47_Application_Resource_HtmlPurifierTest extends PHPUnit_Framework_Tes
         $HtmlPurifier = $resource->getHtmlPurifier();
         /* @var $HtmlPurifier HtmlPurifier */
 
-        $this->assertType('HTMLPurifier', $HtmlPurifier);
+        $this->assertInstanceOf('HTMLPurifier', $HtmlPurifier);
         $config = $HtmlPurifier->config;
         /* @var $config HTMLPurifier_Config */
         $this->assertEquals($options['options']['Core.Encoding'], $config->get('Core.Encoding'));
@@ -93,7 +93,7 @@ class Robo47_Application_Resource_HtmlPurifierTest extends PHPUnit_Framework_Tes
         $HtmlPurifier = $resource->getHtmlPurifier();
         /* @var $HtmlPurifier HtmlPurifier */
 
-        $this->assertType('HTMLPurifier', $HtmlPurifier);
+        $this->assertInstanceOf('HTMLPurifier', $HtmlPurifier);
         $config = $HtmlPurifier->config;
         /* @var $config HTMLPurifier_Config */
         $this->assertEquals($options['options']['Core.Encoding'], $config->get('Core.Encoding'));

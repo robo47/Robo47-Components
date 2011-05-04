@@ -101,7 +101,7 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
     {
         $this->assertNull(Robo47_Filter_HtmlPurifier::getDefaultPurifier());
         $filter = new Robo47_Filter_HtmlPurifier();
-        $this->assertType('HtmlPurifier', $filter->getPurifier(), 'Wrong type');
+        $this->assertInstanceOf('HtmlPurifier', $filter->getPurifier(), 'Wrong type');
     }
 
     /**

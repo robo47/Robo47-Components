@@ -92,7 +92,7 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
     {
         $writer = new Robo47_Log_Writer_DoctrineTable($this->_table);
         $writer->setTable('Robo47_Log_Writer_Doctrine_Test_Log');
-        $this->assertType('Doctrine_Table', $writer->getTable());
+        $this->assertInstanceOf('Doctrine_Table', $writer->getTable());
         $this->assertEquals('testLog', $writer->getTable()->getTableName());
     }
 
@@ -250,7 +250,7 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
 
         $writer = Robo47_Log_Writer_DoctrineTable::factory($config);
 
-        $this->assertType('Robo47_Log_Writer_DoctrineTable', $writer, 'Wrong datatype from factory');
+        $this->assertInstanceOf('Robo47_Log_Writer_DoctrineTable', $writer, 'Wrong datatype from factory');
 
         $this->assertEquals($config['columnMap'], $writer->getColumnMap(), 'ColumnMap is wrong');
         $this->assertEquals($config['table'], $writer->getTable(), 'Table is wrong');
@@ -277,7 +277,7 @@ class Robo47_Log_Writer_DoctrineTableTest extends Robo47_DoctrineTestCase
 
         $config = $config->toArray();
 
-        $this->assertType('Robo47_Log_Writer_DoctrineTable', $writer, 'Wrong datatype from factory');
+        $this->assertInstanceOf('Robo47_Log_Writer_DoctrineTable', $writer, 'Wrong datatype from factory');
 
         $this->assertEquals($config['columnMap'], $writer->getColumnMap(), 'ColumnMap is wrong');
         $this->assertEquals($config['table'], $writer->getTable(), 'Table is wrong');

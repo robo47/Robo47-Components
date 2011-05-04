@@ -9,7 +9,7 @@ require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
  */
 class Robo47_Mail_Transport_LogTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function tearDown()
     {
         unset($this->_transport);
@@ -108,9 +108,9 @@ class Robo47_Mail_Transport_LogTest extends PHPUnit_Framework_TestCase
     {
         $log = new Robo47_Log(new Zend_Log_Writer_Mock());
         $transport = new Robo47_Mail_Transport_Log('Robo47_Mail_Transport_Log_Formatter_Simple', $log);
-        $this->assertType('Robo47_Mail_Transport_Log_Formatter_Simple', $transport->getFormatter());
+        $this->assertInstanceOf('Robo47_Mail_Transport_Log_Formatter_Simple', $transport->getFormatter());
         $transport->setFormatter('Robo47_Mail_Transport_Log_Formatter_Serialize');
-        $this->assertType('Robo47_Mail_Transport_Log_Formatter_Serialize', $transport->getFormatter());
+        $this->assertInstanceOf('Robo47_Mail_Transport_Log_Formatter_Serialize', $transport->getFormatter());
     }
 
     /**

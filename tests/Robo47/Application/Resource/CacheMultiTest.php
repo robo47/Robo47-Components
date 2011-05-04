@@ -9,14 +9,14 @@ require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
  */
 class Robo47_Application_Resource_CacheMultiTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
         $this->application = new Zend_Application('testing');
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         Zend_Registry::_unsetInstance();
     }
-    
+
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
@@ -63,8 +63,8 @@ class Robo47_Application_Resource_CacheMultiTest extends PHPUnit_Framework_TestC
 
         $resource = new Robo47_Application_Resource_CacheMulti($options);
         $resource->init();
-        $this->assertType('Zend_Cache_Core', $resource->getCache('default'));
-        $this->assertType('Robo47_Cache_Backend_Array', $resource->getCache('default')->getBackend());
+        $this->assertInstanceOf('Zend_Cache_Core', $resource->getCache('default'));
+        $this->assertInstanceOf('Robo47_Cache_Backend_Array', $resource->getCache('default')->getBackend());
     }
 
     /**
@@ -95,14 +95,14 @@ class Robo47_Application_Resource_CacheMultiTest extends PHPUnit_Framework_TestC
 
         $resource = new Robo47_Application_Resource_CacheMulti($options);
         $resource->init();
-        $this->assertType('Zend_Cache_Core', $resource->getCache('default'));
-        $this->assertType('Robo47_Cache_Backend_Array', $resource->getCache('default')->getBackend());
+        $this->assertInstanceOf('Zend_Cache_Core', $resource->getCache('default'));
+        $this->assertInstanceOf('Robo47_Cache_Backend_Array', $resource->getCache('default')->getBackend());
 
-        $this->assertType('Zend_Cache_Core', $resource->getCache('baa'));
-        $this->assertType('Robo47_Cache_Backend_Array', $resource->getCache('baa')->getBackend());
+        $this->assertInstanceOf('Zend_Cache_Core', $resource->getCache('baa'));
+        $this->assertInstanceOf('Robo47_Cache_Backend_Array', $resource->getCache('baa')->getBackend());
 
-        $this->assertType('Zend_Cache_Core', $resource->getCache('foo'));
-        $this->assertType('Robo47_Cache_Backend_Array', $resource->getCache('foo')->getBackend());
+        $this->assertInstanceOf('Zend_Cache_Core', $resource->getCache('foo'));
+        $this->assertInstanceOf('Robo47_Cache_Backend_Array', $resource->getCache('foo')->getBackend());
 
         $this->assertEquals(3, count($resource->getCaches()));
 
@@ -128,8 +128,8 @@ class Robo47_Application_Resource_CacheMultiTest extends PHPUnit_Framework_TestC
 
         $resource = new Robo47_Application_Resource_CacheMulti($options);
         $resource->init();
-        $this->assertType('Zend_Cache_Core', $resource->getCache('default'));
-        $this->assertType('Robo47_Cache_Backend_Array', $resource->getCache('default')->getBackend());
+        $this->assertInstanceOf('Zend_Cache_Core', $resource->getCache('default'));
+        $this->assertInstanceOf('Robo47_Cache_Backend_Array', $resource->getCache('default')->getBackend());
 
         $this->assertTrue(Zend_Registry::isRegistered('cache_default'), 'Key cache_default was not registered in the Registry');
     }

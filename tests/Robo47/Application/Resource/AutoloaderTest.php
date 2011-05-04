@@ -9,7 +9,7 @@ require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
  */
 class Robo47_Application_Resource_AutoloaderTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
 
@@ -17,7 +17,7 @@ class Robo47_Application_Resource_AutoloaderTest extends PHPUnit_Framework_TestC
         Zend_Loader_Autoloader::getInstance()
             ->setFallbackAutoloader(true);
     }
-    
+
     public function tearDown()
     {
         Zend_Loader_Autoloader::resetInstance();
@@ -41,7 +41,7 @@ class Robo47_Application_Resource_AutoloaderTest extends PHPUnit_Framework_TestC
         $resource = new Robo47_Application_Resource_Autoloader($options);
         $resource->init();
 
-        $this->assertType('Robo47_Loader_Autoloader_Ezc', $resource->getAutoloader());
+        $this->assertInstanceOf('Robo47_Loader_Autoloader_Ezc', $resource->getAutoloader());
 
         $autoLoader = Zend_Loader_Autoloader::getInstance();
         $this->assertEquals(1, count($autoLoader->getNamespaceAutoloaders('ezc')));

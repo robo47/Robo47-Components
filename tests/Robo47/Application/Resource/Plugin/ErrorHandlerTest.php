@@ -11,13 +11,13 @@ require_once dirname(__FILE__ ) . '/../../../../TestHelper.php';
  */
 class Robo47_Application_Resource_Plugin_ErrorHandlerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
         $this->application = new Zend_Application('testing');
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
     }
-    
+
     public function tearDown()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
@@ -47,7 +47,7 @@ class Robo47_Application_Resource_Plugin_ErrorHandlerTest extends PHPUnit_Framew
         $this->assertEquals('default', $errorHandler->getErrorHandlerModule());
         $this->assertEquals('Foo', $errorHandler->getErrorHandlerController());
         $this->assertEquals('Baa', $errorHandler->getErrorHandlerAction());
-        $this->assertType('Zend_Controller_Plugin_ErrorHandler', $resource->getErrorHandler());
+        $this->assertInstanceOf('Zend_Controller_Plugin_ErrorHandler', $resource->getErrorHandler());
         $this->assertSame($errorHandler, $resource->getErrorHandler());
     }
 
@@ -68,7 +68,7 @@ class Robo47_Application_Resource_Plugin_ErrorHandlerTest extends PHPUnit_Framew
         $this->assertEquals(Zend_Controller_Front::getInstance()->getDispatcher()->getDefaultModule(), $errorHandler->getErrorHandlerModule());
         $this->assertEquals('error', $errorHandler->getErrorHandlerController());
         $this->assertEquals('error', $errorHandler->getErrorHandlerAction());
-        $this->assertType('Zend_Controller_Plugin_ErrorHandler', $resource->getErrorHandler());
+        $this->assertInstanceOf('Zend_Controller_Plugin_ErrorHandler', $resource->getErrorHandler());
         $this->assertSame($errorHandler, $resource->getErrorHandler());
     }
 }

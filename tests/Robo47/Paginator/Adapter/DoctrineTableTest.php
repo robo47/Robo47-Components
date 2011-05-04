@@ -42,7 +42,7 @@ class Robo47_Paginator_Adapter_DoctrineTableTest extends Robo47_Paginator_Adapte
     {
         $paginator = new Robo47_Paginator_Adapter_DoctrineTable($this->getTable());
         $paginator->setTable('Robo47_Log_Writer_Doctrine_Test_Log');
-        $this->assertType('Doctrine_Table', $paginator->getTable());
+        $this->assertInstanceOf('Doctrine_Table', $paginator->getTable());
         $this->assertEquals('testLog', $paginator->getTable()->getTableName());
     }
 

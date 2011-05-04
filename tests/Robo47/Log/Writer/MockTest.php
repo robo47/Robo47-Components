@@ -55,7 +55,7 @@ class Robo47_Log_Writer_MockTest extends PHPUnit_Framework_TestCase
     {
         $config = array('foo');
         $writer = Robo47_Log_Writer_Mock::factory($config);
-        $this->assertType('Robo47_Log_Writer_Mock', $writer, 'Wrong datatype from factory');
+        $this->assertInstanceOf('Robo47_Log_Writer_Mock', $writer, 'Wrong datatype from factory');
         $this->assertEquals(array($config), $writer->constructorParams, 'Constructor Params are wrong');
     }
 
@@ -66,7 +66,7 @@ class Robo47_Log_Writer_MockTest extends PHPUnit_Framework_TestCase
     {
         $config = new Zend_Config(array('foo'));
         $writer = Robo47_Log_Writer_Mock::factory($config);
-        $this->assertType('Robo47_Log_Writer_Mock', $writer, 'Wrong datatype from factory');
+        $this->assertInstanceOf('Robo47_Log_Writer_Mock', $writer, 'Wrong datatype from factory');
         $this->assertEquals(array($config), $writer->constructorParams, 'Constructor Params are wrong');
     }
 }

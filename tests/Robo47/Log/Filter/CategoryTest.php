@@ -60,7 +60,7 @@ class Robo47_Log_Filter_CategoryTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($options['key'], $filter->getKey(), 'Wrong key');
         $this->assertSame($options['validator'], $filter->getValidator(), 'Wrong validator');
     }
-    
+
     public function filterProvider()
     {
         $data = array();
@@ -96,12 +96,12 @@ class Robo47_Log_Filter_CategoryTest extends PHPUnit_Framework_TestCase
         );
         $filter = Robo47_Log_Filter_Category::factory($config);
 
-        $this->assertType('Robo47_Log_Filter_Category', $filter, 'Wrong datatype from factory');
+        $this->assertInstanceOf('Robo47_Log_Filter_Category', $filter, 'Wrong datatype from factory');
 
         $this->assertEquals($config['categories'], $filter->getCategories(), 'Categories are wrong');
         $this->assertEquals('category', $filter->getKey(), 'Key are wrong');
         $this->assertEquals($config['not'], $filter->getNot(), 'Not is wrong');
-        $this->assertType('Zend_Validate_InArray', $filter->getValidator(), 'Validator is wrong');
+        $this->assertInstanceOf('Zend_Validate_InArray', $filter->getValidator(), 'Validator is wrong');
     }
 
     /**
@@ -115,11 +115,11 @@ class Robo47_Log_Filter_CategoryTest extends PHPUnit_Framework_TestCase
         );
         $filter = Robo47_Log_Filter_Category::factory(new Zend_Config($config));
 
-        $this->assertType('Robo47_Log_Filter_Category', $filter, 'Wrong datatype from factory');
+        $this->assertInstanceOf('Robo47_Log_Filter_Category', $filter, 'Wrong datatype from factory');
 
         $this->assertEquals($config['categories'], $filter->getCategories(), 'Categories are wrong');
         $this->assertEquals('category', $filter->getKey(), 'Key are wrong');
         $this->assertEquals($config['not'], $filter->getNot(), 'Not are wrong');
-        $this->assertType('Zend_Validate_InArray', $filter->getValidator(), 'Validator is wrong');
+        $this->assertInstanceOf('Zend_Validate_InArray', $filter->getValidator(), 'Validator is wrong');
     }
 }

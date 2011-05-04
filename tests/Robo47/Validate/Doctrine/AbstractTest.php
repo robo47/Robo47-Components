@@ -34,13 +34,13 @@ extends Robo47_Validate_Doctrine_Abstract
  */
 class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
 {
-    
+
     public function setUp()
     {
         parent::setUp();
         $this->setupTableForRecord('Robo47_Paginator_Adapter_DoctrineTestRecord');
     }
-    
+
     public function tearDown()
     {
         parent::tearDown();
@@ -54,7 +54,7 @@ class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
         $entry = new Robo47_Paginator_Adapter_DoctrineTestRecord();
         return $entry->getTable();
     }
-    
+
     public function testDefaultConstructor()
     {
         $table = $this->getTable();
@@ -111,7 +111,7 @@ class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
     {
         $validator = new Robo47_Validate_Doctrine_NonAbstract($this->getTable(), 'field');
         $validator->setTable('Robo47_Log_Writer_Doctrine_Test_Log');
-        $this->assertType('Doctrine_Table', $validator->getTable());
+        $this->assertInstanceOf('Doctrine_Table', $validator->getTable());
         $this->assertEquals('testLog', $validator->getTable()->getTableName());
     }
 
@@ -128,7 +128,7 @@ class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
             $this->assertEquals('table not instance of Doctrine_Table.', $e->getMessage(), 'Wrong Exception message');
         }
     }
-    
+
     public function queryProvider()
     {
         $data = array();
