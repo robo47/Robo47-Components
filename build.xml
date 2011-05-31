@@ -125,7 +125,7 @@
         <exec executable="phpmd">
             <arg line="${source}
               xml
-              codesize,design,naming,unusedcode
+              build/phpmd.xml
               --reportfile ${basedir}/build/logs/pmd.xml" />
         </exec>
     </target>
@@ -146,7 +146,7 @@
         <exec executable="phpcs" output="/dev/null">
             <arg line="--report=checkstyle
               --report-file=${basedir}/build/logs/checkstyle.xml
-              --standard=PEAR
+              --standard=build/phpcs.xml
               ${source}" />
         </exec>
     </target>
