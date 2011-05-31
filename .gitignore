@@ -3,5 +3,6 @@
 !/build/phpcs.xml
 !/build/phpmd.xml
 /tests/tmp/*
+!/tests/tmp/.gitkeep
 /library/*
 !/library/Robo47/
