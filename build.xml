@@ -31,7 +31,7 @@
             <arg line="submodule update --init" />
         </exec>
 
-        <exec dir="${basedir}/build/dependencies/" executable="build.sh" failonerror="true" />
+        <exec dir="${basedir}/build/dependencies/" executable="${basedir}/build/dependencies/build.sh" failonerror="true" />
     </target>
 
     <target name="symlink-dependencies">
