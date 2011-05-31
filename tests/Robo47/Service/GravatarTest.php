@@ -14,7 +14,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
      * @var Zend_Http_Client_Adapter_Test
      */
     protected $_adapter = null;
-    
+
     public function setUp()
     {
         $this->_adapter = new Zend_Http_Client_Adapter_Test();
@@ -284,7 +284,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
             $this->assertEquals('size is smaller than 1', $e->getMessage(), 'Wrong exception message');
         }
     }
-    
+
     public function usesSSLProvider()
     {
         $data = array();
@@ -311,7 +311,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $this->assertSame($return, $service, 'Fluent Interface failed');
         $this->assertSame($expected, $service->usesSSL());
     }
-    
+
     public function cacheIdProvider()
     {
         $data = array();
@@ -364,7 +364,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         }
         return $data;
     }
-    
+
     protected function _cacheId($array)
     {
         $email = $array[1];
@@ -407,7 +407,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $cacheId = $service->getCacheId($email, $prefix, $rating, $size, $default);
         $this->assertEquals($expectedId, $cacheId);
     }
-    
+
     public function gravatarExistsProvider()
     {
         $data = array();
@@ -448,7 +448,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
      */
     public function testGravatarExistsWithCache()
     {
-        $cache = Zend_Cache::factory('Core', new Robo47_Cache_Backend_Array());
+        $cache = Zend_Cache::factory('Core', new Robo47_Cache_Backend_Array(), array('automatic_cleaning_factor' => 0), array('automatic_cleaning_factor' => 0));
         $options = array(
             'cachePrefix' => 'foo_',
             'cache' => $cache,
@@ -559,7 +559,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($queryParts['s'], '200', 'variable for size has wrong value');
         $this->assertEquals($queryParts['d'], urldecode($options['default']), 'variable for default has wrong value');
     }
-    
+
     public function gravatarHashProvider()
     {
         $data = array();

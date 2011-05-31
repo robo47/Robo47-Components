@@ -1,5 +1,7 @@
 /nbproject/
-/build/
+/build/*
+!/build/phpcs.xml
+!/build/phpmd.xml
 /tests/tmp/*
 /library/*
 !/library/Robo47/

@@ -1,0 +1,4 @@
+<ruleset name="Zend Standard">
+    <description>Zend Standard, exclude extraneous</description>
+    <rule ref="Zend" />
+</ruleset>
