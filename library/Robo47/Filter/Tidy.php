@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Filter_Tidy
  *
@@ -55,6 +56,30 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
      * @var Tidy
      */
     protected static $_defaultTidy;
+    /**
+     * Array with allowed encodings, key is possible encodings, value is the
+     * allowed value which gets set
+     *
+     * @var array
+     */
+    protected $encodings = array(
+        'utf-8' => 'utf8',
+        'utf8' => 'utf8',
+        'ascii' => 'ascii',
+        'latin0' => 'latin0',
+        'latin1' => 'latin1',
+        'raw' => 'raw',
+        'utf8' => 'utf8',
+        'iso2022' => 'iso2022',
+        'mac' => 'mac',
+        'win1252' => 'win1252',
+        'ibm858' => 'ibm858',
+        'utf16' => 'utf16',
+        'utf16le' => 'utf16le',
+        'utf16be' => 'utf16be',
+        'big5' => 'big5',
+        'shiftjis' => 'shiftjis'
+    );
 
     /**
      *
@@ -63,8 +88,7 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
      * @param array|Zend_Config  $config
      * @param string             $encoding
      */
-    public function __construct($tidy = null, $config = null,
-        $encoding = 'utf8')
+    public function __construct($tidy = null, $config = null, $encoding = 'utf8')
     {
         $this->setTidy($tidy);
         $this->setConfig($config);
@@ -108,28 +132,11 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
     public function setEncoding($encoding)
     {
         $encoding = strtolower($encoding);
-        switch ($encoding) {
-            case 'utf-8':
-                $encoding = 'utf8';
-            case 'ascii':
-            case 'latin0':
-            case 'latin1':
-            case 'raw':
-            case 'utf8':
-            case 'iso2022':
-            case 'mac':
-            case 'win1252':
-            case 'ibm858':
-            case 'utf16':
-            case 'utf16le':
-            case 'utf16be':
-            case 'big5':
-            case 'shiftjis':
-                $this->_encoding = $encoding;
-                break;
-            default:
-                $message = 'Unknown encoding: ' . $encoding;
-                throw new Robo47_Filter_Exception($message);
+        if (isset($this->encodings[$encoding])) {
+            $this->_encoding = $this->encodings[$encoding];
+        } else {
+            $message = 'Unknown encoding: ' . $encoding;
+            throw new Robo47_Filter_Exception($message);
         }
         return $this;
     }
@@ -229,11 +236,10 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
     public function filter($value)
     {
         $this->_tidy->parseString(
-            $value,
-            $this->getConfig(),
-            $this->getEncoding()
+            $value, $this->getConfig(), $this->getEncoding()
         );
         $this->_tidy->cleanRepair();
         return (string) $this->_tidy;
     }
+
 }
