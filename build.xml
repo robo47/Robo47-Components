@@ -62,28 +62,28 @@
     </target>
 
     <target name="unsymlink-dependencies">
-        <symlink action="delete" link="${basedir}/library/Zend" resource="${basedir}/build/dependencies/zf/library/Zend/" />
+        <symlink action="delete" link="${basedir}/library/Zend" resource="${basedir}/build/dependencies/zf/library/Zend/" failonerror="false" />
 
-        <symlink action="delete" link="${basedir}/library/Doctrine" resource="${basedir}/build/dependencies/doctrine1/lib/Doctrine/" />
-        <symlink action="delete" link="${basedir}/library/Doctrine.php" resource="${basedir}/build/dependencies/doctrine1/lib/Doctrine.php" />
+        <symlink action="delete" link="${basedir}/library/Doctrine" resource="${basedir}/build/dependencies/doctrine1/lib/Doctrine/" failonerror="false" />
+        <symlink action="delete" link="${basedir}/library/Doctrine.php" resource="${basedir}/build/dependencies/doctrine1/lib/Doctrine.php" failonerror="false" />
 
-        <symlink action="delete" link="${basedir}/library/ezc" resource="${basedir}/build/dependencies/ezc/" />
+        <symlink action="delete" link="${basedir}/library/ezc" resource="${basedir}/build/dependencies/ezc/" failonerror="false" />
 
-        <symlink action="delete" link="${basedir}/library/HTMLPurifier" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier" />
+        <symlink action="delete" link="${basedir}/library/HTMLPurifier" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier" failonerror="false" />
 
-        <symlink action="delete" link="${basedir}/library/HTMLPurifier.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.php" />
-        <symlink action="delete" link="${basedir}/library/HTMLPurifier.auto.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.auto.php" />
-        <symlink action="delete" link="${basedir}/library/HTMLPurifier.autoload.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.autoload.php" />
-        <symlink action="delete" link="${basedir}/library/HTMLPurifier.func.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.func.php" />
+        <symlink action="delete" link="${basedir}/library/HTMLPurifier.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.php" failonerror="false" />
+        <symlink action="delete" link="${basedir}/library/HTMLPurifier.auto.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.auto.php" failonerror="false" />
+        <symlink action="delete" link="${basedir}/library/HTMLPurifier.autoload.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.autoload.php" failonerror="false" />
+        <symlink action="delete" link="${basedir}/library/HTMLPurifier.func.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.func.php" failonerror="false" />
 
-        <symlink action="delete" link="${basedir}/library/HTMLPurifier.includes.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.includes.php" />
+        <symlink action="delete" link="${basedir}/library/HTMLPurifier.includes.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.includes.php" failonerror="false" />
 
-        <symlink action="delete" link="${basedir}/library/HTMLPurifier.kses.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.kses.php" />
+        <symlink action="delete" link="${basedir}/library/HTMLPurifier.kses.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.kses.php" failonerror="false" />
 
-        <symlink action="delete" link="${basedir}/library/HTMLPurifier.path.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.path.php" />
+        <symlink action="delete" link="${basedir}/library/HTMLPurifier.path.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.path.php" failonerror="false" />
 
-        <symlink action="delete" link="${basedir}/library/HTMLPurifier.safe-includes.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.safe-includes.php" />
-        <symlink action="delete" link="${basedir}/library/HTMLPurifier.standalone.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.standalone.php" />
+        <symlink action="delete" link="${basedir}/library/HTMLPurifier.safe-includes.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.safe-includes.php" failonerror="false" />
+        <symlink action="delete" link="${basedir}/library/HTMLPurifier.standalone.php" resource="${basedir}/build/dependencies/htmlpurifier/library/HTMLPurifier.standalone.php" failonerror="false" />
     </target>
 
     <target name="doxygen" description="Build api-documentation with doxygen">
