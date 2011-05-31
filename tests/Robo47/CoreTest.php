@@ -7,16 +7,9 @@ require_once dirname(__FILE__ ) . '/../TestHelper.php';
  */
 class Robo47_CoreTest extends PHPUnit_Framework_TestCase
 {
-
     /**
-     * @covers Robo47_Core
+     * @return array
      */
-    public function testClassConstantVERSIONExists()
-    {
-        $version = new Robo47_Core(); // just for coverage :P
-        $this->assertTrue(defined('Robo47_Core::VERSION'));
-    }
-    
     public function typeProvider()
     {
         $data = array();

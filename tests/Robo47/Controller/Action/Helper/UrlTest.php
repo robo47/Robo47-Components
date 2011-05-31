@@ -11,7 +11,7 @@ class Robo47_Controller_Action_Helper_UrlTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Controller_Action_Helper_Url
+     * @covers Robo47_Controller_Action_Helper_Url::__construct
      */
     public function testDefaultConstructor()
     {

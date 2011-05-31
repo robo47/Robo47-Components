@@ -14,6 +14,10 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
         Zend_Controller_Front::getInstance()->resetInstance();
     }
 
+    /**
+     * @param boolean $valid
+     * @return Robo47_Controller_Plugin_Tidy
+     */
     public function getPluginWithLogging($valid = true)
     {
         $mockWriter = new Robo47_Log_Writer_Mock();
@@ -38,7 +42,7 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Controller_Plugin_Tidy
+     * @covers Robo47_Controller_Plugin_Tidy::__construct
      */
     public function testDefaultConstructor()
     {
@@ -109,6 +113,9 @@ class Robo47_Controller_Plugin_TidyTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(Zend_Log::ERR, $plugin->getLogPriority());
     }
 
+    /**
+     * @return array
+     */
     public function htmlResponseProvider()
     {
         $data = array();

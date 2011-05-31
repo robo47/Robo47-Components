@@ -21,7 +21,7 @@ class Robo47_View_Helper_GravatarTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_View_Helper_Gravatar
+     * @covers Robo47_View_Helper_Gravatar::__construct
      */
     public function testConstructDefault()
     {
@@ -31,7 +31,7 @@ class Robo47_View_Helper_GravatarTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_View_Helper_Gravatar
+     * @covers Robo47_View_Helper_Gravatar::__construct
      */
     public function testConstructWithService()
     {

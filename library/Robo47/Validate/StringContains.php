@@ -60,12 +60,12 @@ class Robo47_Validate_StringContains extends Zend_Validate_Abstract
      */
     public function setContains($contains)
     {
-        if (is_string($contains)) {
-            $contains = array($contains);
-        }
         if (empty($contains)) {
             $message = '$contains is empty';
             throw new Robo47_Validate_Exception($message);
+        }
+        if (is_string($contains)) {
+            $contains = array($contains);
         }
         $this->_contains = $contains;
         return $this;

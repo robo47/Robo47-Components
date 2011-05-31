@@ -45,7 +45,7 @@ class Robo47_Paginator_Adapter_DoctrineQueryTest extends Robo47_Paginator_Adapte
     }
 
     /**
-     * @covers Robo47_Paginator_Adapter_DoctrineQuery
+     * @covers Robo47_Paginator_Adapter_DoctrineQuery::__construct
      */
     public function testConstruction()
     {

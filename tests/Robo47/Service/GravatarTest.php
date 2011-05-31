@@ -10,7 +10,6 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     *
      * @var Zend_Http_Client_Adapter_Test
      */
     protected $_adapter = null;
@@ -26,7 +25,7 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Service_Gravatar
+     * @covers Robo47_Service_Gravatar::__construct
      */
     public function testConstruct()
     {
@@ -109,7 +108,6 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
      */
     public function testSetOptionsWithUnknownOption()
     {
-        // expect no excepton thrown, no error or something like that
         $options = array(
             'foo' => 'baa',
         );
@@ -299,7 +297,6 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
      * @covers Robo47_Service_Gravatar::useSSL
      * @covers Robo47_Service_Gravatar::usesSSL
      * @dataProvider usesSSLProvider
@@ -312,6 +309,10 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $this->assertSame($expected, $service->usesSSL());
     }
 
+    /**
+     *
+     * @return array
+     */
     public function cacheIdProvider()
     {
         $data = array();
@@ -408,6 +409,9 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expectedId, $cacheId);
     }
 
+    /**
+     * @return array
+     */
     public function gravatarExistsProvider()
     {
         $data = array();
@@ -560,6 +564,9 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($queryParts['d'], urldecode($options['default']), 'variable for default has wrong value');
     }
 
+    /**
+     * @return array
+     */
     public function gravatarHashProvider()
     {
         $data = array();
@@ -567,12 +574,13 @@ class Robo47_Service_GravatarTest extends PHPUnit_Framework_TestCase
         $data[] = array('Foo@example.com');
         $data[] = array('foo@example.com');
         $data[] = array('bAa@example.com');
+
         return $data;
     }
 
     /**
-     *
      * @dataProvider gravatarHashProvider
+     * @covers Robo47_Service_Gravatar::getGravatarHash
      */
     public function testGetGravatarHash($email)
     {

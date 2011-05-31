@@ -83,6 +83,7 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
             $this->assertEquals(4, count($record), 'Wrong attribute count');
         }
     }
+
     /**
      * @covers Robo47_Doctrine_Hydrator_PopoDriver
      */
@@ -116,7 +117,6 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
      */
     public function testPopoHydratorWithRelations()
     {
-
         Robo47_Doctrine_Hydrator_PopoDriver::setDefaultTypename('__type');
         Robo47_Doctrine_Hydrator_PopoDriver::setDefaultClassname('Robo47_Popo');
 
@@ -128,8 +128,6 @@ class Robo47_Doctrine_Hydrator_PopoDriverTest extends Robo47_DoctrineTestCase
 
         foreach($result as $entry) {
             /* @var $entry Robo47_Popo */
-
-
             $this->assertInstanceOf('Robo47_Popo', $entry, 'Wrong datatype for record');
             $this->assertTrue(isset($entry->__type), 'no __type attribute present');
             $this->assertTrue(isset($entry->id), 'no id attribute present');

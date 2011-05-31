@@ -10,7 +10,7 @@ class Robo47_Validate_MaxLineLengthTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Validate_MaxLineLength
+     * @covers Robo47_Validate_MaxLineLength::__construct
      */
     public function testDefaultConstructor()
     {
@@ -40,7 +40,7 @@ class Robo47_Validate_MaxLineLengthTest extends PHPUnit_Framework_TestCase
         $this->assertSame($validator, $return, 'No Fluent Interface');
         $this->assertEquals('iso-8859-1', $validator->getEncoding());
     }
-    
+
     public function validLineLengthProvider()
     {
         $data = array();
@@ -61,7 +61,7 @@ class Robo47_Validate_MaxLineLengthTest extends PHPUnit_Framework_TestCase
         $this->assertSame($validator, $return, 'No Fluent Interface');
         $this->assertEquals($expected, $validator->getLineLength());
     }
-    
+
     public function invalidLineLengthBelowOneProvider()
     {
         $data = array();
@@ -106,7 +106,7 @@ class Robo47_Validate_MaxLineLengthTest extends PHPUnit_Framework_TestCase
         $message = array(Robo47_Validate_MaxLineLength::LINE_TOO_LONG => 'Line 3 is too long');
         $this->assertEquals($message, $validator->getMessages(), 'Wrong Validation Message');
     }
-    
+
     public function isValidProvider()
     {
         $data = array();

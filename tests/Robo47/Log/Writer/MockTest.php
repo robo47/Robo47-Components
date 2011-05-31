@@ -10,7 +10,7 @@ class Robo47_Log_Writer_MockTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Log_Writer_Mock
+     * @covers Robo47_Log_Writer_Mock::__construct
      */
     public function testConstruct()
     {

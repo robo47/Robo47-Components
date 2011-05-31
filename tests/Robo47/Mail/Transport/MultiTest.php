@@ -9,14 +9,14 @@ require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
  */
 class Robo47_Mail_Transport_MultiTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function tearDown()
     {
         Zend_Mail::setDefaultTransport(new Zend_Mail_Transport_Sendmail());
     }
 
     /**
-     * @covers Robo47_Mail_Transport_Multi
+     * @covers Robo47_Mail_Transport_Multi::__construct
      */
     public function testDefaultConstructor()
     {
@@ -25,7 +25,7 @@ class Robo47_Mail_Transport_MultiTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Mail_Transport_Multi
+     * @covers Robo47_Mail_Transport_Multi::__construct
      */
     public function testConstruct()
     {
@@ -36,7 +36,11 @@ class Robo47_Mail_Transport_MultiTest extends PHPUnit_Framework_TestCase
         $this->assertContains($t1, $transport->getTransports(), 'Transport#1 not found in array');
         $this->assertContains($t2, $transport->getTransports(), 'Transport#2 not found in array');
     }
-    
+
+    /**
+     * @covers Robo47_Mail_Transport_Multi::setTransports
+     * @covers Robo47_Mail_Transport_Multi::getTransports
+     */
     public function testSetTransportsGetTransports()
     {
         $t1 = new Robo47_Mail_Transport_MockSimple();
@@ -59,7 +63,10 @@ class Robo47_Mail_Transport_MultiTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains($t3, $transport->getTransports(), 'Transport#3 not found in array');
     }
-    
+
+    /**
+     * @covers Robo47_Mail_Transport_Multi::addTransport
+     */
     public function testAddTransport()
     {
         $t1 = new Robo47_Mail_Transport_MockSimple();
@@ -73,7 +80,10 @@ class Robo47_Mail_Transport_MultiTest extends PHPUnit_Framework_TestCase
         $this->assertContains($t1, $transport->getTransports(), 'Transport#1 not found in array');
         $this->assertContains($t2, $transport->getTransports(), 'Transport#2 not found in array');
     }
-    
+
+    /**
+     * @covers Robo47_Mail_Transport_Multi::removeTransport
+     */
     public function testRemoveTransport()
     {
         $t1 = new Robo47_Mail_Transport_MockSimple();

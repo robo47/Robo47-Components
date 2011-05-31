@@ -29,7 +29,6 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
      * @return HtmlPurifier
      */
     public function getPurifier()
@@ -56,7 +55,7 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Filter_HtmlPurifier
+     * @covers Robo47_Filter_HtmlPurifier::__construct
      */
     public function testConstructor()
     {
@@ -145,9 +144,6 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
-     * @param mixed $value
-     * @param mixed $expectedValue
      * @dataProvider filterProvider
      * @covers Robo47_Filter_HtmlPurifier::filter
      */
@@ -157,6 +153,9 @@ class Robo47_Filter_HtmlPurifierTest extends PHPUnit_Framework_TestCase
         $this->assertSame($expectedValue, $filter->filter($value));
     }
 
+    /**
+     * @return array
+     */
     public function invalidPurifierObjects()
     {
         $data = array();

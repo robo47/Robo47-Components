@@ -11,7 +11,7 @@ class Robo47_Log_Filter_CategoryTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Log_Filter_Category
+     * @covers Robo47_Log_Filter_Category::__construct
      */
     public function testDefaultConstructor()
     {
@@ -61,6 +61,9 @@ class Robo47_Log_Filter_CategoryTest extends PHPUnit_Framework_TestCase
         $this->assertSame($options['validator'], $filter->getValidator(), 'Wrong validator');
     }
 
+    /**
+     * @return array
+     */
     public function filterProvider()
     {
         $data = array();

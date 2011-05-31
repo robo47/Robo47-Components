@@ -17,13 +17,13 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
      * @var Zend_View
      */
     protected $_view = null;
-    
+
     public function setUp()
     {
         $this->_helper = new Robo47_View_Helper_Ckeditor();
         $this->_helper->setView($this->getView());
     }
-    
+
     public function getView()
     {
         if (null === $this->_view) {
@@ -33,14 +33,25 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
         }
         return $this->_view;
     }
-    
+
     public function tearDown()
     {
         $this->_helper = null;
         $this->_view = null;
         Robo47_View_Helper_Ckeditor::unsetDefaultOptions();
+        // View-Helpers use the registry!
         Zend_Registry::_unsetInstance();
-// View-Helpers use the registry!
+    }
+
+    /**
+     * @covers Robo47_View_Helper_Ckeditor::__construct
+     */
+    public function testDefaultConstructor()
+    {
+        $this->_helper = new Robo47_View_Helper_Ckeditor();
+        $this->assertEquals('script', $this->_helper->getInitMode());
+        $this->assertEquals('append', $this->_helper->getPlacement());
+        $this->assertEquals('', $this->_helper->getEditorOptions());
     }
 
     /**
@@ -109,18 +120,6 @@ class Robo47_View_Helper_CkeditorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(2, count(Robo47_View_Helper_Ckeditor::getDefaultOptions()));
         Robo47_View_Helper_Ckeditor::unsetDefaultOptions();
         $this->assertEquals(0, count(Robo47_View_Helper_Ckeditor::getDefaultOptions()));
-    }
-
-    /**
-     * @covers Robo47_View_Helper_Ckeditor
-     */
-    public function testDefaultConstructor()
-    {
-        $this->_helper = new Robo47_View_Helper_Ckeditor();
-
-        $this->assertEquals('script', $this->_helper->getInitMode());
-        $this->assertEquals('append', $this->_helper->getPlacement());
-        $this->assertEquals('', $this->_helper->getEditorOptions());
     }
 
     /**

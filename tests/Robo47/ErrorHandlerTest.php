@@ -12,7 +12,7 @@ function dummyErrorHandler($errno, $errstr, $errfile, $errline)
  */
 class Robo47_ErrorHandlerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function tearDown()
     {
         set_error_handler(
@@ -23,7 +23,7 @@ class Robo47_ErrorHandlerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_ErrorHandler
+     * @covers Robo47_ErrorHandler::__construct
      */
     public function testConstruct()
     {

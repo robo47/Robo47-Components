@@ -9,7 +9,7 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Log
+     * @covers Robo47_Log::__construct
      */
     public function testDefaultConstructor()
     {
@@ -20,7 +20,7 @@ class Robo47_LogTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Log
+     * @covers Robo47_Log::__construct
      */
     public function testConstructorWithWriter()
     {

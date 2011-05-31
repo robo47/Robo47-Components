@@ -8,13 +8,13 @@ require_once dirname(__FILE__ ) . '/../../TestHelper.php';
  */
 class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
         Zend_Registry::_unsetInstance();
         $this->getCache()->clean();
     }
-    
+
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
@@ -37,7 +37,7 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Cache_DoctrineAdapter
+     * @covers Robo47_Cache_DoctrineAdapter::__construct
      */
     public function testConstructor()
     {
@@ -222,7 +222,7 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, count($ids), 'Wrong count of existing tag ids');
         $this->assertContains('prefix_foo_1', $ids, 'Deleted Wrong cache item');
     }
-    
+
     /**
      * @covers Robo47_Cache_DoctrineAdapter::_getCacheKeys
      */

@@ -27,8 +27,6 @@ class Robo47_Validate_UriTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param mixed $value
-     * @param bool  $result
      * @dataProvider isValidProvider
      * @covers Robo47_Validate_Uri::isValid
      */
@@ -36,13 +34,5 @@ class Robo47_Validate_UriTest extends PHPUnit_Framework_TestCase
     {
         $validator = new Robo47_Validate_Uri();
         $this->assertSame($result, $validator->isValid($value));
-    }
-
-    /**
-     * @covers Robo47_Validate_Uri
-     */
-    public function testDefaultConstructor()
-    {
-        $validate = new Robo47_Validate_Uri();
     }
 }

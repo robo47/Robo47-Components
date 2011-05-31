@@ -11,11 +11,10 @@ class Robo47_Form_Decorator_InfoTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     *
      * @var Robo47_Form_Decorator_Info
      */
     protected $_decorator = null;
-    
+
     public function setUp()
     {
         $element = new Zend_Form_Element_Text('foo');
@@ -23,14 +22,14 @@ class Robo47_Form_Decorator_InfoTest extends PHPUnit_Framework_TestCase
         $this->_decorator = new Robo47_Form_Decorator_Info();
         $this->_decorator->setElement($element);
     }
-    
+
     public function tearDown()
     {
         $this->_decorator = null;
     }
 
     /**
-     * @covers Robo47_Form_Decorator_Info
+     * @covers Robo47_Form_Decorator_Info::__construct
      */
     public function testConstruct()
     {

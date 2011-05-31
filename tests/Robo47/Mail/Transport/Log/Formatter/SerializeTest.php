@@ -13,15 +13,6 @@ class Robo47_Mail_Transport_Log_Formatter_SerializeTest extends PHPUnit_Framewor
 {
 
     /**
-     * @covers Robo47_Mail_Transport_Log_Formatter_Serialize
-     */
-    public function testDefaultConstructor()
-    {
-        $formatter = new Robo47_Mail_Transport_Log_Formatter_Serialize();
-    }
-
-    /**
-     *
      * @dataProvider mailProvider
      * @covers Robo47_Mail_Transport_Log_Formatter_Serialize::format
      */

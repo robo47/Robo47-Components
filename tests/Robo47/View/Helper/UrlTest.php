@@ -14,19 +14,22 @@ class Robo47_View_Helper_UrlTest extends PHPUnit_Framework_TestCase
      * @var Robo47_View_Helper_Url
      */
     protected $_helper = null;
-    
+
     public function setUp()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
         $this->_helper = new Robo47_View_Helper_Url($this->getRouter());
     }
-    
+
     public function tearDown()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
         $this->_helper = null;
     }
-    
+
+    /**
+     * @return Zend_Controller_Router_Rewrite
+     */
     public function getRouter()
     {
         $router = new Zend_Controller_Router_Rewrite();
@@ -35,7 +38,7 @@ class Robo47_View_Helper_UrlTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_View_Helper_Url
+     * @covers Robo47_View_Helper_Url::__construct
      */
     public function testConstructorWithRouter()
     {

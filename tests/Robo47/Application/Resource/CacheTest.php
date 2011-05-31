@@ -23,6 +23,9 @@ class Robo47_Application_Resource_CacheTest extends PHPUnit_Framework_TestCase
         Zend_Registry::_unsetInstance();
     }
 
+    /**
+     * @return array
+     */
     public function initProvider()
     {
         $data = array();
@@ -51,8 +54,6 @@ class Robo47_Application_Resource_CacheTest extends PHPUnit_Framework_TestCase
             'customBackendNaming' => true,
             'autoload' => false,
         );
-
-
 
         $data[] = array($options1, 'Zend_Cache_Core', 'Zend_Cache_Backend_File');
         $data[] = array($options2, 'Zend_Cache_Core', 'Zend_Cache_Backend_File');

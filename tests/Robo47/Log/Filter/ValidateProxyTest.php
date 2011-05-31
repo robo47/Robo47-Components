@@ -110,6 +110,9 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Zend_Validate_Int', $this->_filter->getValidator());
     }
 
+    /**
+     * @return array
+     */
     public function invalidObjectProvider()
     {
         $data = array();
@@ -150,6 +153,9 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * @return array
+     */
     public function acceptValuesProvider()
     {
         $data = array();
@@ -173,7 +179,6 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
     /**
      * @covers Robo47_Log_Filter_ValidateProxy::accept
      * @dataProvider acceptValuesProvider
-     * @param Robo47_Validate_Mock $validator
      */
     public function testAccept($validator, $key, $not, $event, $expected, $expectedLastValue)
     {
@@ -197,7 +202,6 @@ class Robo47_Log_Filter_ValidateProxyTest extends PHPUnit_Framework_TestCase
         $filter = Robo47_Log_Filter_ValidateProxy::factory($config);
 
         $this->assertInstanceOf('Robo47_Log_Filter_ValidateProxy', $filter, 'Wrong datatype from factory');
-
 
         $this->assertEquals($config['key'], $filter->getKey(), 'Key are wrong');
         $this->assertEquals($config['not'], $filter->getNot(), 'Not are wrong');

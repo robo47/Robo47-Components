@@ -55,6 +55,9 @@ class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
         return $entry->getTable();
     }
 
+    /**
+     * @covers Robo47_Validate_Doctrine_Abstract::__construct
+     */
     public function testDefaultConstructor()
     {
         $table = $this->getTable();
@@ -129,6 +132,9 @@ class Robo47_Validate_Doctrine_AbstractTest extends Robo47_DoctrineTestCase
         }
     }
 
+    /**
+     * @return array
+     */
     public function queryProvider()
     {
         $data = array();

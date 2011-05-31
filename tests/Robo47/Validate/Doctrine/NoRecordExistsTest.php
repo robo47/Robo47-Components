@@ -11,13 +11,13 @@ require_once TESTS_PATH . 'Robo47/_files/DoctrineTestCase.php';
  */
 class Robo47_Validate_Doctrine_NoRecordExistsTest extends Robo47_DoctrineTestCase
 {
-    
+
     public function setUp()
     {
         parent::setUp();
         $this->setupTableForRecord('Robo47_Paginator_Adapter_DoctrineTestRecord');
     }
-    
+
     public function tearDown()
     {
         parent::tearDown();
@@ -44,7 +44,10 @@ class Robo47_Validate_Doctrine_NoRecordExistsTest extends Robo47_DoctrineTestCas
                 ->save();
         }
     }
-    
+
+    /**
+     * @return array
+     */
     public function isValidProvider()
     {
         $data = array();

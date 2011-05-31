@@ -11,29 +11,20 @@ class Robo47_Mail_Transport_MockSimpleTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     *
      * @var Robo47_Mail_Transport_MockSimple
      */
     protected $_transport = null;
-    
+
     public function setUp()
     {
         $this->_transport = new Robo47_Mail_Transport_MockSimple();
         Zend_Mail::setDefaultTransport($this->_transport);
     }
-    
+
     public function tearDown()
     {
         unset($this->_transport);
         Zend_Mail::setDefaultTransport(new Zend_Mail_Transport_Sendmail());
-    }
-
-    /**
-     * @covers Robo47_Mail_Transport_MockSimple
-     */
-    public function testConstruct()
-    {
-        $transport = new Robo47_Mail_Transport_MockSimple();
     }
 
     /**

@@ -13,7 +13,7 @@ class Robo47_Validate_StringContainsTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Validate_StringContains
+     * @covers Robo47_Validate_StringContains::__construct
      */
     public function testConstruct()
     {
@@ -38,7 +38,10 @@ class Robo47_Validate_StringContainsTest extends PHPUnit_Framework_TestCase
         $validate->setContains(array('bla'));
         $this->assertEquals(array('bla'), $validate->getContains());
     }
-    
+
+    /**
+     * @return array
+     */
     public function setContainsExceptionProvider()
     {
         $data = array();
@@ -61,6 +64,7 @@ class Robo47_Validate_StringContainsTest extends PHPUnit_Framework_TestCase
 
         try {
             $validate->setContains($contains);
+            $this->fail('no exception thrown');
         } catch (Robo47_Validate_Exception $e) {
             $this->assertEquals('$contains is empty', $e->getMessage());
         }

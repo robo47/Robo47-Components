@@ -14,7 +14,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
      * @var Zend_Http_Client_Adapter_Test
      */
     protected $_adapter = null;
-    
+
     public function setUp()
     {
         $this->_adapter = new Zend_Http_Client_Adapter_Test();
@@ -23,12 +23,12 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         ));
         Zend_Service_Abstract::setHttpClient($client);
     }
-    
+
     public function tearDown()
     {
         $this->_adapter = null;
     }
-    
+
     public function getResponse($format, $method)
     {
         $path = dirname(__FILE__ ) . '/Bitly/_files/';
@@ -40,7 +40,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Service_Bitly
+     * @covers Robo47_Service_Bitly::__construct
      */
     public function testDefaultConstructor()
     {
@@ -138,7 +138,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         $this->assertSame($return, $service, 'No Fluent Interface');
         $this->assertEquals('foo', $service->getApiKey(), 'Wrong apiKey');
     }
-    
+
     public function resultFormatProvider()
     {
         $data = array();
@@ -440,7 +440,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('', $object->bitly->results->doc->calaisResolutions, 'Wrong value for element');
         $this->assertEquals('cAWQVU', $object->bitly->results->doc->userHash, 'Wrong value for element');
     }
-    
+
     public function apiMethodsProvider()
     {
         $data = array();
@@ -478,7 +478,7 @@ class Robo47_Service_BitlyTest extends PHPUnit_Framework_TestCase
         }
         return $data;
     }
-    
+
     public function generateUrlProvider()
     {
         $data = array();

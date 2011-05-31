@@ -8,15 +8,6 @@ require_once dirname(__FILE__ ) . '/../../TestHelper.php';
  */
 class Robo47_Filter_SanitizeUrlTest extends PHPUnit_Framework_TestCase
 {
-
-    /**
-     * @covers Robo47_Filter_SanitizeUrl
-     */
-    public function testDefaultConstructor()
-    {
-        $filter = new Robo47_Filter_SanitizeUrl();
-    }
-
     /**
      * @return array
      */
@@ -36,8 +27,6 @@ class Robo47_Filter_SanitizeUrlTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param mixed $value
-     * @param mixed $expectedValue
      * @dataProvider filterProvider
      * @covers Robo47_Filter_SanitizeUrl::filter
      */

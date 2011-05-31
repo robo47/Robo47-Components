@@ -34,7 +34,7 @@ class Robo47_Loader_Autoloader_HtmlPurifierStandaloneTest extends PHPUnit_Framew
     }
 
     /**
-     * @covers Robo47_Loader_Autoloader_HtmlPurifierStandalone
+     * @covers Robo47_Loader_Autoloader_HtmlPurifierStandalone::__construct
      */
     public function testConstruct()
     {

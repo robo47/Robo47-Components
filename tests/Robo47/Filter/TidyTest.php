@@ -16,7 +16,7 @@ class Robo47_Filter_TidyTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Filter_Tidy
+     * @covers Robo47_Filter_Tidy::__construct
      */
     public function testDefaultConstructor()
     {

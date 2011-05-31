@@ -10,9 +10,9 @@ class Robo47_Auth_Adapter_ArrayTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Auth_Adapter_Array
+     * @covers Robo47_Auth_Adapter_Array::__construct
      */
-    public function testConstructorDefaults()
+    public function testDefaultConstructor()
     {
         $adapter = new Robo47_Auth_Adapter_Array();
         $this->assertEquals('', $adapter->getUsername(), 'wrong username');
@@ -52,7 +52,7 @@ class Robo47_Auth_Adapter_ArrayTest extends PHPUnit_Framework_TestCase
         $adapter->setUserData(array(array('baa' => 'foo')));
         $this->assertEquals(array(array('baa' => 'foo')), $adapter->getUserData());
     }
-    
+
     public function authenticateProvider()
     {
         $data = array();

@@ -61,7 +61,7 @@ class Robo47_Paginator_Adapter_DoctrineTableTest extends Robo47_Paginator_Adapte
     }
 
     /**
-     * @covers Robo47_Paginator_Adapter_DoctrineTable
+     * @covers Robo47_Paginator_Adapter_DoctrineTable::__construct
      */
     public function testConstruction()
     {

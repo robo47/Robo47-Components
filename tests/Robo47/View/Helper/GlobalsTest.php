@@ -18,13 +18,16 @@ class Robo47_View_Helper_GlobalsTest extends PHPUnit_Framework_TestCase
      * @var Zend_View
      */
     protected $_view = null;
-    
+
     public function setUp()
     {
         $this->_helper = new Robo47_View_Helper_Globals();
         $this->_helper->setView($this->getView());
     }
-    
+
+    /**
+     * @return Zend_View
+     */
     public function getView()
     {
         if (null === $this->_view) {
@@ -34,26 +37,23 @@ class Robo47_View_Helper_GlobalsTest extends PHPUnit_Framework_TestCase
         }
         return $this->_view;
     }
-    
+
     public function tearDown()
     {
         $this->_helper = null;
         $this->_view = null;
+        // View-Helpers use the registry!
         Zend_Registry::_unsetInstance();
-// View-Helpers use the registry!
     }
 
+
     /**
-     * @covers Robo47_View_Helper_Globals
+     * @return array
      */
-    public function testConstructDefault()
-    {
-        $helper = new Robo47_View_Helper_Globals();
-    }
-    
     public function globalsProvider()
     {
         $data = array();
+
         $globals = $this->getGlobals();
         foreach ($globals as $glob => $array) {
             if (!isset($GLOBALS[$array])) {
@@ -79,7 +79,7 @@ class Robo47_View_Helper_GlobalsTest extends PHPUnit_Framework_TestCase
 
         return $data;
     }
-    
+
     public function getGlobals()
     {
         return array('GET' => '_GET',

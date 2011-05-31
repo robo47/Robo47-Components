@@ -17,7 +17,7 @@ class Robo47_Mail_Transport_LogTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Mail_Transport_Log
+     * @covers Robo47_Mail_Transport_Log::__construct
      */
     public function testDefaultConstructor()
     {
@@ -30,7 +30,7 @@ class Robo47_Mail_Transport_LogTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Mail_Transport_Log
+     * @covers Robo47_Mail_Transport_Log::__construct
      */
     public function testConstruct()
     {

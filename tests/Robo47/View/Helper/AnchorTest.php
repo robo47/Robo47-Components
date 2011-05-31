@@ -17,27 +17,27 @@ class Robo47_View_Helper_AnchorTest extends PHPUnit_Framework_TestCase
      * @var Zend_View
      */
     protected $_view = null;
-    
+
     public function setUp()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
         $this->_helper = new Robo47_View_Helper_Anchor($this->getRouter());
         $this->_helper->setView($this->getView());
     }
-    
+
     public function tearDown()
     {
         Zend_Controller_Front::getInstance()->resetInstance();
         $this->_helper = null;
     }
-    
+
     public function getRouter()
     {
         $router = new Zend_Controller_Router_Rewrite();
         $router->addRoute('foo', new Zend_Controller_Router_Route_Static('/foo/bar', array()));
         return $router;
     }
-    
+
     public function getView()
     {
         if (null === $this->_view) {
@@ -49,7 +49,7 @@ class Robo47_View_Helper_AnchorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_View_Helper_Anchor
+     * @covers Robo47_View_Helper_Anchor::__construct
      */
     public function testDefaultConstructor()
     {

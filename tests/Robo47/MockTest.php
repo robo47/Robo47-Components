@@ -9,12 +9,12 @@ class Robo47_MockTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Mock
+     * @covers Robo47_Mock::__construct
      */
     public function testConstruct()
     {
         $mock = new Robo47_Mock();
-        
+
         $this->assertEquals(1, count($mock->mockData['call']));
         $this->assertEquals(0, count($mock->mockData['get']));
         $this->assertEquals(0, count($mock->mockData['set']));

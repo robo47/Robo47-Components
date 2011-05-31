@@ -8,14 +8,14 @@ require_once dirname(__FILE__ ) . '/../../../TestHelper.php';
  */
 class Robo47_Controller_Plugin_TitleTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
     }
 
     /**
-     * @covers Robo47_Controller_Plugin_Title
+     * @covers Robo47_Controller_Plugin_Title::__construct
      */
     public function testConstructor()
     {

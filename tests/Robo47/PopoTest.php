@@ -19,14 +19,6 @@ class Robo47_PopoTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Popo
-     */
-    public function testDefaultConstructor()
-    {
-        $popo = new Robo47_Popo();
-    }
-
-    /**
      * @covers Robo47_Popo::__set
      * @covers Robo47_Popo::__get
      * @covers Robo47_Popo::__isset

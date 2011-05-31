@@ -11,13 +11,6 @@ require_once dirname(__FILE__ ) . '/../../../../../TestHelper.php';
  */
 class Robo47_Mail_Transport_Log_Formatter_SimpleTest extends PHPUnit_Framework_TestCase
 {
-    /**
-     * @covers Robo47_Mail_Transport_Log_Formatter_Simple
-     */
-    public function testDefaultConstructor()
-    {
-        $formatter = new Robo47_Mail_Transport_Log_Formatter_Simple();
-    }
 
     /**
      * @dataProvider mailProvider

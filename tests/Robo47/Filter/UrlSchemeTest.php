@@ -10,23 +10,22 @@ class Robo47_Filter_UrlSchemeTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     *
      * @var Robo47_Filter_UrlScheme
      */
     protected $_filter = null;
-    
+
     public function setUp()
     {
         $this->_filter = new Robo47_Filter_UrlScheme();
     }
-    
+
     public function tearDown()
     {
         $this->_filter = null;
     }
 
     /**
-     * @covers Robo47_Filter_UrlScheme
+     * @covers Robo47_Filter_UrlScheme::__construct
      */
     public function testDefaultConstructor()
     {
@@ -143,10 +142,6 @@ class Robo47_Filter_UrlSchemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
-     * @param mixed $value
-     * @param mixed $expectedValue
-     * @param array $options
      * @dataProvider filterProvider
      * @covers Robo47_Filter_UrlScheme::filter
      */

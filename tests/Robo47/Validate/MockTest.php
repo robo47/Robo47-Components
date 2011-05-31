@@ -13,7 +13,7 @@ class Robo47_Validate_MockTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers Robo47_Validate_Mock
+     * @covers Robo47_Validate_Mock::__construct
      */
     public function testConstruct()
     {

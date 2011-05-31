@@ -39,7 +39,7 @@ class Robo47_Validate_StringNotContainsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Robo47_Validate_StringNotContains
+     * @covers Robo47_Validate_StringNotContains::__construct
      */
     public function testConstruct()
     {
