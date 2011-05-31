@@ -27,9 +27,10 @@
  * @copyright   Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
- * @todo        Add possiblity to use another container [eg an ArrayObject too] ?
+ * @todo        Add possiblity to use another container [eg an ArrayObject too]?
  */
-class Robo47_Doctrine_Hydrator_PopoDriver extends Doctrine_Hydrator_ArrayDriver
+class Robo47_Doctrine_Hydrator_PopoDriver 
+extends Doctrine_Hydrator_ArrayDriver
 {
 
     /**
@@ -61,30 +62,30 @@ class Robo47_Doctrine_Hydrator_PopoDriver extends Doctrine_Hydrator_ArrayDriver
     protected static $_containerClassname = 'array';
 
     /**
-     *
      * @param string $classname
      */
     public static function setDefaultClassname($classname)
     {
-        if (!is_string($classname))  {
+        if (!is_string($classname)) {
             $message = 'Invalid type for $classname: ' .
                 Robo47_Core::getType($classname);
             throw new Robo47_Doctrine_Hydrator_Exception($message);
         }
         $instance = new $classname;
         if (!$instance instanceof ArrayAccess) {
-            throw new Robo47_Doctrine_Hydrator_Exception('Type does not implement ArrayAccess: ' . Robo47_Core::getType($instance));
+            $message = 'Type does not implement ArrayAccess: ';
+            $message .= Robo47_Core::getType($instance);
+            throw new Robo47_Doctrine_Hydrator_Exception($message);
         }
         self::$_classname = $classname;
     }
 
     /**
-     *
      * @param string $classname
      */
     public static function setDefaultContainerClassname($classname)
     {
-        if (!is_string($classname))  {
+        if (!is_string($classname)) {
             $message = 'Invalid type for $classname: ' .
                 Robo47_Core::getType($classname);
             throw new Robo47_Doctrine_Hydrator_Exception($message);
@@ -92,19 +93,20 @@ class Robo47_Doctrine_Hydrator_PopoDriver extends Doctrine_Hydrator_ArrayDriver
         if (strtolower($classname) != 'array') {
             $instance = new $classname;
             if (!$instance instanceof ArrayAccess) {
-                throw new Robo47_Doctrine_Hydrator_Exception('Type does not implement ArrayAccess: ' . Robo47_Core::getType($instance));
+                $message = 'Type does not implement ArrayAccess: ';
+                $message .= Robo47_Core::getType($instance);
+                throw new Robo47_Doctrine_Hydrator_Exception($message);
             }
         }
         self::$_containerClassname = $classname;
     }
 
     /**
-     *
      * @param string|null $typename
      */
     public static function setDefaultTypename($typename)
     {
-        if(null !== $typename && !is_string($typename)) {
+        if (null !== $typename && !is_string($typename)) {
             $message = 'Invalid type for $typename: ' .
                 Robo47_Core::getType($typename);
             throw new Robo47_Doctrine_Hydrator_Exception($message);
@@ -137,7 +139,6 @@ class Robo47_Doctrine_Hydrator_PopoDriver extends Doctrine_Hydrator_ArrayDriver
     }
 
     /**
-     *
      * @param array $data
      * @param string $component
      * @return Object|Robo47_Popo
@@ -162,7 +163,6 @@ class Robo47_Doctrine_Hydrator_PopoDriver extends Doctrine_Hydrator_ArrayDriver
     }
 
     /**
-     *
      * @param string $component
      * @return array|ArrayObject
      */

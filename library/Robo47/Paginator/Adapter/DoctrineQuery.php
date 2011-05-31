@@ -95,7 +95,7 @@ implements Zend_Paginator_Adapter_Interface
             ->execute();
         if ($data instanceof Doctrine_Collection) {
             return $data->getData();
-        } elseif(is_array($data)) {
+        } elseif (is_array($data)) {
             return $data;
         } else {
             $message = 'Unexpected datatype for getItems(): ' .

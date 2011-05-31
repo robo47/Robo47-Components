@@ -225,7 +225,7 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
         $ids = $this->_cache->getIds();
         $prefix = $this->getPrefix();
         $length = strlen($prefix);
-        foreach($ids as $key => $id) {
+        foreach ($ids as $key => $id) {
             $ids[$key] = substr($id, $length);
         }
         return $ids;

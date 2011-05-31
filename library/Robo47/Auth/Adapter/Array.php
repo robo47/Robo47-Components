@@ -51,7 +51,6 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
     protected $_userdata = array();
 
     /**
-     *
      * @param string $username
      * @param string $password
      * @param array  $userData
@@ -87,7 +86,6 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
     }
 
     /**
-     *
      * @return string
      */
     public function getUsername()
@@ -96,7 +94,6 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
     }
 
     /**
-     *
      * @return string
      */
     public function getPassword()
@@ -105,7 +102,6 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
     }
 
     /**
-     *
      * @param array $userdata Array with index -> username, value = password
      * @return Robo47_Auth_Adapter_Array *Provides Fluent Interface*
      */
@@ -123,6 +119,25 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
     {
         return $this->_userdata;
     }
+    
+    /**
+     * @param string $username
+     * @param string $password
+     * @return boolean
+     */
+    protected function _isAllowedUser($username, $password)
+    {
+        return ($username == $this->_username && $password == $this->_password);
+    }
+    
+    /**
+     * @param integer $result
+     * @return Zend_Auth_Result
+     */
+    protected function _getResultObject($result)
+    {
+      return new Zend_Auth_Result($result, $this->_username);
+    }
 
     /**
      * @return Zend_Auth_Result
@@ -130,13 +145,10 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
     public function authenticate()
     {
         foreach ($this->_userdata as $username => $password) {
-            if ($username == $this->_username &&
-                $password == $this->_password) {
-                return new Zend_Auth_Result(Zend_Auth_Result::SUCCESS,
-                    $this->_username);
+            if ($this->_isAllowedUser($username, $password)) {
+                return $this->_getResultObject(Zend_Auth_Result::SUCCESS);
             }
         }
-        return new Zend_Auth_Result(Zend_Auth_Result::FAILURE,
-            $this->_username);
+        return $this->_getResultObject(Zend_Auth_Result::FAILURE);
     }
 }
