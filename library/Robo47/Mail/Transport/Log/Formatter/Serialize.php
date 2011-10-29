@@ -31,7 +31,7 @@
 class Robo47_Mail_Transport_Log_Formatter_Serialize implements
 Robo47_Mail_Transport_Log_Formatter_Interface
 {
-    
+
     public function format(Zend_Mail $mail)
     {
         return serialize($mail);

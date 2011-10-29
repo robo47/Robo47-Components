@@ -40,7 +40,7 @@ extends Zend_Application_Resource_ResourceAbstract
      * @var array|Zend_Cache[]
      */
     protected $_caches = array();
-    
+
     public function init()
     {
         if (!empty($this->_options)) {

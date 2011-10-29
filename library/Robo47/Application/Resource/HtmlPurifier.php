@@ -38,7 +38,7 @@ extends Zend_Application_Resource_ResourceAbstract
      * @var HTMLPurifier
      */
     protected $_htmlpurifier = null;
-    
+
     public function init()
     {
         if (!empty($this->_options)) {

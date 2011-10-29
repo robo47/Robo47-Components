@@ -2,14 +2,14 @@
 
 class Robo47_AllTests
 {
-    
+
     public static function suite()
     {
         $suite = new PHPUnit_Framework_TestSuite('Robo47 Components - Robo47');
 
         // important auto-loader-tests need to be run before the other ones
         $suite->addTest(Robo47_Loader_AllTests::suite());
-        $suite->addTest(Robo47_Application_AllTests::suite());        
+        $suite->addTest(Robo47_Application_AllTests::suite());
         $suite->addTest(Robo47_Auth_AllTests::suite());
         $suite->addTest(Robo47_Cache_AllTests::suite());
         $suite->addTestSuite('Robo47_CoreTest');

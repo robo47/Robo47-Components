@@ -40,7 +40,7 @@ extends Zend_Application_Resource_ResourceAbstract
      * @var array
      */
     protected $_autoloaders = null;
-    
+
     public function init()
     {
         if (!empty($this->_options)) {

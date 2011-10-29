@@ -17,7 +17,7 @@ class Robo47_DoctrineTestCase extends PHPUnit_Framework_TestCase
      * @var Doctrine_Connection
      */
     protected $_doctrineConnection = null;
-    
+
     public function setUp()
     {
         $connection = Doctrine_Manager::getInstance()->connection(
@@ -30,7 +30,7 @@ class Robo47_DoctrineTestCase extends PHPUnit_Framework_TestCase
 
     /**
      * Creates the Table for a specific Record
-     * 
+     *
      * @param string $recordName
      */
     public function setupTableForRecord($recordName)
@@ -40,7 +40,7 @@ class Robo47_DoctrineTestCase extends PHPUnit_Framework_TestCase
         $table = $record->getTable();
         /* @var $table Doctrine_Table */
         $connction = $table->getConnection();
-        
+
         $connction->export->createTable(
             $table->getTablename(),
             $table->getColumns()
@@ -55,7 +55,7 @@ class Robo47_DoctrineTestCase extends PHPUnit_Framework_TestCase
         return $this->_doctrineConnection;
     }
 
-    
+
     public function tearDown()
     {
         $manager = Doctrine_Manager::getInstance();

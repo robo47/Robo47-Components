@@ -36,7 +36,7 @@ extends Zend_Application_Resource_ResourceAbstract
      * @var Zend_Service_Akismet
      */
     protected $_service = null;
-    
+
     public function init()
     {
         if (!empty($this->_options)) {

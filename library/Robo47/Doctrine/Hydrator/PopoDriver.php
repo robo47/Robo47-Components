@@ -29,7 +29,7 @@
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  * @todo        Add possiblity to use another container [eg an ArrayObject too]?
  */
-class Robo47_Doctrine_Hydrator_PopoDriver 
+class Robo47_Doctrine_Hydrator_PopoDriver
 extends Doctrine_Hydrator_ArrayDriver
 {
 
