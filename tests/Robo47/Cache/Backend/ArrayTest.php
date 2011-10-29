@@ -14,12 +14,12 @@ class Robo47_Cache_Backend_ArrayTest extends PHPUnit_Framework_TestCase
      * @var Robo47_Cache_Backend_Array
      */
     public $_backend = null;
-    
+
     public function setUp()
     {
         $this->_backend = new Robo47_Cache_Backend_Array();
     }
-    
+
     public function tearDown()
     {
         unset($this->_backend);
@@ -132,7 +132,7 @@ class Robo47_Cache_Backend_ArrayTest extends PHPUnit_Framework_TestCase
         $this->_backend->clean();
         $this->assertEquals(0, count($this->_backend->data), 'Cleaning the cache did not empty it');
     }
-    
+
     public function unsupportedModesDataProvider()
     {
         $unsupportedModes = array();

@@ -130,6 +130,6 @@ class Robo47_Mail_Transport_Multi extends Zend_Mail_Transport_Abstract
      */
     protected function _sendMail()
     {
-        
+
     }
 }

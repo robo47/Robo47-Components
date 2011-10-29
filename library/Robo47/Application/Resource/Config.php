@@ -36,7 +36,7 @@ extends Zend_Application_Resource_ResourceAbstract
      * @var Zend_Config
      */
     protected $_config = null;
-    
+
     public function init()
     {
         if (!empty($this->_options)) {

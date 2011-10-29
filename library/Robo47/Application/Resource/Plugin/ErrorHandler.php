@@ -38,12 +38,12 @@ extends Zend_Application_Resource_ResourceAbstract
      * @var Zend_Controller_Plugin_ErrorHandler
      */
     protected $_errorHandler = null;
-    
+
     public function init()
     {
         $this->_errorHandler = $this->_setupErrorHandler($this->_options);
     }
-    
+
     public function _setupErrorHandler($options)
     {
         $errorHandler = new Zend_Controller_Plugin_ErrorHandler($options);

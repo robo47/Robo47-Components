@@ -10,14 +10,14 @@ require_once dirname(__FILE__ ) . '/../../../../TestHelper.php';
  */
 class Robo47_Application_Resource_Service_BitlyTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
         $this->application = new Zend_Application('testing');
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         Zend_Registry::_unsetInstance();
     }
-    
+
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();

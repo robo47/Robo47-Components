@@ -134,7 +134,7 @@ class Robo47_Controller_Plugin_Title extends Zend_Controller_Plugin_Abstract
     {
         return $this->_append;
     }
-    
+
     public function postDispatch(Zend_Controller_Request_Abstract $request)
     {
         $headTitle = $this->_view->headTitle();

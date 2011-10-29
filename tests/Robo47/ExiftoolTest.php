@@ -7,12 +7,12 @@ require_once dirname(__FILE__ ) . '/../TestHelper.php';
  */
 class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function getExiftoolTestImage()
     {
         return TESTS_PATH . '/Robo47/_files/exiftoolTestImage.jpg';
     }
-    
+
     public function getExifToolWrapper1()
     {
         return TESTS_PATH . '/Robo47/_files/exiftoolwrapper1.php';
@@ -82,7 +82,7 @@ class Robo47_ExiftoolTest extends PHPUnit_Framework_TestCase
             $this->assertEquals('File "' . $file . '" does not exist.', $e->getMessage(), 'Exception message does not match');
         }
     }
-    
+
     public function formatProvider()
     {
         $data = array();

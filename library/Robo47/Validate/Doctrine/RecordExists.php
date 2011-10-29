@@ -33,7 +33,7 @@
 class Robo47_Validate_Doctrine_RecordExists
 extends Robo47_Validate_Doctrine_Abstract
 {
-    
+
     public function isValid($value)
     {
         $valid = true;
