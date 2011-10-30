@@ -119,7 +119,7 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
     {
         return $this->_userdata;
     }
-    
+
     /**
      * @param string $username
      * @param string $password
@@ -129,7 +129,7 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
     {
         return ($username == $this->_username && $password == $this->_password);
     }
-    
+
     /**
      * @param integer $result
      * @return Zend_Auth_Result

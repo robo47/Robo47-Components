@@ -31,7 +31,7 @@
 class Robo47_Mail_Transport_Log_Formatter_Simple implements
 Robo47_Mail_Transport_Log_Formatter_Interface
 {
-    
+
     public function format(Zend_Mail $mail)
     {
         $message = 'Subject: ' . $mail->getSubject() . PHP_EOL;

@@ -2,7 +2,7 @@
 
 class Robo47_Mail_AllTests
 {
-    
+
     public static function suite()
     {
         $suite = new PHPUnit_Framework_TestSuite('Robo47 Components - Robo47_Mail');

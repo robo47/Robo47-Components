@@ -39,7 +39,7 @@ extends Zend_Application_Resource_ResourceAbstract
      * @var Zend_Loader_Autoloader_Interface
      */
     protected $_autoloader = null;
-    
+
     public function init()
     {
         if (!empty($this->_options)) {

@@ -17,13 +17,13 @@ function dummyApplicationErrorHandler($errno, $errstr, $errfile, $errline)
  */
 class Robo47_Application_Resource_ErrorHandlerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function setUp()
     {
         $this->application = new Zend_Application('testing');
         $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
     }
-    
+
     public function tearDown()
     {
         Zend_Controller_Front::getInstance()->resetInstance();

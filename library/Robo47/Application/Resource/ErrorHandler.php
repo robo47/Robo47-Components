@@ -39,7 +39,7 @@ extends Zend_Application_Resource_ResourceAbstract
      * @var Robo47_ErrorHandler
      */
     protected $_errorHandler = null;
-    
+
     public function init()
     {
         if (!empty($this->_options)) {
