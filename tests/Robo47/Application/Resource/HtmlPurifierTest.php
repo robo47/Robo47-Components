@@ -41,7 +41,7 @@ class Robo47_Application_Resource_HtmlPurifierTest extends PHPUnit_Framework_Tes
                     . ',code,pre,cite,q[cite],'
                     . 'blockquote[cite],sub,sup,p,'
                     . 'br',
-                'AutoFormat.Linkify' => 'true',
+                'AutoFormat.Linkify' => true,
                 'Cache.SerializerPath' => TESTS_PATH . '/tmp/'
             ),
             'registryKey' => 'HTMLPurifier',
@@ -82,7 +82,7 @@ class Robo47_Application_Resource_HtmlPurifierTest extends PHPUnit_Framework_Tes
                     . ',code,pre,cite,q[cite],'
                     . 'blockquote[cite],sub,sup,p,'
                     . 'br',
-                'AutoFormat.Linkify' => 'true',
+                'AutoFormat.Linkify' => true,
                 'Cache.SerializerPath' => TESTS_PATH . '/tmp/'
             ),
         );
