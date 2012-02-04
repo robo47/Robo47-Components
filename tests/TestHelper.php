@@ -10,6 +10,10 @@ if (!defined('APPLICATION_ENVIRONMENT')) {
 
     $pathes = array();
     $pathes[] = BASE_PATH . '/library/';
+    $pathes[] = BASE_PATH . '/vendor/zf1/library/';
+    $pathes[] = BASE_PATH . '/vendor/doctrine1/lib/';
+    $pathes[] = BASE_PATH . '/vendor/htmlpurifier/library/';
+    $pathes[] = BASE_PATH . '/vendor/';
     $pathes[] = TESTS_PATH;
     $pathes[] = get_include_path();
 
