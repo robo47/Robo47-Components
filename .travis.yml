@@ -3,3 +3,6 @@ language: php
 phps:
   - 5.3
   - 5.4
+  
+before_script:
+  - "bin/ci/travis-ci.sh"
