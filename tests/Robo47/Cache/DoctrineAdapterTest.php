@@ -12,14 +12,15 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         Zend_Registry::_unsetInstance();
+        @mkdir(TESTS_PATH . '/tmp/cache/', 0777, true);
         $this->getCache()->clean();
+        
     }
 
     public function tearDown()
     {
         Zend_Registry::_unsetInstance();
         $this->getCache()->clean();
-        @unlink(TESTS_PATH . '/tmp/temp.sqlite');
     }
 
     /**
@@ -30,9 +31,9 @@ class Robo47_Cache_DoctrineAdapterTest extends PHPUnit_Framework_TestCase
     {
         return Zend_Cache::factory(
                 'Core',
-                'Sqlite',
+                'File',
                 array('automatic_serialization' => true, 'lifetime' => 3600),
-                array('cache_db_complete_path' => TESTS_PATH . '/tmp/temp.sqlite')
+                array('cache_dir' => TESTS_PATH . '/tmp/cache/')
         );
     }
 
