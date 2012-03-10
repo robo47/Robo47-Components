@@ -1,7 +1,10 @@
 Robo47 Components
 =================
 
-Robo47 Components is a collection of classes I use in my Zend Framework 1 / Doctrine 1 based Applications.
+[![Build Status](https://secure.travis-ci.org/robo47/Robo47-Components.png)](robo47/Robo47-Components)
+
+Robo47 Components is a collection of classes I use in my Zend Framework 1 / 
+Doctrine 1 based Applications.
 
 Versions of other libraries I use in tests, development and production:
 
@@ -26,7 +29,21 @@ and run
     curl -s http://getcomposer.org/installer | php
     php composer.phar install
 
-Bugs in older Zend Framework versions which can make problems using Robo47 Components:
+Composer does not yet include dependencies to zend framewok, htmlpurifier, 
+doctrine or ezComponents
+
+License
+-------
+
+MIT
+
+See file LICENSE.MIT
+
+Known Issues
+------------
+
+Bugs in older Zend Framework versions which can make problems using 
+Robo47 Components:
 
  * [ZF-8520](http://framework.zend.com/issues/browse/ZF-8520)
  * [ZF-9064](http://framework.zend.com/issues/browse/ZF-9064)
