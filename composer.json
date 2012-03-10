@@ -1,0 +1,23 @@
+{
+    "name": "robo47/robo47-components",
+    "description": "Small PHP Library extending the Zend Framework using Doctrine1, HTMLPurifier and ezComponents",
+    "type": "library",
+    "keywords":  [ "doctrine", "ezc", "zf1", "htmlpurifier"],
+    "homepage": "https://github.com/robo47/Robo47-Components",
+    "license": "MIT",
+    "authors": [
+    {
+        "name": "Benjamin Steininger",
+        "email": "robo47@robo47.net",
+        "homepage": "http://www.benjamin-steininger.de"
+    }
+    ],
+    "require": {
+        "php": ">=5.2.4"
+    },
+    "autoload": {
+        "psr-0": {
+            "Robo47_": "library/"
+        }
+    }
+}
