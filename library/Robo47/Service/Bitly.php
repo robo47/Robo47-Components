@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Service_Bitly
  *
@@ -33,6 +34,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     /**
      * API URL
      */
+
     const API_URL = 'http://api.bit.ly';
 
     /**
@@ -91,18 +93,21 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
      * @var string
      */
     protected $_login = null;
+
     /**
      * The api key
      *
      * @var string
      */
     protected $_apiKey = null;
+
     /**
      * The api version
      *
      * @var string
      */
     protected $_version = null;
+
     /**
      * The format
      *
@@ -111,12 +116,14 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
      * @var string
      */
     protected $_format = Robo47_Service_Bitly::FORMAT_JSON;
+
     /**
      * The callback (used only if format is json)
      *
      * @var string
      */
     protected $_callback = '';
+
     /**
      * The result Format
      *
@@ -137,8 +144,8 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
      * @param string $version
      */
     public function __construct($login, $apiKey, $format = self::FORMAT_JSON,
-        $resultFormat = self::FORMAT_RESULT_NATIVE,
-        $callback = '', $version = '2.0.1')
+        $resultFormat = self::FORMAT_RESULT_NATIVE, $callback = '',
+        $version = '2.0.1')
     {
         $this->setLogin($login);
         $this->setApiKey($apiKey);
@@ -168,6 +175,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
                 $message = 'Invalid Format: ' . $format;
                 throw new Robo47_Service_Bitly_Exception($message);
         }
+
         return $this;
     }
 
@@ -180,6 +188,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     public function setCallback($callback)
     {
         $this->_callback = $callback;
+
         return $this;
     }
 
@@ -212,6 +221,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     public function setVersion($version)
     {
         $this->_version = $version;
+
         return $this;
     }
 
@@ -234,6 +244,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     public function setLogin($login)
     {
         $this->_login = $login;
+
         return $this;
     }
 
@@ -246,6 +257,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     public function setApiKey($apiKey)
     {
         $this->_apiKey = $apiKey;
+
         return $this;
     }
 
@@ -291,6 +303,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
                 $message = 'Invalid Result Format: ' . $resultFormat;
                 throw new Robo47_Service_Bitly_Exception($message);
         }
+
         return $this;
     }
 
@@ -314,6 +327,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
         $httpClient = self::getHttpClient();
         $httpClient->setUri($requestUri);
         $response = $httpClient->request(Zend_Http_Client::GET);
+
         return $this->_getData($response);
     }
 
@@ -330,6 +344,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
         foreach ($document->childNodes as $node) {
             $array[$node->nodeName] = $this->_nodeToArray($node);
         }
+
         return $array;
     }
 
@@ -353,8 +368,8 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
             }
         } else {
             $array = $node->nodeValue;
-
         }
+
         return $array;
     }
 
@@ -371,6 +386,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
         foreach ($document->childNodes as $node) {
             $object->{$node->nodeName} = $this->_nodeToObject($node);
         }
+
         return $object;
     }
 
@@ -394,8 +410,8 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
             }
         } else {
             $object = $node->nodeValue;
-
         }
+
         return $object;
     }
 
@@ -455,6 +471,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
                 }
                 break;
         }
+
         return $result;
     }
 
@@ -481,6 +498,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
         $url = Robo47_Service_Bitly::API_URL;
         $url .= $path . '?';
         $url .= http_build_query($defaultParams, null, '&');
+
         return $url;
     }
 
@@ -494,6 +512,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     {
         $params = array('longUrl' => $longUrl);
         $url = $this->generateUrl(self::API_PATH_SHORTEN, $params);
+
         return $this->_callApi($url);
     }
 
@@ -507,6 +526,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     {
         $params = array('shortUrl' => $shortUrl);
         $url = $this->generateUrl(self::API_PATH_EXPAND, $params);
+
         return $this->_callApi($url);
     }
 
@@ -520,6 +540,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     {
         $params = array('hash' => $hash);
         $url = $this->generateUrl(self::API_PATH_EXPAND, $params);
+
         return $this->_callApi($url);
     }
 
@@ -534,6 +555,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
         $params = array('shortUrl' => $shortUrl);
 
         $url = $this->generateUrl(self::API_PATH_INFO, $params);
+
         return $this->_callApi($url);
     }
 
@@ -552,6 +574,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
         );
 
         $url = $this->generateUrl(self::API_PATH_INFO, $params);
+
         return $this->_callApi($url);
     }
 
@@ -565,6 +588,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     {
         $params = array('hash' => $hash);
         $url = $this->generateUrl(self::API_PATH_INFO, $params);
+
         return $this->_callApi($url);
     }
 
@@ -583,6 +607,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
         );
 
         $url = $this->generateUrl(self::API_PATH_INFO, $params);
+
         return $this->_callApi($url);
     }
 
@@ -596,6 +621,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     {
         $params = array('shortUrl' => $shortUrl);
         $url = $this->generateUrl(self::API_PATH_STATS, $params);
+
         return $this->_callApi($url);
     }
 
@@ -609,6 +635,7 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     {
         $params = array('hash' => $hash);
         $url = $this->generateUrl(self::API_PATH_STATS, $params);
+
         return $this->_callApi($url);
     }
 
@@ -622,6 +649,8 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     public function errors()
     {
         $url = $this->generateUrl(self::API_PATH_ERRORS, array());
+
         return $this->_callApi($url);
     }
+
 }

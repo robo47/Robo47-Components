@@ -1,114 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project name="robo47Components" default="build" basedir=".">
-    <property name="source" value="library/Robo47"/>
+  <property name="source" value="library" />
 
-    <target name="init">
-      <exec dir="${basedir}/"
-            executable="curl"
-            failonerror="true">
-            <arg line=" -s http://getcomposer.org/installer | php" />
-      </exec>
-      <exec dir="${basedir}/"
-            executable="php"
-            failonerror="true">
-            <arg line="composer.phar install" />
-      </exec>
-    </target>
+  <target name="init">
+    <exec dir="${basedir}/"
+          executable="sh"
+          failonerror="true">
+      <arg line="bin/init-ci.sh" />
+    </exec>
+  </target>
 
-    <target name="clean" description="Clean up and create artifact directories">
-        <delete dir="${basedir}/build/api"/>
-        <delete dir="${basedir}/build/code-browser"/>
-        <delete dir="${basedir}/build/coverage"/>
-        <delete dir="${basedir}/build/logs"/>
-        <delete dir="${basedir}/build/pdepend"/>
+  <target name="clean" description="Clean up and create artifact directories">
+    <delete dir="${basedir}/build/api"/>
+    <delete dir="${basedir}/build/code-browser"/>
+    <delete dir="${basedir}/build/coverage"/>
+    <delete dir="${basedir}/build/logs"/>
+    <delete dir="${basedir}/build/pdepend"/>
 
+    <mkdir dir="${basedir}/build/api"/>
+    <mkdir dir="${basedir}/build/code-browser"/>
+    <mkdir dir="${basedir}/build/coverage"/>
+    <mkdir dir="${basedir}/build/logs"/>
+    <mkdir dir="${basedir}/build/pdepend"/>
+  </target>
 
-        <mkdir dir="${basedir}/build/api"/>
-        <mkdir dir="${basedir}/build/code-browser"/>
-        <mkdir dir="${basedir}/build/coverage"/>
-        <mkdir dir="${basedir}/build/logs"/>
-        <mkdir dir="${basedir}/build/pdepend"/>
-    </target>
+  <target name="phpunit" description="Run unit tests using PHPUnit and generates junit.xml and clover.xml">
+    <exec executable="phpunit" failonerror="true"/>
+  </target>
 
-    <target name="doxygen" description="Build api-documentation with doxygen">
-        <mkdir dir="${basedir}/build/doxygen"/>
-        <exec dir="${basedir}"
-        executable="doxygen"
-        failonerror="true">
-        </exec>
-    </target>
+  <target name="parallelTasks" description="Run the pdepend, phpmd, phpcpd, phpcs, phpdoc and phploc tasks in parallel using a maximum of 8 threads.">
+    <parallel threadCount="8">
+      <sequential>
+        <antcall target="pdepend"/>
+        <antcall target="phpmd"/>
+      </sequential>
+      <antcall target="phpcpd"/>
+      <antcall target="phpcs"/>
+      <antcall target="docblox"/>
+      <antcall target="phploc"/>
+    </parallel>
+  </target>
 
-    <target name="phpunit" description="Run unit tests using PHPUnit and generates junit.xml and clover.xml">
-        <exec executable="phpunit" failonerror="true"/>
-    </target>
-
-    <target name="parallelTasks" description="Run the pdepend, phpmd, phpcpd, phpcs, phpdoc and phploc tasks in parallel using a maximum of 8 threads.">
-        <parallel threadCount="8">
-            <sequential>
-                <antcall target="pdepend"/>
-                <antcall target="phpmd"/>
-            </sequential>
-            <antcall target="doxygen"/>
-            <antcall target="phpcpd"/>
-            <antcall target="phpcs"/>
-            <antcall target="phpdoc"/>
-            <antcall target="phploc"/>
-        </parallel>
-    </target>
-
-    <target name="pdepend" description="Generate jdepend.xml and software metrics charts using PHP_Depend">
-        <exec executable="pdepend">
-            <arg line="--jdepend-xml=${basedir}/build/logs/jdepend.xml
+  <target name="pdepend" description="Generate jdepend.xml and software metrics charts using PHP_Depend">
+    <exec executable="pdepend">
+      <arg line="--jdepend-xml=${basedir}/build/logs/jdepend.xml
               --jdepend-chart=${basedir}/build/pdepend/dependencies.svg
               --overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg
               ${source}" />
-        </exec>
-    </target>
+    </exec>
+  </target>
 
-    <target name="phpmd" description="Generate pmd.xml using PHPMD">
-        <exec executable="phpmd">
-            <arg line="${source}
+  <target name="phpmd" description="Generate pmd.xml using PHPMD">
+    <exec executable="phpmd">
+      <arg line="${source}
               xml
               build/phpmd.xml
               --reportfile ${basedir}/build/logs/pmd.xml" />
-        </exec>
-    </target>
+    </exec>
+  </target>
 
-    <target name="phpcpd" description="Generate pmd-cpd.xml using PHPCPD">
-        <exec executable="phpcpd">
-            <arg line="--log-pmd ${basedir}/build/logs/pmd-cpd.xml ${source}" />
-        </exec>
-    </target>
+  <target name="phpcpd" description="Generate pmd-cpd.xml using PHPCPD">
+    <exec executable="phpcpd">
+      <arg line="--log-pmd ${basedir}/build/logs/pmd-cpd.xml ${source}" />
+    </exec>
+  </target>
 
-    <target name="phploc" description="Generate phploc.csv">
-        <exec executable="phploc">
-            <arg line="--log-csv ${basedir}/build/logs/phploc.csv ${source}" />
-        </exec>
-    </target>
+  <target name="phploc" description="Generate phploc.csv">
+    <exec executable="phploc">
+      <arg line="--log-csv ${basedir}/build/logs/phploc.csv ${source}" />
+    </exec>
+  </target>
 
-    <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer">
-        <exec executable="phpcs" output="/dev/null">
-            <arg line="--report=checkstyle
+  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer">
+    <exec executable="phpcs" output="/dev/null">
+      <arg line="--report=checkstyle
               --report-file=${basedir}/build/logs/checkstyle.xml
-              --standard=build/phpcs.xml
+              --standard=Symfony2
               ${source}" />
-        </exec>
-    </target>
+    </exec>
+  </target>
 
-    <target name="phpdoc" description="Generate API documentation using PHPDocumentor">
-        <exec executable="phpdoc">
-            <arg line="-d ${source} -t ${basedir}/build/api" />
-        </exec>
-    </target>
+  <target name="phpcs-local" description="Generate output using PHP_CodeSniffer">
+    <exec executable="phpcs">
+      <arg line="--report=full
+              --standard=Symfony2
+              ${source}" />
+    </exec>
+  </target>
 
-    <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
-        <exec executable="phpcb">
-            <arg line="--log    ${basedir}/build/logs
+  <target name="docblox" description="Generate API documentation using docblox">
+    <exec executable="docblox">
+      <arg line="project:run
+               -d ${source}
+               -t ${basedir}/build/api" />
+    </exec>
+  </target>
+
+  <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
+    <exec executable="phpcb">
+      <arg line="--log    ${basedir}/build/logs
               --source ${source}
               --output ${basedir}/build/code-browser" />
-        </exec>
-    </target>
+    </exec>
+  </target>
 
-    <target name="build" depends="init,clean,parallelTasks,phpunit,phpcb"/>
+  <target name="build" depends="init,clean,parallelTasks,phpunit,phpcb"/>
+
 </project>

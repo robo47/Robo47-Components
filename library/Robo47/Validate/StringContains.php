@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Validate_StringContains
  *
@@ -30,6 +31,7 @@
  */
 class Robo47_Validate_StringContains extends Zend_Validate_Abstract
 {
+
     const CONTAINS = 'contains';
 
     /**
@@ -68,6 +70,7 @@ class Robo47_Validate_StringContains extends Zend_Validate_Abstract
             $contains = array($contains);
         }
         $this->_contains = $contains;
+
         return $this;
     }
 
@@ -98,6 +101,8 @@ class Robo47_Validate_StringContains extends Zend_Validate_Abstract
                 break;
             }
         }
+
         return $isValid;
     }
+
 }

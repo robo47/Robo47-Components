@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Validate_Doctrine_NoRecordExists
  *
@@ -30,8 +31,7 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Validate_Doctrine_NoRecordExists
-extends Robo47_Validate_Doctrine_Abstract
+class Robo47_Validate_Doctrine_NoRecordExists extends Robo47_Validate_Doctrine_Abstract
 {
 
     public function isValid($value)
@@ -47,4 +47,5 @@ extends Robo47_Validate_Doctrine_Abstract
 
         return $valid;
     }
+
 }

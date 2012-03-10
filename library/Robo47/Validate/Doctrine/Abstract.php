@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Validate_Doctrine_NoRecordExists
  *
@@ -35,6 +36,7 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
     /**
      * Error constants
      */
+
     const ERROR_NO_RECORD_FOUND = 'noRecordFound';
     const ERROR_RECORD_FOUND = 'recordFound';
 
@@ -45,14 +47,17 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
         self::ERROR_NO_RECORD_FOUND => 'No record matching %value% was found',
         self::ERROR_RECORD_FOUND => 'A record matching %value% was found',
     );
+
     /**
      * @var string
      */
     protected $_table = '';
+
     /**
      * @var string
      */
     protected $_field = '';
+
     /**
      * @var array|string|null
      */
@@ -90,6 +95,7 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
     public function setExclude($exclude)
     {
         $this->_exclude = $exclude;
+
         return $this;
     }
 
@@ -112,6 +118,7 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
     public function setField($field)
     {
         $this->_field = (string) $field;
+
         return $this;
     }
 
@@ -131,6 +138,7 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
             throw new Robo47_Log_Writer_Exception($message);
         }
         $this->_table = $table;
+
         return $this;
     }
 
@@ -157,12 +165,13 @@ abstract class Robo47_Validate_Doctrine_Abstract extends Zend_Validate_Abstract
         $exclude = $this->getExclude();
         if (is_string($exclude) && !empty($exclude)) {
             $query->andWhere($exclude);
-        } else if (is_array($exclude) && !empty($exclude)) {
+        } elseif (is_array($exclude) && !empty($exclude)) {
             $query->andWhere($exclude['field'] . ' != ?', $exclude['value']);
         }
 
         return $query->andWhere($this->getField() . ' = ?', $value)
-            ->limit(1)
-            ->execute();
+                ->limit(1)
+                ->execute();
     }
+
 }

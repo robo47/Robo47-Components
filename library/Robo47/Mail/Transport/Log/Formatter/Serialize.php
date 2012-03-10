@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Mail_Transport_Log_Formatter_Serialize
  *
@@ -36,4 +37,5 @@ Robo47_Mail_Transport_Log_Formatter_Interface
     {
         return serialize($mail);
     }
+
 }

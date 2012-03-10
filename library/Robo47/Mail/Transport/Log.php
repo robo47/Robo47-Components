@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Mail_Transport_Log
  *
@@ -32,15 +33,13 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
 {
 
     /**
-     *
      * @param Robo47_Mail_Transport_Log_Formatter_Interface|string $formatter
      * @param Zend_Log $log
      * @param integer $logPriority
      * @param string $logCategory
      */
     public function __construct($formatter, Zend_Log $log,
-        $logPriority = Zend_Log::INFO,
-        $logCategory = 'mail')
+        $logPriority = Zend_Log::INFO, $logCategory = 'mail')
     {
         $this->setFormatter($formatter);
         $this->setLog($log);
@@ -57,6 +56,7 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
     public function setLog(Zend_Log $log = null)
     {
         $this->_log = $log;
+
         return $this;
     }
 
@@ -79,6 +79,7 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
     public function setLogCategory($logCategory)
     {
         $this->_logCategory = $logCategory;
+
         return $this;
     }
 
@@ -101,6 +102,7 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
     public function setLogPriority($logPriority)
     {
         $this->_logPriority = (int) $logPriority;
+
         return $this;
     }
 
@@ -131,6 +133,7 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
             throw new Robo47_Mail_Transport_Exception($message);
         }
         $this->_formatter = $formatter;
+
         return $this;
     }
 
@@ -165,4 +168,5 @@ class Robo47_Mail_Transport_Log extends Zend_Mail_Transport_Abstract
     {
 
     }
+
 }

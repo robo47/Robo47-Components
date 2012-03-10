@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_View_Helper_Cdn
  *
@@ -68,6 +69,7 @@ class Robo47_View_Helper_Cdn extends Zend_View_Helper_Abstract
     public function setCdn($cdn)
     {
         $this->_cdn = (string) $cdn;
+
         return $this;
     }
 
@@ -90,4 +92,5 @@ class Robo47_View_Helper_Cdn extends Zend_View_Helper_Abstract
     {
         return (string) $this->_cdn;
     }
+
 }

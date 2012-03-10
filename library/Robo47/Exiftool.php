@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Exiftool
  *
@@ -36,6 +37,7 @@ class Robo47_Exiftool
     /**
      * Format ARRAY
      */
+
     const FORMAT_ARRAY = 'array';
 
     /**
@@ -53,6 +55,7 @@ class Robo47_Exiftool
      * @var string
      */
     protected $_format = null;
+
     /**
      * Path to the exiftool-binary
      *
@@ -80,6 +83,7 @@ class Robo47_Exiftool
     public function setExiftool($exiftool)
     {
         $this->_exiftool = $exiftool;
+
         return $this;
     }
 
@@ -110,6 +114,7 @@ class Robo47_Exiftool
                 throw new Robo47_Exiftool_Exception($message);
         }
         $this->_format = $format;
+
         return $this;
     }
 
@@ -151,6 +156,7 @@ class Robo47_Exiftool
                 $exifs = $this->_runExiftool($file, self::FORMAT_XML);
                 break;
         }
+
         return $exifs;
     }
 
@@ -181,6 +187,8 @@ class Robo47_Exiftool
             $message .= PHP_EOL . 'command: ' . $command;
             throw new Robo47_Exiftool_Exception($message, $returnCode);
         }
+
         return implode('', $output);
     }
+
 }

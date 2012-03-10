@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Form_Decorator_Info
  *
@@ -35,6 +36,7 @@ class Robo47_Form_Decorator_Info extends Zend_Form_Decorator_Abstract
      * @var string
      */
     protected $_placement = self::PREPEND;
+
     /**
      * @var string
      */
@@ -48,6 +50,7 @@ class Robo47_Form_Decorator_Info extends Zend_Form_Decorator_Abstract
     public function setPlacement($placement)
     {
         $this->_placement = strtoupper($placement);
+
         return $this;
     }
 
@@ -59,6 +62,7 @@ class Robo47_Form_Decorator_Info extends Zend_Form_Decorator_Abstract
     public function setInfo($info)
     {
         $this->_info = $info;
+
         return $this;
     }
 
@@ -98,6 +102,8 @@ class Robo47_Form_Decorator_Info extends Zend_Form_Decorator_Abstract
                 $return = $content . $separator . $info;
                 break;
         }
+
         return $return;
     }
+
 }

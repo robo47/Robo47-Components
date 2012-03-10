@@ -14,6 +14,7 @@
  * @copyright  Copyright (c) 2007-2010 Robo47 (http://components.robo47.net/)
  * @license    New BSD {@link http://components.robo47.net/LICENSE}
  */
+
 /**
  * An object oriented Wrapper for the curl_multi_*-functions
  *
@@ -32,6 +33,7 @@ class Robo47_Curl_Multi implements Countable
      * @var resource
      */
     protected $_curlMulti = null;
+
     /**
      * @var array of Robo47_Curl
      */
@@ -65,6 +67,7 @@ class Robo47_Curl_Multi implements Countable
     {
         curl_multi_add_handle($this->_curlMulti, $curl->getCurl());
         $this->_curls[] = $curl;
+
         return $this;
     }
 
@@ -81,6 +84,7 @@ class Robo47_Curl_Multi implements Countable
                 unset($this->_curls[$key]);
             }
         }
+
         return $this;
     }
 
@@ -89,9 +93,10 @@ class Robo47_Curl_Multi implements Countable
      *
      * @return Robo47_Curl_Multi *Provides Fluent Interface*
      */
-    public function exec( & $running)
+    public function exec(& $running)
     {
         curl_multi_exec($this->_curlMulti, $running);
+
         return $this;
     }
 
@@ -112,6 +117,7 @@ class Robo47_Curl_Multi implements Countable
             throw new Robo47_Curl_Multi_Exception($message);
         }
         $this->_curlMulti = $curlMulti;
+
         return $this;
     }
 
@@ -136,11 +142,12 @@ class Robo47_Curl_Multi implements Countable
     }
 
     /**
-     *Close
+     * Close
      */
     public function close()
     {
         @curl_multi_close($this->_curlMulti);
+
         return $this;
     }
 
@@ -153,4 +160,5 @@ class Robo47_Curl_Multi implements Countable
     {
         $this->close();
     }
+
 }

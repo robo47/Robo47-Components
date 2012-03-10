@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Application_Resource_Cache
  *
@@ -31,8 +32,7 @@
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  * @deprecated  Mostly deprecated because of Zend_Cache_Manager
  */
-class Robo47_Application_Resource_Cache
-extends Zend_Application_Resource_ResourceAbstract
+class Robo47_Application_Resource_Cache extends Zend_Application_Resource_ResourceAbstract
 {
 
     /**
@@ -90,18 +90,16 @@ extends Zend_Application_Resource_ResourceAbstract
         }
 
         $cache = Zend_Cache::factory(
-            $config['frontendName'],
-            $config['backendName'],
-            $config['frontendOptions'],
-            $config['backendOptions'],
-            $config['customFrontendNaming'],
-            $config['customBackendNaming'],
-            $config['autoload']
+                $config['frontendName'], $config['backendName'],
+                $config['frontendOptions'], $config['backendOptions'],
+                $config['customFrontendNaming'], $config['customBackendNaming'],
+                $config['autoload']
         );
 
         if (isset($config['registryKey'])) {
             Zend_Registry::set($config['registryKey'], $cache);
         }
+
         return $cache;
     }
 
@@ -114,4 +112,5 @@ extends Zend_Application_Resource_ResourceAbstract
     {
         return $this->_cache;
     }
+
 }

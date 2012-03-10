@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Log_Writer_Mock
  *
@@ -44,6 +45,7 @@ class Robo47_Log_Writer_DoctrineTable extends Robo47_Log_Writer_Abstract
         'category' => 'category',
         'timestamp' => 'timestamp',
     );
+
     /**
      * Used Table to which logs get written
      *
@@ -79,6 +81,7 @@ class Robo47_Log_Writer_DoctrineTable extends Robo47_Log_Writer_Abstract
             throw new Robo47_Log_Writer_Exception($message);
         }
         $this->_table = $table;
+
         return $this;
     }
 
@@ -103,6 +106,7 @@ class Robo47_Log_Writer_DoctrineTable extends Robo47_Log_Writer_Abstract
         if (count($columnMap) > 0) {
             $this->_columnMap = $columnMap;
         }
+
         return $this;
     }
 
@@ -170,6 +174,8 @@ class Robo47_Log_Writer_DoctrineTable extends Robo47_Log_Writer_Abstract
         if (isset($config['columnMap'])) {
             $writer->setColumnMap($config['columnMap']);
         }
+
         return $writer;
     }
+
 }

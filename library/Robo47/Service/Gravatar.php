@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Service_Gravatar
  *
@@ -34,6 +35,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
     /**
      * GRAVATAR API URL
      */
+
     const API_URL = 'http://www.gravatar.com/avatar/';
 
     /**
@@ -96,12 +98,14 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
      * @var string
      */
     protected $_rating = 'g';
+
     /**
      * Used size
      *
      * @var integer
      */
     protected $_size = 80;
+
     /**
      * Default image
      *
@@ -116,18 +120,21 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
      * @var string
      */
     protected $_default = '';
+
     /**
      * Used Cache
      *
      * @var Zend_Cache_Core
      */
     protected $_cache = null;
+
     /**
      * Prefix used for the cache-ids.
      *
      * @var string
      */
     protected $_cachePrefix = 'gravatar_';
+
     /**
      * Whether to use api via SSL or not
      *
@@ -176,6 +183,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
                     break;
             }
         }
+
         return $this;
     }
 
@@ -188,6 +196,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
     public function useSSL($flag)
     {
         $this->_useSSL = (bool) $flag;
+
         return $this;
     }
 
@@ -218,6 +227,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
             throw new Robo47_Service_Gravatar_Exception($message);
         }
         $this->_cache = $cache;
+
         return $this;
     }
 
@@ -258,6 +268,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
     public function setCachePrefix($cachePrefix)
     {
         $this->_cachePrefix = $cachePrefix;
+
         return $this;
     }
 
@@ -291,6 +302,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
                 $message = 'Invalid rating: ' . $rating;
                 throw new Robo47_Service_Gravatar_Exception($message);
         }
+
         return $this;
     }
 
@@ -322,6 +334,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
             throw new Robo47_Service_Gravatar_Exception($message);
         }
         $this->_size = $size;
+
         return $this;
     }
 
@@ -349,6 +362,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
     public function setDefault($default)
     {
         $this->_default = $default;
+
         return $this;
     }
 
@@ -473,12 +487,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
         $ssl = $this->_filterSsl($ssl);
 
         return $this->_getUri(
-            $email,
-            $size,
-            $rating,
-            $default,
-            $ssl,
-            $separator
+                $email, $size, $rating, $default, $ssl, $separator
         );
     }
 
@@ -508,6 +517,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
             'r' => $rating,
             'd' => $default,
         );
+
         return $url . '?' . http_build_query($params, '', $separator);
     }
 
@@ -545,6 +555,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
         $id .= '_' . $rating;
         $id .= '_' . $size;
         $id .= '_' . md5($default);
+
         return $id;
     }
 
@@ -557,11 +568,8 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
     public function _getCacheId($email)
     {
         return $this->getCacheId(
-            $email,
-            $this->getCachePrefix(),
-            $this->getRating(),
-            $this->getSize(),
-            $this->getDefault()
+                $email, $this->getCachePrefix(), $this->getRating(),
+                $this->getSize(), $this->getDefault()
         );
     }
 
@@ -600,6 +608,8 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
                 $this->_cache->save('false', $cacheId);
             }
         }
+
         return $success;
     }
+
 }

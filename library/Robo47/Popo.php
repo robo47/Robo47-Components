@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Popo
  *
@@ -76,4 +77,5 @@ class Robo47_Popo extends ArrayObject
     {
         unset($this[$name]);
     }
+
 }

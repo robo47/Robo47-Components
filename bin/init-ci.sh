@@ -1,3 +1,8 @@
+#/bin/sh
+
+curl -s http://getcomposer.org/installer | php
+php composer.phar install
+
 mkdir -p vendor
 wget -dv http://ezcomponents.org/files/downloads/ezcomponents-2009.2.1-lite.tar.bz2
 tar -xjf ezcomponents-2009.2.1-lite.tar.bz2 -C vendor

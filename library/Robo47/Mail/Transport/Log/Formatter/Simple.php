@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Mail_Transport_Log_Formatter_Simple
  *
@@ -34,10 +35,12 @@ Robo47_Mail_Transport_Log_Formatter_Interface
 
     public function format(Zend_Mail $mail)
     {
-        $message = 'Subject: ' . $mail->getSubject() . PHP_EOL;
-        $message .= 'To: ' . implode(', ', $mail->getRecipients()) . PHP_EOL;
-        $message .= 'Text: ' . $mail->getBodyText()->getContent() . PHP_EOL;
-        $message .= PHP_EOL . 'Html: ' . $mail->getBodyHtml()->getContent();
-        return $message;
+        return sprintf(
+                "Subject: %s\nTo: %s\nText: %s\n\nHtml: %s",
+                $mail->getSubject(), implode(', ', $mail->getRecipients()),
+                $mail->getBodyText()->getContent(),
+                $mail->getBodyHtml()->getContent()
+        );
     }
+
 }

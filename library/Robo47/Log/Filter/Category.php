@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Log_Filter_Category
  *
@@ -39,9 +40,7 @@ class Robo47_Log_Filter_Category extends Robo47_Log_Filter_ValidateProxy
     public function __construct(array $categories = array(), $not = false)
     {
         parent::__construct(
-            new Zend_Validate_InArray($categories),
-            'category',
-            $not
+            new Zend_Validate_InArray($categories), 'category', $not
         );
     }
 
@@ -64,6 +63,7 @@ class Robo47_Log_Filter_Category extends Robo47_Log_Filter_ValidateProxy
     public function setCategories(array $categories = array())
     {
         $this->_validator->setHayStack($categories);
+
         return $this;
     }
 
@@ -75,6 +75,7 @@ class Robo47_Log_Filter_Category extends Robo47_Log_Filter_ValidateProxy
     {
         $options = parent::getOptions();
         $options['categories'] = $this->getCategories();
+
         return $options;
     }
 
@@ -89,17 +90,17 @@ class Robo47_Log_Filter_Category extends Robo47_Log_Filter_ValidateProxy
         $config = self::_parseConfig($config);
         $config = array_merge(
             array(
-                'categories' => array(),
-                'not' => false,
-            ),
-            $config
+            'categories' => array(),
+            'not' => false,
+            ), $config
         );
 
         $filter = new Robo47_Log_Filter_Category(
-            $config['categories'],
-            $config['not']
+                $config['categories'],
+                $config['not']
         );
 
         return $filter;
     }
+
 }

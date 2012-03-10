@@ -14,6 +14,7 @@
  * @copyright  Copyright (c) 2007-2010 Robo47 (http://components.robo47.net/)
  * @license    New BSD {@link http://components.robo47.net/LICENSE}
  */
+
 /**
  * @uses Robo47_Curl_Exception
  * @author     Benjamin Steininger <robo47[at]robo47[dot]net>

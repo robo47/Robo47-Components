@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Core
  *
@@ -33,7 +34,8 @@ class Robo47_Core
     /**
      * Robo47 Components version identification
      */
-    const VERSION = '0.1';
+
+    const VERSION = '0.2';
 
     /**
      * Get Type
@@ -49,6 +51,8 @@ class Robo47_Core
         if ($type == 'object') {
             $type = get_class($var);
         }
+
         return $type;
     }
+
 }

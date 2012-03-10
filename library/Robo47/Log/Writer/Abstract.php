@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Log_Writer_Abstract
  *
@@ -28,8 +29,7 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-abstract class Robo47_Log_Writer_Abstract
-extends Zend_Log_Writer_Abstract
+abstract class Robo47_Log_Writer_Abstract extends Zend_Log_Writer_Abstract
 {
 
     /**
@@ -50,6 +50,7 @@ extends Zend_Log_Writer_Abstract
                 }
             }
         }
+
         return $this;
     }
 
@@ -61,4 +62,5 @@ extends Zend_Log_Writer_Abstract
     {
         return $this->_filters;
     }
+
 }

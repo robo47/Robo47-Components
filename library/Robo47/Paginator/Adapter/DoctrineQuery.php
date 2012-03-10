@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Paginator_Adapter_DoctrineQuery
  *
@@ -30,8 +31,7 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Paginator_Adapter_DoctrineQuery
-implements Zend_Paginator_Adapter_Interface
+class Robo47_Paginator_Adapter_DoctrineQuery implements Zend_Paginator_Adapter_Interface
 {
 
     /**
@@ -56,6 +56,7 @@ implements Zend_Paginator_Adapter_Interface
     public function setQuery(Doctrine_Query $query)
     {
         $this->_query = $query;
+
         return $this;
     }
 
@@ -103,4 +104,5 @@ implements Zend_Paginator_Adapter_Interface
             throw new Robo47_Paginator_Adapter_Exception($message);
         }
     }
+
 }

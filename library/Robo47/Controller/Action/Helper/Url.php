@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Controller_Action_Helper_Url
  *
@@ -29,8 +30,7 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Controller_Action_Helper_Url
-extends Zend_Controller_Action_Helper_Url
+class Robo47_Controller_Action_Helper_Url extends Zend_Controller_Action_Helper_Url
 {
 
     /**
@@ -58,6 +58,7 @@ extends Zend_Controller_Action_Helper_Url
             $router = Zend_Controller_Front::getInstance()->getRouter();
         }
         $this->_router = $router;
+
         return $this;
     }
 
@@ -88,4 +89,5 @@ extends Zend_Controller_Action_Helper_Url
     {
         return $this->_router->assemble($urlOptions, $name, $reset, $encode);
     }
+
 }

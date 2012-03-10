@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Log_Filter_Message
  *
@@ -36,11 +37,13 @@ class Robo47_Log_Filter_ValidateProxy extends Zend_Log_Filter_Abstract
      * @var Zend_Validate_Interface
      */
     protected $_validator = null;
+
     /**
      *
      * @var string|null
      */
     protected $_key = null;
+
     /**
      *
      * @var bool
@@ -99,6 +102,7 @@ class Robo47_Log_Filter_ValidateProxy extends Zend_Log_Filter_Abstract
     {
         $not = (bool) $not;
         $this->_not = $not;
+
         return $this;
     }
 
@@ -111,6 +115,7 @@ class Robo47_Log_Filter_ValidateProxy extends Zend_Log_Filter_Abstract
     public function setKey($key = null)
     {
         $this->_key = $key;
+
         return $this;
     }
 
@@ -130,6 +135,7 @@ class Robo47_Log_Filter_ValidateProxy extends Zend_Log_Filter_Abstract
             throw new Robo47_Log_Filter_Exception($message);
         }
         $this->_validator = $validator;
+
         return $this;
     }
 
@@ -181,17 +187,17 @@ class Robo47_Log_Filter_ValidateProxy extends Zend_Log_Filter_Abstract
         $config = self::_parseConfig($config);
         $config = array_merge(
             array(
-                'validator' => null,
-                'key' => null,
-                'not' => false,
-            ),
-            $config
+            'validator' => null,
+            'key' => null,
+            'not' => false,
+            ), $config
         );
 
         return new Robo47_Log_Filter_ValidateProxy(
-            $config['validator'],
-            $config['key'],
-            $config['not']
+                $config['validator'],
+                $config['key'],
+                $config['not']
         );
     }
+
 }

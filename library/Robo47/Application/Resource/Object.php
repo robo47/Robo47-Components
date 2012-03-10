@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Application_Resource_Object
  *
@@ -28,8 +29,7 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Application_Resource_Object
-extends Zend_Application_Resource_ResourceAbstract
+class Robo47_Application_Resource_Object extends Zend_Application_Resource_ResourceAbstract
 {
 
     /**
@@ -68,8 +68,7 @@ extends Zend_Application_Resource_ResourceAbstract
             $object = $this->_initObject($options['classname']);
         } else {
             $object = $this->_initObject(
-                $options['classname'],
-                $options['params']
+                $options['classname'], $options['params']
             );
         }
 
@@ -79,8 +78,7 @@ extends Zend_Application_Resource_ResourceAbstract
 
         if (isset($options['staticVariables'])) {
             $this->_setStaticVariables(
-                $options['classname'],
-                $options['staticVariables']
+                $options['classname'], $options['staticVariables']
             );
         }
 
@@ -90,8 +88,7 @@ extends Zend_Application_Resource_ResourceAbstract
 
         if (isset($options['staticFunctions'])) {
             $this->_callFunctions(
-                $options['classname'],
-                $options['staticFunctions']
+                $options['classname'], $options['staticFunctions']
             );
         }
 
@@ -114,6 +111,7 @@ extends Zend_Application_Resource_ResourceAbstract
         foreach ($variables as $name => $value) {
             $this->_setStaticVariable($classname, $name, $value);
         }
+
         return $this;
     }
 
@@ -129,6 +127,7 @@ extends Zend_Application_Resource_ResourceAbstract
     {
         $ref = new ReflectionClass($classname);
         $ref->setStaticPropertyValue($name, $value);
+
         return $this;
     }
 
@@ -161,6 +160,7 @@ extends Zend_Application_Resource_ResourceAbstract
         foreach ($variables as $variable => $value) {
             $this->_setVariable($object, $variable, $value);
         }
+
         return $this;
     }
 
@@ -175,6 +175,7 @@ extends Zend_Application_Resource_ResourceAbstract
     protected function _setVariable($object, $name, $value)
     {
         $object->{$name} = $value;
+
         return $this;
     }
 
@@ -207,6 +208,7 @@ extends Zend_Application_Resource_ResourceAbstract
                 throw new Robo47_Application_Resource_Exception($message);
             }
         }
+
         return $this;
     }
 
@@ -221,6 +223,7 @@ extends Zend_Application_Resource_ResourceAbstract
     protected function _callFunction($object, $name, array $params = array())
     {
         call_user_func_array(array($object, $name), $params);
+
         return $this;
     }
 
@@ -233,4 +236,5 @@ extends Zend_Application_Resource_ResourceAbstract
     {
         return $this->_object;
     }
+
 }

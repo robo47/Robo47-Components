@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Paginator_Adapter_DoctrineTable
  *
@@ -30,14 +31,14 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Paginator_Adapter_DoctrineTable
-extends Robo47_Paginator_Adapter_DoctrineQuery
+class Robo47_Paginator_Adapter_DoctrineTable extends Robo47_Paginator_Adapter_DoctrineQuery
 {
 
     /**
      * @var Doctrine_Query
      */
     protected $_query;
+
     /**
      * @var Doctrine_Table
      */
@@ -69,6 +70,7 @@ extends Robo47_Paginator_Adapter_DoctrineQuery
         }
         $this->_table = $table;
         $this->setQuery($table->createQuery()->select());
+
         return $this;
     }
 
@@ -80,4 +82,5 @@ extends Robo47_Paginator_Adapter_DoctrineQuery
     {
         return $this->_table;
     }
+
 }

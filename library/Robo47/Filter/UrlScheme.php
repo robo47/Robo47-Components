@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Filter_UrlScheme
  *
@@ -43,11 +44,13 @@ class Robo47_Filter_UrlScheme implements Zend_Filter_Interface
         'ftp',
         'ftps'
     );
+
     /**
      *
      * @var string
      */
     protected $_defaultScheme = 'http';
+
     /**
      *
      * @var bool
@@ -86,6 +89,7 @@ class Robo47_Filter_UrlScheme implements Zend_Filter_Interface
                     break;
             }
         }
+
         return $this;
     }
 
@@ -98,6 +102,7 @@ class Robo47_Filter_UrlScheme implements Zend_Filter_Interface
     public function setSchemes(array $schemes)
     {
         $this->_schemes = $schemes;
+
         return $this;
     }
 
@@ -119,6 +124,7 @@ class Robo47_Filter_UrlScheme implements Zend_Filter_Interface
     public function setDefaultScheme($defaultScheme)
     {
         $this->_defaultScheme = $defaultScheme;
+
         return $this;
     }
 
@@ -141,6 +147,7 @@ class Robo47_Filter_UrlScheme implements Zend_Filter_Interface
     public function setTrim($flag = true)
     {
         $this->_trim = (bool) $flag;
+
         return $this;
     }
 
@@ -179,6 +186,8 @@ class Robo47_Filter_UrlScheme implements Zend_Filter_Interface
             $value = $this->getDefaultScheme() .
                 '://' . $value;
         }
+
         return $value;
     }
+
 }

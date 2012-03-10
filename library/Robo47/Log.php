@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Log
  *
@@ -101,6 +102,7 @@ class Robo47_Log extends Zend_Log
                 }
             }
         }
+
         return $this;
     }
 
@@ -125,6 +127,7 @@ class Robo47_Log extends Zend_Log
                 }
             }
         }
+
         return $this;
     }
 
@@ -172,6 +175,7 @@ class Robo47_Log extends Zend_Log
     public function setDefaultCategory($category = null)
     {
         $this->_defaultCategory = $category;
+
         return $this;
     }
 
@@ -184,4 +188,5 @@ class Robo47_Log extends Zend_Log
     {
         return $this->_defaultCategory;
     }
+
 }

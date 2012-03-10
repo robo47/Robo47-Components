@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Filter_SanitizeUrl
  *
@@ -63,4 +64,5 @@ class Robo47_Filter_SanitizeUrl implements Zend_Filter_Interface
         // remove trailing -
         return trim($value, '-');
     }
+
 }

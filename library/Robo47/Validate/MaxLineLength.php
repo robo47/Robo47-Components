@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Validate_MaxLineLength
  *
@@ -33,17 +34,20 @@ class Robo47_Validate_MaxLineLength extends Zend_Validate_Abstract
     /**
      * Line too long
      */
+
     const LINE_TOO_LONG = 'lineToLong';
 
     protected $_messageTemplates = array(
         self::LINE_TOO_LONG => "Line %value% is too long"
     );
+
     /**
      * Allowed LineLength
      *
      * @var integer
      */
     protected $_lineLength = 80;
+
     /**
      * Used encoding
      *
@@ -70,6 +74,7 @@ class Robo47_Validate_MaxLineLength extends Zend_Validate_Abstract
     public function setEncoding($encoding)
     {
         $this->_encoding = $encoding;
+
         return $this;
     }
 
@@ -98,6 +103,7 @@ class Robo47_Validate_MaxLineLength extends Zend_Validate_Abstract
         } else {
             $this->_lineLength = $lineLength;
         }
+
         return $this;
     }
 
@@ -129,9 +135,12 @@ class Robo47_Validate_MaxLineLength extends Zend_Validate_Abstract
         foreach ($asArray as $linenumber => $line) {
             if (mb_strwidth($line, $this->_encoding) > $this->_lineLength) {
                 $this->_error(self::LINE_TOO_LONG, $linenumber + 1);
+
                 return false;
             }
         }
+
         return true;
     }
+
 }

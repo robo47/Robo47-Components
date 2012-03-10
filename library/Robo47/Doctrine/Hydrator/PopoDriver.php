@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Doctrine_Hydartor_PopoDriver
  *
@@ -29,8 +30,7 @@
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  * @todo        Add possiblity to use another container [eg an ArrayObject too]?
  */
-class Robo47_Doctrine_Hydrator_PopoDriver
-extends Doctrine_Hydrator_ArrayDriver
+class Robo47_Doctrine_Hydrator_PopoDriver extends Doctrine_Hydrator_ArrayDriver
 {
 
     /**
@@ -50,7 +50,6 @@ extends Doctrine_Hydrator_ArrayDriver
      * @var string
      */
     protected static $_classname = 'Robo47_Popo';
-
 
     /**
      * Name of the Container-class
@@ -174,6 +173,8 @@ extends Doctrine_Hydrator_ArrayDriver
         } else {
             $container = new $containerClass;
         }
+
         return $container;
     }
+
 }

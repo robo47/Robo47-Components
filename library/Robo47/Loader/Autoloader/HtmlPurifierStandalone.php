@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Autoloader for the HTMLPurifier-Library in the standalone-version
  *
@@ -30,8 +31,7 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Loader_Autoloader_HtmlPurifierStandalone
-implements Zend_Loader_Autoloader_Interface
+class Robo47_Loader_Autoloader_HtmlPurifierStandalone implements Zend_Loader_Autoloader_Interface
 {
 
     /**
@@ -59,4 +59,5 @@ implements Zend_Loader_Autoloader_Interface
     {
         return HTMLPurifier_Bootstrap::autoload($class);
     }
+
 }

@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_ErrorHandler
  *
@@ -36,23 +37,27 @@ class Robo47_ErrorHandler
      * @var callback
      */
     protected $_oldErrorHandler = null;
+
     /**
      *
      * @var bool
      */
     protected $_isErrorHandler = false;
+
     /**
      * Log
      *
      * @var Zend_Log
      */
     protected $_log = null;
+
     /**
      * Log Category
      *
      * @var string
      */
     protected $_logCategory = 'errorHandler';
+
     /**
      * Mapping for Priorities to logging
      *
@@ -70,7 +75,6 @@ class Robo47_ErrorHandler
         E_STRICT => 3, // Zend_Log::ERR
         E_RECOVERABLE_ERROR => 3, // Zend_Log::ERR
         'unknown' => 0, // Zend_Log::EMERG
-
     );
 
     /**
@@ -92,6 +96,7 @@ class Robo47_ErrorHandler
     public function setLog(Zend_Log $log = null)
     {
         $this->_log = $log;
+
         return $this;
     }
 
@@ -114,6 +119,7 @@ class Robo47_ErrorHandler
     public function setLogCategory($category)
     {
         $this->_logCategory = $category;
+
         return $this;
     }
 
@@ -154,6 +160,7 @@ class Robo47_ErrorHandler
         if (!isset($this->_errorPriorityMapping['unknown'])) {
             $this->_errorPriorityMapping['unknown'] = 0;
         }
+
         return $this;
     }
 
@@ -189,10 +196,7 @@ class Robo47_ErrorHandler
             $path = ini_get('error_log');
             if (is_writeable(dirname($path))) {
                 $message = sprintf(
-                    "PHP %s:  %s in %s on line %d",
-                    $errno,
-                    $errstr,
-                    $errfile,
+                    "PHP %s:  %s in %s on line %d", $errno, $errstr, $errfile,
                     $errline
                 );
                 error_log($message, 0);
@@ -212,6 +216,7 @@ class Robo47_ErrorHandler
         $errorLevel = E_ALL | E_STRICT;
         $this->_oldErrorHandler = set_error_handler($handler, $errorLevel);
         $this->_isErrorHandler = true;
+
         return $this;
     }
 
@@ -236,6 +241,7 @@ class Robo47_ErrorHandler
             set_error_handler($this->_oldErrorHandler);
             $this->_isErrorHandler = false;
         }
+
         return $this;
     }
 
@@ -256,4 +262,5 @@ class Robo47_ErrorHandler
         $this->_logError($errno, $errstr, $errfile, $errline);
         throw new Robo47_ErrorException($errstr, 0, $errno, $errfile, $errline);
     }
+
 }

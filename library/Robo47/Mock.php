@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Mock
  *
@@ -38,6 +39,7 @@ class Robo47_Mock
      * @var array
      */
     protected $_data = array();
+
     /**
      * @var array
      */
@@ -123,6 +125,8 @@ class Robo47_Mock
         if (isset($this->_data[$name])) {
             return $this->_data[$name];
         }
+
         return null;
     }
+
 }

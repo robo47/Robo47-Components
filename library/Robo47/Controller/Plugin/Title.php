@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Controller_Plugin_Title
  *
@@ -41,12 +42,14 @@ class Robo47_Controller_Plugin_Title extends Zend_Controller_Plugin_Abstract
      * @var string
      */
     protected $_append = '';
+
     /**
      * String to prepend to the title
      *
      * @var string
      */
     protected $_prepend = '';
+
     /**
      * The used View
      *
@@ -60,8 +63,7 @@ class Robo47_Controller_Plugin_Title extends Zend_Controller_Plugin_Abstract
      * @param string $append
      * @param string $prepend
      */
-    public function __construct(Zend_View_Interface $view,
-        $append = '',
+    public function __construct(Zend_View_Interface $view, $append = '',
         $prepend = '')
     {
         $this->setAppend($append);
@@ -88,6 +90,7 @@ class Robo47_Controller_Plugin_Title extends Zend_Controller_Plugin_Abstract
     public function setView(Zend_View_Interface $view)
     {
         $this->_view = $view;
+
         return $this;
     }
 
@@ -100,6 +103,7 @@ class Robo47_Controller_Plugin_Title extends Zend_Controller_Plugin_Abstract
     public function setAppend($value = null)
     {
         $this->_append = $value;
+
         return $this;
     }
 
@@ -112,6 +116,7 @@ class Robo47_Controller_Plugin_Title extends Zend_Controller_Plugin_Abstract
     public function setPrepend($value = null)
     {
         $this->_prepend = $value;
+
         return $this;
     }
 
@@ -141,4 +146,5 @@ class Robo47_Controller_Plugin_Title extends Zend_Controller_Plugin_Abstract
         $headTitle->headTitle($this->_prepend, 'PREPEND');
         $headTitle->headTitle($this->_append, 'APPEND');
     }
+
 }

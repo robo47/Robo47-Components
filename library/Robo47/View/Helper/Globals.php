@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_View_Helper_Globals
  *
@@ -51,6 +52,7 @@ class Robo47_View_Helper_Globals extends Zend_View_Helper_Abstract
                 $value = $this->view->escape($value);
             }
         }
+
         return $value;
     }
 
@@ -71,9 +73,7 @@ class Robo47_View_Helper_Globals extends Zend_View_Helper_Abstract
             case 'cookie':
             case 'session':
                 return $this->_getGlobal(
-                    '_' . strtoupper($global),
-                    $name,
-                    $default
+                        '_' . strtoupper($global), $name, $default
                 );
                 break;
             default:
@@ -103,4 +103,5 @@ class Robo47_View_Helper_Globals extends Zend_View_Helper_Abstract
             return $default;
         }
     }
+
 }

@@ -39,23 +39,27 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
      * @var Tidy
      */
     protected $_tidy = null;
+
     /**
      * The array with configuration for tidy
      *
      * @var array
      */
     protected $_config = array();
+
     /**
      * The used encoding
      * @var string
      */
     protected $_encoding = 'utf8';
+
     /**
      * Default Tidy
      *
      * @var Tidy
      */
     protected static $_defaultTidy;
+
     /**
      * Array with allowed encodings, key is possible encodings, value is the
      * allowed value which gets set
@@ -109,6 +113,7 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
             }
             $this->_config = $config;
         }
+
         return $this;
     }
 
@@ -138,6 +143,7 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
             $message = 'Unknown encoding: ' . $encoding;
             throw new Robo47_Filter_Exception($message);
         }
+
         return $this;
     }
 
@@ -239,6 +245,7 @@ class Robo47_Filter_Tidy implements Zend_Filter_Interface
             $value, $this->getConfig(), $this->getEncoding()
         );
         $this->_tidy->cleanRepair();
+
         return (string) $this->_tidy;
     }
 

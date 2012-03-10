@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Application_Resource_Service_Akismet
  *
@@ -28,8 +29,7 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Application_Resource_Service_Akismet
-extends Zend_Application_Resource_ResourceAbstract
+class Robo47_Application_Resource_Service_Akismet extends Zend_Application_Resource_ResourceAbstract
 {
 
     /**
@@ -66,8 +66,8 @@ extends Zend_Application_Resource_ResourceAbstract
         }
 
         $akismet = new Zend_Service_Akismet(
-            $options['apiKey'],
-            $options['blog']
+                $options['apiKey'],
+                $options['blog']
         );
 
         if (isset($options['charset'])) {
@@ -99,4 +99,5 @@ extends Zend_Application_Resource_ResourceAbstract
     {
         return $this->_service;
     }
+
 }

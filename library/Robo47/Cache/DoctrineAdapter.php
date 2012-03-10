@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Cache_DoctrineAdapter
  *
@@ -44,12 +45,14 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
      * @var Zend_Cache_Core
      */
     protected $_cache = null;
+
     /**
      * Prefix used with all keys
      *
      * @param string
      */
     protected $_prefix = '';
+
     /**
      * Tags which are added to each entry
      *
@@ -88,6 +91,7 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
     public function setPrefix($prefix)
     {
         $this->_prefix = $prefix;
+
         return $this;
     }
 
@@ -110,6 +114,7 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
     public function setTags(array $tags = array())
     {
         $this->_tags = $tags;
+
         return $this;
     }
 
@@ -155,6 +160,7 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
             throw new Robo47_Cache_Exception($message);
         }
         $this->_cache = $cache;
+
         return $this;
     }
 
@@ -196,10 +202,7 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
     protected function _doSave($id, $data, $lifeTime = false)
     {
         return $this->_cache->save(
-            $data,
-            $this->_prefix . $id,
-            $this->getTags(),
-            $lifeTime
+                $data, $this->_prefix . $id, $this->getTags(), $lifeTime
         );
     }
 
@@ -228,6 +231,8 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
         foreach ($ids as $key => $id) {
             $ids[$key] = substr($id, $length);
         }
+
         return $ids;
     }
+
 }

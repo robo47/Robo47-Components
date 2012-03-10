@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_View_Helper_Ckeditor
  *
@@ -38,6 +39,7 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
     /**
      * Option to use jquerys $(document).ready; via the Headscript-View-Helper
      */
+
     const INIT_MODE_JQUERY = 'jquery';
 
     /**
@@ -51,18 +53,21 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
      * @var array
      */
     protected static $_defaultOptions = array();
+
     /**
      * InitMode
      *
      * @var string
      */
     protected $_initMode = 'script';
+
     /**
      * Placement
      *
      * @var string
      */
     protected $_placement = 'append';
+
     /**
      * Eitor Options
      *
@@ -102,6 +107,7 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
                     break;
             }
         }
+
         return $this;
     }
 
@@ -167,6 +173,7 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
                 $message = 'Invalid initMode: ' . $initMode;
                 throw new Robo47_View_Helper_Exception($message);
         }
+
         return $this;
     }
 
@@ -188,6 +195,7 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
                 $message = 'Invalid placement: ' . $placement;
                 throw new Robo47_View_Helper_Exception($message);
         }
+
         return $this;
     }
 
@@ -200,6 +208,7 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
     public function setEditorOptions($options)
     {
         $this->_editorOptions = $options;
+
         return $this;
     }
 
@@ -263,6 +272,7 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
                 $returnCode = $textArea;
                 break;
         }
+
         return $returnCode;
     }
 
@@ -310,4 +320,5 @@ class Robo47_View_Helper_Ckeditor extends Zend_View_Helper_FormTextarea
     {
         self::$_defaultOptions = array();
     }
+
 }

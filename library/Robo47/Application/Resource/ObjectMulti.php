@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Application_Resource_ObjectMulti
  *
@@ -28,8 +29,7 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Application_Resource_ObjectMulti
-extends Zend_Application_Resource_ResourceAbstract
+class Robo47_Application_Resource_ObjectMulti extends Zend_Application_Resource_ResourceAbstract
 {
 
     /**
@@ -79,4 +79,5 @@ extends Zend_Application_Resource_ResourceAbstract
     {
         return $this->_objects;
     }
+
 }

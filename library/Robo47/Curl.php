@@ -14,6 +14,7 @@
  * @copyright  Copyright (c) 2007-2010 Robo47 (http://components.robo47.net/)
  * @license    New BSD {@link http://components.robo47.net/LICENSE}
  */
+
 /**
  * An object oriented Wrapper for the curl_*-functions
  *
@@ -33,12 +34,14 @@ class Robo47_Curl
      * @var array
      */
     protected $_options = array();
+
     /**
      * curl Instance
      *
      * @var Resource
      */
     protected $_curl = null;
+
     /**
      * Content of Document if ReturnTransfer == true
      *
@@ -72,6 +75,7 @@ class Robo47_Curl
             throw new Robo47_Curl_Exception($message);
         }
         $this->_options[$option] = $value;
+
         return $this;
     }
 
@@ -84,6 +88,7 @@ class Robo47_Curl
         foreach ($options as $option => $value) {
             $this->setOption($option, $value);
         }
+
         return $this;
     }
 
@@ -114,6 +119,7 @@ class Robo47_Curl
         foreach ($options as $option) {
             $infos[$option] = curl_getinfo($this->_curl, $option);
         }
+
         return $infos;
     }
 
@@ -123,6 +129,7 @@ class Robo47_Curl
     public function exec()
     {
         $this->_body = curl_exec($this->_curl);
+
         return $this;
     }
 
@@ -142,6 +149,7 @@ class Robo47_Curl
                 throw new Robo47_Curl_Exception('unable to find body');
             }
         }
+
         return $this->_body;
     }
 
@@ -174,6 +182,7 @@ class Robo47_Curl
                     $aHeaders[$headerName] = $headerValue;
                 }
             }
+
             return $aHeaders;
         } else {
             return $headers;
@@ -202,6 +211,7 @@ class Robo47_Curl
     public function close()
     {
         @curl_close($this->_curl);
+
         return $this;
     }
 
@@ -257,4 +267,5 @@ class Robo47_Curl
         $this->setOptions($this->getOptions());
         $this->_curl = $curl;
     }
+
 }

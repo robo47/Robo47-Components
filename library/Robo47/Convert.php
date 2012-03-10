@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Convert
  *
@@ -50,6 +51,7 @@ class Robo47_Convert
                     'plattform (' . PHP_INT_MAX . ')';
                 throw new Robo47_Convert_Exception($message);
             }
+
             return (int) $value;
         } else {
             $lastSign = strtolower($value{strlen($value) - 1});
@@ -74,7 +76,9 @@ class Robo47_Convert
                     'plattform (' . PHP_INT_MAX . ')';
                 throw new Robo47_Convert_Exception($message);
             }
+
             return $valueBytes;
         }
     }
+
 }

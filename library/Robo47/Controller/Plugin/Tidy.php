@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Controller_Plugin_Tidy
  *
@@ -49,8 +50,7 @@ class Robo47_Controller_Plugin_Tidy extends Zend_Controller_Plugin_Abstract
      * @param string             $logCategory
      */
     public function __construct(Robo47_Filter_Tidy $tidyFilter = null,
-        Zend_Log $log = null,
-        $logPriority = Zend_Log::INFO,
+        Zend_Log $log = null, $logPriority = Zend_Log::INFO,
         $logCategory = 'tidy')
     {
         $this->setTidyFilter($tidyFilter);
@@ -71,6 +71,7 @@ class Robo47_Controller_Plugin_Tidy extends Zend_Controller_Plugin_Abstract
             $tidyFilter = new Robo47_Filter_Tidy();
         }
         $this->_tidyFilter = $tidyFilter;
+
         return $this;
     }
 
@@ -93,6 +94,7 @@ class Robo47_Controller_Plugin_Tidy extends Zend_Controller_Plugin_Abstract
     public function setLog(Zend_Log $log = null)
     {
         $this->_log = $log;
+
         return $this;
     }
 
@@ -115,6 +117,7 @@ class Robo47_Controller_Plugin_Tidy extends Zend_Controller_Plugin_Abstract
     public function setLogCategory($logCategory)
     {
         $this->_logCategory = $logCategory;
+
         return $this;
     }
 
@@ -137,6 +140,7 @@ class Robo47_Controller_Plugin_Tidy extends Zend_Controller_Plugin_Abstract
     public function setLogPriority($logPriority)
     {
         $this->_logPriority = (int) $logPriority;
+
         return $this;
     }
 
@@ -165,7 +169,6 @@ class Robo47_Controller_Plugin_Tidy extends Zend_Controller_Plugin_Abstract
                 false !== strpos(strtolower($value['value']), 'text/html')) {
                 return true;
             }
-
         }
 
         foreach ($response->getRawHeaders() as $value) {
@@ -194,18 +197,17 @@ class Robo47_Controller_Plugin_Tidy extends Zend_Controller_Plugin_Abstract
                 $tidy->diagnose();
                 // log only if errors / warnings found
                 $pos = strpos(
-                    $tidy->errorBuffer,
-                    'No warnings or errors were found'
+                    $tidy->errorBuffer, 'No warnings or errors were found'
                 );
                 if (false === $pos) {
                     $this->_log->log(
                         'Url: ' . $this->getRequest()->getRequestUri() .
-                        PHP_EOL . $tidy->errorBuffer,
-                        $this->getLogPriority(),
+                        PHP_EOL . $tidy->errorBuffer, $this->getLogPriority(),
                         array('category' => $this->getLogCategory())
                     );
                 }
             }
         }
     }
+
 }

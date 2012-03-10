@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Mail_Transport_Multi
  *
@@ -61,6 +62,7 @@ class Robo47_Mail_Transport_Multi extends Zend_Mail_Transport_Abstract
         } else {
             $this->addTransport($transports);
         }
+
         return $this;
     }
 
@@ -73,6 +75,7 @@ class Robo47_Mail_Transport_Multi extends Zend_Mail_Transport_Abstract
     public function addTransport(Zend_Mail_Transport_Abstract $transport)
     {
         $this->_transports[] = $transport;
+
         return $this;
     }
 
@@ -105,6 +108,7 @@ class Robo47_Mail_Transport_Multi extends Zend_Mail_Transport_Abstract
                 }
             }
         }
+
         return $this;
     }
 
@@ -132,4 +136,5 @@ class Robo47_Mail_Transport_Multi extends Zend_Mail_Transport_Abstract
     {
 
     }
+
 }

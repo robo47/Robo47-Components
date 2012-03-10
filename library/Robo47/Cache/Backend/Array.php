@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Cache_Backend_Array
  *
@@ -31,8 +32,7 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Cache_Backend_Array extends Zend_Cache_Backend
-implements Zend_Cache_Backend_ExtendedInterface
+class Robo47_Cache_Backend_Array extends Zend_Cache_Backend implements Zend_Cache_Backend_ExtendedInterface
 {
 
     /**
@@ -97,6 +97,7 @@ implements Zend_Cache_Backend_ExtendedInterface
     public function save($data, $id, $tags = array(), $specificLifetime = false)
     {
         $this->data[$id] = $data;
+
         return true;
     }
 
@@ -110,6 +111,7 @@ implements Zend_Cache_Backend_ExtendedInterface
     {
         if (isset($this->data[$id])) {
             unset($this->data[$id]);
+
             return true;
         } else {
             return false;
@@ -123,8 +125,7 @@ implements Zend_Cache_Backend_ExtendedInterface
      * @param  array  $tags Array of tags
      * @return boolean true if no problem
      */
-    public function clean($mode = Zend_Cache::CLEANING_MODE_ALL,
-        $tags = array())
+    public function clean($mode = Zend_Cache::CLEANING_MODE_ALL, $tags = array())
     {
         switch ($mode) {
             case Zend_Cache::CLEANING_MODE_ALL:
@@ -142,6 +143,7 @@ implements Zend_Cache_Backend_ExtendedInterface
                 throw new Robo47_Cache_Backend_Exception($message);
                 break;
         }
+
         return true;
     }
 
@@ -267,4 +269,5 @@ implements Zend_Cache_Backend_ExtendedInterface
             'get_list' => false
         );
     }
+
 }

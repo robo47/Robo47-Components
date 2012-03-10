@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Auth_Adapter_Array
  *
@@ -37,12 +38,14 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
      * @var string
      */
     protected $_username = '';
+
     /**
      * Password
      *
      * @var string
      */
     protected $_password = '';
+
     /**
      * Array with valid user-data
      *
@@ -71,6 +74,7 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
     public function setUsername($username)
     {
         $this->_username = $username;
+
         return $this;
     }
 
@@ -82,6 +86,7 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
     public function setPassword($password)
     {
         $this->_password = $password;
+
         return $this;
     }
 
@@ -108,6 +113,7 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
     public function setUserData(array $userData = array())
     {
         $this->_userdata = $userData;
+
         return $this;
     }
 
@@ -136,7 +142,7 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
      */
     protected function _getResultObject($result)
     {
-      return new Zend_Auth_Result($result, $this->_username);
+        return new Zend_Auth_Result($result, $this->_username);
     }
 
     /**
@@ -149,6 +155,8 @@ class Robo47_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface
                 return $this->_getResultObject(Zend_Auth_Result::SUCCESS);
             }
         }
+
         return $this->_getResultObject(Zend_Auth_Result::FAILURE);
     }
+
 }

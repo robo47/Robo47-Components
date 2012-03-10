@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_View_Helper_Url
  *
@@ -60,6 +61,7 @@ class Robo47_View_Helper_Url extends Zend_View_Helper_Abstract
         } else {
             $this->_router = $router;
         }
+
         return $this;
     }
 
@@ -86,4 +88,5 @@ class Robo47_View_Helper_Url extends Zend_View_Helper_Abstract
     {
         return $this->_router->assemble($urlOptions, $name, $reset, $encode);
     }
+
 }

@@ -35,9 +35,9 @@ doctrine or ezComponents
 License
 -------
 
-MIT
+NewBSD
 
-See file LICENSE.MIT
+See file LICENSE.NewBSD
 
 Known Issues
 ------------

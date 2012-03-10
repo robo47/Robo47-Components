@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Filter_HtmlPurifier
  *
@@ -38,6 +39,7 @@ class Robo47_Filter_HtmlPurifier implements Zend_Filter_Interface
      * @var HtmlPurifier
      */
     protected $_purifier = null;
+
     /**
      *
      * @var HtmlPurifier
@@ -73,6 +75,7 @@ class Robo47_Filter_HtmlPurifier implements Zend_Filter_Interface
             throw new Robo47_Filter_Exception($message);
         }
         $this->_purifier = $purifier;
+
         return $this;
     }
 
@@ -134,4 +137,5 @@ class Robo47_Filter_HtmlPurifier implements Zend_Filter_Interface
     {
         return $this->_purifier->purify($value);
     }
+
 }

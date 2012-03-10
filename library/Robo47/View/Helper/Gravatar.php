@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_View_Helper_Gravatar
  *
@@ -61,6 +62,7 @@ class Robo47_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
             $service = new Robo47_Service_Gravatar();
         }
         $this->_service = $service;
+
         return $this;
     }
 
@@ -86,12 +88,7 @@ class Robo47_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
         array $params = array())
     {
         $params['src'] = $this->_service->getUri(
-            $email,
-            $size,
-            $rating,
-            $default,
-            $ssl,
-            $separator
+            $email, $size, $rating, $default, $ssl, $separator
         );
         if (!isset($params['alt'])) {
             $params['alt'] = 'Gravatar ' .
@@ -100,6 +97,8 @@ class Robo47_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
         $image = '<img ';
         $image .= $this->_htmlAttribs($params);
         $image .= $this->getClosingBracket();
+
         return $image;
     }
+
 }

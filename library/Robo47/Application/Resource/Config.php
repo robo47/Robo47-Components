@@ -18,6 +18,7 @@
  * @copyright  Copyright (c) 2007-2010 Benjamin Steininger (http://robo47.net)
  * @license    http://robo47.net/licenses/new-bsd-license New BSD License
  */
+
 /**
  * Robo47_Application_Resource_Config
  *
@@ -28,8 +29,7 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Application_Resource_Config
-extends Zend_Application_Resource_ResourceAbstract
+class Robo47_Application_Resource_Config extends Zend_Application_Resource_ResourceAbstract
 {
 
     /**
@@ -64,6 +64,7 @@ extends Zend_Application_Resource_ResourceAbstract
         if (isset($options['registryKey'])) {
             Zend_Registry::set($options['registryKey'], $config);
         }
+
         return $config;
     }
 
@@ -76,4 +77,5 @@ extends Zend_Application_Resource_ResourceAbstract
     {
         return $this->_config;
     }
+
 }
