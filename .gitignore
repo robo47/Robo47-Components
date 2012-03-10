@@ -4,5 +4,5 @@
 !/build/phpmd.xml
 /tests/tmp/*
 !/tests/tmp/.gitkeep
+/composer.phar
 /vendor/
-
