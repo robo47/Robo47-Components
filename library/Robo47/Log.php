@@ -36,13 +36,11 @@ class Robo47_Log extends Zend_Log
 {
 
     /**
-     *
      * @var string
      */
     protected $_defaultCategory = null;
 
     /**
-     *
      * @param array|Zend_Config $config
      * @return Robo47_Log
      */

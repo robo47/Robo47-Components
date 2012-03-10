@@ -73,7 +73,7 @@ class Robo47_View_Helper_Globals extends Zend_View_Helper_Abstract
             case 'cookie':
             case 'session':
                 return $this->_getGlobal(
-                        '_' . strtoupper($global), $name, $default
+                    '_' . strtoupper($global), $name, $default
                 );
                 break;
             default:

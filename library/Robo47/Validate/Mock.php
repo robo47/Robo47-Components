@@ -33,31 +33,26 @@ class Robo47_Validate_Mock implements Zend_Validate_Interface
 {
 
     /**
-     *
      * @var bool
      */
     public $isValid = true;
 
     /**
-     *
      * @var array
      */
     public $errors = array();
 
     /**
-     *
      * @var array
      */
     public $messages = array();
 
     /**
-     *
      * @var mixed
      */
     public $lastValue = null;
 
     /**
-     *
      * @param boolean $isValid
      * @param array $messages
      * @param array $errors

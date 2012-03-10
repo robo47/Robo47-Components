@@ -194,9 +194,9 @@ class Robo47_Log_Filter_ValidateProxy extends Zend_Log_Filter_Abstract
         );
 
         return new Robo47_Log_Filter_ValidateProxy(
-                $config['validator'],
-                $config['key'],
-                $config['not']
+            $config['validator'],
+            $config['key'],
+            $config['not']
         );
     }
 

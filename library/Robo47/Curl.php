@@ -30,7 +30,6 @@ class Robo47_Curl
     /**
      * Saves all Options set to the Curl instance
      *
-     *
      * @var array
      */
     protected $_options = array();

@@ -487,7 +487,7 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
         $ssl = $this->_filterSsl($ssl);
 
         return $this->_getUri(
-                $email, $size, $rating, $default, $ssl, $separator
+            $email, $size, $rating, $default, $ssl, $separator
         );
     }
 
@@ -568,8 +568,8 @@ class Robo47_Service_Gravatar extends Zend_Service_Abstract
     public function _getCacheId($email)
     {
         return $this->getCacheId(
-                $email, $this->getCachePrefix(), $this->getRating(),
-                $this->getSize(), $this->getDefault()
+            $email, $this->getCachePrefix(), $this->getRating(),
+            $this->getSize(), $this->getDefault()
         );
     }
 

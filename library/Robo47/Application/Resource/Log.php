@@ -31,7 +31,8 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Application_Resource_Log extends Zend_Application_Resource_ResourceAbstract
+class Robo47_Application_Resource_Log
+extends Zend_Application_Resource_ResourceAbstract
 {
 
     /**

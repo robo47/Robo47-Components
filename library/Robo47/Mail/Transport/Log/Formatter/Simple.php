@@ -36,10 +36,10 @@ Robo47_Mail_Transport_Log_Formatter_Interface
     public function format(Zend_Mail $mail)
     {
         return sprintf(
-                "Subject: %s\nTo: %s\nText: %s\n\nHtml: %s",
-                $mail->getSubject(), implode(', ', $mail->getRecipients()),
-                $mail->getBodyText()->getContent(),
-                $mail->getBodyHtml()->getContent()
+            "Subject: %s\nTo: %s\nText: %s\n\nHtml: %s",
+            $mail->getSubject(), implode(', ', $mail->getRecipients()),
+            $mail->getBodyText()->getContent(),
+            $mail->getBodyHtml()->getContent()
         );
     }
 

@@ -32,7 +32,8 @@
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  * @deprecated  Mostly deprecated because of Zend_Cache_Manager
  */
-class Robo47_Application_Resource_Cache extends Zend_Application_Resource_ResourceAbstract
+class Robo47_Application_Resource_Cache
+extends Zend_Application_Resource_ResourceAbstract
 {
 
     /**
@@ -90,10 +91,10 @@ class Robo47_Application_Resource_Cache extends Zend_Application_Resource_Resour
         }
 
         $cache = Zend_Cache::factory(
-                $config['frontendName'], $config['backendName'],
-                $config['frontendOptions'], $config['backendOptions'],
-                $config['customFrontendNaming'], $config['customBackendNaming'],
-                $config['autoload']
+            $config['frontendName'], $config['backendName'],
+            $config['frontendOptions'], $config['backendOptions'],
+            $config['customFrontendNaming'], $config['customBackendNaming'],
+            $config['autoload']
         );
 
         if (isset($config['registryKey'])) {

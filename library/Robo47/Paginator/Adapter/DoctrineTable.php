@@ -31,7 +31,8 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Paginator_Adapter_DoctrineTable extends Robo47_Paginator_Adapter_DoctrineQuery
+class Robo47_Paginator_Adapter_DoctrineTable
+extends Robo47_Paginator_Adapter_DoctrineQuery
 {
 
     /**
@@ -45,7 +46,6 @@ class Robo47_Paginator_Adapter_DoctrineTable extends Robo47_Paginator_Adapter_Do
     protected $_table;
 
     /**
-     *
      * @param Doctrine_Table|string $table
      */
     public function __construct($table)

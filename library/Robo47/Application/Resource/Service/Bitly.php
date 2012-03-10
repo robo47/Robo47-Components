@@ -65,8 +65,8 @@ class Robo47_Application_Resource_Service_Bitly extends Zend_Application_Resourc
         }
 
         $bitly = new Robo47_Service_Bitly(
-                $options['login'],
-                $options['apiKey']
+            $options['login'],
+            $options['apiKey']
         );
 
         if (isset($options['format'])) {

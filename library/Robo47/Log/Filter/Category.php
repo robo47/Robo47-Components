@@ -96,8 +96,8 @@ class Robo47_Log_Filter_Category extends Robo47_Log_Filter_ValidateProxy
         );
 
         $filter = new Robo47_Log_Filter_Category(
-                $config['categories'],
-                $config['not']
+            $config['categories'],
+            $config['not']
         );
 
         return $filter;

@@ -138,8 +138,9 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
         if (Zend_Registry::isRegistered($key)) {
             return Zend_Registry::get($key);
         } else {
-            $message = 'Registry key "' . $key .
-                '" for Cache is not registered.';
+            $message = sprintf(
+                'Registry key "%s" for Cache is not registered.', $key
+            );
             throw new Robo47_Cache_Exception($message);
         }
     }
@@ -202,7 +203,7 @@ class Robo47_Cache_DoctrineAdapter extends Doctrine_Cache_Driver
     protected function _doSave($id, $data, $lifeTime = false)
     {
         return $this->_cache->save(
-                $data, $this->_prefix . $id, $this->getTags(), $lifeTime
+            $data, $this->_prefix . $id, $this->getTags(), $lifeTime
         );
     }
 

@@ -31,7 +31,8 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Paginator_Adapter_DoctrineQuery implements Zend_Paginator_Adapter_Interface
+class Robo47_Paginator_Adapter_DoctrineQuery
+implements Zend_Paginator_Adapter_Interface
 {
 
     /**
@@ -99,8 +100,10 @@ class Robo47_Paginator_Adapter_DoctrineQuery implements Zend_Paginator_Adapter_I
         } elseif (is_array($data)) {
             return $data;
         } else {
-            $message = 'Unexpected datatype for getItems(): ' .
-                Robo47_Core::getType($data);
+            $message = sprintf(
+                'Unexpected datatype for getItems(): %s',
+                Robo47_Core::getType($data)
+            );
             throw new Robo47_Paginator_Adapter_Exception($message);
         }
     }

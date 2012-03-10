@@ -32,7 +32,8 @@
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  * @deprecated  Mostly deprecated because of Zend_Cache_Manager
  */
-class Robo47_Application_Resource_CacheMulti extends Zend_Application_Resource_ResourceAbstract
+class Robo47_Application_Resource_CacheMulti
+extends Zend_Application_Resource_ResourceAbstract
 {
 
     /**

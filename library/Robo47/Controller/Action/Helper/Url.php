@@ -30,7 +30,8 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Controller_Action_Helper_Url extends Zend_Controller_Action_Helper_Url
+class Robo47_Controller_Action_Helper_Url
+extends Zend_Controller_Action_Helper_Url
 {
 
     /**

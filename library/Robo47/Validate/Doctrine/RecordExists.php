@@ -31,7 +31,8 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Validate_Doctrine_RecordExists extends Robo47_Validate_Doctrine_Abstract
+class Robo47_Validate_Doctrine_RecordExists
+extends Robo47_Validate_Doctrine_Abstract
 {
 
     public function isValid($value)

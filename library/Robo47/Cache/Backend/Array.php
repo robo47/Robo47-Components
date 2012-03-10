@@ -32,7 +32,8 @@
  * @license     http://robo47.net/licenses/new-bsd-license New BSD License
  * @author      Benjamin Steininger <robo47[at]robo47[dot]net>
  */
-class Robo47_Cache_Backend_Array extends Zend_Cache_Backend implements Zend_Cache_Backend_ExtendedInterface
+class Robo47_Cache_Backend_Array extends Zend_Cache_Backend
+implements Zend_Cache_Backend_ExtendedInterface
 {
 
     /**

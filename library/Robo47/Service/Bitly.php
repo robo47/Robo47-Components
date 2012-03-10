@@ -135,7 +135,6 @@ class Robo47_Service_Bitly extends Zend_Service_Abstract
     protected $_resultFormat = Robo47_Service_Bitly::FORMAT_RESULT_NATIVE;
 
     /**
-     *
      * @param string $login
      * @param string $apiKey
      * @param string $format
