@@ -199,7 +199,7 @@ class Robo47_Controller_Plugin_Tidy extends Zend_Controller_Plugin_Abstract
                 $pos = strpos(
                     $tidy->errorBuffer, 'No warnings or errors were found'
                 );
-                if (false === $pos) {
+                if (false === $pos && $tidy->errorBuffer !== null) {
                     $this->_log->log(
                         'Url: ' . $this->getRequest()->getRequestUri() .
                         PHP_EOL . $tidy->errorBuffer, $this->getLogPriority(),
